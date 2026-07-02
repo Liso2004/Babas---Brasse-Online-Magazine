@@ -98,5 +98,6 @@ test("frontend app integration plan defines TDD and launch verification gates", 
   assert.match(plan, /Playwright viewport checks/i);
   assert.match(plan, /deployment smoke/i);
   assert.match(plan, /rollback/i);
-  assert.match(plan, /151 passing tests/i);
+  assert.match(plan, /161 passing tests/i);
 });
+

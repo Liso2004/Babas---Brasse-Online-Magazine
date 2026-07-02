@@ -36,7 +36,7 @@ Admin coverage includes authenticated route contracts, dashboard health metrics,
 
 ## Verified Test Coverage
 
-Current full-suite expectation after the frontend app integration plan slice: 156 passing tests, 0 failing tests.
+Current full-suite expectation after the roadmap and sprint plan refresh: 161 passing tests, 0 failing tests.
 
 Coverage is organized as:
 
@@ -77,6 +77,7 @@ The following items are not complete production behavior yet and must be handled
 2. Build shared layout/navigation/components from the tested route contracts.
 3. Add authentication and persistence behind the admin flows.
 4. Run visual QA against the Open Design wireframes and production responsive breakpoints.
+
 
 
 

@@ -1,322 +1,192 @@
-﻿# Babas & Brasse MVP Implementation Plan
+﻿# Babas & Brasse MVP Implementation Roadmap
 
-Date: June 30, 2026
+Date: July 2, 2026
 Launch deadline: July 31, 2026
-Current design source: local tested wireframes in `wireframes/index.html`
+Current design source: complete Open Design wireframe handoff in `designs/open-design-wireframes/`
+Current prototype source: generated route artifacts in `src/pages/`
+Current verification: 156 passing tests before the roadmap refresh, with all core and support wireframe contracts green.
 
-## 1. Final Open Design Test Result
+## Current MVP Status
 
-Open Design was tested one more time before creating this plan.
+The compressed MVP planning and wireframe contract phase is complete.
 
-Commands/actions checked:
+Completed as of July 2, 2026:
 
-- Open Design MCP tools loaded through Codex tool discovery.
-- `get_active_context` was called.
-- `list_projects` was called.
-- `codex mcp list` was run.
-- Local Open Design processes were checked.
+- 14 core route artifacts are generated and tested.
+- 9 public routes are covered: `/`, `/about`, `/creative-team`, `/contributors`, `/visceral-mag`, `/visceral-mag/:slug`, `/search`, `/featured`, `/contact`.
+- 5 admin routes are covered: `/admin`, `/admin/articles`, `/admin/profiles-media`, `/admin/moderation`, `/admin/contact-submissions`.
+- 8 support routes and subflows are covered: `/admin/login`, `/admin/password-reset`, `/404`, `/500`, `/offline`, `/admin/media/upload`, `/admin/articles/editor-workflow`, `/mobile-wireframes`.
+- Open Design wireframes are copied locally and validated at 23 screens.
+- The local MVP preview runs with `npm.cmd run preview:mvp`.
+- Preview route index: `http://localhost:4173/__routes`.
+- Frontend app integration planning is documented in `docs/FRONTEND_APP_INTEGRATION_PLAN.md`.
 
-Result:
+This is still not the final production app. It is the tested implementation contract for building the production React app quickly and safely.
 
-- `get_active_context`: `fetch failed`
-- `list_projects`: `fetch failed`
-- `codex mcp list`: `open-design` is enabled and registered.
-- Open Design app processes are running locally.
+## Delivery Rule
 
-Conclusion:
+Every implementation slice still follows the same TDD loop:
 
-Open Design is registered in Codex and the app is running, but the MCP daemon endpoint is still unreachable. This does not block local design/build work. Continue with the local tested wireframe artifact as the source of truth until Open Design reconnects.
-
-Recovery decision:
-
-- Another Codex reload is not needed to expose the Open Design tools; they are already exposed.
-- A clean Open Design app restart, followed by a Codex reload, is likely needed to restore daemon reachability.
-- Once `get_active_context` or `list_projects` stops returning `fetch failed`, create or sync the Open Design project `Babas & Brasse Online Magazine MVP`.
-
-## 2. Current Baseline
-
-Completed:
-
-- PDF brief decoded and summarized.
-- Compressed MVP scope created for July 31, 2026.
-- MVP screen scope documented.
-- TDD workflow documented.
-- Wireframe spec created in `wireframes/wireframe-spec.json`.
-- Low-fidelity wireframes created in `wireframes/index.html`.
-- Wireframe tests created in `tests/wireframes.test.js`.
-- Current verification: 5 tests pass.
-
-Current source files:
-
-- `Babas_and_Brasse_Compressed_MVP_Design_Plan.md`
-- `docs/TDD_WORKFLOW.md`
-- `docs/WIREFRAME_PLAN.md`
-- `docs/SCREEN_SCOPE.md`
-- `docs/OPEN_DESIGN_STATUS.md`
-- `docs/PLAN_STATUS.md`
-- `docs/TESTING_LOG.md`
-- `wireframes/index.html`
-- `wireframes/styles.css`
-- `wireframes/wireframe-spec.json`
-- `wireframes/README.md`
-- `tests/wireframes.test.js`
-
-## 3. MVP Delivery Rule
-
-Every implementation slice must follow this order:
-
-1. Update the relevant plan/scope doc if the behavior changes.
-2. Write a failing test for the next screen, component, model, or workflow.
+1. Update the relevant plan or roadmap document.
+2. Write the failing test first.
 3. Implement the smallest useful change.
-4. Run the test.
-5. Record the result in `docs/TESTING_LOG.md`.
-6. Only then refine styling or structure.
+4. Run focused tests.
+5. Run the full suite.
+6. Record the result in `docs/TESTING_LOG.md` and `docs/PLAN_STATUS.md`.
 
-No feature is considered started unless it has a test target. No feature is considered complete unless its test is green and the docs are updated.
+## Stack Direction
 
-## 4. Technical Direction
+Target production frontend: React.
 
-Recommended stack from the brief:
+React production app boundary must be confirmed before scaffolding. The next decision is whether the production app lives in this repository or in a separate app folder. Do not create a new React app inside this prototype until that boundary is confirmed.
 
-- Next.js + TypeScript for the frontend and server-rendered editorial pages.
-- Tailwind CSS for implementation styling after the visual direction is approved.
-- Supabase/PostgreSQL for auth, content, moderation, and contact submissions.
-- Supabase Storage or Cloudinary for media.
-- TipTap or similar editor for admin article writing.
-- React Hook Form + Zod for forms and validation.
-- Turnstile or reCAPTCHA for public form protection.
-- Resend, SendGrid, or SMTP for contact email delivery.
+Recommended production stack remains:
 
-Compressed MVP decision:
+- React frontend, ideally Next.js + TypeScript if server-rendered editorial SEO is required.
+- Component tests and route smoke tests from the existing prototype contracts.
+- Backend persistence for articles, profiles, media, comments, reviews, contact submissions, and newsletter signups.
+- Auth-protected admin routes.
+- Media storage with required title, caption, credit, alt text, usage, and publish-readiness metadata.
+- Email/spam protection for contact/newsletter flows.
 
-Start with the frontend routes and local fixture data before wiring Supabase. This lets public UX, admin UX, and TDD coverage progress while external accounts/assets are still being confirmed.
+## Updated Production Roadmap
 
-## 5. Phase Plan
+### Phase A: Boundary And App Shell
 
-### Phase 0: Project Foundation
-
-Target: immediately.
+Target window: Sprint 1, July 3-7.
 
 TDD targets:
 
-- Test that required route/page files exist.
-- Test that shared fixture data validates against expected content fields.
-- Test that public/admin navigation includes the required routes.
+- Production app folder/repo boundary is documented.
+- Route registry maps all public, admin, and support routes.
+- Public layout and admin layout render navigation and shell landmarks.
+- Existing generated prototype remains runnable during migration.
 
 Deliverables:
 
-- App scaffold.
-- Route map.
-- Shared layout shell.
-- Fixture content for articles, categories, profiles, media, comments, reviews, and submissions.
-- Updated testing log.
+- Production React scaffold in the confirmed location.
+- Shared route registry.
+- App shell, public layout, admin layout.
+- Preview/development commands documented.
 
 Exit criteria:
 
-- Route scaffold tests pass.
-- The app can run locally.
-- Home and admin shell have stable placeholders based on the wireframes.
+- Route smoke tests pass.
+- App shell renders locally.
+- `npm.cmd test` in this prototype remains green.
 
-### Phase 1: Public Editorial Shell
+### Phase B: Public React Routes
+
+Target window: Sprint 2, July 8-12.
 
 TDD targets:
 
-- Home renders lead story, latest articles, categories, media preview, and people preview.
-- Public nav links to Home, About, Creative Team, Contributors, Visceral Mag, Featured/Media, and Contact.
-- Responsive shell has mobile navigation state coverage.
+- Home, About, Creative Team, Contributors, Visceral Mag, Article Detail, Search, Featured/Media, and Contact render from the migrated data contract.
+- Published-only rules are preserved.
+- Article SEO metadata is represented.
+- Contact form states are covered before API wiring.
 
 Deliverables:
 
-- Public layout.
-- Home page.
-- About page shell.
-- Shared article card, profile card, media card, and category chip components.
+- Public route components.
+- Article cards, profile cards, media figures, category chips, state panels, public forms.
+- Mobile stacking rules from `/mobile-wireframes`.
 
 Exit criteria:
 
-- Public shell tests pass.
-- Wireframe intent is preserved.
-- No required public route is missing.
+- Public route tests pass.
+- Public route smoke checks pass on desktop and mobile widths.
 
-### Phase 2: Article Discovery And Reading
+### Phase C: Admin React Routes
+
+Target window: Sprint 3, July 13-17.
 
 TDD targets:
 
-- Visceral Mag lists articles from fixtures.
-- Article detail renders title, dek, author, date, category, featured image, body, related articles, comments/reviews placeholders, and SEO fields.
-- Category filtering returns matching articles.
-- Search returns matching articles and an empty state.
+- Admin dashboard, article management, profile/media management, moderation, and contact submissions render behind an auth boundary placeholder.
+- Admin tables collapse to mobile-safe card rows.
+- Media upload modal and article editor workflow remain reachable as subflows.
 
 Deliverables:
 
-- Visceral Mag listing.
-- Article detail page.
-- Categories/search page.
-- Related articles logic.
-- Sample article fixture: `Send A Text Before You Knock`.
+- Admin route components.
+- Tables, forms, modals, queue/detail split views, confirmation-aware actions.
+- Admin state panels for loading, empty, error, permission denied, and mutation states.
 
 Exit criteria:
 
-- Article route tests pass.
-- Search/category tests pass.
-- Empty state tests pass.
+- Admin route tests pass.
+- Draft content remains hidden from public output.
+- Approved-only public comments/reviews rule is preserved.
 
-### Phase 3: People And Media
+### Phase D: Auth Persistence And Mutations
+
+Target window: Sprint 4, July 18-23.
 
 TDD targets:
 
-- Creative Team renders team profiles.
-- Contributors renders contributor profiles and published works.
-- Featured/Media renders media items with captions, credits, and alt text.
-- Article pages link to author/contributor profiles.
+- Auth guard denies protected admin routes without an editor session.
+- Data access adapters cover articles, profiles, media, comments, reviews, contact submissions, and newsletter signups.
+- Mutations validate data before write/send.
+- Media metadata requires alt text before public use.
 
 Deliverables:
 
-- Creative Team page.
-- Contributors page.
-- Profile detail pattern if content is ready.
-- Featured/Media page.
-- Media fixture model.
+- Auth integration.
+- Persistence adapter.
+- Contact/newsletter submission handlers.
+- Article save/autosave/preview/publish/unpublish/schedule/rollback actions.
+- Media upload/metadata save actions.
+- Moderation approve/reject/delete actions.
 
 Exit criteria:
 
-- Profile and media tests pass.
-- Every media item has alt text.
-- Contributor/article linking works.
-
-### Phase 4: Admin Dashboard And Publishing Workflow
-
-TDD targets:
-
-- Admin routes are separate from public routes.
-- Dashboard shows published count, draft count, pending moderation, contact submissions, and recent activity.
-- Article management supports draft/published state in data tests.
-- Article editor model includes SEO title, meta description, Open Graph title/description, slug, featured image, and alt text.
-
-Deliverables:
-
-- Admin dashboard shell.
-- Article management table.
-- Article editor form shell.
-- Draft/publish workflow in local state or mocked service.
-
-Exit criteria:
-
-- Admin dashboard tests pass.
-- Article management tests pass.
-- Draft/publish state is represented and protected from accidental public display.
-
-### Phase 5: Profile, Media, Moderation, And Contact Admin
-
-TDD targets:
-
-- Profile/media management can list contributors, team members, and media items.
-- Moderation queue separates pending, approved, and rejected comments/reviews.
-- Public article pages only display approved comments/reviews.
-- Contact submissions support new, read, and archived states.
-
-Deliverables:
-
-- Profile/media management screen.
-- Comments/reviews moderation screen.
-- Contact submissions screen.
-- Contact form validation states.
-
-Exit criteria:
-
-- Moderation tests pass.
-- Contact tests pass.
-- Hidden-until-approved rule is proven by tests.
-
-### Phase 6: Supabase And Storage Integration
-
-TDD targets:
-
-- Data access functions are covered by unit tests with mocked Supabase responses.
-- Auth guard denies admin access when no admin session exists.
-- Media metadata requires alt text.
-- Contact submission service validates required fields before send/store.
-
-Deliverables:
-
-- Supabase schema draft.
-- Auth guard.
-- Data access layer.
-- Storage adapter.
-- Contact submission adapter.
-
-Exit criteria:
-
-- Mocked integration tests pass.
+- Mocked API and mutation tests pass.
 - No secrets are committed.
-- Environment variable names are documented without exposing values.
+- Required environment variable names are documented without values.
 
-### Phase 7: SEO, QA, And Launch Readiness
+### Phase E: QA Launch And Rollback
 
-TDD targets:
+Target window: Sprint 5, July 24-31.
 
-- Public pages expose title and description metadata.
-- Article pages expose Open Graph fields.
-- Sitemap includes public routes and published articles.
-- Draft articles are excluded from sitemap and public listing.
-- Core responsive smoke checks are documented.
+TDD and QA targets:
+
+- SEO metadata and Open Graph fields pass checks.
+- Accessibility checks cover labels, focus order, touch targets, error messaging, and no text overlap.
+- Playwright viewport checks cover 360, 390, 430, tablet, and desktop widths.
+- Deployment smoke checks pass.
+- Rollback steps are documented.
 
 Deliverables:
 
-- SEO metadata.
-- Sitemap/robots setup.
-- Image optimization pass.
-- Accessibility pass.
 - Launch checklist.
-- Handover notes.
+- Sitemap/robots if using Next.js or equivalent route metadata.
+- Deployment smoke script or checklist.
+- Backup/restore notes.
+- Rollback runbook.
+- Final content QA pass.
 
 Exit criteria:
 
-- SEO tests pass.
-- Launch checklist is complete.
-- Production deploy has SSL, domain, contact delivery, and admin access verified.
+- Production preview passes smoke checks.
+- Domain, SSL, admin access, contact delivery, and critical public routes are verified.
+- Launch go/no-go is documented before July 31, 2026.
 
-## 6. Open Design Sync Plan
+## Current Risks
 
-When Open Design reconnects:
+- Production React app boundary is not confirmed.
+- Backend/auth/storage provider decisions still need to be locked.
+- Brand assets, final launch articles, profile bios, and production media still need final content.
+- Domain/DNS/hosting/SSL/email provider setup is not yet proven.
+- Preview is currently a prototype route viewer, not production styling.
+- The deadline leaves little room for post-MVP features.
 
-1. Run `list_projects`.
-2. If no matching project exists, create `Babas & Brasse Online Magazine MVP`.
-3. Start a design run using the prompt in `Babas_and_Brasse_Compressed_MVP_Design_Plan.md`.
-4. Pull the generated artifact with `get_artifact`.
-5. Compare it against `wireframes/wireframe-spec.json`.
-6. Keep any visual upgrades that preserve the tested route/screen contract.
-7. Update `docs/OPEN_DESIGN_STATUS.md` and `docs/TESTING_LOG.md`.
+## Deferred Until After MVP Launch
 
-Open Design must not replace the tested scope contract. It should refine visual direction and interaction details while preserving the MVP route, screen, and workflow requirements.
-
-## 7. Immediate Next Work Order
-
-Next implementation session should do this exact sequence:
-
-1. Create a frontend scaffold plan and choose whether to install Next.js dependencies now.
-2. Write route scaffold tests first.
-3. Implement the app shell and route placeholders.
-4. Run tests and record results.
-5. Build Home page test first, then implementation.
-6. Build Visceral Mag listing test first, then implementation.
-7. Build Article Detail test first, then implementation.
-
-## 8. Launch-Critical Risks
-
-- Open Design MCP daemon still unreachable.
-- Brand assets and opening banner still need confirmation.
-- About copy, profile bios, social links, and launch articles need final content.
-- Domain/DNS, hosting, SSL, and email provider need confirmation.
-- Admin auth/storage decisions should be locked before dashboard build-out.
-- July 31 deadline requires avoiding post-launch features until MVP is live.
-
-## 9. Deferred Until After MVP Launch
-
-- Newsletter campaigns.
 - Public user accounts.
-- Subscriptions or paid content.
-- Likes, bookmarks, and personalized reader features.
-- Advanced analytics dashboard.
+- Paid subscriptions or gated content.
+- Likes/bookmarks/personalization.
+- Newsletter campaign tooling beyond signup capture.
+- Advanced analytics dashboards.
+- Native mobile app.
 - Large multimedia expansion.
-- Mobile app.

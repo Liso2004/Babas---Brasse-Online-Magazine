@@ -46,7 +46,7 @@ test("MVP coverage review document summarizes implemented routes and remaining l
   assert.match(doc, /14 core route artifacts/i);
   assert.match(doc, /9 public routes/i);
   assert.match(doc, /5 admin routes/i);
-  assert.match(doc, /156 passing tests/i);
+  assert.match(doc, /161 passing tests/i);
   assert.match(doc, /8 implemented support routes/i);
   assert.match(doc, /frontend app integration/i);
   assert.match(doc, /authentication integration/i);
@@ -100,7 +100,8 @@ test("all implemented route renderers and focused test scripts are registered", 
     "test:error-support",
     "test:admin-workflow-support",
     "test:mobile-wireframes",
-    "test:frontend-plan"
+    "test:frontend-plan",
+    "test:roadmap-sprints"
   ];
 
   for (const script of expectedScripts) {
@@ -115,6 +116,7 @@ test("all implemented route renderers and focused test scripts are registered", 
   assert.match(runTests, /admin-workflow-support\.test\.js/);
   assert.match(runTests, /mobile-wireframe-comps\.test\.js/);
   assert.match(runTests, /frontend-app-integration-plan\.test\.js/);
+  assert.match(runTests, /roadmap-sprint-docs\.test\.js/);
 });
 
 test("all support wireframes are implemented as generated prototype contracts", () => {
@@ -164,6 +166,7 @@ test("all support wireframes are implemented as generated prototype contracts", 
   assert.match(mobileHtml, /data-page="mobile-wireframe-comps"/);
   assert.match(mobileHtml, /data-generated="mobile-wireframe-comps-renderer"/);
 });
+
 
 
 

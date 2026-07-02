@@ -418,3 +418,23 @@ Completed:
 Next active slice:
 
 - Confirm the production React app boundary, then start the shared app shell / route registry / layout migration under TDD.
+
+## Sprint Plan Refresh - July 2, 2026
+
+Completed:
+
+- Reviewed and refreshed `docs/IMPLEMENTATION_PLAN_JULY_2026.md` from the stale June 30 roadmap into the current production integration roadmap.
+- Added `docs/SPRINT_PLAN_JULY_2026.md` with Sprint 0 complete and Sprint 1-5 windows through the July 31, 2026 launch target.
+- Updated `docs/FRONTEND_SCAFFOLD_PLAN.md` to mark the prototype scaffold complete and point to React production migration.
+- Updated `docs/OPEN_DESIGN_STATUS.md` to reflect the complete local Open Design wireframe handoff while preserving the historical `fetch failed` MCP note.
+- Added `tests/roadmap-sprint-docs.test.js` and registered `test:roadmap-sprints`.
+- Updated coverage baseline to 161 passing tests.
+
+Next active slice:
+
+- Confirm the production React app boundary, then start Sprint 1: shared app shell / route registry / layout migration under TDD.
+
+Roadmap refresh verification:
+
+- Focused roadmap/sprint docs test is green.
+- Full suite is green at 161 passing tests, 0 failing tests.

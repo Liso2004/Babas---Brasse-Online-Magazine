@@ -1,45 +1,65 @@
 ﻿# Frontend Scaffold Plan
 
-Date: June 30, 2026
-Phase: Phase 0 Project Foundation
+Date: July 2, 2026
+Phase: Phase 0 Project Foundation complete; pending React production migration.
 
-## Decision
+## Current Status
 
-Start with a dependency-light scaffold before installing Next.js. This keeps the route contract, fixture data, and admin/public shell testable immediately while Open Design and final stack dependencies are still unsettled.
+Current status: completed prototype scaffold.
 
-This does not replace the intended Next.js build. It creates a stable app contract that can be moved into Next.js routes and components in the next implementation slice.
+The dependency-light scaffold has done its job. The original route scaffold tests are now part of the long-lived acceptance contract. It now contains tested route contracts, fixture data, generated HTML artifacts, Open Design handoff references, support subflows, and a local preview server.
 
-## TDD Scope
+Use this scaffold as the acceptance-contract source for the React production migration. Do not create a new React app inside this prototype until the production app boundary is confirmed.
 
-The route scaffold tests must prove:
+## Completed Prototype Artifacts
 
-- Required public routes match `wireframes/wireframe-spec.json`.
-- Required admin routes match `wireframes/wireframe-spec.json`.
-- Every route has a placeholder page artifact.
-- Fixture data includes articles, categories, profiles, media, comments, reviews, and contact submissions.
-- The app shell includes public and admin navigation.
-
-## Phase 0 Artifacts
-
-- `src/routes.js`: public/admin route contract.
+- `src/routes.js`: tested public/admin route contract.
 - `src/content/fixtures.js`: launch-shape fixture data.
-- `src/app-shell.html`: browser-viewable public/admin shell.
-- `src/pages/**/*.html`: route placeholders.
-- `tests/scaffold.test.js`: route and fixture tests.
+- `src/render/**/*.js`: renderer contracts for public, admin, and support screens.
+- `src/pages/**/*.html`: generated prototype route artifacts.
+- `designs/open-design-wireframes/`: complete local Open Design wireframe handoff.
+- `scripts/preview-mvp.js`: local route-aware MVP preview server.
+- `tests/**/*.test.js`: contract tests for the prototype.
 
-## Next.js Handoff
+Preview command:
 
-When dependencies are installed, convert this scaffold into:
+```powershell
+npm.cmd run preview:mvp
+```
 
-- `app/page.tsx`
-- `app/about/page.tsx`
-- `app/creative-team/page.tsx`
-- `app/contributors/page.tsx`
-- `app/visceral-mag/page.tsx`
-- `app/visceral-mag/[slug]/page.tsx`
-- `app/search/page.tsx`
-- `app/featured/page.tsx`
-- `app/contact/page.tsx`
-- `app/admin/**/page.tsx`
+Route index:
 
-Keep `src/routes.js` or its TypeScript successor as the tested route source until Next.js route tests replace it.
+```text
+http://localhost:4173/__routes
+```
+
+## React Production Migration
+
+The next scaffold is the production React app. Next.js remains the recommended React framework if server-rendered editorial SEO is required. The first decision is whether that app lives in this repository or a separate app folder.
+
+Once the boundary is confirmed, migrate in this order:
+
+1. Route registry.
+2. App shell.
+3. Public layout.
+4. Admin layout.
+5. Public route components.
+6. Admin route components.
+7. Auth, persistence, and mutations.
+8. QA, deployment, and rollback gates.
+
+## TDD Handoff
+
+Production tests should be written before each migration slice:
+
+- Route smoke tests for all public/admin/support paths.
+- Component tests for cards, forms, tables, modals, and state panels.
+- Auth boundary tests.
+- Data adapter tests.
+- Mutation validation tests.
+- Accessibility, SEO, and viewport checks.
+
+Keep `src/routes.js` or its TypeScript successor as the tested route source until production route tests replace it.
+
+
+

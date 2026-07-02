@@ -31,6 +31,7 @@
                     "test:admin-workflow-support":  "node tests/admin-workflow-support.test.js",
                     "test:mobile-wireframes":  "node tests/mobile-wireframe-comps.test.js",
                     "test:frontend-plan":  "node tests/frontend-app-integration-plan.test.js",
-                    "preview:mvp":  "node scripts/preview-mvp.js"
+                    "preview:mvp":  "node scripts/preview-mvp.js",
+                    "test:roadmap-sprints":  "node tests/roadmap-sprint-docs.test.js"
                 }
 }

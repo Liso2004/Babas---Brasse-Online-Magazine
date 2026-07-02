@@ -1,38 +1,54 @@
-# Open Design Status
+﻿# Open Design Status
 
-Last checked: June 30, 2026.
+Last checked: July 2, 2026.
 
-## Result
+## Current Result
 
-- Open Design MCP tools are visible through Codex tool discovery.
-- `codex mcp list` previously showed the `open-design` server as enabled.
-- Live calls to Open Design return `fetch failed`.
-- The local Open Design app was launched, but the MCP daemon still did not respond.
+The complete local Open Design wireframe handoff is available in this workspace at `designs/open-design-wireframes/`.
+
+The local handoff validates as 23 screens:
+
+- 9 public routes
+- 5 admin routes
+- 8 support screens/subflows
+- 1 route overview
+
+This handoff is the design source of truth for the current prototype and the next React production migration.
+
+## Historical MCP Note
+
+Earlier live MCP calls to Open Design returned `fetch failed` even though `codex mcp list` showed the `open-design` server as enabled. That daemon issue did not block the project because the Open Design project export was provided and copied locally.
+
+Keep this historical `fetch failed` note so older tests and handoff context remain understandable.
 
 ## Working Decision
 
-Proceed with local, test-driven wireframes in this workspace while Open Design daemon reachability is repaired.
+Use `designs/open-design-wireframes/` plus the generated artifacts in `src/pages/` as the source of truth. Sync back to Open Design only when the Open Design daemon is reachable and doing so will not replace tested route/screen contracts.
 
-## Recovery Steps
+## Preview
+
+Wireframe overview:
+
+```text
+designs/open-design-wireframes/mvp-wireframes.html
+```
+
+Generated MVP prototype:
+
+```powershell
+npm.cmd run preview:mvp
+```
+
+Then visit:
+
+```text
+http://localhost:4173/__routes
+```
+
+## Recovery Steps If Live MCP Sync Is Needed
 
 1. Fully close Open Design.
 2. Reopen Open Design.
 3. Restart or reload Codex.
 4. Retry `get_active_context` and `list_projects`.
-5. If those work, create or reuse `Babas & Brasse Online Magazine MVP`.
-6. Start an Open Design run using the prompt in `Babas_and_Brasse_Compressed_MVP_Design_Plan.md`.
-
-## June 30, 2026 Final Retest
-
-One more Open Design MCP test was run before creating the implementation plan.
-
-Result:
-
-- `get_active_context`: `fetch failed`
-- `list_projects`: `fetch failed`
-- `codex mcp list`: `open-design` is enabled and registered
-- Local `Open Design.exe` processes are running
-
-Decision:
-
-Continue with local tested wireframes and TDD implementation. Sync into Open Design after a clean Open Design restart and Codex reload restores daemon reachability.
+5. If those work, sync only changes that preserve the tested MVP route and screen contracts.

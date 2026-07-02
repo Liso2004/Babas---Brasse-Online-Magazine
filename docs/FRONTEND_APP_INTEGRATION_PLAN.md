@@ -2,7 +2,7 @@
 
 Date: July 2, 2026
 Launch target: July 31, 2026
-Current verification baseline: 151 passing tests from the wireframe-backed prototype.
+Current verification baseline: 156 passing tests before the roadmap/sprint refresh, then 161 passing tests after adding roadmap documentation tests.
 
 ## Stack Boundary
 
@@ -139,3 +139,5 @@ Before the July 31, 2026 launch target, the production app needs:
 4. Build public routes before admin mutations.
 5. Add auth and persistence behind the existing tested admin contracts.
 6. Keep every new production slice under TDD, using this prototype as the acceptance contract.
+
+

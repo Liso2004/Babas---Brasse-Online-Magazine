@@ -1001,3 +1001,50 @@ Frontend App Integration Plan syntax verification:
 
 - Command: `node --check .\tests\frontend-app-integration-plan.test.js`
 - Result: passed.
+
+Roadmap and Sprint Plan refresh red setup:
+
+- Added `tests/roadmap-sprint-docs.test.js`.
+- Updated `tests/run-tests.js`.
+- Updated `package.json` with `test:roadmap-sprints`.
+- Expected next result: failing roadmap/sprint doc tests because the June 30 roadmap and scaffold docs were stale and `docs/SPRINT_PLAN_JULY_2026.md` did not exist yet.
+
+Roadmap and Sprint Plan refresh red result:
+
+- Command: `node tests\roadmap-sprint-docs.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 5 failed.
+- Failure reason: roadmap date/current status was stale, sprint plan was missing, scaffold/Open Design docs were stale, and plan status did not point to the refreshed sprint plan.
+
+Roadmap and Sprint Plan refresh implementation attempt:
+
+- Replaced `docs/IMPLEMENTATION_PLAN_JULY_2026.md` with the July 2 production integration roadmap.
+- Added `docs/SPRINT_PLAN_JULY_2026.md` with Sprint 0 complete and Sprint 1-5 launch windows.
+- Updated `docs/FRONTEND_SCAFFOLD_PLAN.md` and `docs/OPEN_DESIGN_STATUS.md` for the completed wireframe-backed prototype and React migration handoff.
+- Updated `docs/MVP_IMPLEMENTATION_COVERAGE_REVIEW.md`, `docs/FRONTEND_APP_INTEGRATION_PLAN.md`, and coverage tests for the new 161-test baseline.
+
+Roadmap and Sprint Plan refresh first full-suite result:
+
+- Command: `npm.cmd test`
+- Result: failed.
+- Tests: 159 passed, 2 failed.
+- Failure reason: older scaffold/frontend-plan assertions still expected the previous Phase 0 wording and 151-test baseline.
+- Fix: updated `docs/FRONTEND_SCAFFOLD_PLAN.md` to keep Phase 0 completion wording and updated `tests/frontend-app-integration-plan.test.js` to expect the 161-test refreshed baseline.
+
+Roadmap and Sprint Plan refresh focused rerun:
+
+- Command: `node tests\scaffold.test.js`, `node tests\frontend-app-integration-plan.test.js`, `node tests\roadmap-sprint-docs.test.js`, `node tests\mvp-coverage-readiness.test.js`
+- Result: roadmap and coverage tests passed; scaffold and frontend-plan tests still had wording mismatches.
+- Fix: restored explicit Next.js handoff wording in `docs/FRONTEND_SCAFFOLD_PLAN.md` and changed the frontend plan baseline wording to the exact `161 passing tests` phrase.
+
+Roadmap and Sprint Plan refresh wording fix:
+
+- Restored the exact route scaffold tests phrase in docs/FRONTEND_SCAFFOLD_PLAN.md for the existing scaffold contract test.
+
+
+Roadmap and Sprint Plan refresh green result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 161 passed, 0 failed.
+- Covered: updated roadmap, compressed sprint plan, completed prototype scaffold handoff, Open Design local handoff status, production React boundary, and current coverage baseline.
