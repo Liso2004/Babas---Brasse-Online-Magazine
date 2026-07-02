@@ -1,0 +1,48 @@
+﻿<section data-page="server-error" data-route="/500" data-area="support" data-generated="error-support-renderer" data-wireframe-source="server-error.html" data-support-route="error" data-responsive="desktop-centered mobile-stacked">
+  <nav data-section="support-public-nav" aria-label="Public recovery navigation">
+    <a class="brand-mark" href="/">B&amp;B</a>
+    <a href="/">Home</a>
+    <a href="/visceral-mag">Articles</a>
+    <a href="/search">Search</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <section data-section="server-error-message">
+    <p class="eyebrow">500</p>
+    <h1>Server problem</h1>
+    <p>A failed request or temporary application fault stopped this page from loading. Try again, or use a safe fallback navigation path.</p>
+    <button type="button" data-action="retry">Retry</button>
+  </section>
+
+  <section data-section="recovery-routes">
+    <h2>Helpful paths</h2>
+    <a class="route-card" href="/">
+      <strong>Home</strong>
+      <span>Return to the magazine front page.</span>
+    </a>
+    <a class="route-card" href="/visceral-mag">
+      <strong>Articles</strong>
+      <span>Browse the latest Visceral Mag articles.</span>
+    </a>
+    <a class="route-card" href="/search">
+      <strong>Search</strong>
+      <span>Search articles, categories, and contributors.</span>
+    </a>
+    <a class="route-card" href="/contact">
+      <strong>Contact</strong>
+      <span>Tell us if a link keeps failing.</span>
+    </a>
+  </section>
+
+  <section data-section="server-error-states" data-state-note="failed-request" data-state-note="retry" data-state-note="contact-support" data-state-note="safe-fallback-navigation">
+    <h2>State coverage</h2>
+    <article data-state="failed-request">Failed request keeps the reader on a plain-language recovery page.</article>
+    <article data-state="retry">Retry lets the reader attempt the request again.</article>
+    <article data-state="contact-support">Contact support route is available if the problem keeps happening.</article>
+    <article data-state="safe-fallback-navigation">Safe fallback navigation avoids trapping the reader on the error page.</article>
+  </section>
+
+  <footer data-section="support-footer">
+    <p>Minimal footer for error recovery. Babas &amp; Brasse keeps this page quiet so readers can find a helpful path.</p>
+  </footer>
+</section>

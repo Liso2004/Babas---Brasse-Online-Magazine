@@ -1,0 +1,50 @@
+﻿<section data-page="admin-login" data-route="/admin/login" data-area="support" data-generated="admin-auth-renderer" data-wireframe-source="auth-login.html" data-support-route="auth" data-responsive="desktop-split mobile-stacked">
+  <header data-section="auth-support-header">
+    <a class="brand-mark" href="/admin/login">B&amp;B Admin</a>
+    <p>Secure sign in</p>
+  </header>
+
+  <section data-section="login-form-shell">
+    <div class="login-form-panel">
+      <p class="eyebrow">Editor login</p>
+      <h1>Sign in to Babas &amp; Brasse Admin.</h1>
+      <form action="/admin/login" method="post" data-form="admin-login">
+        <label for="login-email">Email</label>
+        <input id="login-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+
+        <button type="submit" data-action="sign-in">Sign in</button>
+      </form>
+      <a href="/admin/password-reset">Forgot password</a>
+    </div>
+    <aside data-section="login-access-copy">
+      <h2>Access is limited to editors.</h2>
+      <p>Never reveal whether email exists. Show the same secure response shape for unknown accounts and incorrect passwords.</p>
+      <a href="/">Return to public site</a>
+    </aside>
+  </section>
+
+  <section data-section="login-states" data-state-note="login-invalid" data-state-note="login-locked" data-state-note="login-loading" data-state-note="login-redirect">
+    <h2>Login states</h2>
+    <article data-state="invalid">Invalid credentials show an error summary and focus the first invalid field.</article>
+    <article data-state="locked">Locked account explains that the editor should retry later or contact support.</article>
+    <article data-state="loading">Loading disables the submit button while the sign-in request is pending.</article>
+    <article data-state="redirect">Successful login redirects to <a href="/admin">Admin Dashboard</a>.</article>
+  </section>
+
+  <section data-section="login-recovery-links">
+    <h2>Recovery links</h2>
+    <a href="/admin/password-reset">Forgot password</a>
+    <a href="/">Return to public site</a>
+  </section>
+
+  <section data-section="login-security" data-security-note="role-check" data-security-note="session-expiry" data-security-note="csrf-protection" data-security-note="audit-logging">
+    <h2>Security handoff</h2>
+    <article data-security="role-check">Role check runs after authentication before admin routes unlock.</article>
+    <article data-security="session-expiry">Session expiry returns editors to this login route.</article>
+    <article data-security="csrf-protection">CSRF protection is required for credential submission.</article>
+    <article data-security="audit-logging">Audit logging records successful and failed admin access attempts.</article>
+  </section>
+</section>

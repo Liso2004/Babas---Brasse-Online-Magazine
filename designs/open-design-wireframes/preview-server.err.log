@@ -1,0 +1,8 @@
+::1 - - [01/Jul/2026 22:42:10] "GET /mvp-wireframes.html HTTP/1.1" 200 -
+::1 - - [01/Jul/2026 22:42:11] "GET /wireframe-system.css HTTP/1.1" 200 -
+::1 - - [01/Jul/2026 22:42:11] "GET /wireframe-system.js HTTP/1.1" 200 -
+::1 - - [01/Jul/2026 22:42:11] code 404, message File not found
+::1 - - [01/Jul/2026 22:42:11] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [01/Jul/2026 22:42:15] "GET /index.html HTTP/1.1" 200 -
+::1 - - [01/Jul/2026 22:42:20] "GET /about.html HTTP/1.1" 200 -
+::1 - - [01/Jul/2026 22:42:31] "GET /profile-media-management.html HTTP/1.1" 200 -

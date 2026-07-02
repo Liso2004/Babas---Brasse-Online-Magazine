@@ -1,0 +1,110 @@
+<section data-page="admin-dashboard" data-route="/admin" data-area="admin" data-generated="admin-dashboard-renderer" data-wireframe-source="admin-dashboard.html" data-auth-required="editor" data-responsive="desktop-dense tablet-two-column mobile-stacked">
+  <nav data-section="admin-nav" aria-label="Admin navigation">
+    <a class="brand-mark" href="/admin">B&amp;B Admin</a>
+    <div class="admin-links">
+      <a href="/admin" aria-current="page">Dashboard</a>
+      <a href="/admin/articles">Articles</a>
+      <a href="/admin/profiles-media">Profiles / Media</a>
+      <a href="/admin/moderation">Moderation</a>
+      <a href="/admin/contact-submissions">Contact</a>
+    </div>
+    <label>Admin search <input name="admin-q" type="search" placeholder="Admin search"></label>
+    <a href="/admin/login">Editor access</a>
+  </nav>
+
+  <header data-section="admin-dashboard-intro">
+    <p class="eyebrow">Admin Dashboard</p>
+    <h1>Editorial operations overview.</h1>
+    <p>Authenticated editor access is required before publishing, moderation, media, or contact data is shown.</p>
+  </header>
+
+  <section data-section="dashboard-stats">
+    <h2>Publishing health</h2>
+    <article class="metric" data-metric="publishedArticles" data-value="2">
+      <p class="eyebrow">Published</p>
+      <strong>2</strong>
+    </article>
+    <article class="metric" data-metric="drafts" data-value="1">
+      <p class="eyebrow">Drafts</p>
+      <strong>1</strong>
+    </article>
+    <article class="metric" data-metric="pendingComments" data-value="1">
+      <p class="eyebrow">Comments</p>
+      <strong>1</strong>
+    </article>
+    <article class="metric" data-metric="pendingReviews" data-value="0">
+      <p class="eyebrow">Reviews</p>
+      <strong>0</strong>
+    </article>
+    <article class="metric" data-metric="newContactSubmissions" data-value="1">
+      <p class="eyebrow">Contact</p>
+      <strong>1</strong>
+    </article>
+  </section>
+
+  <section data-section="recent-activity">
+    <h2>Recent activity</h2>
+    <div class="activity-table" role="table" aria-label="Recent admin activity">
+      <div role="row" class="table-header">
+        <span data-column="actor" role="columnheader">Actor</span>
+        <span data-column="item" role="columnheader">Item</span>
+        <span data-column="status" role="columnheader">Status</span>
+        <span data-column="timestamp" role="columnheader">Timestamp</span>
+        <span data-column="next-action" role="columnheader">Next action</span>
+      </div>
+      <div role="row" class="activity-row" data-status="Draft">
+        <span role="cell">Editor</span>
+        <span role="cell">Draft review placeholder for admin workflow testing.</span>
+        <span role="cell">Draft</span>
+        <span role="cell">Unscheduled</span>
+        <a role="cell" href="/admin/articles">Continue editing</a>
+      </div>
+      <div role="row" class="activity-row" data-status="Pending comment">
+        <span role="cell">Reader</span>
+        <span role="cell">Pending comment placeholder.</span>
+        <span role="cell">Pending comment</span>
+        <span role="cell">Moderation queue</span>
+        <a role="cell" href="/admin/moderation">Review comment</a>
+      </div>
+      <div role="row" class="activity-row" data-status="New contact submission">
+        <span role="cell">Reader</span>
+        <span role="cell">General inquiry</span>
+        <span role="cell">New contact submission</span>
+        <span role="cell">reader@example.com</span>
+        <a role="cell" href="/admin/contact-submissions">Open inbox</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="quick-actions">
+    <h2>Quick actions</h2>
+    <article class="quick-action-card">
+      <h3>New article</h3>
+      <p>Create or continue editorial drafts.</p>
+      <a href="/admin/articles">New article</a>
+    </article>
+    <article class="quick-action-card">
+      <h3>Moderate</h3>
+      <p>Review pending comments and reviews.</p>
+      <a href="/admin/moderation">Moderate</a>
+    </article>
+    <article class="quick-action-card">
+      <h3>Upload media</h3>
+      <p>Manage images, captions, credits, and alt text.</p>
+      <a href="/admin/profiles-media">Upload media</a>
+    </article>
+    <article class="quick-action-card">
+      <h3>Inbox</h3>
+      <p>Review new reader and contributor messages.</p>
+      <a href="/admin/contact-submissions">Inbox</a>
+    </article>
+  </section>
+
+  <section data-section="dashboard-states" data-state-note="dashboard-loading" data-state-note="dashboard-empty" data-state-note="dashboard-error" data-state-note="permission-denied">
+    <h2>Dashboard states</h2>
+    <article data-state="loading">Loading dashboard data</article>
+    <article data-state="empty">No recent editorial activity</article>
+    <article data-state="error">Dashboard failed to load; retry the request.</article>
+    <article data-state="permission-denied">Permission denied. <a href="/admin/login">Sign in as editor</a>.</article>
+  </section>
+</section>

@@ -1,0 +1,71 @@
+<section data-page="contributors" data-route="/contributors" data-generated="contributors-renderer" data-wireframe-source="contributors.html" data-responsive="toolbar-stack mobile-one-column">
+  <nav data-section="landing-nav" data-nav-height="76" aria-label="Primary editorial navigation">
+    <a class="brand-mark" href="/" aria-label="Babas and Brasse home">B&amp;B</a>
+    <div class="editorial-links">
+      <a data-nav-link="theatre" href="/search?category=theatre">Theatre</a>
+      <a data-nav-link="books" href="/search?category=books">Books</a>
+      <a data-nav-link="essays" href="/search?category=essays">Essays</a>
+      <a data-nav-link="opinion" href="/search?category=opinion">Opinion</a>
+      <a data-nav-link="culture" href="/search?category=culture">Culture</a>
+    </div>
+    <label class="search-entry">Search <input name="q" type="search" placeholder="Search articles"></label>
+    <a class="subscribe-cta" href="/about#newsletter">Subscribe</a>
+  </nav>
+
+  <header data-section="contributors-intro">
+    <p class="eyebrow">Contributors</p>
+    <h1>Writers, reviewers, essayists, and cultural voices.</h1>
+    <p>Contributor discovery connects public profiles to published works while keeping drafts out of reader-facing pages.</p>
+  </header>
+
+  <section data-section="contributors-tools">
+    <label for="contributor-search">Search contributors</label>
+    <input id="contributor-search" name="q" type="search" placeholder="Search contributors">
+    <div class="chip-row" aria-label="Contributor category filters">
+      <button type="button" data-filter-category="theatre" aria-pressed="false">Theatre</button>
+      <button type="button" data-filter-category="books" aria-pressed="false">Books</button>
+      <button type="button" data-filter-category="essays" aria-pressed="false">Essays</button>
+    </div>
+  </section>
+
+  <section data-section="contributors-grid" data-state="ready">
+    <h2>Contributor Profiles</h2>
+    <article class="profile-card" data-profile="visceral-contributor" data-profile-type="contributor">
+      <img src="/media/profile-placeholder.jpg" alt="Portrait placeholder for Visceral Contributor">
+      <div class="profile-copy">
+        <p class="eyebrow">Writer</p>
+        <h3>Visceral Contributor</h3>
+        <p>Launch contributor placeholder for editorial articles.</p>
+        <p>2 published works</p>
+        <nav aria-label="Published works by Visceral Contributor">
+          <a href="/visceral-mag/send-a-text-before-you-knock">Send A Text Before You Knock</a>
+          <a href="/visceral-mag/artist-interview-placeholder">Artist Interview Placeholder</a>
+        </nav>
+      </div>
+    </article>
+  </section>
+
+  <section data-section="published-works">
+    <h2>Published Works</h2>
+    <article class="published-work-row" data-article="send-a-text-before-you-knock" data-status="published" data-category="essays">
+      <a href="/visceral-mag/send-a-text-before-you-knock">Send A Text Before You Knock</a>
+      <span>Essays</span>
+      <span>Visceral Contributor</span>
+      <span>2026-07-01</span>
+    </article>
+    <article class="published-work-row" data-article="artist-interview-placeholder" data-status="published" data-category="interviews">
+      <a href="/visceral-mag/artist-interview-placeholder">Artist Interview Placeholder</a>
+      <span>Interviews</span>
+      <span>Visceral Contributor</span>
+      <span>2026-07-02</span>
+    </article>
+  </section>
+
+  <section data-section="contributors-states" data-state-note="contributors-loading" data-state-note="contributors-error">
+    <h2>Contributor states</h2>
+    <article data-state="loading">Loading contributors</article>
+    <article data-state="no-results">No-results keeps entered query visible</article>
+    <article data-state="reset-filter">Reset-filter action clears category filters</article>
+    <article data-state="error">Fetch error includes retry</article>
+  </section>
+</section>

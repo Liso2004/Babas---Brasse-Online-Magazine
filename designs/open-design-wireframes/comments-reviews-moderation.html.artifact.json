@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "comments-reviews-moderation.html",
+  "entry": "comments-reviews-moderation.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-07-01T20:14:59.574Z",
+  "updatedAt": "2026-07-01T20:14:59.574Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

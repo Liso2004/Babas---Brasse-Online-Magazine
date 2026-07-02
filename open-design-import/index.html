@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annotated Wireframe - Babas & Brasse Landing</title>
+  <style>
+    :root {
+      --page: #d6d6d6;
+      --panel: #eeeeee;
+      --panel-2: #dedede;
+      --panel-3: #c9c9c9;
+      --line: #767676;
+      --line-soft: #aaaaaa;
+      --ink: #202020;
+      --muted: #5e5e5e;
+      --accent: #e0523f;
+      --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--page);
+      color: var(--ink);
+      font-family: var(--font-ui);
+    }
+
+    .workspace {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(760px, 1fr) 360px;
+      gap: 24px;
+      padding: 28px;
+      align-items: start;
+    }
+
+    .browser-frame,
+    .spec-panel {
+      border: 2px solid var(--line);
+      background: var(--panel);
+      min-width: 0;
+    }
+
+    .browser-frame {
+      min-height: calc(100vh - 56px);
+      display: flex;
+      flex-direction: column;
+      overflow-x: auto;
+    }
+
+    .browser-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 14px;
+      border-bottom: 2px solid var(--line);
+      background: var(--panel-2);
+      min-width: 760px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      border: 2px solid var(--line);
+      background: var(--panel-3);
+    }
+
+    .address {
+      flex: 1;
+      height: 20px;
+      border: 1px solid var(--line-soft);
+      background: #f4f4f4;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font: 11px/1 var(--font-mono);
+      color: var(--muted);
+    }
+
+    .wire-page {
+      position: relative;
+      flex: 1;
+      padding: 22px;
+      background: #e7e7e7;
+      min-width: 760px;
+    }
+
+    .region {
+      position: relative;
+      border: 2px solid var(--line);
+      background: var(--panel);
+      margin-bottom: 18px;
+    }
+
+    .nav {
+      min-height: 76px;
+      display: grid;
+      grid-template-columns: 128px minmax(220px, 1fr) 138px 112px;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+    }
+
+    .logo-block,
+    .button-block,
+    .bar,
+    .image-box,
+    .section-chip,
+    .article-thumb,
+    .footer-block,
+    .footer-line {
+      border: 1.5px solid var(--line);
+      background: var(--panel-3);
+    }
+
+    .logo-block {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font: 700 12px/1 var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    .nav-bars {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(52px, 1fr));
+      gap: 10px;
+    }
+
+    .nav-bars .bar {
+      height: 13px;
+    }
+
+    .button-block {
+      height: 36px;
+    }
+
+    .search-block,
+    .newsletter-field {
+      height: 32px;
+      border: 1.5px solid var(--line);
+      background: #d2d2d2;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font: 11px/1 var(--font-mono);
+      color: var(--muted);
+    }
+
+    .hero {
+      min-height: 340px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      padding: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .label-bar {
+      width: 112px;
+      height: 14px;
+    }
+
+    .headline-bar {
+      height: 32px;
+    }
+
+    .headline-bar.short {
+      width: 78%;
+    }
+
+    .body-bar {
+      height: 16px;
+    }
+
+    .body-bar.short {
+      width: 68%;
+    }
+
+    .meta-row,
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .meta-pill {
+      height: 14px;
+      width: 112px;
+      border: 1.5px solid var(--line);
+      background: #d0d0d0;
+    }
+
+    .cta-row .button-block {
+      width: 132px;
+      height: 38px;
+    }
+
+    .image-box {
+      position: relative;
+      min-height: 280px;
+      background: var(--panel-3);
+      overflow: hidden;
+    }
+
+    .image-box::before,
+    .image-box::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -12%;
+      width: 124%;
+      border-top: 2px solid var(--line);
+      transform-origin: center;
+    }
+
+    .image-box::before {
+      transform: rotate(31deg);
+    }
+
+    .image-box::after {
+      transform: rotate(-31deg);
+    }
+
+    .image-label {
+      position: absolute;
+      inset: auto 14px 14px auto;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      font: 11px/1 var(--font-mono);
+      color: var(--muted);
+    }
+
+    .section-rail {
+      min-height: 112px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      padding: 24px 28px;
+      align-items: center;
+    }
+
+    .section-chip {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 10px/1 var(--font-mono);
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .article-grid {
+      min-height: 262px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 24px 28px;
+    }
+
+    .article-teaser {
+      border: 1.5px solid var(--line);
+      background: var(--panel-2);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .article-kicker {
+      width: max-content;
+      min-width: 64px;
+      height: 18px;
+      border: 1.5px solid var(--line);
+      background: #d0d0d0;
+      display: flex;
+      align-items: center;
+      padding: 0 7px;
+      font: 700 10px/1 var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .article-thumb {
+      width: 54px;
+      height: 42px;
+    }
+
+    .article-teaser .bar {
+      height: 16px;
+    }
+
+    .article-teaser .bar.title {
+      width: 80%;
+      height: 20px;
+    }
+
+    .article-teaser .bar.short {
+      width: 66%;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1.5px solid var(--line);
+    }
+
+    .article-meta span {
+      height: 12px;
+      flex: 1;
+      border: 1.5px solid var(--line);
+      background: var(--panel-3);
+    }
+
+    .article-meta span:last-child {
+      flex: 0.55;
+    }
+
+    .footer {
+      min-height: 198px;
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 22px;
+      padding: 24px 28px;
+      margin-bottom: 0;
+    }
+
+    .footer-block {
+      min-height: 120px;
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .footer-line {
+      height: 12px;
+    }
+
+    .footer-line.long {
+      width: 92%;
+    }
+
+    .footer-line.mid {
+      width: 70%;
+    }
+
+    .footer-line.short {
+      width: 48%;
+    }
+
+    .newsletter-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .legal-row {
+      grid-column: 1 / -1;
+      min-height: 26px;
+      border: 1.5px solid var(--line);
+      background: var(--panel-3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 12px;
+    }
+
+    .legal-line {
+      height: 10px;
+      width: 180px;
+      border: 1.5px solid var(--line);
+      background: #d0d0d0;
+    }
+
+    .legal-line.short {
+      width: 96px;
+    }
+
+    .pin {
+      position: absolute;
+      z-index: 4;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font: 700 16px/1 var(--font-mono);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .pin:hover {
+      filter: brightness(0.92);
+    }
+
+    .pin[aria-pressed="true"] {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    .pin:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    .pin[data-target="spec-nav"] {
+      top: -15px;
+      left: 18px;
+    }
+
+    .pin[data-target="spec-hero"] {
+      top: 22px;
+      left: 22px;
+    }
+
+    .pin[data-target="spec-strip"] {
+      top: -15px;
+      right: 22px;
+    }
+
+    .pin[data-target="spec-articles"] {
+      top: -15px;
+      left: 24px;
+    }
+
+    .pin[data-target="spec-footer"] {
+      top: -15px;
+      right: 24px;
+    }
+
+    .spec-panel {
+      min-height: calc(100vh - 56px);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .spec-header {
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .spec-kicker {
+      font: 700 12px/1 var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .spec-title {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .spec-subtitle {
+      margin: 9px 0 0;
+      font: 12px/1.45 var(--font-mono);
+      color: var(--muted);
+    }
+
+    .spec-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      padding: 10px;
+      border: 1.5px solid var(--line);
+      background: var(--panel-2);
+      min-height: 74px;
+      transition: background 140ms ease;
+    }
+
+    .spec-row.is-active {
+      background: #cfcfcf;
+    }
+
+    .spec-row:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    .spec-number {
+      color: var(--accent);
+      font: 800 20px/1 var(--font-mono);
+    }
+
+    .spec-copy {
+      margin: 0;
+      font: 12px/1.42 var(--font-mono);
+      color: var(--ink);
+    }
+
+    .spec-foot {
+      margin-top: auto;
+      border-top: 2px solid var(--line);
+      padding-top: 12px;
+      font: 11px/1.4 var(--font-mono);
+      color: var(--muted);
+    }
+
+    .handoff-grid {
+      display: grid;
+      gap: 7px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1.5px solid var(--line);
+    }
+
+    .handoff-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .handoff-label {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .handoff-value {
+      color: var(--muted);
+    }
+
+    @media (max-width: 1100px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-panel,
+      .browser-frame {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .workspace {
+        gap: 14px;
+        padding: 12px;
+      }
+
+      .spec-panel {
+        padding: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="workspace" aria-label="Annotated redline wireframe for Babas and Brasse">
+    <section class="browser-frame" aria-label="Desktop landing page wireframe">
+      <div class="browser-top" aria-hidden="true">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="address">babas-brasse.example / theatre-feature</span>
+      </div>
+
+      <div class="wire-page">
+        <header class="region nav" data-od-id="canvas-nav">
+          <button class="pin" type="button" data-target="spec-nav" aria-controls="spec-nav" aria-pressed="true" aria-label="Show spec note 1">&#9312;</button>
+          <div class="logo-block">B&B</div>
+          <div class="nav-bars" aria-hidden="true">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <div class="search-block" aria-hidden="true">Search articles</div>
+          <div class="button-block" aria-hidden="true"></div>
+        </header>
+
+        <section class="region hero" data-od-id="canvas-hero">
+          <button class="pin" type="button" data-target="spec-hero" aria-controls="spec-hero" aria-pressed="false" aria-label="Show spec note 2">&#9313;</button>
+          <div class="hero-copy" aria-hidden="true">
+            <span class="bar label-bar"></span>
+            <span class="bar headline-bar"></span>
+            <span class="bar headline-bar"></span>
+            <span class="bar headline-bar short"></span>
+            <span class="bar body-bar"></span>
+            <span class="bar body-bar"></span>
+            <span class="bar body-bar short"></span>
+            <div class="meta-row">
+              <span class="meta-pill"></span>
+              <span class="meta-pill"></span>
+              <span class="meta-pill"></span>
+            </div>
+            <div class="cta-row">
+              <span class="button-block"></span>
+              <span class="button-block"></span>
+            </div>
+          </div>
+          <div class="image-box" aria-hidden="true">
+            <span class="image-label">Lead image</span>
+          </div>
+        </section>
+
+        <section class="region section-rail" data-od-id="canvas-section-rail">
+          <button class="pin" type="button" data-target="spec-strip" aria-controls="spec-strip" aria-pressed="false" aria-label="Show spec note 3">&#9314;</button>
+          <div class="section-chip">Theatre</div>
+          <div class="section-chip">Books</div>
+          <div class="section-chip">Essays</div>
+          <div class="section-chip">Opinion</div>
+          <div class="section-chip">Culture</div>
+        </section>
+
+        <section class="region article-grid" data-od-id="canvas-article-grid">
+          <button class="pin" type="button" data-target="spec-articles" aria-controls="spec-articles" aria-pressed="false" aria-label="Show spec note 4">&#9315;</button>
+          <article class="article-teaser" aria-hidden="true">
+            <span class="article-kicker">Books</span>
+            <span class="article-thumb"></span>
+            <span class="bar title"></span>
+            <span class="bar"></span>
+            <span class="bar short"></span>
+            <div class="article-meta">
+              <span></span>
+              <span></span>
+            </div>
+          </article>
+          <article class="article-teaser" aria-hidden="true">
+            <span class="article-kicker">Essays</span>
+            <span class="article-thumb"></span>
+            <span class="bar title"></span>
+            <span class="bar"></span>
+            <span class="bar short"></span>
+            <div class="article-meta">
+              <span></span>
+              <span></span>
+            </div>
+          </article>
+          <article class="article-teaser" aria-hidden="true">
+            <span class="article-kicker">Opinion</span>
+            <span class="article-thumb"></span>
+            <span class="bar title"></span>
+            <span class="bar"></span>
+            <span class="bar short"></span>
+            <div class="article-meta">
+              <span></span>
+              <span></span>
+            </div>
+          </article>
+        </section>
+
+        <footer class="region footer" data-od-id="canvas-footer">
+          <button class="pin" type="button" data-target="spec-footer" aria-controls="spec-footer" aria-pressed="false" aria-label="Show spec note 5">&#9316;</button>
+          <div class="footer-block" aria-hidden="true">
+            <span class="footer-line long"></span>
+            <span class="footer-line long"></span>
+            <span class="footer-line mid"></span>
+            <span class="footer-line short"></span>
+          </div>
+          <div class="footer-block" aria-hidden="true">
+            <span class="footer-line mid"></span>
+            <span class="footer-line short"></span>
+            <span class="footer-line short"></span>
+            <span class="footer-line short"></span>
+          </div>
+          <div class="footer-block" aria-hidden="true">
+            <span class="footer-line mid"></span>
+            <span class="footer-line short"></span>
+            <span class="footer-line short"></span>
+            <span class="footer-line short"></span>
+          </div>
+          <div class="footer-block" aria-hidden="true">
+            <span class="footer-line mid"></span>
+            <span class="footer-line long"></span>
+            <span class="footer-line long"></span>
+            <div class="newsletter-stack">
+              <span class="newsletter-field">your@email.com</span>
+              <span class="button-block"></span>
+            </div>
+          </div>
+          <div class="legal-row" aria-hidden="true">
+            <span class="legal-line"></span>
+            <span class="legal-line short"></span>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <aside class="spec-panel" data-od-id="annotation-panel" aria-label="Annotations and engineering notes">
+      <div class="spec-header" data-od-id="spec-header">
+        <div class="spec-kicker">Annotations / Spec</div>
+        <h1 class="spec-title">Babas & Brasse landing wireframe</h1>
+        <p class="spec-subtitle">Desktop editorial shell for the lead theatre feature, article discovery, and newsletter flow.</p>
+      </div>
+
+      <div class="spec-list" role="list">
+        <article class="spec-row is-active" id="spec-nav" data-od-id="spec-row-1" role="listitem" tabindex="-1" aria-current="true">
+          <div class="spec-number">&#9312;</div>
+          <p class="spec-copy">Sticky nav, 76px desktop height. B&B mark left, five editorial links, article search field, subscribe CTA right.</p>
+        </article>
+        <article class="spec-row" id="spec-hero" data-od-id="spec-row-2" role="listitem">
+          <div class="spec-number">&#9313;</div>
+          <p class="spec-copy">Lead theatre story: category, headline/dek, Mariska byline, May 22 2026 date, 8-min read, CTA pair, 16:10 image.</p>
+        </article>
+        <article class="spec-row" id="spec-strip" data-od-id="spec-row-3" role="listitem">
+          <div class="spec-number">&#9314;</div>
+          <p class="spec-copy">Section strip keeps discovery close to the hero: Theatre, Books, Essays, Opinion, Culture; horizontal scroll on small screens.</p>
+        </article>
+        <article class="spec-row" id="spec-articles" data-od-id="spec-row-4" role="listitem">
+          <div class="spec-number">&#9315;</div>
+          <p class="spec-copy">Recent articles: Books, Essays, and Opinion teasers with section label, thumbnail slot, title, dek, and byline/date/read-time metadata.</p>
+        </article>
+        <article class="spec-row" id="spec-footer" data-od-id="spec-row-5" role="listitem">
+          <div class="spec-number">&#9316;</div>
+          <p class="spec-copy">Footer: Stay Connected email capture, section links, about/contact/submit-writing links, publication blurb, and visible legal row beneath.</p>
+        </article>
+      </div>
+
+      <div class="spec-foot" data-od-id="spec-footer-note">
+        Pin selection is interactive for review: click a numbered canvas pin to focus its matching handoff note.
+        <div class="handoff-grid" data-od-id="handoff-matrix">
+          <div class="handoff-row" data-od-id="handoff-breakpoints">
+            <span class="handoff-label">Breakpoints</span>
+            <span class="handoff-value">Desktop 3-up, tablet 2-up, mobile 1-up with section rail overflow.</span>
+          </div>
+          <div class="handoff-row" data-od-id="handoff-state">
+            <span class="handoff-label">State</span>
+            <span class="handoff-value">Active pin updates spec focus and aria-pressed for reviewer navigation.</span>
+          </div>
+          <div class="handoff-row" data-od-id="handoff-content">
+            <span class="handoff-label">Content</span>
+            <span class="handoff-value">Preserve category, byline, date, read-time, newsletter, and submit-writing paths.</span>
+          </div>
+          <div class="handoff-row" data-od-id="handoff-states">
+            <span class="handoff-label">States</span>
+            <span class="handoff-value">Cover search loading, no-results, newsletter invalid email, success, and submit error states.</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const pins = Array.from(document.querySelectorAll(".pin"));
+    const rows = Array.from(document.querySelectorAll(".spec-row"));
+
+    function activateSpec(id, shouldFocus = true) {
+      rows.forEach((row) => {
+        const isActive = row.id === id;
+        row.classList.toggle("is-active", isActive);
+        if (isActive) {
+          row.setAttribute("tabindex", "-1");
+          row.setAttribute("aria-current", "true");
+        } else {
+          row.removeAttribute("tabindex");
+          row.removeAttribute("aria-current");
+        }
+      });
+      pins.forEach((pin) => pin.setAttribute("aria-pressed", String(pin.dataset.target === id)));
+      const active = document.getElementById(id);
+      if (active && shouldFocus) {
+        active.focus({ preventScroll: true });
+      }
+    }
+
+    function movePinFocus(currentPin, direction) {
+      const currentIndex = pins.indexOf(currentPin);
+      const nextIndex = (currentIndex + direction + pins.length) % pins.length;
+      const nextPin = pins[nextIndex];
+      nextPin.focus({ preventScroll: true });
+      activateSpec(nextPin.dataset.target, false);
+    }
+
+    pins.forEach((pin) => {
+      pin.addEventListener("click", () => activateSpec(pin.dataset.target));
+      pin.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          event.preventDefault();
+          movePinFocus(pin, 1);
+        }
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          event.preventDefault();
+          movePinFocus(pin, -1);
+        }
+        if (event.key === "Home") {
+          event.preventDefault();
+          pins[0].focus({ preventScroll: true });
+          activateSpec(pins[0].dataset.target, false);
+        }
+        if (event.key === "End") {
+          event.preventDefault();
+          pins[pins.length - 1].focus({ preventScroll: true });
+          activateSpec(pins[pins.length - 1].dataset.target, false);
+        }
+      });
+    });
+
+    activateSpec("spec-nav", false);
+  </script>
+</body>
+</html>

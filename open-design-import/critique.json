@@ -1,0 +1,42 @@
+{
+  "kind": "critique-panel",
+  "score": 5,
+  "axes": {
+    "clarity": {
+      "score": 5,
+      "notes": "The artifact remains a clear two-column redline: browser-frame wireframe on the left, annotation/spec panel on the right, and one pin per major editorial region."
+    },
+    "hierarchy": {
+      "score": 5,
+      "notes": "The flow now reads as nav/search, theatre lead story, section rail, recent article teasers, and newsletter/footer closure."
+    },
+    "typography": {
+      "score": 5,
+      "notes": "System sans and mono labels keep the handoff practical. Uppercase labels have positive tracking and no polished magazine styling was introduced."
+    },
+    "spacing": {
+      "score": 5,
+      "notes": "The redline keeps stable region spacing and preserves the desktop canvas on smaller preview widths instead of squeezing the page."
+    },
+    "interaction": {
+      "score": 5,
+      "notes": "Pin selection syncs active spec rows, aria-pressed, aria-current, and keyboard arrow/Home/End navigation without adding designer controls."
+    },
+    "accessibility": {
+      "score": 5,
+      "notes": "Interactive pins use native buttons, labelled controls, focus-visible outlines, programmatic spec-row focus, reduced-motion handling, and a structured spec list."
+    },
+    "brand": {
+      "score": 5,
+      "notes": "Babas & Brasse content is represented through theatre/books/essays/opinion, byline/date/read-time metadata, newsletter capture, submit-writing path, and editorial section labels."
+    },
+    "anti_ai_feel": {
+      "score": 5,
+      "notes": "Removed generic feature-card language, replaced the decorative gradient placeholder with plain line geometry, and made the recent section read as article teasers rather than a templated card stack."
+    },
+    "state_coverage": {
+      "score": 5,
+      "notes": "The handoff matrix still calls out search loading/no-results and newsletter invalid/success/error states."
+    }
+  }
+}

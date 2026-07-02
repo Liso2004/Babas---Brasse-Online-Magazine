@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annotated Wireframe - Profile and Media Management</title>
+  <link rel="stylesheet" href="wireframe-system.css">
+  <script src="wireframe-system.js" defer></script>
+</head>
+<body>
+  <main class="workspace" aria-label="Annotated redline wireframe for Profile and Media Management">
+    <section class="browser-frame" aria-label="Profile and media management wireframe">
+      <div class="browser-top" aria-hidden="true"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="address">babasandbrasse.co.za/admin/profiles-media</div></div>
+      <div class="wire-page">
+        <header class="region screen-nav" data-od-id="profile-media-nav">
+          <button class="pin pos-nw" type="button" data-target="spec-nav" aria-controls="spec-nav" aria-pressed="true" aria-label="Show spec note 1">&#9312;</button>
+          <div class="mark" aria-hidden="true">B&amp;B Admin</div><div class="nav-lines" aria-hidden="true"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div><div class="search-field" aria-hidden="true">Admin search</div><div class="button-block" aria-hidden="true"></div>
+        </header>
+        <section class="region detail-shell" data-od-id="profile-management">
+          <button class="pin pos-mid" type="button" data-target="spec-profiles" aria-controls="spec-profiles" aria-pressed="false" aria-label="Show spec note 2">&#9313;</button>
+          <div class="panel-card" aria-hidden="true"><div class="label">Contributors</div><div class="table-row cols-4"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="table-row cols-4"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div></div>
+          <div class="panel-card" aria-hidden="true"><div class="label">Creative Team</div><div class="table-row cols-4"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="table-row cols-4"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div></div>
+        </section>
+        <section class="region card-grid" data-od-id="media-library">
+          <button class="pin pos-ne" type="button" data-target="spec-media" aria-controls="spec-media" aria-pressed="false" aria-label="Show spec note 3">&#9314;</button>
+          <article class="media-card" aria-hidden="true"><div class="image-box"><span class="image-label">Image</span></div><div class="label">Alt text</div><div class="line mid"></div></article><article class="media-card" aria-hidden="true"><div class="image-box"><span class="image-label">Photo</span></div><div class="label">Caption</div><div class="line mid"></div></article><article class="media-card" aria-hidden="true"><div class="image-box"><span class="image-label">Artwork</span></div><div class="label">Credit</div><div class="line mid"></div></article>
+        </section>
+        <section class="region form-grid" data-od-id="upload-select">
+          <button class="pin pos-nw" type="button" data-target="spec-upload" aria-controls="spec-upload" aria-pressed="false" aria-label="Show spec note 4">&#9315;</button>
+          <div class="editor-box" aria-hidden="true"><div class="label">Upload/select</div><div class="image-box"><span class="image-label">Dropzone</span></div></div><div class="editor-box" aria-hidden="true"><div class="label">Metadata</div><div class="field">Alt text</div><div class="field">Caption</div><div class="field">Credit</div><div class="select">Category</div></div>
+        </section>
+        <section class="region state-strip" data-od-id="profile-media-states">
+          <button class="pin pos-se" type="button" data-target="spec-states" aria-controls="spec-states" aria-pressed="false" aria-label="Show spec note 5">&#9316;</button>
+          <div class="state-token" aria-hidden="true"><div class="label">Uploading</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">Missing alt</div><div class="line long"></div></div><div class="state-token" aria-hidden="true"><div class="label">Error</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">Empty</div><div class="line short"></div></div>
+        </section>
+      </div>
+    </section>
+    <aside class="spec-panel" data-od-id="annotation-panel" aria-label="Annotations and engineering notes">
+      <div class="spec-header"><div class="spec-kicker">Annotations / Spec</div><h1 class="spec-title">Profile/Media Management</h1><p class="spec-subtitle">Contributor/team management plus media library metadata and upload/select flow.</p></div>
+      <div class="spec-list" role="list">
+        <article class="spec-row is-active" id="spec-nav" data-od-id="profile-media-spec-1" role="listitem" tabindex="-1" aria-current="true"><div class="spec-number">&#9312;</div><p class="spec-copy">Admin nav route groups profiles and media because both feed public profile and article views.</p></article>
+        <article class="spec-row" id="spec-profiles" data-od-id="profile-media-spec-2" role="listitem"><div class="spec-number">&#9313;</div><p class="spec-copy">Contributor and Creative Team management show active/draft status, role, profile completeness, and edit action.</p></article>
+        <article class="spec-row" id="spec-media" data-od-id="profile-media-spec-3" role="listitem"><div class="spec-number">&#9314;</div><p class="spec-copy">Media library card/table shows image, alt text, caption, credit, category, usage, and publish readiness.</p></article>
+        <article class="spec-row" id="spec-upload" data-od-id="profile-media-spec-4" role="listitem"><div class="spec-number">&#9315;</div><p class="spec-copy">Upload/select placeholder must collect alt text, caption, credit, and category before media can be public.</p></article>
+        <article class="spec-row" id="spec-states" data-od-id="profile-media-spec-5" role="listitem"><div class="spec-number">&#9316;</div><p class="spec-copy">Uploading, missing metadata, file error, empty library, and permission states are required.</p></article>
+      </div>
+      <div class="spec-foot">Pin selection is interactive for review.<div class="handoff-grid"><div class="handoff-row"><span class="handoff-label">Responsive</span><span class="handoff-value">Profiles become stacked management rows; media grid moves 3-up to 1-up.</span></div><div class="handoff-row"><span class="handoff-label">A11y</span><span class="handoff-value">Upload dropzone must have keyboard path and labelled file input fallback.</span></div><div class="handoff-row"><span class="handoff-label">State</span><span class="handoff-value">Block publish if media lacks alt text or credit where required.</span></div></div></div>
+    </aside>
+  </main>
+</body>
+</html>

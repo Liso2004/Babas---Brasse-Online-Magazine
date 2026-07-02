@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annotated Wireframe - Mobile Wireframe Comps</title>
+  <link rel="stylesheet" href="wireframe-system.css">
+  <script src="wireframe-system.js" defer></script>
+</head>
+<body>
+  <main class="workspace" aria-label="Annotated redline wireframe for Mobile Wireframe Comps">
+    <section class="browser-frame" aria-label="Mobile Wireframe Comps wireframe">
+      <div class="browser-top" aria-hidden="true"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="address">babasandbrasse.co.za/mobile-wireframes</div></div>
+      <div class="wire-page">
+        <header class="region screen-nav" data-od-id="mobile-nav">
+          <button class="pin pos-nw" type="button" data-target="spec-nav" aria-controls="spec-nav" aria-pressed="true" aria-label="Show spec note 1">&#9312;</button>
+          <div class="mark" aria-hidden="true">B&amp;B</div><div class="search-field" aria-hidden="true">Mobile menu</div><div class="button-block" aria-hidden="true"></div>
+        </header>
+        <section class="region four-col" data-od-id="mobile-public-comps">
+          <button class="pin pos-mid" type="button" data-target="spec-public" aria-controls="spec-public" aria-pressed="false" aria-label="Show spec note 2">&#9313;</button>
+          <div class="panel-card" aria-hidden="true"><div class="label">Home</div><div class="image-box"></div><div class="line mid"></div></div><div class="panel-card" aria-hidden="true"><div class="label">Article</div><div class="line title"></div><div class="line long"></div><div class="line mid"></div></div><div class="panel-card" aria-hidden="true"><div class="label">Search</div><div class="field"></div><div class="chip-row"><div class="chip"></div></div></div><div class="panel-card" aria-hidden="true"><div class="label">Contact</div><div class="field"></div><div class="textarea"></div></div>
+        </section>
+        <section class="region four-col" data-od-id="mobile-admin-comps">
+          <button class="pin pos-ne" type="button" data-target="spec-admin" aria-controls="spec-admin" aria-pressed="false" aria-label="Show spec note 3">&#9314;</button>
+          <div class="panel-card" aria-hidden="true"><div class="label">Dashboard</div><div class="metric"></div><div class="line mid"></div></div><div class="panel-card" aria-hidden="true"><div class="label">Editor</div><div class="field"></div><div class="textarea"></div></div><div class="panel-card" aria-hidden="true"><div class="label">Moderate</div><div class="table-row cols-4"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div></div><div class="panel-card" aria-hidden="true"><div class="label">Inbox</div><div class="line long"></div><div class="line mid"></div></div>
+        </section>
+        <section class="region state-strip" data-od-id="mobile-breakpoints">
+          <button class="pin pos-nw" type="button" data-target="spec-breakpoints" aria-controls="spec-breakpoints" aria-pressed="false" aria-label="Show spec note 4">&#9315;</button>
+          <div class="state-token" aria-hidden="true"><div class="label">360</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">390</div><div class="line long"></div></div><div class="state-token" aria-hidden="true"><div class="label">430</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">Tablet</div><div class="line short"></div></div>
+        </section>
+        <section class="region two-col" data-od-id="mobile-a11y">
+          <button class="pin pos-se" type="button" data-target="spec-a11y" aria-controls="spec-a11y" aria-pressed="false" aria-label="Show spec note 5">&#9316;</button>
+          <div class="card" aria-hidden="true"><div class="label">Touch targets</div><div class="line long"></div><div class="line mid"></div></div><div class="card" aria-hidden="true"><div class="label">No overlap</div><div class="line long"></div><div class="line short"></div></div>
+        </section>
+      </div>
+    </section>
+    <aside class="spec-panel" data-od-id="annotation-panel" aria-label="Annotations and engineering notes">
+      <div class="spec-header" data-od-id="support-spec-header"><div class="spec-kicker">Annotations / Spec</div><h1 class="spec-title">Mobile Wireframe Comps wireframe</h1><p class="spec-subtitle">Mobile-only public and admin layout comps for responsive implementation handoff.</p></div>
+      <div class="spec-list" role="list">
+        <article class="spec-row is-active" id="spec-nav" data-od-id="mobile-spec-1" role="listitem" tabindex="-1" aria-current="true"><div class="spec-number">&#9312;</div><p class="spec-copy">Mobile nav comp defines compressed B&B mark, menu/search behavior, and minimum touch target expectations.</p></article>
+        <article class="spec-row" id="spec-public" data-od-id="mobile-spec-2" role="listitem"><div class="spec-number">&#9313;</div><p class="spec-copy">Public mobile comps cover Home, Article, Search, and Contact stacking order.</p></article>
+        <article class="spec-row" id="spec-admin" data-od-id="mobile-spec-3" role="listitem"><div class="spec-number">&#9314;</div><p class="spec-copy">Admin mobile comps keep dense tools usable as stacked panels, with actions near the relevant record.</p></article>
+        <article class="spec-row" id="spec-breakpoints" data-od-id="mobile-spec-4" role="listitem"><div class="spec-number">&#9315;</div><p class="spec-copy">Breakpoints cover 360, 390, 430, and tablet widths with one-column public content and simplified admin tables.</p></article>
+        <article class="spec-row" id="spec-a11y" data-od-id="mobile-spec-5" role="listitem"><div class="spec-number">&#9316;</div><p class="spec-copy">A11y handoff: touch targets, no text overlap, visible focus, readable type, and stable controls.</p></article>
+      </div>
+      <div class="spec-foot" data-od-id="support-handoff">Pin selection is interactive for review.<div class="handoff-grid"><div class="handoff-row"><span class="handoff-label">Mobile</span><span class="handoff-value">Use before frontend polish and Playwright viewport checks.</span></div></div></div>
+    </aside>
+  </main>
+</body>
+</html>
+

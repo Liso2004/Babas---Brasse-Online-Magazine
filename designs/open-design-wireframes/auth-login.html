@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annotated Wireframe - Admin Login</title>
+  <link rel="stylesheet" href="wireframe-system.css">
+  <script src="wireframe-system.js" defer></script>
+</head>
+<body>
+  <main class="workspace" aria-label="Annotated redline wireframe for Admin Login">
+    <section class="browser-frame" aria-label="Admin Login wireframe">
+      <div class="browser-top" aria-hidden="true"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="address">babasandbrasse.co.za/admin/login</div></div>
+      <div class="wire-page">
+        <header class="region screen-nav" data-od-id="login-nav">
+          <button class="pin pos-nw" type="button" data-target="spec-nav" aria-controls="spec-nav" aria-pressed="true" aria-label="Show spec note 1">&#9312;</button>
+          <div class="mark" aria-hidden="true">B&amp;B Admin</div><div class="nav-lines" aria-hidden="true"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div><div class="search-field" aria-hidden="true">Secure sign in</div><div class="button-block" aria-hidden="true"></div>
+        </header>
+        <section class="region hero-split" data-od-id="login-form-shell">
+          <button class="pin pos-mid" type="button" data-target="spec-form" aria-controls="spec-form" aria-pressed="false" aria-label="Show spec note 2">&#9313;</button>
+          <div class="stack" aria-hidden="true"><div class="label">Editor login</div><div class="field">Email</div><div class="field">Password</div><div class="button-block"></div><div class="line mid"></div></div>
+          <div class="panel-card" aria-hidden="true"><div class="label">Access copy</div><div class="line long"></div><div class="line mid"></div><div class="line short"></div></div>
+        </section>
+        <section class="region state-strip" data-od-id="login-states">
+          <button class="pin pos-ne" type="button" data-target="spec-states" aria-controls="spec-states" aria-pressed="false" aria-label="Show spec note 3">&#9314;</button>
+          <div class="state-token" aria-hidden="true"><div class="label">Invalid</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">Locked</div><div class="line long"></div></div><div class="state-token" aria-hidden="true"><div class="label">Loading</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">Redirect</div><div class="line short"></div></div>
+        </section>
+        <section class="region two-col" data-od-id="login-recovery-links">
+          <button class="pin pos-nw" type="button" data-target="spec-recovery" aria-controls="spec-recovery" aria-pressed="false" aria-label="Show spec note 4">&#9315;</button>
+          <div class="card" aria-hidden="true"><div class="label">Forgot password</div><div class="line long"></div><div class="button-block"></div></div><div class="card" aria-hidden="true"><div class="label">Return public</div><div class="line mid"></div><div class="button-block"></div></div>
+        </section>
+        <section class="region state-strip" data-od-id="login-security">
+          <button class="pin pos-se" type="button" data-target="spec-security" aria-controls="spec-security" aria-pressed="false" aria-label="Show spec note 5">&#9316;</button>
+          <div class="state-token" aria-hidden="true"><div class="label">Role check</div><div class="line long"></div></div><div class="state-token" aria-hidden="true"><div class="label">Session</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">CSRF</div><div class="line short"></div></div><div class="state-token" aria-hidden="true"><div class="label">Audit</div><div class="line mid"></div></div>
+        </section>
+      </div>
+    </section>
+    <aside class="spec-panel" data-od-id="annotation-panel" aria-label="Annotations and engineering notes">
+      <div class="spec-header" data-od-id="support-spec-header"><div class="spec-kicker">Annotations / Spec</div><h1 class="spec-title">Admin Login wireframe</h1><p class="spec-subtitle">Admin authentication, recovery path, role gate, and security states.</p></div>
+      <div class="spec-list" role="list">
+        <article class="spec-row is-active" id="spec-nav" data-od-id="login-spec-1" role="listitem" tabindex="-1" aria-current="true"><div class="spec-number">&#9312;</div><p class="spec-copy">Login is an admin support route, separate from public navigation and clearly branded as B&amp;B Admin.</p></article>
+        <article class="spec-row" id="spec-form" data-od-id="login-spec-2" role="listitem"><div class="spec-number">&#9313;</div><p class="spec-copy">Form requires email, password, submit button, labelled fields, visible errors, and disabled state while pending.</p></article>
+        <article class="spec-row" id="spec-states" data-od-id="login-spec-3" role="listitem"><div class="spec-number">&#9314;</div><p class="spec-copy">States cover invalid credentials, locked account, loading, and successful redirect to admin dashboard.</p></article>
+        <article class="spec-row" id="spec-recovery" data-od-id="login-spec-4" role="listitem"><div class="spec-number">&#9315;</div><p class="spec-copy">Recovery links include forgot password and return-to-public-site paths without exposing admin internals.</p></article>
+        <article class="spec-row" id="spec-security" data-od-id="login-spec-5" role="listitem"><div class="spec-number">&#9316;</div><p class="spec-copy">Security handoff: role check after auth, session expiry, CSRF protection, and audit logging for admin access.</p></article>
+      </div>
+      <div class="spec-foot" data-od-id="support-handoff">Pin selection is interactive for review.<div class="handoff-grid"><div class="handoff-row"><span class="handoff-label">Route</span><span class="handoff-value">/admin/login</span></div><div class="handoff-row"><span class="handoff-label">A11y</span><span class="handoff-value">Labels, error summary, focus on first invalid field.</span></div><div class="handoff-row"><span class="handoff-label">Security</span><span class="handoff-value">Never reveal whether email exists.</span></div></div></div>
+    </aside>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<section data-page="mobile-wireframe-comps" data-route="/mobile-wireframes" data-area="support" data-generated="mobile-wireframe-comps-renderer" data-wireframe-source="mobile-wireframes.html" data-responsive="mobile-first-support-handoff">
+  <header data-section="mobile-nav" data-nav-behavior="compressed-mark-menu-search">
+    <a class="brand-mark" href="/" aria-label="Babas and Brasse home">B&amp;B</a>
+    <button type="button" data-action="open-mobile-menu" aria-expanded="false">Menu</button>
+    <label>Search <input name="mobile-search" type="search" placeholder="Search"></label>
+    <p>Compressed B&amp;B mark, mobile menu, and search behavior are preserved from the Open Design comp.</p>
+  </header>
+
+  <header data-section="mobile-wireframe-intro">
+    <p class="eyebrow">Mobile Wireframe Comps</p>
+    <h1>Responsive handoff for public and admin screens.</h1>
+    <p>Mobile-only implementation contract for compressed navigation, stacked reader screens, admin card rows, breakpoints, and accessibility checks.</p>
+  </header>
+
+  <section data-section="mobile-public-comps" aria-label="Public mobile wireframe comps">
+    <h2>Public mobile comps</h2>
+    <article data-mobile-comp="home" data-route="/" data-stack-order="hero-rail-teasers-newsletter">
+      <h3>Home</h3>
+      <p>Hero image, section rail, recent teasers, and newsletter stack in one column.</p>
+    </article>
+    <article data-mobile-comp="article" data-route="/visceral-mag/send-a-text-before-you-knock" data-stack-order="metadata-title-body-related-comments">
+      <h3>Article</h3>
+      <p>Metadata, title, body, related links, comments, and reviews stay readable.</p>
+    </article>
+    <article data-mobile-comp="search" data-route="/search" data-stack-order="search-field-filter-chips-results">
+      <h3>Search</h3>
+      <p>Search input, category chips, reset, and results avoid horizontal overflow.</p>
+    </article>
+    <article data-mobile-comp="contact" data-route="/contact" data-stack-order="intro-form-validation-footer">
+      <h3>Contact</h3>
+      <p>Intro, form controls, validation states, and footer stack with clear spacing.</p>
+    </article>
+  </section>
+
+  <section data-section="mobile-admin-comps" aria-label="Admin mobile wireframe comps">
+    <h2>Admin mobile comps</h2>
+    <span data-mobile-admin-rule="stacked-panels">stacked-panels</span>
+    <span data-mobile-admin-rule="actions-near-record">actions-near-record</span>
+    <span data-mobile-admin-rule="simplified-tables">simplified-tables</span>
+    <article data-mobile-comp="dashboard" data-route="/admin" data-mobile-admin-rule-ref="stacked-panels">
+      <h3>Dashboard</h3>
+      <p>Metrics, activity, and quick actions become stacked panels.</p>
+    </article>
+    <article data-mobile-comp="editor" data-route="/admin/articles/editor-workflow" data-mobile-admin-rule-ref="actions-near-record">
+      <h3>Editor</h3>
+      <p>Editor actions stay close to the active article or workflow section.</p>
+    </article>
+    <article data-mobile-comp="moderate" data-route="/admin/moderation" data-mobile-admin-rule-ref="simplified-tables">
+      <h3>Moderate</h3>
+      <p>Moderation queues collapse into card rows with local approve/reject actions.</p>
+    </article>
+    <article data-mobile-comp="inbox" data-route="/admin/contact-submissions" data-mobile-admin-rule-ref="actions-near-record">
+      <h3>Inbox</h3>
+      <p>Submission detail and status actions remain reachable under each record.</p>
+    </article>
+  </section>
+
+  <section data-section="mobile-breakpoints" aria-label="Mobile breakpoint handoff">
+    <h2>Breakpoints</h2>
+    <article data-breakpoint="360" data-layout-rule="one-column-public">
+      <strong>360px</strong>
+      <p>Small phone</p>
+    </article>
+    <article data-breakpoint="390" data-layout-rule="one-column-public">
+      <strong>390px</strong>
+      <p>Standard phone</p>
+    </article>
+    <article data-breakpoint="430" data-layout-rule="one-column-public">
+      <strong>430px</strong>
+      <p>Large phone</p>
+    </article>
+    <article data-breakpoint="768" data-layout-rule="admin-card-rows">
+      <strong>768px</strong>
+      <p>Tablet</p>
+    </article>
+  </section>
+
+  <section data-section="mobile-a11y" data-min-touch-target="44" aria-label="Mobile accessibility handoff">
+    <h2>Accessibility handoff</h2>
+    <article data-a11y-check="touch-targets">
+      <h3>Touch targets</h3>
+      <p>Interactive controls keep at least 44px target sizing.</p>
+    </article>
+    <article data-a11y-check="no-overlap">
+      <h3>No overlap</h3>
+      <p>Text, chips, buttons, and form labels do not collide.</p>
+    </article>
+    <article data-a11y-check="visible-focus">
+      <h3>Visible focus</h3>
+      <p>Keyboard focus remains visible for menu, search, chips, and forms.</p>
+    </article>
+    <article data-a11y-check="readable-type">
+      <h3>Readable type</h3>
+      <p>Mobile text uses readable scale without viewport-width font hacks.</p>
+    </article>
+    <article data-a11y-check="stable-controls">
+      <h3>Stable controls</h3>
+      <p>Buttons, rows, filters, and cards keep stable dimensions across states.</p>
+    </article>
+  </section>
+</section>

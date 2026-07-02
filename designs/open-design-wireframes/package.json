@@ -1,0 +1,12 @@
+{
+  "name": "babas-brasse-wireframe-annotated",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Open Design wireframes for the Babas & Brasse online magazine MVP.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node scripts/validate-wireframes.js",
+    "verify": "node scripts/validate-wireframes.js",
+    "preview": "python -m http.server 4173"
+  }
+}

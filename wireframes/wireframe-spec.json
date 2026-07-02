@@ -1,0 +1,105 @@
+{
+  "project": "Babas & Brasse Online Magazine MVP",
+  "launchDeadline": "2026-07-31",
+  "format": "single-page-low-fidelity-wireframe",
+  "publicScreens": [
+    {
+      "id": "home",
+      "label": "Home",
+      "route": "/",
+      "purpose": "Introduce the magazine and route readers to lead stories, latest articles, categories, media, and people."
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "route": "/about",
+      "purpose": "Explain mission, vision, and organizational overview."
+    },
+    {
+      "id": "creative-team",
+      "label": "Creative Team",
+      "route": "/creative-team",
+      "purpose": "Show the core team with roles, bios, images, and social links."
+    },
+    {
+      "id": "contributors",
+      "label": "Contributors",
+      "route": "/contributors",
+      "purpose": "Show contributor profiles and connect readers to published works."
+    },
+    {
+      "id": "visceral-mag",
+      "label": "Visceral Mag / Articles",
+      "route": "/visceral-mag",
+      "purpose": "Provide the main article archive, category entry points, and latest editorial content."
+    },
+    {
+      "id": "article-detail",
+      "label": "Article Detail",
+      "route": "/visceral-mag/send-a-text-before-you-knock",
+      "purpose": "Provide a focused reading page with metadata, rich content, related articles, comments, and reviews."
+    },
+    {
+      "id": "categories-search",
+      "label": "Categories / Search",
+      "route": "/search",
+      "purpose": "Help readers browse by category and search by keyword."
+    },
+    {
+      "id": "featured-media",
+      "label": "Featured / Media",
+      "route": "/featured",
+      "purpose": "Show photography, artwork, media stories, captions, credits, and alt text."
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "route": "/contact",
+      "purpose": "Capture reader, contributor, and business inquiries."
+    }
+  ],
+  "adminScreens": [
+    {
+      "id": "admin-dashboard",
+      "label": "Admin Dashboard",
+      "route": "/admin",
+      "purpose": "Show publishing health, pending work, recent activity, and fast actions."
+    },
+    {
+      "id": "article-management",
+      "label": "Article Management",
+      "route": "/admin/articles",
+      "purpose": "Create, edit, draft, publish, delete, and manage SEO for articles."
+    },
+    {
+      "id": "profile-media-management",
+      "label": "Profile / Media Management",
+      "route": "/admin/profiles-media",
+      "purpose": "Manage contributors, creative team profiles, and media library metadata."
+    },
+    {
+      "id": "comments-reviews-moderation",
+      "label": "Comments / Reviews Moderation",
+      "route": "/admin/moderation",
+      "purpose": "Approve, reject, delete, search, and filter comments and reviews."
+    },
+    {
+      "id": "contact-submissions",
+      "label": "Contact Submissions",
+      "route": "/admin/contact-submissions",
+      "purpose": "Review and manage contact form submissions."
+    }
+  ],
+  "requiredStates": [
+    "loading",
+    "empty",
+    "success",
+    "error",
+    "draft",
+    "published",
+    "pending",
+    "approved",
+    "rejected",
+    "archived"
+  ]
+}

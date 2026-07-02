@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annotated Wireframe - Visceral Mag Archive</title>
+  <link rel="stylesheet" href="wireframe-system.css">
+  <script src="wireframe-system.js" defer></script>
+</head>
+<body>
+  <main class="workspace" aria-label="Annotated redline wireframe for the article archive route">
+    <section class="browser-frame" aria-label="Article archive wireframe">
+      <div class="browser-top" aria-hidden="true"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="address">babasandbrasse.co.za/visceral-mag</div></div>
+      <div class="wire-page">
+        <header class="region screen-nav" data-od-id="archive-nav">
+          <button class="pin pos-nw" type="button" data-target="spec-nav" aria-controls="spec-nav" aria-pressed="true" aria-label="Show spec note 1">&#9312;</button>
+          <div class="mark" aria-hidden="true">B&amp;B</div><div class="nav-lines" aria-hidden="true"><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div></div><div class="search-field" aria-hidden="true">Search articles</div><div class="button-block" aria-hidden="true"></div>
+        </header>
+        <section class="region toolbar" data-od-id="archive-filters">
+          <button class="pin pos-mid" type="button" data-target="spec-filters" aria-controls="spec-filters" aria-pressed="false" aria-label="Show spec note 2">&#9313;</button>
+          <div class="search-field" aria-hidden="true">Search archive</div><div class="chip-row" aria-hidden="true"><div class="chip">All</div><div class="chip">Theatre</div><div class="chip">Books</div><div class="chip">Essays</div><div class="chip">Opinion</div></div><div class="button-block" aria-hidden="true"></div>
+        </section>
+        <section class="region card-grid" data-od-id="archive-cards">
+          <button class="pin pos-ne" type="button" data-target="spec-cards" aria-controls="spec-cards" aria-pressed="false" aria-label="Show spec note 3">&#9314;</button>
+          <article class="article-card" aria-hidden="true"><div class="label">Theatre</div><div class="line title long"></div><div class="line mid"></div><div class="meta-row"><span></span><span></span><span></span></div></article>
+          <article class="article-card" aria-hidden="true"><div class="label">Books</div><div class="line title long"></div><div class="line mid"></div><div class="meta-row"><span></span><span></span><span></span></div></article>
+          <article class="article-card" aria-hidden="true"><div class="label">Opinion</div><div class="line title long"></div><div class="line mid"></div><div class="meta-row"><span></span><span></span><span></span></div></article>
+        </section>
+        <section class="region state-strip" data-od-id="archive-states">
+          <button class="pin pos-nw" type="button" data-target="spec-states" aria-controls="spec-states" aria-pressed="false" aria-label="Show spec note 4">&#9315;</button>
+          <div class="state-token" aria-hidden="true"><div class="label">Loading</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">No results</div><div class="line long"></div></div><div class="state-token" aria-hidden="true"><div class="label">Error</div><div class="line mid"></div></div><div class="state-token" aria-hidden="true"><div class="label">Reset</div><div class="line short"></div></div>
+        </section>
+        <section class="region table" data-od-id="archive-pagination">
+          <button class="pin pos-se" type="button" data-target="spec-pagination" aria-controls="spec-pagination" aria-pressed="false" aria-label="Show spec note 5">&#9316;</button>
+          <div class="table-row cols-4" aria-hidden="true"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+        </section>
+      </div>
+    </section>
+    <aside class="spec-panel" data-od-id="annotation-panel" aria-label="Annotations and engineering notes">
+      <div class="spec-header"><div class="spec-kicker">Annotations / Spec</div><h1 class="spec-title">Visceral Mag archive</h1><p class="spec-subtitle">Public published-only article listing with filters, search, and metadata.</p></div>
+      <div class="spec-list" role="list">
+        <article class="spec-row is-active" id="spec-nav" data-od-id="archive-spec-1" role="listitem" tabindex="-1" aria-current="true"><div class="spec-number">&#9312;</div><p class="spec-copy">Archive sits under public nav and should not expose admin-only draft or moderation affordances.</p></article>
+        <article class="spec-row" id="spec-filters" data-od-id="archive-spec-2" role="listitem"><div class="spec-number">&#9313;</div><p class="spec-copy">Search input plus category chips; active chip uses aria-pressed and preserves query in URL params.</p></article>
+        <article class="spec-row" id="spec-cards" data-od-id="archive-spec-3" role="listitem"><div class="spec-number">&#9314;</div><p class="spec-copy">Published article cards include category, title, dek, author, date, and read time.</p></article>
+        <article class="spec-row" id="spec-states" data-od-id="archive-spec-4" role="listitem"><div class="spec-number">&#9315;</div><p class="spec-copy">Include loading skeleton, no-results copy, fetch error, and reset action for search/filter combinations.</p></article>
+        <article class="spec-row" id="spec-pagination" data-od-id="archive-spec-5" role="listitem"><div class="spec-number">&#9316;</div><p class="spec-copy">Use pagination or load-more with announced result counts; mobile keeps filters above first result.</p></article>
+      </div>
+      <div class="spec-foot">Pin selection is interactive for review.<div class="handoff-grid"><div class="handoff-row"><span class="handoff-label">Content</span><span class="handoff-value">Query only published articles; exclude drafts, archived posts, and rejected submissions.</span></div><div class="handoff-row"><span class="handoff-label">Responsive</span><span class="handoff-value">Desktop 3-up cards; tablet 2-up; mobile list with metadata below title.</span></div><div class="handoff-row"><span class="handoff-label">A11y</span><span class="handoff-value">Search label, result count live region, keyboard-operable chips.</span></div></div></div>
+    </aside>
+  </main>
+</body>
+</html>

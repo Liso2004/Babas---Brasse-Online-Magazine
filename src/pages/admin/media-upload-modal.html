@@ -1,0 +1,95 @@
+<section data-page="media-upload-modal" data-route="/admin/media/upload" data-area="admin" data-generated="admin-workflow-support-renderer" data-wireframe-source="media-upload-modal.html" data-auth-required="editor" data-responsive="modal-desktop mobile-fullscreen">
+  <nav data-section="admin-nav" aria-label="Admin navigation">
+    <a class="brand-mark" href="/admin">B&amp;B Admin</a>
+    <div class="admin-links">
+      <a href="/admin">Dashboard</a>
+      <a href="/admin/articles">Articles</a>
+      <a href="/admin/profiles-media" aria-current="page">Profiles / Media</a>
+      <a href="/admin/moderation">Moderation</a>
+      <a href="/admin/contact-submissions">Contact</a>
+    </div>
+    <label>Admin search <input name="admin-q" type="search" placeholder="Admin search"></label>
+    <a href="/admin/login">Editor access</a>
+  </nav>
+
+  <section data-section="media-upload-modal" role="dialog" aria-modal="true" aria-labelledby="media-upload-title" data-modal-focus-trap="true" data-keyboard-close="Escape" data-focus-return="media-upload-launcher">
+    <header data-section="media-upload-intro">
+      <p class="eyebrow">Media Upload Modal</p>
+      <h1 id="media-upload-title">Upload media with publish-ready metadata.</h1>
+      <p>Admin subflow launched from Profile / Media Management or the article editor.</p>
+    </header>
+
+    <form data-form="media-upload-modal" action="/admin/media/upload" method="post" enctype="multipart/form-data">
+      <section data-section="media-dropzone" data-dropzone="media-upload" tabindex="0" role="button" aria-describedby="upload-file-help">
+        <h2>Drop zone</h2>
+        <p id="upload-file-help">Drop an image, photo, or artwork file here, or use the keyboard file input below.</p>
+      </section>
+
+      <section data-section="media-preview" aria-live="polite">
+        <h2>File preview</h2>
+        <figure data-preview="selected-media">
+          <img src="/media/opening-banner-placeholder.jpg" alt="Preview placeholder for selected upload">
+          <figcaption>Preview updates after file selection.</figcaption>
+        </figure>
+      </section>
+
+      <section data-section="media-upload-fields">
+        <h2>Required metadata</h2>
+        <label for="upload-file">File</label>
+      <input id="upload-file" name="file" type="file" accept="image/*" required>
+        <label for="upload-title">Title</label>
+      <input id="upload-title" name="title" required>
+        <label for="upload-alt-text">Alt text</label>
+      <input id="upload-alt-text" name="alt-text" required>
+        <label for="upload-caption">Caption</label>
+      <textarea id="upload-caption" name="caption" required></textarea>
+        <label for="upload-credit">Credit</label>
+      <input id="upload-credit" name="credit" required>
+        <label for="upload-category">Category</label>
+      <select id="upload-category" name="categoryId" required>
+        <option value="essays">Essays</option>
+        <option value="reviews">Reviews</option>
+        <option value="interviews">Interviews</option>
+        <option value="artwork">Artwork</option>
+      </select>
+        <label for="upload-usage">Usage</label>
+      <select id="upload-usage" name="usage" required>
+        <option value="hero">Hero image</option>
+        <option value="article-inline">Article inline</option>
+        <option value="gallery">Featured / Media gallery</option>
+        <option value="profile">Profile portrait</option>
+      </select>
+        <label for="upload-publish-readiness">Publish readiness</label>
+      <select id="upload-publish-readiness" name="publishReadiness" required>
+        <option value="draft-metadata">Draft metadata</option>
+        <option value="ready">Ready for public use</option>
+        <option value="needs-review">Needs rights review</option>
+      </select>
+        <label for="upload-article-link">Article link</label>
+      <select id="upload-article-link" name="articleId">
+        <option value="">No article yet</option>
+        <option value="send-a-text-before-you-knock">Send A Text Before You Knock</option>
+        <option value="culture-review-placeholder">Culture Review Placeholder</option>
+        <option value="artist-interview-placeholder">Artist Interview Placeholder</option>
+      </select>
+        <label for="upload-rights-note">Rights note</label>
+      <textarea id="upload-rights-note" name="rights-note" required></textarea>
+      </section>
+
+      <section data-section="media-upload-states">
+        <h2>Upload states</h2>
+        <article data-state-note="media-uploading">Uploading keeps the dialog open and announces progress.</article>
+        <article data-state-note="media-missing-alt-text">Missing alt text blocks insert until the accessibility field is complete.</article>
+        <article data-state-note="media-invalid-file">Invalid file explains accepted image type and size requirements.</article>
+        <article data-state-note="media-upload-failure">Upload failure preserves entered metadata and offers retry.</article>
+        <article data-state-note="media-upload-success">Success inserts the media or saves draft metadata.</article>
+      </section>
+
+      <footer data-section="media-upload-actions">
+        <button type="button" data-action="save-draft-metadata">Save draft metadata</button>
+        <button type="submit" data-action="insert-media">Insert media</button>
+        <button type="button" data-action="cancel-upload">Cancel</button>
+      </footer>
+    </form>
+  </section>
+</section>
