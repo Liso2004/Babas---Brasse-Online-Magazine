@@ -1,4 +1,4 @@
-﻿# Plan Status
+# Plan Status
 
 Date: June 30, 2026
 
@@ -438,3 +438,135 @@ Roadmap refresh verification:
 
 - Focused roadmap/sprint docs test is green.
 - Full suite is green at 161 passing tests, 0 failing tests.
+
+## Sprint 1 App Shell Boundary - July 5, 2026
+
+Completed:
+
+- Added `docs/PRODUCTION_APP_BOUNDARY.md` documenting `apps/web` as the production React app boundary.
+- Added focused app-shell contract tests in `tests/production-app-shell.test.js` and registered `test:app-shell`.
+- Created the dependency-light React-ready scaffold under `apps/web` without installing packages.
+- Added route registry coverage for all 22 public, admin, and support paths.
+- Added public and admin layout shells with navigation, skip links, and auth-required handoff metadata.
+- Updated roadmap, sprint plan, and coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue Sprint 1 by adding route smoke/component tests around the `apps/web` shell, then install dependencies only after approval.
+
+## Sprint 1 Route Smoke Gate - July 5, 2026
+
+Completed:
+
+- Added `tests/production-route-smoke.test.js` and registered `test:route-smoke`.
+- Added dependency-free route smoke records in `apps/web/src/routeSmoke.js`.
+- Updated `apps/web/src/routes.js` so dynamic article paths resolve through the shell before a router dependency is installed.
+- Updated app handoff docs and coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Add the first migrated public React route/component contract inside `apps/web`, then install dependencies only after approval.
+
+## Sprint 2 Home Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-home-route.test.js` and registered `test:production-home`.
+- Added `apps/web/src/pages/homeRouteModel.js` to preserve the Home prototype acceptance contract without React dependencies.
+- Added `apps/web/src/pages/HomePage.jsx` and wired the Home route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue public route migration with About or Visceral Mag, then install frontend dependencies only after approval.
+
+## Sprint 2 About Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-about-route.test.js` and registered `test:production-about`.
+- Added `apps/web/src/pages/aboutRouteModel.js` to preserve the About prototype acceptance contract without React dependencies.
+- Added `apps/web/src/pages/AboutPage.jsx` and wired the About route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue public route migration with Visceral Mag or Creative Team, then install frontend dependencies only after approval.
+
+## Sprint 2 Visceral Mag Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-visceral-mag-route.test.js` and registered `test:production-visceral-mag`.
+- Added `apps/web/src/pages/visceralMagRouteModel.js` to preserve the public article archive contract without React dependencies.
+- Added `apps/web/src/pages/VisceralMagPage.jsx` and wired the Visceral Mag route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue public route migration with Article Detail or Categories/Search, then install frontend dependencies only after approval.
+
+## Sprint 2 Article Detail Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-article-detail-route.test.js` and registered `test:production-article-detail`.
+- Added `apps/web/src/pages/articleDetailRouteModel.js` to preserve the public reading page contract without React dependencies.
+- Added `apps/web/src/pages/ArticleDetailPage.jsx` and wired the dynamic article detail route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue public route migration with Categories/Search or Featured/Media, then install frontend dependencies only after approval.
+
+## Sprint 2 Categories/Search Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-categories-search-route.test.js` and registered `test:production-categories-search`.
+- Added `apps/web/src/pages/categoriesSearchRouteModel.js` to preserve the public discovery/filtering contract without React dependencies.
+- Added `apps/web/src/pages/CategoriesSearchPage.jsx` and wired the Search route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue public route migration with Featured/Media or Creative Team, then install frontend dependencies only after approval.
+
+## Sprint 2 Featured/Media Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-featured-media-route.test.js` and registered `test:production-featured-media`.
+- Added `apps/web/src/pages/featuredMediaRouteModel.js` to preserve the public media/gallery contract without React dependencies.
+- Added `apps/web/src/pages/FeaturedMediaPage.jsx` and wired the Featured route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue public route migration with Creative Team, Contributors, or Contact, then install frontend dependencies only after approval.
+
+## Sprint 2 Creative Team Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-creative-team-route.test.js` and registered `test:production-creative-team`.
+- Added `apps/web/src/pages/creativeTeamRouteModel.js` to preserve the public creative team profile contract without React dependencies.
+- Added `apps/web/src/pages/CreativeTeamPage.jsx` and wired the Creative Team route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Continue public route migration with Contributors or Contact, then install frontend dependencies only after approval.
+
+## Sprint 2 Contributors Route Migration - July 5, 2026
+
+Completed:
+
+- Added `tests/production-contributors-route.test.js` and registered `test:production-contributors`.
+- Added `apps/web/src/pages/contributorsRouteModel.js` to preserve the public contributor discovery contract without React dependencies.
+- Added `apps/web/src/pages/ContributorsPage.jsx` and wired the Contributors route through `AppShell`.
+- Updated coverage baseline to 214 passing tests.
+
+Next active slice:
+
+- Finish public route migration with Contact, then install frontend dependencies only after approval.

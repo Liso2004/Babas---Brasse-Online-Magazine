@@ -1,4 +1,4 @@
-﻿{
+{
     "name":  "babas-brasse-magazine",
     "version":  "0.1.0",
     "private":  true,
@@ -32,6 +32,16 @@
                     "test:mobile-wireframes":  "node tests/mobile-wireframe-comps.test.js",
                     "test:frontend-plan":  "node tests/frontend-app-integration-plan.test.js",
                     "preview:mvp":  "node scripts/preview-mvp.js",
-                    "test:roadmap-sprints":  "node tests/roadmap-sprint-docs.test.js"
+                    "test:roadmap-sprints":  "node tests/roadmap-sprint-docs.test.js",
+                    "test:app-shell":  "node tests/production-app-shell.test.js",
+                    "test:route-smoke":  "node tests/production-route-smoke.test.js",
+                    "test:production-home":  "node tests/production-home-route.test.js",
+                    "test:production-about":  "node tests/production-about-route.test.js",
+                    "test:production-visceral-mag":  "node tests/production-visceral-mag-route.test.js",
+                    "test:production-article-detail":  "node tests/production-article-detail-route.test.js",
+                    "test:production-categories-search":  "node tests/production-categories-search-route.test.js",
+                    "test:production-featured-media":  "node tests/production-featured-media-route.test.js",
+                    "test:production-creative-team":  "node tests/production-creative-team-route.test.js",
+                    "test:production-contributors":  "node tests/production-contributors-route.test.js"
                 }
 }

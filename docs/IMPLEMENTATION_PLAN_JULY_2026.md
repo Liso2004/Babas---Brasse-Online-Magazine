@@ -1,10 +1,10 @@
-﻿# Babas & Brasse MVP Implementation Roadmap
+# Babas & Brasse MVP Implementation Roadmap
 
 Date: July 2, 2026
 Launch deadline: July 31, 2026
 Current design source: complete Open Design wireframe handoff in `designs/open-design-wireframes/`
 Current prototype source: generated route artifacts in `src/pages/`
-Current verification: 156 passing tests before the roadmap refresh, with all core and support wireframe contracts green.
+Current verification: 214 passing tests after the Sprint 1 app shell and route smoke slice, with all core/support wireframe contracts and the React-ready app shell contract green.
 
 ## Current MVP Status
 
@@ -20,6 +20,7 @@ Completed as of July 2, 2026:
 - The local MVP preview runs with `npm.cmd run preview:mvp`.
 - Preview route index: `http://localhost:4173/__routes`.
 - Frontend app integration planning is documented in `docs/FRONTEND_APP_INTEGRATION_PLAN.md`.
+- Production app boundary is documented in `docs/PRODUCTION_APP_BOUNDARY.md` and scaffolded at `apps/web`.
 
 This is still not the final production app. It is the tested implementation contract for building the production React app quickly and safely.
 
@@ -190,3 +191,13 @@ Exit criteria:
 - Advanced analytics dashboards.
 - Native mobile app.
 - Large multimedia expansion.
+
+
+
+
+
+
+
+
+
+

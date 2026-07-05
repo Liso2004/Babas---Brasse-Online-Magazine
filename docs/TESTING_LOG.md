@@ -1048,3 +1048,268 @@ Roadmap and Sprint Plan refresh green result:
 - Result: passed.
 - Tests: 161 passed, 0 failed.
 - Covered: updated roadmap, compressed sprint plan, completed prototype scaffold handoff, Open Design local handoff status, production React boundary, and current coverage baseline.
+
+Sprint 1 App Shell Boundary red setup:
+
+- Added `tests/production-app-shell.test.js`.
+- Updated `tests/run-tests.js`.
+- Updated `package.json` with `test:app-shell`.
+- Expected next result: failing app-shell tests because `docs/PRODUCTION_APP_BOUNDARY.md` and `apps/web` did not exist yet.
+
+Sprint 1 App Shell Boundary red result:
+
+- Command: `node tests\production-app-shell.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 5 failed.
+- Failure reason: production boundary doc, app shell scaffold, route registry, layouts, and app handoff docs were missing.
+
+Sprint 1 App Shell Boundary implementation attempt:
+
+- Added `docs/PRODUCTION_APP_BOUNDARY.md`.
+- Added `apps/web/package.json`, `index.html`, `src/main.jsx`, `src/App.jsx`, `src/routes.js`, layout shells, styles, and README.
+- Kept this slice dependency-light with no dependency install.
+
+Sprint 1 App Shell Boundary green result:
+
+- Command: `node tests\production-app-shell.test.js`
+- Result: passed.
+- Tests: 5 passed, 0 failed.
+Sprint 1 App Shell Boundary full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 166 passed, 0 failed.
+- Covered: production app boundary doc, React-ready `apps/web` shell scaffold, shared route registry, public/admin layouts, roadmap/sprint docs, and all existing MVP wireframe contracts.
+Sprint 1 Route Smoke Gate red result:
+
+- Command: `node tests\production-route-smoke.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 4 failed.
+- Failure reason: `apps/web/src/routeSmoke.js` and route smoke documentation were missing.
+
+Sprint 1 Route Smoke Gate implementation attempt:
+
+- Added `apps/web/src/routeSmoke.js`.
+- Updated `apps/web/src/routes.js` with dynamic article route matching.
+- Registered `test:route-smoke` and wired `tests/production-route-smoke.test.js` into the full suite.
+- Updated README, roadmap, sprint plan, plan status, and coverage baseline to the 170-test slice.
+Sprint 1 Route Smoke Gate focused green result:
+
+- Command: `node tests\production-route-smoke.test.js`
+- Result: passed.
+- Tests: 4 passed, 0 failed.
+- Covered: all 22 route smoke records, public/admin layout selection, protected route metadata, dynamic article slug resolution, 404 fallback, script registration, and README/plan status handoff.
+Sprint 1 Route Smoke Gate full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 170 passed, 0 failed.
+- Covered: all previous MVP wireframe contracts plus production app shell and dependency-free route smoke gate.
+Sprint 2 Home Route Migration red result:
+
+- Command: `node tests\production-home-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 4 failed.
+- Failure reason: Home route model, HomePage component, and Home migration docs were missing.
+
+Sprint 2 Home Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/homeRouteModel.js`.
+- Added `apps/web/src/pages/HomePage.jsx`.
+- Wired the Home route through `apps/web/src/App.jsx`.
+- Registered `test:production-home` and wired `tests/production-home-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 174-test slice.
+Sprint 2 Home Route Migration focused green result:
+
+- Command: `node tests\production-home-route.test.js`
+- Result: passed.
+- Tests: 4 passed, 0 failed.
+- Covered: Home route model, published-only article slots, lead story selection, category/media/people previews, newsletter action, HomePage scaffold, script registration, and handoff docs.
+Sprint 2 Home Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 174 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, and first production Home route migration contract.
+Sprint 2 About Route Migration red result:
+
+- Command: `node tests\production-about-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 4 failed.
+- Failure reason: About route model, AboutPage component, and About migration docs were missing.
+
+Sprint 2 About Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/aboutRouteModel.js`.
+- Added `apps/web/src/pages/AboutPage.jsx`.
+- Wired the About route through `apps/web/src/App.jsx`.
+- Registered `test:production-about` and wired `tests/production-about-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 178-test slice.
+Sprint 2 About Route Migration focused green result:
+
+- Command: `node tests\production-about-route.test.js`
+- Result: passed.
+- Tests: 4 passed, 0 failed.
+- Covered: About route model, mission/vision/organisation overview, editorial pillars, route cards, newsletter states, AboutPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 About Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 178 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home migration, and About migration.
+Sprint 2 Visceral Mag Route Migration red result:
+
+- Command: `node tests\production-visceral-mag-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 5 failed.
+- Failure reason: Visceral Mag route model, VisceralMagPage component, and Visceral Mag migration docs were missing.
+
+Sprint 2 Visceral Mag Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/visceralMagRouteModel.js`.
+- Added `apps/web/src/pages/VisceralMagPage.jsx`.
+- Wired the Visceral Mag route through `apps/web/src/App.jsx`.
+- Registered `test:production-visceral-mag` and wired `tests/production-visceral-mag-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 183-test slice.
+Sprint 2 Visceral Mag Route Migration focused green result:
+
+- Command: `node tests\production-visceral-mag-route.test.js`
+- Result: passed.
+- Tests: 5 passed, 0 failed.
+- Covered: Visceral Mag archive model, search entry, category filters, published-only article listing, category metadata, author metadata, VisceralMagPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 Visceral Mag Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 183 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home migration, About migration, and Visceral Mag migration.
+Sprint 2 Article Detail Route Migration red result:
+
+- Command: `node tests\production-article-detail-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: Article Detail route model, ArticleDetailPage component, and Article Detail migration docs were missing.
+
+Sprint 2 Article Detail Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/articleDetailRouteModel.js`.
+- Added `apps/web/src/pages/ArticleDetailPage.jsx`.
+- Wired the dynamic Article Detail route through `apps/web/src/App.jsx`.
+- Registered `test:production-article-detail` and wired `tests/production-article-detail-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 189-test slice.
+Sprint 2 Article Detail Route Migration focused green result:
+
+- Command: `node tests\production-article-detail-route.test.js`
+- Result: passed.
+- Tests: 6 passed, 0 failed.
+- Covered: published article lookup, dynamic route metadata, draft/missing not-found state, body blocks, related articles, SEO metadata, approved-only comments/reviews, ArticleDetailPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 Article Detail Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 189 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home migration, About migration, Visceral Mag migration, and Article Detail migration.
+Sprint 2 Categories/Search Route Migration red result:
+
+- Command: `node tests\production-categories-search-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 7 failed.
+- Failure reason: Categories/Search route model, CategoriesSearchPage component, and Categories/Search migration docs were missing.
+
+Sprint 2 Categories/Search Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/categoriesSearchRouteModel.js`.
+- Added `apps/web/src/pages/CategoriesSearchPage.jsx`.
+- Wired the Search route through `apps/web/src/App.jsx`.
+- Registered `test:production-categories-search` and wired `tests/production-categories-search-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 196-test slice.
+Sprint 2 Categories/Search Route Migration focused green result:
+
+- Command: `node tests\production-categories-search-route.test.js`
+- Result: passed.
+- Tests: 7 passed, 0 failed.
+- Covered: search surface model, launch category chips, published-only filtering, keyword/category/combined filters, no-results/reset state, CategoriesSearchPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 Categories/Search Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 196 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home, About, Visceral Mag, Article Detail, and Categories/Search migrations.
+Sprint 2 Featured/Media Route Migration red result:
+
+- Command: `node tests\production-featured-media-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: Featured/Media route model, FeaturedMediaPage component, and Featured/Media migration docs were missing.
+
+Sprint 2 Featured/Media Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/featuredMediaRouteModel.js`.
+- Added `apps/web/src/pages/FeaturedMediaPage.jsx`.
+- Wired the Featured route through `apps/web/src/App.jsx`.
+- Registered `test:production-featured-media` and wired `tests/production-featured-media-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 202-test slice.
+Sprint 2 Featured/Media Route Migration focused green result:
+
+- Command: `node tests\production-featured-media-route.test.js`
+- Result: passed.
+- Tests: 6 passed, 0 failed.
+- Covered: Featured/Media gallery model, media metadata, published-only article media links, draft exclusion, empty media state, FeaturedMediaPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 Featured/Media Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 202 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home, About, Visceral Mag, Article Detail, Categories/Search, and Featured/Media migrations.
+Sprint 2 Creative Team Route Migration red result:
+
+- Command: `node tests\production-creative-team-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: Creative Team route model, CreativeTeamPage component, and Creative Team migration docs were missing.
+
+Sprint 2 Creative Team Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/creativeTeamRouteModel.js`.
+- Added `apps/web/src/pages/CreativeTeamPage.jsx`.
+- Wired the Creative Team route through `apps/web/src/App.jsx`.
+- Registered `test:production-creative-team` and wired `tests/production-creative-team-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 208-test slice.
+Sprint 2 Creative Team Route Migration focused green result:
+
+- Command: `node tests\production-creative-team-route.test.js`
+- Result: passed.
+- Tests: 6 passed, 0 failed.
+- Covered: Creative Team route model, creative-team-only profile filtering, profile card anatomy, editorial role note, social-link empty state, loading/error hooks, empty team state, footer paths, CreativeTeamPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 Creative Team Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 208 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home, About, Visceral Mag, Article Detail, Categories/Search, Featured/Media, and Creative Team migrations.
+Sprint 2 Contributors Route Migration red result:
+
+- Command: `node tests\production-contributors-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: Contributors route model, ContributorsPage component, and Contributors migration docs were missing.
+
+Sprint 2 Contributors Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/contributorsRouteModel.js`.
+- Added `apps/web/src/pages/ContributorsPage.jsx`.
+- Wired the Contributors route through `apps/web/src/App.jsx`.
+- Registered `test:production-contributors` and wired `tests/production-contributors-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 214-test slice.
+Sprint 2 Contributors Route Migration focused green result:
+
+- Command: `node tests\production-contributors-route.test.js`
+- Result: passed.
+- Tests: 6 passed, 0 failed.
+- Covered: Contributors route model, contributor-only filtering, search/category controls, published-work links, draft exclusion, no-results/reset state, loading/error hooks, ContributorsPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 Contributors Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 214 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home, About, Visceral Mag, Article Detail, Categories/Search, Featured/Media, Creative Team, and Contributors migrations.

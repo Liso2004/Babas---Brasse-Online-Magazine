@@ -1,4 +1,4 @@
-﻿require("./wireframes.test.js");
+require("./wireframes.test.js");
 require("./scaffold.test.js");
 require("./home.test.js");
 require("./visceral-mag.test.js");
@@ -28,4 +28,24 @@ require("./mobile-wireframe-comps.test.js");
 require("./frontend-app-integration-plan.test.js");
 
 require("./roadmap-sprint-docs.test.js");
+
+require("./production-app-shell.test.js");
+
+require("./production-route-smoke.test.js");
+
+require("./production-home-route.test.js");
+
+require("./production-about-route.test.js");
+
+require("./production-visceral-mag-route.test.js");
+
+require("./production-article-detail-route.test.js");
+
+require("./production-categories-search-route.test.js");
+
+require("./production-featured-media-route.test.js");
+
+require("./production-creative-team-route.test.js");
+
+require("./production-contributors-route.test.js");
 

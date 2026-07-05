@@ -1,8 +1,8 @@
-﻿# Babas & Brasse Sprint Plan
+# Babas & Brasse Sprint Plan
 
 Date: July 2, 2026
 Launch deadline: July 31, 2026
-Baseline: completed wireframe-backed prototype, 156 passing tests before this sprint refresh.
+Baseline: completed wireframe-backed prototype and Sprint 1 app shell and route smoke boundary, 214 passing tests after this slice.
 
 ## Sprint 0: Complete - Prototype Contract
 
@@ -17,6 +17,7 @@ Delivered:
 - Local preview server via `npm.cmd run preview:mvp`.
 - Route index at `http://localhost:4173/__routes`.
 - Frontend app integration plan.
+- Production app boundary doc and React-ready `apps/web` shell scaffold.
 
 Exit proof:
 
@@ -164,3 +165,13 @@ Exit criteria:
 - Do not widen scope beyond MVP before July 31, 2026.
 - Preserve the prototype as acceptance-contract evidence until production tests fully replace it.
 - Update `docs/PLAN_STATUS.md` and `docs/TESTING_LOG.md` after every green slice.
+
+
+
+
+
+
+
+
+
+

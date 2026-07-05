@@ -1,4 +1,4 @@
-﻿const test = require("node:test");
+const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -46,7 +46,7 @@ test("MVP coverage review document summarizes implemented routes and remaining l
   assert.match(doc, /14 core route artifacts/i);
   assert.match(doc, /9 public routes/i);
   assert.match(doc, /5 admin routes/i);
-  assert.match(doc, /161 passing tests/i);
+  assert.match(doc, /214 passing tests/i);
   assert.match(doc, /8 implemented support routes/i);
   assert.match(doc, /frontend app integration/i);
   assert.match(doc, /authentication integration/i);
@@ -101,7 +101,17 @@ test("all implemented route renderers and focused test scripts are registered", 
     "test:admin-workflow-support",
     "test:mobile-wireframes",
     "test:frontend-plan",
-    "test:roadmap-sprints"
+    "test:roadmap-sprints",
+    "test:app-shell",
+    "test:route-smoke",
+    "test:production-home",
+    "test:production-about",
+    "test:production-visceral-mag",
+    "test:production-article-detail",
+    "test:production-categories-search",
+    "test:production-featured-media",
+    "test:production-creative-team",
+    "test:production-contributors"
   ];
 
   for (const script of expectedScripts) {
@@ -117,6 +127,16 @@ test("all implemented route renderers and focused test scripts are registered", 
   assert.match(runTests, /mobile-wireframe-comps\.test\.js/);
   assert.match(runTests, /frontend-app-integration-plan\.test\.js/);
   assert.match(runTests, /roadmap-sprint-docs\.test\.js/);
+  assert.match(runTests, /production-app-shell\.test\.js/);
+  assert.match(runTests, /production-route-smoke\.test\.js/);
+  assert.match(runTests, /production-home-route\.test\.js/);
+  assert.match(runTests, /production-about-route\.test\.js/);
+  assert.match(runTests, /production-visceral-mag-route\.test\.js/);
+  assert.match(runTests, /production-article-detail-route\.test\.js/);
+  assert.match(runTests, /production-categories-search-route\.test\.js/);
+  assert.match(runTests, /production-featured-media-route\.test\.js/);
+  assert.match(runTests, /production-creative-team-route\.test\.js/);
+  assert.match(runTests, /production-contributors-route\.test\.js/);
 });
 
 test("all support wireframes are implemented as generated prototype contracts", () => {
@@ -166,6 +186,26 @@ test("all support wireframes are implemented as generated prototype contracts", 
   assert.match(mobileHtml, /data-page="mobile-wireframe-comps"/);
   assert.match(mobileHtml, /data-generated="mobile-wireframe-comps-renderer"/);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
