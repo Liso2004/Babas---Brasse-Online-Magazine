@@ -1,4 +1,4 @@
-const test = require("node:test");
+﻿const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -40,8 +40,8 @@ test("production About route model preserves the prototype acceptance contract",
   assert.equal(model.sections.overview.stateNote, "about-empty-stub");
   assert.match(model.sections.overview.mission, /cultural writing/i);
   assert.match(model.sections.overview.vision, /theatre, books, essays, opinion, and culture/i);
-  assert.match(model.sections.overview.organisation, /admin area/i);
-  assert.equal(model.sections.overview.image.altText, "Babas and Brasse publication image placeholder");
+  assert.match(model.sections.overview.organisation, /independent South African publication/i);
+  assert.equal(model.sections.overview.image.altText, "Neighbors in conversation on a Cape Town street");
 });
 
 test("production About route model includes editorial pillars and route cards", async () => {

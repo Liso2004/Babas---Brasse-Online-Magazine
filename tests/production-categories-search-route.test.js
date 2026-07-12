@@ -40,21 +40,13 @@ test("production Categories/Search route model preserves the search surface cont
   assert.equal(model.search.name, "q");
   assert.equal(model.search.placeholder, "Search articles");
   assert.equal(model.stateNote, "search-loading");
-  assert.deepEqual(model.activeFilters, { query: "", category: "" });
+  assert.deepEqual(model.activeFilters, { query: "", category: "", topic: "" });
 });
 
-test("production Categories/Search model includes every launch category chip", async () => {
+test("production Categories/Search model omits redundant category controls", async () => {
   const { buildCategoriesSearchRouteModel } = await loadSearchModel();
   const model = buildCategoriesSearchRouteModel(loadFixtures());
-
-  assert.deepEqual(model.sections.categoryFilters.map((category) => category.slug), ["all", "essays", "reviews", "interviews", "artwork"]);
-  assert.deepEqual(model.sections.categoryFilters.map((category) => category.href), [
-    "/search",
-    "/search?category=essays",
-    "/search?category=reviews",
-    "/search?category=interviews",
-    "/search?category=artwork"
-  ]);
+  assert.equal(model.sections.categoryFilters, undefined);
 });
 
 test("production Categories/Search filtering defaults to published-only results", async () => {
@@ -106,7 +98,7 @@ test("React-ready CategoriesSearchPage component is scaffolded from the route mo
   assert.match(component, /buildCategoriesSearchRouteModel/);
   assert.match(component, /data-page="categories-search"/);
   assert.match(component, /data-section="search-form"/);
-  assert.match(component, /data-section="category-filters"/);
+  assert.doesNotMatch(component, /data-section="category-filters"|Browse by category/);
   assert.match(component, /data-section="active-filters"/);
   assert.match(component, /data-section="search-results"/);
   assert.match(component, /data-action="reset-search"/);

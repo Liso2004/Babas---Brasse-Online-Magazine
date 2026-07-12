@@ -66,6 +66,7 @@ test("production Featured/Media links published article media while excluding dr
   assert.deepEqual(model.sections.articleMediaLinks.items.map((article) => article.slug), ["send-a-text-before-you-knock", "artist-interview-placeholder"]);
   assert.ok(model.sections.articleMediaLinks.items.every((article) => article.status === "published"));
   assert.ok(model.sections.articleMediaLinks.items.every((article) => article.href.startsWith("/visceral-mag/")));
+  assert.ok(model.sections.articleMediaLinks.items.every((article) => article.category && article.author && article.publishedAt));
   assert.doesNotMatch(serialized, /Culture Review Placeholder/);
   assert.doesNotMatch(serialized, /"status":"draft"/);
 });
@@ -92,6 +93,7 @@ test("React-ready FeaturedMediaPage component is scaffolded from the route model
   assert.match(component, /data-section="media-intro"/);
   assert.match(component, /data-section="media-gallery"/);
   assert.match(component, /data-section="article-media-links"/);
+  assert.match(component, /className="figma-published-story-feed"/);
   assert.match(component, /data-state="no-media"/);
   assert.match(app, /FeaturedMediaPage/);
   assert.match(app, /route\.id === "featured"/);

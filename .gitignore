@@ -1,0 +1,19 @@
+# Dependencies and generated builds
+**/node_modules/
+**/dist/
+
+# Generated browser QA evidence
+apps/web/browser-qa/
+apps/web/browser-qa-*.png
+apps/web/browser-qa-*.snapshot.txt
+
+# Local runtime output
+*.log
+*.pid
+.test-data/
+apps/api/data/*.json
+apps/api/data/*.tmp
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

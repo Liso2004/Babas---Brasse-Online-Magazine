@@ -13,6 +13,13 @@ function getCategory(fixtures, categoryId) {
   };
 }
 
+const contributorImages = {
+  "visceral-contributor": "/media/editorial/editorial-belonging.jpg",
+  "sihle-ndlovu": "/media/editorial/editorial-theatre.jpg",
+  "mia-van-wyk": "/media/editorial/editorial-books.jpg",
+  "thando-jacobs": "/media/editorial/editorial-language.jpg"
+};
+
 function contributorCard(fixtures, profile) {
   const works = getPublishedWorksForContributor(fixtures, profile.slug);
 
@@ -23,9 +30,10 @@ function contributorCard(fixtures, profile) {
     role: profile.role,
     slug: profile.slug,
     shortBio: profile.shortBio,
+    socialLinks: Array.isArray(profile.socialLinks) ? profile.socialLinks : [],
     image: {
-      url: "/media/profile-placeholder.jpg",
-      altText: `Portrait placeholder for ${profile.name}`
+      url: contributorImages[profile.id] || "/media/editorial/editorial-language.jpg",
+      altText: `Writing workshop representing ${profile.name}'s contribution`
     },
     publishedWorks: works
   };
@@ -113,7 +121,7 @@ export function buildContributorsRouteModel(fixtures) {
     hero: {
       eyebrow: "Contributors",
       title: "Writers, reviewers, essayists, and cultural voices.",
-      dek: "Contributor discovery connects public profiles to published works while keeping drafts out of reader-facing pages."
+      dek: "Meet the writers and critics bringing lived experience, close reading, and independent perspective to every edition."
     },
     tools: {
       search: {

@@ -36,7 +36,7 @@ Admin coverage includes authenticated route contracts, dashboard health metrics,
 
 ## Verified Test Coverage
 
-Current full-suite expectation after the Sprint 1 app shell and route smoke slice: 214 passing tests, 0 failing tests.
+Current full-suite expectation after the admin-only browser-session slice: 391 passing tests, 0 failing tests.
 
 Coverage is organized as:
 
@@ -65,10 +65,11 @@ Support coverage includes labelled auth forms, recovery paths, neutral password-
 The following items are not complete production behavior yet and must be handled before the July 31, 2026 launch target:
 
 - Frontend app integration: move the tested static renderer contracts into the selected frontend stack, with routing, shared layout, reusable components, and responsive styling.
-- Authentication integration: connect the tested auth support screens to real admin login, session handling, route protection, password reset delivery, and permission boundaries.
+- Authentication hardening: the admin login, cookie session, and route protection are live; add password reset delivery, credential hashing or managed identity, rate limits, and audit logging.
 - Backend persistence: replace fixture data with durable storage for articles, profiles, media, comments, reviews, and contact submissions.
 - Visual styling: translate the Open Design visual system into production CSS/components instead of leaving the prototype as contract-first HTML.
-- Forms and mutations: wire contact submission, newsletter, article saves, media uploads, moderation actions, and archive/read status changes to real APIs.
+- React/Vite runtime: dependencies now install and the app builds, but live route smoke is available while browser visual QA remains in progress.
+- Forms and mutations: public newsletter, contact, and comment forms now have API-ready frontend states; connect their endpoints plus article saves, media uploads, moderation actions, and archive/read status changes to persistent services.
 - Launch readiness: add deployment, backups, content import, analytics, accessibility QA, SEO QA, smoke tests, and rollback notes.
 
 ## Recommended Next Phase
@@ -77,24 +78,3 @@ The following items are not complete production behavior yet and must be handled
 2. Build shared layout/navigation/components from the tested route contracts.
 3. Add authentication and persistence behind the admin flows.
 4. Run visual QA against the Open Design wireframes and production responsive breakpoints.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1313,3 +1313,1060 @@ Sprint 2 Contributors Route Migration full-suite result:
 - Result: passed.
 - Tests: 214 passed, 0 failed.
 - Covered: all MVP wireframe contracts, production app shell, route smoke gate, Home, About, Visceral Mag, Article Detail, Categories/Search, Featured/Media, Creative Team, and Contributors migrations.
+Sprint 2 Contact Route Migration red result:
+
+- Command: `node tests\production-contact-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: Contact route model, ContactPage component, and Contact migration docs were missing.
+
+Sprint 2 Contact Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/contactRouteModel.js`.
+- Added `apps/web/src/pages/ContactPage.jsx`.
+- Wired the Contact route through `apps/web/src/App.jsx`.
+- Registered `test:production-contact` and wired `tests/production-contact-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 220-test slice.
+Sprint 2 Contact Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-contact`
+- Result: passed.
+- Tests: 6 passed, 0 failed.
+- Covered: Contact route model, subject options, required form fields, spam-protection placeholder, Contact Submissions target, validation/success/error/rate-limit/pending states, newsletter continuity, footer route continuity, ContactPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 2 Contact Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 220 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, all 9 public React-ready route migrations, support routes, roadmap/sprint docs, and coverage readiness.
+Sprint 3 Admin Dashboard Route Migration red result:
+
+- Command: `node tests\production-admin-dashboard-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: Admin Dashboard route model, AdminDashboardPage component, and migration docs were missing.
+
+Sprint 3 Admin Dashboard Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/adminDashboardRouteModel.js`.
+- Added `apps/web/src/pages/AdminDashboardPage.jsx`.
+- Wired the Admin Dashboard route through `apps/web/src/App.jsx`.
+- Registered `test:production-admin-dashboard` and wired `tests/production-admin-dashboard-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 226-test slice.
+Sprint 3 Admin Dashboard Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-admin-dashboard`
+- Result: passed.
+- Tests: 6 passed, 0 failed.
+- Covered: protected admin route model, editor auth handoff, fixture-derived metrics, recent activity, quick actions, loading/empty/error/permission states, AdminDashboardPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 3 Admin Dashboard Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 226 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, all public React-ready route migrations, Admin Dashboard route migration, support routes, roadmap/sprint docs, and coverage readiness.
+Sprint 3 Article Management Route Migration red result:
+
+- Command: `node tests\production-article-management-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 7 failed.
+- Failure reason: Article Management route model, ArticleManagementPage component, and migration docs were missing.
+
+Sprint 3 Article Management Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/articleManagementRouteModel.js`.
+- Added `apps/web/src/pages/ArticleManagementPage.jsx`.
+- Wired the Article Management route through `apps/web/src/App.jsx`.
+- Registered `test:production-article-management` and wired `tests/production-article-management-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 233-test slice.
+Sprint 3 Article Management Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-article-management`
+- Result: passed.
+- Tests: 7 passed, 0 failed.
+- Covered: protected editorial workflow model, draft-inclusive article rows, fixture-derived stats, toolbar filters, editor fields, row actions, publishing states, ArticleManagementPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 3 Article Management Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 233 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, all public React-ready route migrations, Admin Dashboard and Article Management route migrations, support routes, roadmap/sprint docs, and coverage readiness.
+Sprint 3 Profile / Media Management Route Migration red result:
+
+- Command: `node tests\production-profile-media-management-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 7 failed.
+- Failure reason: Profile / Media Management route model, ProfileMediaManagementPage component, and migration docs were missing.
+
+Sprint 3 Profile / Media Management Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/profileMediaManagementRouteModel.js`.
+- Added `apps/web/src/pages/ProfileMediaManagementPage.jsx`.
+- Wired the Profile / Media Management route through `apps/web/src/App.jsx`.
+- Registered `test:production-profile-media-management` and wired `tests/production-profile-media-management-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 240-test slice.
+Sprint 3 Profile / Media Management Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-profile-media-management`
+- Result: passed.
+- Tests: 7 passed, 0 failed.
+- Covered: protected people/media workflow model, contributor and Creative Team groups, media metadata/readiness, fixture-derived stats, upload/select form, keyboard fallback, upload/permission states, ProfileMediaManagementPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 3 Profile / Media Management Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 240 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, all public React-ready route migrations, Admin Dashboard, Article Management, and Profile / Media Management route migrations, support routes, roadmap/sprint docs, and coverage readiness.
+Sprint 3 Comments / Reviews Moderation Route Migration red result:
+
+- Command: `node tests\production-comments-reviews-moderation-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: Comments / Reviews Moderation route model, CommentsReviewsModerationPage component, and migration docs were missing.
+
+Sprint 3 Comments / Reviews Moderation Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/commentsReviewsModerationRouteModel.js`.
+- Added `apps/web/src/pages/CommentsReviewsModerationPage.jsx`.
+- Wired the Moderation route through `apps/web/src/App.jsx`.
+- Registered `test:production-comments-reviews-moderation` and wired `tests/production-comments-reviews-moderation-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 246-test slice.
+Sprint 3 Comments / Reviews Moderation Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-comments-reviews-moderation`
+- Result: passed.
+- Tests: 6 passed, 0 failed.
+- Covered: protected moderation workflow model, combined comments/reviews, article context, stats, queue filters, selected item actions, approved-only public rendering, CommentsReviewsModerationPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 3 Comments / Reviews Moderation Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 246 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, all public React-ready route migrations, Admin Dashboard, Article Management, Profile / Media Management, and Comments / Reviews Moderation route migrations, support routes, roadmap/sprint docs, and coverage readiness.
+Sprint 3 Contact Submissions Route Migration red result:
+
+- Command: `node tests\production-contact-submissions-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 5 failed.
+- Failure reason: Contact Submissions route model, ContactSubmissionsPage component, and migration docs were missing.
+
+Sprint 3 Contact Submissions Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/contactSubmissionsRouteModel.js`.
+- Added `apps/web/src/pages/ContactSubmissionsPage.jsx`.
+- Wired the Contact Submissions route through `apps/web/src/App.jsx`.
+- Registered `test:production-contact-submissions` and wired `tests/production-contact-submissions-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 251-test slice.
+Sprint 3 Contact Submissions Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-contact-submissions`
+- Result: passed.
+- Tests: 5 passed, 0 failed.
+- Covered: protected inbox workflow model, submission rows, stats, filters, detail panel, status actions, inbox states, ContactSubmissionsPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 3 Contact Submissions Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 251 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, all 9 public React-ready route migrations, all 5 admin React-ready route migrations, support routes, roadmap/sprint docs, and coverage readiness.
+Sprint 3 Auth Support Route Migration red result:
+
+- Command: `node tests\production-auth-support-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 5 failed.
+- Failure reason: Auth support route model, AdminLoginPage, PasswordResetPage, and migration docs were missing.
+
+Sprint 3 Auth Support Route Migration implementation attempt:
+
+- Added `apps/web/src/pages/adminAuthRouteModel.js`.
+- Added `apps/web/src/pages/AdminLoginPage.jsx` and `apps/web/src/pages/PasswordResetPage.jsx`.
+- Wired Admin Login and Password Reset through `apps/web/src/App.jsx`.
+- Registered `test:production-auth-support` and wired `tests/production-auth-support-route.test.js` into the full suite.
+- Updated README, plan status, roadmap, sprint plan, and coverage baseline to the 256-test slice.
+Sprint 3 Auth Support Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-auth-support`
+- Result: passed.
+- Tests: 5 passed, 0 failed.
+- Covered: admin login model, password reset model, recovery links, neutral reset copy, auth/security states, AdminLoginPage scaffold, PasswordResetPage scaffold, AppShell wiring, script registration, and handoff docs.
+Sprint 3 Auth Support Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 256 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke gate, all public/admin React-ready route migrations, auth support route migration, support route contracts, roadmap/sprint docs, and coverage readiness.
+Sprint 3 Error Support Route Migration red result:
+
+- Command: `node tests\production-error-support-route.test.js`
+- Result: 5 failed, 0 passed.
+- Failure reason: production error support model, React-ready 404/500/offline pages, AppShell routing, script registration, and handoff docs did not exist yet.
+
+Sprint 3 Error Support Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-error-support`
+- Result: 5 passed, 0 failed.
+- Covered: 404, 500, and offline route metadata, shared recovery paths, page-specific action/state models, React-ready page scaffolds, AppShell routing, script registration, and handoff docs.
+Sprint 3 Error Support Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: 261 passed, 0 failed.
+- Tests: 261 passed, 0 failed.
+Sprint 3 Admin Workflow Support Route Migration red result:
+
+- Command: `node tests\production-admin-workflow-support-route.test.js`
+- Result: 5 failed, 0 passed.
+- Failure reason: production admin workflow support model, Media Upload Modal page, Article Editor Workflow page, AppShell routing, script registration, and handoff docs did not exist yet.
+
+Sprint 3 Admin Workflow Support Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-admin-workflow-support`
+- Result: 5 passed, 0 failed.
+- Covered: Media Upload Modal route metadata, modal accessibility, required media metadata, upload states/actions, Article Editor Workflow steps, checklist, SEO review, publish states/actions, React-ready pages, AppShell routing, script registration, and handoff docs.
+Sprint 3 Admin Workflow Support Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: 266 passed, 0 failed.
+- Tests: 266 passed, 0 failed.
+Sprint 3 Mobile Wireframe Comps Route Migration red result:
+
+- Command: `node tests\production-mobile-wireframe-comps-route.test.js`
+- Result: 5 failed, 0 passed.
+- Failure reason: production mobile wireframe route model, Mobile Wireframe Comps page, AppShell routing, script registration, and handoff docs did not exist yet.
+
+Sprint 3 Mobile Wireframe Comps Route Migration focused green result:
+
+- Command: `npm.cmd run test:production-mobile-wireframes`
+- Result: 5 passed, 0 failed.
+- Covered: mobile route metadata, compressed nav, public/admin mobile comps, breakpoint rules, accessibility checks, React-ready page, AppShell routing, script registration, and handoff docs.
+Sprint 3 Mobile Wireframe Comps Route Migration full-suite result:
+
+- Command: `npm.cmd test`
+- Result: 271 passed, 0 failed.
+- Tests: 271 passed, 0 failed.
+Sprint 3 Runtime Dependency Install red result:
+
+- Command: `node tests\production-web-runtime.test.js`
+- Result: 3 failed, 0 passed.
+- Failure reason: runtime dependencies, preview script, Vite config, runtime docs, and script registration were not declared yet.
+
+Sprint 3 Runtime Dependency Install focused green result:
+
+- Command: `npm.cmd run test:web-runtime`
+- Result: 3 passed, 0 failed before install.
+- Covered: React/Vite package metadata, Vite config, runnable entry files, runtime commands, and docs wiring.
+
+Sprint 3 Runtime Dependency Install attempt:
+
+- Command: `npm.cmd install --cache C:\tmp\npm-cache`
+- Result: install completed after the first default install attempt timed out.
+- npm initially reported 2 vulnerabilities through Vite/esbuild.
+
+Sprint 3 Runtime build failure and fix:
+
+- Command: `npm.cmd run build`
+- First sandbox result: failed with Windows `spawn EPERM` while esbuild tried to spawn.
+- Escalated build result after BOM cleanup: failed because React pages imported prototype CommonJS fixtures from `src/content/fixtures.js`.
+- Fix: added `apps/web/src/data/launchFixtures.js`, repointed React pages to ESM launch fixtures, and expanded `tests/production-web-runtime.test.js` to prevent CommonJS prototype fixture imports.
+
+Sprint 3 Runtime Dependency Install audit/build result:
+
+- Command: `npm.cmd install vite@^8.1.3 @vitejs/plugin-react@^6.0.3 --save-dev --cache C:\tmp\npm-cache`
+- Result: upgraded Vite and React plugin; npm reported 0 vulnerabilities.
+- Command: `npm.cmd run build`
+- Result: Vite 8.1.3 production build passed.
+- Command: `npm.cmd audit --audit-level=moderate --cache C:\tmp\npm-cache`
+- Result: found 0 vulnerabilities.
+Sprint 3 Runtime Dependency Install full-suite and dev-server result:
+
+- Command: `npm.cmd test`
+- Result: 275 passed, 0 failed.
+- Command: `npm.cmd run dev` from `apps/web`
+- Result: Vite 8.1.3 dev server started on `http://127.0.0.1:5173/` and returned HTTP 200.
+- PID file: `apps/web/vite-dev.pid`.
+Sprint 3 Production Visual System red result:
+
+- Command: `node tests\production-visual-system.test.js`
+- Result: 6 failed, 0 passed.
+- Failure reason: production CSS tokens, route-section styling, form/action/focus styling, admin/support/mobile rules, responsive rules, script registration, and handoff docs were not present yet.
+
+Sprint 3 Production Visual System focused green result:
+
+- Command: `npm.cmd run test:visual-system`
+- Result: 6 passed, 0 failed.
+- Covered: editorial tokens, Georgia-based typography, no viewport-width font sizing, no negative letter spacing, route grids, cards, media, chips, forms, actions, state/focus styles, admin/support/mobile surfaces, and responsive layout rules.
+Sprint 3 Production Visual System full-suite and build result:
+
+- Command: `npm.cmd test`
+- Result: 281 passed, 0 failed.
+- Command: `npm.cmd run build` from `apps/web`
+- First result: failed because PowerShell rewrote package JSON with a BOM and Vite/PostCSS rejected the JSON parse.
+- Fix: rewrote `package.json`, `apps/web/package.json`, and `apps/web/package-lock.json` as UTF-8 without BOM.
+- Final build result: Vite 8.1.3 production build passed with the production CSS bundle.
+Sprint 3 Live Route QA red result:
+
+- Command: `node tests\production-live-route-qa.test.js`
+- Result: 3 failed, 0 passed.
+- Failure reason: live route smoke script, npm script registration, full-suite registration, and docs were not present yet.
+
+Sprint 3 Live Route QA implementation attempt:
+
+- Added `apps/web/scripts/smoke-routes.mjs` to fetch all 22 MVP public/admin/support routes from the running Vite app.
+- Added `test:live-route-qa`, `smoke:web:routes`, and app-level `smoke:routes` commands.
+- Registered `tests/production-live-route-qa.test.js` in the full test runner.
+- Updated app README and plan status docs with the live route smoke workflow.
+Sprint 3 Browser Polish red result:
+
+- Command: `node tests\production-browser-polish.test.js`
+- Result: 3 failed, 0 passed.
+- Failure reason: Vite public media files, newsletter email autocomplete metadata, and browser-polish docs/scripts were missing.
+
+Sprint 3 Browser Polish implementation attempt:
+
+- Added local Vite public media placeholders for the opening banner, photography feature, artwork feature, and profile image.
+- Added newsletter `autoComplete="email"` metadata to the Home route.
+- Registered `test:browser-polish` and included the gate in the full suite.
+
+Browser Polish favicon follow-up:
+
+- Chrome DevTools showed media assets returning 200 and a remaining /favicon.ico 404.
+- Added pps/web/public/favicon.ico to the browser-polish asset contract.
+Sprint 3 Browser Polish focused green result:
+
+- Command: `npm.cmd run test:browser-polish`
+- Result: 3 passed, 0 failed.
+- Covered: Vite public media placeholders, favicon, Home newsletter autocomplete metadata, script registration, and browser-polish docs.
+
+Sprint 3 Browser Polish full-suite and build result:
+
+- Command: `npm.cmd test`
+- Result: 287 passed, 0 failed.
+- Command: `npm.cmd run build` from `apps/web`
+- Result: Vite 8.1.3 production build passed.
+- Note: sandboxed build hit Windows `spawn EPERM`; escalated build completed successfully.
+
+Sprint 3 Browser Polish live verification:
+
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+- Chrome DevTools result: Home route console shows only normal Vite/React dev messages; media requests return 200/304 and no favicon/media 404 remains.
+- Screenshot: `apps/web/browser-qa-home.png`.
+Figma Final Frontend Handoff red result:
+
+- Command: `node tests\figma-final-frontend-handoff.test.js`
+- Result: 2 passed, 3 failed.
+- Failure reason: Figma source import was present, but handoff docs, runnable-app adoption, and script registration were not implemented yet.
+
+Figma Final Frontend Handoff implementation attempt:
+
+- Extracted `Author Website Design.make` into `designs/figma-author-website-design/`.
+- Reconstructed the embedded Figma Make source repo from Git pack files at `designs/figma-author-website-design/source/`.
+- Restored packaged LFS assets for the final logo image and PDF source asset.
+- Added the Figma final frontend handoff doc.
+- Adopted the logo-led header, search field, admin access, and Theatre Reviews / Book Reviews / Essays / Opinion section cues into the current runnable app without dropping the 22-route MVP contract.
+Figma Final Frontend Handoff focused green result:
+
+- Command: `npm.cmd run test:figma-final-frontend`
+- Result: 5 passed, 0 failed.
+- Covered: local Figma Make export preservation, reconstructed source repo, restored LFS assets, handoff documentation, current-app header adoption, and script/full-suite registration.
+
+Figma Final Frontend Handoff full-suite and build result:
+
+- Command: `npm.cmd test`
+- Result: 292 passed, 0 failed.
+- Command: `npm.cmd run build` from `apps/web`
+- Result: Vite 8.1.3 production build passed.
+
+Figma Final Frontend Handoff live verification:
+
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+- Chrome DevTools result: Home route renders the final-design logo header, search field, Admin link, Theatre Reviews / Book Reviews / Essays / Opinion section shortcuts, and has no console errors beyond normal Vite/React dev messages.
+- Screenshot: `apps/web/browser-qa-home-figma-final-header.png`.
+Route Navigation Consistency red result:
+
+- Command: `node tests\route-navigation-consistency.test.js`
+- Result: 2 passed, 3 failed.
+- Failure reason: route registry uniqueness passed, but visible public navigation did not yet expose a filtered route list and docs/scripts were not registered.
+
+Route Navigation Consistency implementation attempt:
+
+- Added `publicNavigationRoutes` to keep the full 22-route registry while excluding dynamic placeholder routes from visible navigation.
+- Marked `article-detail` with `navVisible: false` while preserving dynamic route resolution for `/visceral-mag/:slug`.
+- Updated `PublicLayout` to render `publicNavigationRoutes` instead of all public routes.
+- Documented the decision that final-design Theatre Reviews, Book Reviews, Essays, and Opinion shortcuts resolve through `/search` query URLs instead of duplicate top-level routes.
+Route Navigation Consistency focused green result:
+
+- Command: `npm.cmd run test:route-nav-consistency`
+- Result: 5 passed, 0 failed.
+- Covered: unique 22-route registry, hidden dynamic article-detail route in visible nav, dynamic slug resolution, no duplicate public nav labels/hrefs, final-design section shortcuts mapped into `/search`, script registration, and handoff docs.
+
+Route Navigation Consistency full-suite and build result:
+
+- Command: `npm.cmd test`
+- Result: 297 passed, 0 failed.
+- Command: `npm.cmd run build` from `apps/web`
+- Result: Vite 8.1.3 production build passed.
+
+Route Navigation Consistency live verification:
+
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+- Chrome DevTools result: Home public navigation no longer shows the dynamic `Article Detail` placeholder; final-design shortcuts point to `/search` query URLs; console shows only normal Vite/React dev messages.
+- Screenshot: `apps/web/browser-qa-home-route-consistency.png`.
+Figma-Centered Home Sprint red result:
+
+- Command: `node tests\production-figma-centered-home.test.js`
+- Result: 0 passed, 5 failed.
+- Failure reason: the current app had the Figma final header cues, but the Home model, Home layout, footer, visual styles, scripts, and docs did not yet carry the final Figma magazine composition.
+
+Figma-Centered Home Sprint implementation attempt:
+
+- Added Figma final composition metadata to the Home route model while preserving the published-only MVP article contract.
+- Reworked the runnable Home route toward the final Figma export: featured article, recent article grid, section rail, more-from-magazine list, media strip, people strip, and newsletter band.
+- Added the Figma-style public footer with existing MVP routes only; Theatre Reviews, Book Reviews, Essays, and Opinion remain `/search` query links rather than duplicate top-level routes.
+- Added the Figma-centered homepage visual-system styles and registered the focused test gate.
+Figma-Centered Home Sprint focused green result:
+
+- Command: `npm.cmd run test:production-figma-home`
+- Result: 5 passed, 0 failed.
+- Covered: Figma final home model composition, featured/recent/more/newsletter layout, Figma-style footer, no duplicate `/theatre` or `/books` top-level links, CSS adoption, script registration, and sprint/testing docs.
+
+Figma-Centered Home Sprint full-suite result:
+
+- Command: `npm.cmd test`
+- Result: 302 passed, 0 failed.
+Figma-Centered Home Sprint build and live route result:
+
+- Command: `npm.cmd run build` from `apps/web`
+- Result: Vite 8.1.3 production build passed after rerunning outside the Windows sandbox because the sandbox blocked helper process spawn with `EPERM`.
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+Figma Public Pages Sprint red result:
+
+- Command: `node tests\production-figma-public-pages.test.js`
+- Result: 0 passed, 5 failed.
+- Failure reason: public archive/search/media/article detail pages still used older scaffold markup, Search results did not expose featured image metadata, and the shared Figma public-page test gate was not registered.
+
+Figma Public Pages Sprint implementation attempt:
+
+- Added a reusable `FigmaArticleCard` component for public editorial cards.
+- Updated Visceral Mag, Categories/Search, and Featured/Media to use the shared article-card anatomy and Figma public-page layout classes.
+- Updated Article Detail with a centered Figma reading hero, metadata row, narrow article body, related grid, and conversation sections.
+- Added featured image metadata to Search results so cards can render real media.
+- Added Figma public-page CSS and registered the focused test gate.
+Figma Public Pages Sprint focused green result:
+
+- Command: `npm.cmd run test:production-figma-public-pages`
+- Result: 5 passed, 0 failed.
+- Covered: shared Figma article card, Visceral Mag/Search usage, Featured/Media usage, Article Detail reading layout, Search featured image metadata, styles, docs, and script/full-suite registration.
+
+Figma Public Pages Sprint full-suite result:
+
+- Command: `npm.cmd test`
+- Result: 307 passed, 0 failed.
+Figma Public Pages Sprint build, route smoke, and browser result:
+
+- Command: `npm.cmd run build` from `apps/web`
+- Result: Vite 8.1.3 production build passed after rerunning outside the Windows sandbox because the sandbox blocked helper process spawn with `EPERM`.
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+- Chrome DevTools result: Search route renders Figma-style article cards with images, metadata, final-design header shortcuts, and footer links mapped through existing MVP routes.
+- Screenshot: `apps/web/browser-qa-search-figma-public-pages.png`.
+Figma Info Pages Sprint red result:
+
+- Command: `node tests\production-figma-info-pages.test.js`
+- Result: 0 passed, 5 failed.
+- Failure reason: About, Creative Team, Contributors, and Contact still used older scaffold layouts; there was no shared Figma profile-card component, focused script, CSS, or docs for this public info page slice.
+
+Figma Info Pages Sprint implementation attempt:
+
+- Added reusable `FigmaProfileCard` for Creative Team and Contributors.
+- Updated About with Figma public-page shell, overview split, editorial pillar grid, route grid, and newsletter panel.
+- Updated Creative Team and Contributors with shared profile grids while preserving existing state and route hooks.
+- Updated Contact with a Figma public-page shell, inquiry chips, two-column contact/info layout, refined form panel, state grid, and newsletter panel.
+- Added Figma info/profile/contact CSS and registered the focused test gate.
+Figma Info Pages Sprint focused green result:
+
+- Command: `npm.cmd run test:production-figma-info-pages`
+- Result: 5 passed, 0 failed.
+- Covered: shared Figma profile card, About info layout, Creative Team and Contributors profile grids, Contact layout, CSS, docs, and script/full-suite registration.
+
+Figma Info Pages Sprint full-suite result:
+
+- Command: `npm.cmd test`
+- Result: 312 passed, 0 failed.
+Figma Info Pages Sprint build, route smoke, and browser result:
+
+- Command: `npm.cmd run build` from `apps/web`
+- Result: Vite 8.1.3 production build passed after rerunning outside the Windows sandbox because the sandbox blocked helper process spawn with `EPERM`.
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+- Chrome DevTools result: Contact route renders Figma info-page layout, contact form panel, newsletter panel, and no console issues beyond normal Vite/React dev messages after adding autocomplete metadata.
+- Screenshots: `apps/web/browser-qa-contact-figma-info-pages.png`, `apps/web/browser-qa-contact-figma-info-pages-autocomplete.png`.
+## Figma Admin Pages Sprint - July 10, 2026
+
+Red setup:
+
+- Added `tests/production-figma-admin-pages.test.js` to require the shared admin surface component, admin layout classes, management-page Figma panels, docs, and full-suite wiring.
+- Expected first result: failing until admin UI classes and sprint docs were implemented.
+
+Red result:
+
+- Command: `node tests\production-figma-admin-pages.test.js`
+- Result: failed as expected.
+- Tests: 3 passed, 1 failed.
+- Failure reason: admin code classes were present, but the Figma Admin Pages Sprint documentation was not yet recorded.
+
+Implementation attempt:
+
+- Added `apps/web/src/components/FigmaAdminSurface.jsx`.
+- Updated the admin layout, dashboard, article management, profile/media management, moderation, and contact submissions pages with Figma admin classes.
+- Added the Figma admin CSS layer for shell, metrics, toolbar, table, editor, upload, workspace, action, and state panels.
+- Wired `test:production-figma-admin-pages` into `package.json` and the full test runner.
+- Updated roadmap/sprint/status coverage language to the 316-test baseline.
+
+Green focused result:
+
+- Command: `node tests\production-figma-admin-pages.test.js`
+- Result: passed.
+- Tests: 4 passed, 0 failed.
+- Covered: shared Figma admin surface, admin shell classes, dashboard panels, management page panels, CSS, docs, and full-suite wiring.
+
+Full suite after Figma Admin Pages Sprint:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 316 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke contracts, route navigation consistency, public Figma pages, info/contact Figma pages, and protected admin Figma pages.
+
+Runtime verification:
+
+- Command: `npm.cmd run build` from `apps/web`
+- Initial result: sandbox-only `spawn EPERM` while Vite loaded config.
+- Elevated rerun result: passed; Vite built `dist/index.html`, CSS, and JS assets.
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+- Route consistency: visible final-design shortcuts continue using existing MVP routes; no duplicate top-level Theatre, Books, Essays, or Opinion routes were added.
+
+Browser QA:
+
+- URL: `http://127.0.0.1:5173/admin`
+- Screenshot: `apps/web/browser-qa-admin-figma-admin-pages.png`
+- Accessibility snapshot: `apps/web/browser-qa-admin-figma-admin-pages.snapshot.txt`
+- Console result: normal Vite connect/connected and React DevTools info messages only.
+
+## Figma Support Pages Sprint - July 10, 2026
+
+Red setup:
+
+- Added `tests/production-figma-support-pages.test.js` to require the shared support surface component, auth support forms, error recovery panels, protected workflow layouts, mobile handoff layout, docs, suite wiring, and no duplicate support routes.
+- Expected first result: failing until support UI classes, docs, and scripts were implemented.
+
+Red result:
+
+- Command: `node tests\production-figma-support-pages.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 5 failed.
+- Failure reason: shared support component, Figma support classes, scripts, CSS, and docs were not yet implemented.
+
+Implementation attempt:
+
+- Added `apps/web/src/components/FigmaSupportSurface.jsx`.
+- Updated Admin Login, Password Reset, 404, 500, Offline, Media Upload, Article Editor Workflow, and Mobile Wireframe Comps pages with Figma support classes.
+- Added the Figma support CSS layer for auth forms, recovery route grids, state grids, workflow forms, modal framing, and mobile handoff grids.
+- Wired `test:production-figma-support-pages` into `package.json` and the full test runner.
+- Updated roadmap/sprint/status coverage language to the 321-test baseline.
+
+Green focused result:
+
+- Command: `node tests\production-figma-support-pages.test.js`
+- Result: passed.
+- Tests: 5 passed, 0 failed.
+- Covered: shared Figma support surface, auth support forms, error recovery panels, workflow layouts, mobile handoff layout, CSS, docs, full-suite wiring, and no duplicate support routes.
+
+Full suite after Figma Support Pages Sprint:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 321 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke contracts, route navigation consistency, public Figma pages, info/contact Figma pages, protected admin Figma pages, and support/subflow Figma pages.
+
+Runtime verification:
+
+- Command: `npm.cmd run build` from `apps/web`
+- Initial result: sandbox-only `spawn EPERM` while Vite loaded config.
+- Elevated rerun result: passed; Vite built `dist/index.html`, CSS, and JS assets.
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+- Route consistency: support routes remain `/admin/login`, `/admin/password-reset`, `/404`, `/500`, `/offline`, `/admin/media/upload`, `/admin/articles/editor-workflow`, and `/mobile-wireframes`; no duplicate `/login`, `/reset-password`, or `/media-upload` routes were added.
+
+Browser QA:
+
+- URL: `http://127.0.0.1:5173/admin/login`
+- Screenshot: `apps/web/browser-qa-admin-login-figma-support-pages.png`
+- Accessibility snapshot: `apps/web/browser-qa-admin-login-figma-support-pages.snapshot.txt`
+- Console result: normal Vite connect/connected and React DevTools info messages only.
+
+## Figma Browser QA Matrix Sprint - July 10, 2026
+
+Red setup:
+
+- Added `tests/production-figma-browser-qa-matrix.test.js` to require the screenshot capture script, app/root commands, 12 desktop/mobile screenshots, Figma handoff documentation, sprint documentation, and unchanged route scope.
+- Expected first result: failing until the script, screenshots, scripts, and docs were implemented.
+
+Red result:
+
+- Command: `node tests\production-figma-browser-qa-matrix.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 5 failed.
+- Failure reason: screenshot script, registered commands, screenshot files, documentation, and 326-test baseline did not exist yet.
+
+Implementation attempt:
+
+- Added `apps/web/scripts/capture-route-screenshots.mjs`.
+- Added app script `qa:screenshots` and root script `qa:web:screenshots`.
+- Added `test:production-figma-browser-qa` and wired the focused QA matrix test into the full suite.
+- Updated Figma handoff, sprint plan, implementation roadmap, coverage review, status doc, and roadmap tests to the 326-test baseline.
+
+Screenshot capture result:
+
+- Command: `npm.cmd run qa:web:screenshots`
+- Initial result: sandbox-only headless Chrome process launch failed before the first capture.
+- Elevated rerun result: passed.
+- Captured: 12 screenshots for Home, Visceral Mag, Article Detail, Search, Contact, and Admin Dashboard across desktop and mobile viewport sizes.
+- Output folder: `apps/web/browser-qa/figma-viewport-matrix/`.
+
+Green focused result:
+
+- Command: `node tests\production-figma-browser-qa-matrix.test.js`
+- Result: passed.
+- Tests: 5 passed, 0 failed.
+- Covered: screenshot capture script, root/app command wiring, 12 screenshot files, Figma handoff docs, sprint docs, 326-test baseline, and no duplicate final-design shortcut routes.
+
+Full suite after Figma Browser QA Matrix Sprint:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 326 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke contracts, route navigation consistency, Figma public/info/admin/support page slices, and desktop/mobile browser screenshot matrix evidence.
+
+Runtime verification:
+
+- Command: `npm.cmd run build` from `apps/web`
+- Initial result: sandbox-only `spawn EPERM` while Vite loaded config.
+- Elevated rerun result: passed; Vite built `dist/index.html`, CSS, and JS assets.
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+
+## Figma Screenshot Integrity Sprint - July 10, 2026
+
+Red setup:
+
+- Added `tests/production-figma-screenshot-integrity.test.js` to require a PNG integrity checker, registered commands, full-suite wiring, durable docs, and a 331-test baseline.
+- Expected first result: failing until the checker, commands, docs, and baseline were implemented.
+
+Red result:
+
+- Command: `node tests\production-figma-screenshot-integrity.test.js`
+- Result: failed as expected.
+- Tests: 1 passed, 4 failed.
+- Failure reason: the existing screenshots already had valid PNG dimensions, but the reusable checker, command wiring, docs, and 331-test baseline were missing.
+
+Implementation attempt:
+
+- Added `apps/web/scripts/check-route-screenshots.mjs`.
+- Added app script `qa:screenshots:check` and root script `qa:web:screenshots:check`.
+- Added `test:production-figma-screenshot-integrity` and wired the focused integrity test into the full suite.
+- Updated Figma handoff, sprint plan, implementation roadmap, coverage review, status doc, and roadmap tests to the 331-test baseline.
+
+Green focused result:
+
+- Command: `node tests\production-figma-screenshot-integrity.test.js`
+- Result: passed.
+- Tests: 5 passed, 0 failed.
+- Covered: PNG header parsing, expected desktop/mobile dimensions, non-trivial screenshot sizes, checker scripts, docs, and current 331-test baseline.
+
+Screenshot integrity command:
+
+- Command: `npm.cmd run qa:web:screenshots:check`
+- Result: passed.
+- Checked: 12 PNG captures in `apps/web/browser-qa/figma-viewport-matrix/`.
+- Dimensions verified: desktop `1440x1200`, mobile `390x1200`.
+
+Full suite after Figma Screenshot Integrity Sprint:
+
+- Command: `npm.cmd test`
+- Result: passed.
+- Tests: 331 passed, 0 failed.
+- Covered: all MVP wireframe contracts, production app shell, route smoke contracts, route navigation consistency, Figma page slices, desktop/mobile browser screenshot matrix, and screenshot PNG integrity.
+
+Runtime verification:
+
+- Command: `npm.cmd run build` from `apps/web`
+- Initial result: sandbox-only `spawn EPERM` while Vite loaded config.
+- Elevated rerun result: passed; Vite built `dist/index.html`, CSS, and JS assets.
+- Command: `npm.cmd run smoke:web:routes`
+- Result: all 22 MVP public/admin/support routes returned 200 from `http://127.0.0.1:5173`.
+
+## Figma SEO Metadata Sprint - July 10, 2026
+
+Red setup:
+
+- Added `tests/production-seo-metadata-route.test.js` to require route metadata helpers, dynamic article SEO, safe draft/missing article metadata, React head wiring, AppShell integration, docs, scripts, and a 337-test baseline.
+- Expected first result: failing until metadata modules, shell wiring, docs, and scripts were implemented.
+
+Red result:
+
+- Command: `node tests\production-seo-metadata-route.test.js`
+- Result: failed as expected.
+- Tests: 0 passed, 6 failed.
+- Failure reason: route metadata helper, React head updater, AppShell wiring, script registration, docs, and 337-test baseline were missing.
+
+Implementation attempt:
+
+- Added `apps/web/src/seo/routeMetadata.js` for pure route metadata construction.
+- Added `apps/web/src/seo/RouteMetadata.jsx` for browser title, canonical, robots, Open Graph, Twitter card, and description updates.
+- Wired `RouteMetadata` into `apps/web/src/App.jsx` for every resolved route.
+- Added static default title, description, and Open Graph tags to `apps/web/index.html`.
+- Added `test:production-seo-metadata` and wired the focused SEO metadata test into the full suite.
+- Updated sprint, roadmap, coverage, and status docs to the 337-test baseline.
+
+## Final Design ZIP Adoption - July 10, 2026
+
+Red setup:
+
+- Added tests/final-design-zip-adoption.test.js for final archive entry files, accessible mobile navigation, canonical route mapping, docs, and full-suite wiring.
+
+Red result:
+
+- Command: node tests\final-design-zip-adoption.test.js
+- Result: failed as expected.
+- Tests: 1 passed, 3 failed.
+- Failure reason: the complete ZIP entry files, mobile menu interaction, script wiring, and final-source documentation were missing.
+
+Implementation attempt:
+
+- Preserved the ZIP README, HTML/React entry points, package scripts, and Figma asset resolver in the imported design source.
+- Added the final-design mobile navigation toggle to the live public header.
+- Kept the existing 22-route registry and the four editorial search aliases without duplicate routes.
+- Registered the focused test and updated the current full-suite target to 341 tests.
+
+Green final-design ZIP result:
+
+- Command: node tests\final-design-zip-adoption.test.js
+- Result: passed, 4 tests and 0 failures.
+- Full suite: npm.cmd test passed, 341 tests and 0 failures.
+- Production build: npm.cmd run build passed with 65 transformed modules.
+- Live route smoke: all 22 public, admin, and support routes returned HTTP 200.
+- Browser metadata: article title, description, canonical URL, Open Graph type, and Twitter card matched the published article fixture.
+- Mobile browser QA: the navigation is absent from the accessibility tree while collapsed, then appears after the toggle reports expanded.
+- Screenshot QA: 12 refreshed PNGs passed at 1440x1200 desktop and 390x1200 mobile.
+## Launch Discovery and Lighthouse - July 10, 2026
+
+Audit baseline:
+
+- Mobile Lighthouse navigation audit on the live Home route.
+- Scores before fixes: Accessibility 100, Best Practices 100, SEO 92, Agentic Browsing 67.
+- Failed findings: brand visible-label mismatch, invalid robots.txt SPA fallback, and missing llms.txt structure.
+
+Red result:
+
+- Added tests/production-launch-discovery-files.test.js.
+- Command: node tests\production-launch-discovery-files.test.js
+- Result: failed as expected, 0 passed and 4 failed.
+- Failure reason: robots.txt, sitemap.xml, llms.txt, corrected brand accessible name, script wiring, and docs were missing.
+
+Implementation attempt:
+
+- Added a crawlable robots.txt and public sitemap.xml.
+- Added llms.txt with an H1, magazine summary, canonical reader links, and public-content boundary.
+- Aligned the brand link accessible name with its visible Babas & Brasse text.
+- Registered the focused test and updated the full-suite target to 345 tests.
+Lighthouse label refinement:
+
+- The first accessible-name correction retained a duplicate image/text contribution in the raw audit.
+- Tightened the TDD contract to require decorative logo semantics: empty image alt text and visible Babas & Brasse text as the link name.
+- The refined test failed first, then the public header implementation was corrected.
+Final Lighthouse result:
+
+- Mobile navigation audit on http://127.0.0.1:5173/.
+- Accessibility: 100.
+- Best Practices: 100.
+- SEO: 100.
+- Agentic Browsing: 100.
+- Audit summary: 55 passed and 0 failed.
+- Full regression suite: 345 passed and 0 failed.
+- Live discovery responses: robots.txt 200 text/plain, llms.txt 200 text/plain, sitemap.xml 200 text/xml.
+## Public Form Interaction Sprint - July 11, 2026
+
+Red setup:
+
+- Added tests/production-public-form-interactions.test.js for email validation, JSON submission handling, SPA fallback rejection, shared newsletter states, contact feedback, pending-only comment submission, styles, docs, and script wiring.
+
+Red result:
+
+- Command: node tests\production-public-form-interactions.test.js
+- Result: failed as expected, 0 passed and 6 failed.
+- Failure reason: the public form client, newsletter component, page handlers, status styles, docs, and suite wiring did not exist.
+
+Implementation attempt:
+
+- Added an API-ready JSON public form client with newsletter, contact, and article comment endpoints.
+- Added reusable newsletter validation, submitting, success, and retry states to Home, About, and Contact.
+- Added Contact submission handling that preserves reader text on API failure.
+- Added article comment submission with pending moderation feedback; unapproved comments are never added to the public list.
+- Hid Contact's implementation-state reference strip while preserving its tested wireframe contract.
+- Registered the focused tests and updated the full-suite target to 391 tests.
+Green public form result:
+
+- Focused suite: 6 passed and 0 failed.
+- Home newsletter empty submission exposes an invalid email state through its polite live region.
+- Home newsletter unavailable-service state preserves reader@example.com and offers retry feedback.
+- Contact unavailable-service state preserves name, email, subject, and message text.
+- Contact honeypot and implementation-state strip are absent from the accessibility tree.
+- Article comment validation uses a polite live region.
+- Article unavailable-service state preserves the name and comment while the approved public comment count remains unchanged.
+- Refreshed all 12 Figma desktop/mobile screenshots after the interaction changes.
+Final public interaction verification:
+
+- Production Vite build passed with 67 transformed modules.
+- Full suite passed: 391 tests and 0 failures.
+- Live route smoke passed: all 22 routes returned HTTP 200.
+- Refreshed screenshot integrity passed for all 12 desktop/mobile PNGs.
+- Mobile Lighthouse remained Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100, with 55 passed audits and 0 failures.
+
+## Figma Technology Stack Migration - July 11, 2026
+
+Red gate:
+- Added `production-figma-tech-stack-migration.test.js` before implementation.
+- Initial result: 0 passed, 7 failed, proving the React Router, Tailwind, Lucide, shadcn-style primitive, final Home composition, and documentation contracts were absent.
+
+Implementation:
+- Began from the final Figma export's Vite 6.3.5 runtime, then moved to patched Vite 7.3.6 while retaining Tailwind 4.1.12 compatibility.
+- Added React Router, Lucide, class-variance-authority, clsx, tailwind-merge, and Radix Slot.
+- Preserved the canonical 22-route registry while moving browser navigation to Router links.
+- Replaced the MVP-first Home composition with featured, recent, more, and newsletter sections from the final design.
+- Added shared Button and Input primitives and a responsive editorial shell.
+
+
+## Figma Editorial Content Density - July 11, 2026
+
+Red gate:
+- Added three tests for seven unique published preview stories, three non-repeating recent cards, and article-based More rows.
+- Initial result: 0 passed, 3 failed.
+
+Green implementation:
+- Added five unique local editorial preview stories based on the final Figma content direction.
+- Home now fills featured, recent, and More sections without repeating an article.
+- More rows use the shared compact Figma article card instead of MVP category summaries.
+
+
+Figma stack migration final verification:
+- Upgraded React Router from 7.13.0 to patched 7.18.1.
+- Upgraded the Figma-compatible runtime from Vite 6.3.5 to patched Vite 7.3.6 while retaining Tailwind 4 compatibility.
+- Full dependency audit: 0 vulnerabilities.
+- Full suite: 391 passed, 0 failed.
+- Production build: passed with Vite 7.3.6.
+- Live route smoke: 22 canonical routes targeted.
+- Mobile Lighthouse: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100; 51 passed and 0 failed.
+- Refreshed 12 desktop/mobile route screenshots after final content and mobile-header polish.
+
+
+## UI, Stack, Git Hygiene, And ImageGen Pass - July 11, 2026
+
+Red gates:
+- Repository hygiene: 1 passed, 2 failed before `.gitignore` and generated-evidence test cleanup.
+- ImageGen assets: 0 passed, 3 failed before asset generation and integration.
+
+Implementation:
+- Added a root `.gitignore` for dependencies, builds, browser evidence, logs, PIDs, and OS noise.
+- Removed redundant one-off browser captures, snapshot dumps, and Vite runtime files.
+- Kept the focused React/Router/Tailwind/Lucide/Radix stack; all declared packages have direct use.
+- Generated five distinct South African editorial images with built-in ImageGen.
+- Optimized raw generated PNGs into high-quality JPEGs, reducing project media weight from roughly 11 MB to roughly 1.1 MB.
+- Replaced public React placeholder imagery across editorial, information, profile, featured, and admin-media surfaces.
+- Ran 44 live layout checks across all 22 routes at desktop and mobile widths.
+
+Green focused results:
+- Repository hygiene: 3 passed, 0 failed.
+- ImageGen asset integration: 3 passed, 0 failed.
+- Live layout: no body overflow, duplicate IDs, broken images, header overlap, console warnings, or console errors.
+
+
+Final UI/stack/ImageGen verification:
+- Full suite: 391 passed, 0 failed.
+- Production build: passed with Vite 7.3.6.
+- npm audit: 0 vulnerabilities.
+- Live route smoke: 22 of 22 routes returned HTTP 200.
+- Live DOM alignment audit: 44 desktop/mobile route checks; 0 body overflow, duplicate IDs, broken images, header overlaps, console warnings, or console errors.
+- Screenshot capture: 12 refreshed local PNGs.
+- Screenshot integrity: 12 passed.
+- Mobile Lighthouse: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100; 51 passed and 0 failed.
+- Git hygiene confirmed `node_modules`, `dist`, browser QA output, logs, and PIDs are ignored.
+
+## Figma-Only Layout And Navigation Repair - July 11, 2026
+
+### Red
+- Added `tests/production-figma-only-navigation.test.js`.
+- Initial result: 0 passed, 4 failed.
+- Failures proved that search query parameters were ignored, topic links returned duplicate content, active navigation was path-only, and the global MVP section card wrapped Figma pages.
+
+### Green
+- `CategoriesSearchPage` now reads and writes `q`, `category`, and `topic` through React Router.
+- Theatre Reviews, Book Reviews, Essays, and Opinion now return distinct filtered article sets.
+- Public navigation computes one query-aware active state without adding duplicate routes.
+- Removed the global MVP main wrapper, section card, article card, and state stripe from the live stylesheet. Figma page classes now own the public canvas.
+
+### Verification
+- Focused regression: 4 passed, 0 failed.
+- Full suite: 391 passed, 0 failed.
+- Production build: passed with Vite 7.3.6.
+- Dependency audit: 0 vulnerabilities.
+- Live route smoke: all 22 canonical routes returned 200.
+- Desktop browser: 1280px Figma canvas at 1536px viewport, no overflow, no broken images, and no section border or shadow.
+- Mobile browser: 390px viewport, 358px page canvas, no horizontal overflow, no broken images, and the collapsible navigation exposed all five Figma section links.
+
+## Desktop Content And More-Menu Polish - July 11, 2026
+
+### Red
+- Added `tests/production-desktop-content-polish.test.js`.
+- Initial result: 0 passed, 4 failed.
+- The failures captured duplicated page-level search controls, visible wireframe state labels, sparse profile fixtures, and profile cards without useful links.
+
+### Green
+- Section routes now use the global header search only. The full archive form remains available on the bare `/search` route.
+- Visceral Mag links to archive search instead of rendering a second search input.
+- Creative Team and Contributors no longer display loading, empty, error, social, or reset state labels as page content.
+- Live fixtures now include four creative-team profiles and four contributors with roles, biographies, useful links, unique imagery, and distributed published bylines.
+- Profile cards render published work and useful profile links together.
+
+### Verification
+- Focused desktop-content suite: 4 passed, 0 failed.
+- Full suite: 391 passed, 0 failed.
+- Production build: passed with Vite 7.3.6.
+- Dependency audit: 0 vulnerabilities.
+- Live route smoke: all 22 canonical routes returned 200.
+- Desktop browser at 1440px: 1280px page canvas, one visible header search on section and More pages, four team profiles, four contributors, seven published-work links, no prototype-state words, no overflow, and no broken images.
+- Mobile browser at 390px: 358px content canvas, search appears only inside the opened menu, four stacked contributor profiles, no overflow, and no broken images.
+
+## Public Link Integrity - July 12, 2026
+
+### Red
+- Added `tests/production-public-link-integrity.test.js`.
+- Initial result: 0 passed, 3 failed.
+- Profile cards and article bylines generated unregistered `/contributors/{slug}` URLs.
+
+### Green
+- Contributor bylines now use `/contributors#{slug}`.
+- Creative-team cards use `/creative-team#{slug}`.
+- Every profile card exposes a matching stable `id` target with sticky-header scroll margin.
+
+### Verification
+- Focused link-integrity suite: 3 passed, 0 failed.
+- Full public browser crawl: 350 internal links across 9 public routes, 0 invalid canonical destinations.
+- Article byline resolved to `/contributors#visceral-contributor` and found the Lerato Mokoena card.
+- Mobile deep link to `/contributors#thando-jacobs` scrolled to the matching card.
+- Regression baseline: 391 passed, 0 failed.
+
+## Persistent Public API Slice - July 12, 2026
+
+### Red
+- Added `tests/production-public-api-persistence.test.js`.
+- Initial result: 0 passed, 4 failed because no API package, persistence store, or Vite proxy existed.
+
+### Green
+- Added a dependency-free Node API under `apps/api/`.
+- Added atomic JSON persistence for newsletter signups, contact submissions, and article comments.
+- Newsletter email addresses are normalized and deduplicated.
+- Contact submissions enter `new`; article comments enter `pending` and remain hidden until moderation.
+- Added JSON validation, body-size limits, safe error responses, a health endpoint, and Vite `/api` proxying.
+- Added `apps/api/README.md` with run commands, endpoint contracts, persistence configuration, and production security boundaries.
+
+### Verification
+- Focused API suite: 4 passed, 0 failed.
+- Restart persistence: one newsletter signup, one contact submission, and one pending comment remained after the API process was restarted.
+- Live browser: Contact, Newsletter, and Comment forms each displayed their success state through the Vite proxy.
+- Regression baseline: 391 passed, 0 failed.
+
+## Authenticated Admin API Slice - July 12, 2026
+
+### Red
+- Added `tests/production-admin-api-auth.test.js`.
+- Initial result: 0 passed, 4 failed because protected endpoints and status mutations did not exist.
+
+### Green
+- Added fail-closed bearer-token protection with constant-time comparison.
+- No default token is embedded; unconfigured admin endpoints return `503`.
+- Added protected contact-submission and comment queue reads.
+- Added narrowly allowed contact and comment status mutations.
+- Approved, rejected, read, and archived states persist through store restart.
+
+### Verification
+- Focused admin API suite: 4 passed, 0 failed.
+- Public API regression suite: 4 passed, 0 failed.
+- Regression baseline: 391 passed, 0 failed.
+
+## Admin-Only Browser Session - July 12, 2026
+
+### Red
+- Added the admin-only session contract; initial result was 0 passed and 5 failed.
+
+### Green
+- Added one-role administrator authentication with no registration route.
+- Added login, session, logout, secure cookie attributes, and fail-closed configuration.
+- Added React route gating for all edit and moderation routes.
+- Updated stale editor and wireframe-state assertions to the functional login contract.
+
+### Verification
+- Admin-only session suite: 5 passed, 0 failed.
+- Admin bearer API suite: 4 passed, 0 failed.
+- Public persistence suite: 4 passed, 0 failed.
+- Full regression suite: 391 passed, 0 failed.
+
+## Live Admin Queues and Logout - July 12, 2026
+
+### Red
+- Contact and moderation suites failed on obsolete editor roles and missing authenticated GET/PATCH behavior.
+- Admin session suite failed on the missing logout control.
+
+### Green
+- Connected Contact Submissions and pending-comment moderation to protected session APIs.
+- Added live status mutations, loading, empty, saving, and error feedback.
+- Added server-backed logout and normalized every admin model to the admin role.
+
+### Verification
+- Focused contact, moderation, and admin-session suites passed.
+- Full regression suite: 391 passed, 0 failed.
+- Vite production build passed with 1,672 modules transformed.
+
+## Live-View Editorial Polish - July 12, 2026
+
+### Red
+- Updated route, article, shell, and responsive contracts failed on redundant category rails, raw article paths, the public auth shell, and missing mobile grid safeguards.
+
+### Green
+- Removed page-level category rails and their unused model data.
+- Added article breadcrumb/date formatting, dedicated auth layout, responsive grid constraints, and header balance refinements.
+
+### Verification
+- Focused Visceral Mag, Search, Article Detail, App Shell, and Visual System suites passed.
+- Full regression suite: 391 passed, 0 failed.
+- Production build passed with 1,673 modules transformed.
+
+## Reference-Led Archive and Newsletter Repair - July 12, 2026
+
+### Red
+- Focused tests failed on the shared newsletter structure, duplicate Contact links, Featured story layout/metadata, and the old Visceral grid.
+
+### Green
+- Added a shared newsletter field wrapper and stable desktop/mobile form grid.
+- Removed Contact-only footer routes.
+- Added a Visceral lead story and two-column story feed.
+- Added a two-column Featured published-story feed with complete card metadata.
+- Expanded browser QA from 12 to 14 screenshots by adding Featured desktop/mobile.
+
+### Verification
+- Focused newsletter, Contact, Featured, and Visceral suites passed.
+- Full regression suite: 391 passed, 0 failed.
+- Production build passed with 1,673 modules transformed.
+- Tall desktop captures confirmed the newsletter and Featured story layouts.

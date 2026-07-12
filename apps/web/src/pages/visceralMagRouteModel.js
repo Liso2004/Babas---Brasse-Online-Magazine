@@ -37,7 +37,7 @@ function articleSummary(article, fixtures) {
       id: article.authorProfileId,
       name: author.name,
       slug: author.slug,
-      href: `/contributors/${author.slug}`
+      href: `/contributors#${author.slug}`
     }
   };
 }
@@ -70,12 +70,6 @@ export function buildVisceralMagRouteModel(fixtures) {
       placeholder: "Search articles"
     },
     sections: {
-      categoryFilters: fixtures.categories.map((category) => ({
-        id: category.id,
-        label: category.label,
-        slug: category.slug,
-        href: `/search?category=${category.slug}`
-      })),
       articleListing: publishedArticles
     }
   };

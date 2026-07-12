@@ -1,76 +1,50 @@
-import fixturesModule from "../../../../src/content/fixtures.js";
+import { Link } from "react-router-dom";
+import * as launchFixtures from "../data/launchFixtures.js";
+import { NewsletterSignup } from "../components/NewsletterSignup.jsx";
+import { FigmaArticleCard } from "../components/FigmaArticleCard.jsx";
+import { ArrowRight } from "lucide-react";
 import { buildHomeRouteModel } from "./homeRouteModel.js";
-
-const launchFixtures = fixturesModule.default || fixturesModule;
 
 export function HomePage({ fixtures = launchFixtures }) {
   const model = buildHomeRouteModel(fixtures);
-  const { hero, sections, newsletter } = model;
+  const { sections, newsletter } = model;
+  const recent = sections.recentArticles.length ? sections.recentArticles : sections.latestArticles;
 
   return (
-    <section data-page="home" data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
-      <header data-section="home-intro">
-        <p className="eyebrow">{hero.eyebrow}</p>
-        <h1>{hero.title}</h1>
-        <p>{hero.dek}</p>
-      </header>
-
+    <section className="figma-final-home" data-page="home" data-design-source={model.designSource} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       {sections.leadStory ? (
-        <section data-section="lead-story">
-          <p className="eyebrow">Lead theatre story</p>
-          <h2>{sections.leadStory.title}</h2>
-          <p>{sections.leadStory.dek}</p>
-          <a href={sections.leadStory.href}>Read lead story</a>
+        <section data-section="figma-featured-article" className="figma-home__feature-shell">
+          <FigmaArticleCard article={sections.featuredArticle} featured />
         </section>
       ) : null}
 
-      <section data-section="latest-articles">
-        <h2>Latest Articles</h2>
-        {sections.latestArticles.map((article) => (
-          <article key={article.id} data-article={article.slug} data-status={article.status}>
-            <p className="eyebrow">{article.categoryId}</p>
-            <h3>{article.title}</h3>
-            <p>{article.dek}</p>
-            <a href={article.href}>Read article</a>
-          </article>
-        ))}
+      <section data-section="figma-recent-articles" className="figma-home__recent-shell">
+        <div className="section-heading-row">
+          <h2>Recent Articles</h2>
+          <Link to="/visceral-mag">View all <ArrowRight size={16} aria-hidden="true" /></Link>
+        </div>
+        <div className="figma-card-grid">
+          {recent.map((article) => <FigmaArticleCard key={article.id} article={article} />)}
+        </div>
       </section>
 
-      <section data-section="category-access">
-        <h2>Browse Categories</h2>
-        {sections.categoryAccess.map((category) => (
-          <a key={category.id} className="category-chip" href={category.href}>{category.label}</a>
-        ))}
+      <section data-section="figma-more-articles" className="figma-more-list">
+        <div className="section-heading-row">
+          <h2>{sections.moreFromMagazine.heading}</h2>
+          <Link to="/search">Browse archive <ArrowRight size={16} aria-hidden="true" /></Link>
+        </div>
+        <div className="figma-more-list__items">
+          {sections.moreFromMagazine.items.map((article) => (
+            <FigmaArticleCard key={article.id} article={article} compact />
+          ))}
+        </div>
       </section>
 
-      <section data-section="media-preview">
-        <h2>Featured / Media</h2>
-        {sections.mediaPreview.map((item) => (
-          <article key={item.id} data-media={item.id}>
-            <img src={item.url} alt={item.altText} />
-            <h3>{item.title}</h3>
-            <p>{item.caption}</p>
-          </article>
-        ))}
-      </section>
-
-      <section data-section="people-preview">
-        <h2>People</h2>
-        {sections.peoplePreview.map((profile) => (
-          <article key={profile.id} data-profile={profile.id} data-profile-type={profile.type}>
-            <h3>{profile.name}</h3>
-            <p>{profile.role}</p>
-          </article>
-        ))}
-      </section>
-
-      <footer data-section="newsletter-footer" id={newsletter.id}>
+      <section data-section="figma-newsletter" id={newsletter.id} className="figma-newsletter-panel">
         <h2>Stay Connected</h2>
-        <form action={newsletter.action} method="post">
-          <label>Email <input name="email" type="email" /></label>
-          <button type="submit">Subscribe</button>
-        </form>
-      </footer>
+        <p>Get the latest articles, reviews, and cultural commentary delivered to your inbox.</p>
+        <NewsletterSignup idPrefix="home-newsletter" />
+      </section>
     </section>
   );
 }

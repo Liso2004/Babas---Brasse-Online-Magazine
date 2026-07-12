@@ -94,10 +94,10 @@ test("React-ready ContributorsPage component is scaffolded from the route model"
   assert.match(component, /buildContributorsRouteModel/);
   assert.match(component, /data-page="contributors"/);
   assert.match(component, /data-section="contributors-intro"/);
-  assert.match(component, /data-section="contributors-tools"/);
+  assert.doesNotMatch(component, /data-section="contributors-tools"/);
   assert.match(component, /data-section="contributors-grid"/);
   assert.match(component, /data-section="published-works"/);
-  assert.match(component, /data-section="contributors-states"/);
+  assert.doesNotMatch(component, /data-section="contributors-states"/);
   assert.match(component, /data-action="reset-filter"/);
   assert.match(app, /ContributorsPage/);
   assert.match(app, /route\.id === "contributors"/);

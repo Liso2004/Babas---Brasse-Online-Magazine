@@ -3,7 +3,7 @@ import { getRouteByPath } from "../routes.js";
 const aboutCopy = {
   mission: "Babas & Brasse creates a home for cultural writing, criticism, interviews, photography, and artwork with a voice rooted in lived experience.",
   vision: "The magazine exists to make theatre, books, essays, opinion, and culture feel close, discussable, and worth returning to.",
-  organisation: "The launch MVP keeps the publication structure lean: a public magazine, contributor profiles, featured media, contact paths, and an editor-controlled admin area."
+  organisation: "Babas & Brasse brings essays, reviews, interviews, and visual culture into one independent South African publication."
 };
 
 const pillarFallbacks = [
@@ -40,7 +40,7 @@ export function buildAboutRouteModel(fixtures) {
     hero: {
       eyebrow: "About Babas & Brasse",
       title: "Mission, vision, and the shape of the publication.",
-      dek: "The MVP About page introduces the magazine without turning the screen into a marketing landing page."
+      dek: "Babas & Brasse is an independent home for attentive writing about South African books, theatre, art, language, and everyday cultural life."
     },
     sections: {
       overview: {
@@ -49,8 +49,8 @@ export function buildAboutRouteModel(fixtures) {
         vision: aboutCopy.vision,
         organisation: aboutCopy.organisation,
         image: {
-          url: "/media/opening-banner-placeholder.jpg",
-          altText: "Babas and Brasse publication image placeholder"
+          url: "/media/editorial/editorial-belonging.jpg",
+          altText: "Neighbors in conversation on a Cape Town street"
         }
       },
       editorialPillars: [...pillarFallbacks, ...fixturePillars],

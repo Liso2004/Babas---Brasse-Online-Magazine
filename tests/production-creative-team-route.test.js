@@ -38,7 +38,7 @@ test("production Creative Team route model preserves the profile page surface", 
   assert.equal(model.route.path, "/creative-team");
   assert.equal(model.route.prototypeFile, "src/pages/creative-team.html");
   assert.match(model.hero.title, /people shaping Babas & Brasse/i);
-  assert.match(model.editorialRoleNote.body, /public role, short bio, image alt text, and social-link labels/i);
+  assert.match(model.editorialRoleNote.body, /commissioning, close editing, thoughtful visual direction/i);
 });
 
 test("production Creative Team model includes creative team profiles only", async () => {
@@ -63,8 +63,8 @@ test("production Creative Team profile cards include required anatomy and state 
   assert.equal(first.name, "Zubayr Charles");
   assert.equal(first.role, "Client / Product Owner");
   assert.match(first.shortBio, /Approves scope/);
-  assert.equal(first.image.url, "/media/profile-placeholder.jpg");
-  assert.equal(first.image.altText, "Portrait placeholder for Zubayr Charles");
+  assert.equal(first.image.url, "/media/editorial/editorial-theatre.jpg");
+  assert.equal(first.image.altText, "Editorial setting representing Zubayr Charles's role");
   assert.deepEqual(first.stateNotes, ["social-links-empty"]);
   assert.deepEqual(model.sections.states.notes, ["team-loading", "team-error"]);
 });
@@ -91,7 +91,7 @@ test("React-ready CreativeTeamPage component is scaffolded from the route model"
   assert.match(component, /data-section="team-intro"/);
   assert.match(component, /data-section="editorial-role-note"/);
   assert.match(component, /data-section="team-grid"/);
-  assert.match(component, /data-section="team-states"/);
+  assert.doesNotMatch(component, /data-section="team-states"/);
   assert.match(component, /data-section="team-footer"/);
   assert.match(component, /data-state="empty-team"/);
   assert.match(app, /CreativeTeamPage/);

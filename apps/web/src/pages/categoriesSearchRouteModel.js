@@ -39,6 +39,20 @@ function articleSearchText(article, fixtures) {
   ].join(" "));
 }
 
+const topicTerms = {
+  theatre: ["theatre", "stage", "rehearsal", "performance", "stagecraft"],
+  books: ["book", "novel", "reading", "literary", "reader"],
+  opinion: ["opinion", "argument", "multilingualism", "matters"]
+};
+
+function matchesTopic(article, fixtures, topic) {
+  const normalizedTopic = normalize(topic);
+  if (!normalizedTopic) return true;
+  const searchableText = articleSearchText(article, fixtures);
+  const terms = topicTerms[normalizedTopic] || [normalizedTopic];
+  return terms.some((term) => searchableText.includes(term));
+}
+
 function articleResult(article, fixtures) {
   const category = getCategory(fixtures.categories, article.categoryId);
   const author = getAuthor(fixtures.profiles, article.authorProfileId);
@@ -51,6 +65,7 @@ function articleResult(article, fixtures) {
     status: article.status,
     href: `/visceral-mag/${article.slug}`,
     publishedAt: article.publishedAt,
+    featuredImage: article.featuredImage,
     category: {
       id: article.categoryId,
       label: category.label,
@@ -61,7 +76,7 @@ function articleResult(article, fixtures) {
       id: article.authorProfileId,
       name: author.name,
       slug: author.slug,
-      href: `/contributors/${author.slug}`
+      href: `/contributors#${author.slug}`
     }
   };
 }
@@ -69,14 +84,16 @@ function articleResult(article, fixtures) {
 export function filterPublishedArticles(fixtures, options = {}) {
   const query = normalize(options.query);
   const categoryFilter = normalize(options.category);
+  const topicFilter = normalize(options.topic);
 
   return getPublishedArticles(fixtures)
     .filter((article) => {
       const category = getCategory(fixtures.categories, article.categoryId);
       const matchesCategory = !categoryFilter || normalize(category.slug) === categoryFilter || normalize(category.id) === categoryFilter;
       const matchesQuery = !query || articleSearchText(article, fixtures).includes(query);
+      const matchesTopicFilter = matchesTopic(article, fixtures, topicFilter);
 
-      return matchesCategory && matchesQuery;
+      return matchesCategory && matchesQuery && matchesTopicFilter;
     })
     .map((article) => articleResult(article, fixtures));
 }
@@ -89,7 +106,8 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
   const route = getRouteByPath("/search");
   const query = options.query || "";
   const category = options.category || "";
-  const results = filterPublishedArticles(fixtures, { query, category });
+  const topic = options.topic || "";
+  const results = filterPublishedArticles(fixtures, { query, category, topic });
   const selectedCategory = category ? getCategory(fixtures.categories, category) : null;
 
   return {
@@ -105,7 +123,7 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
     hero: {
       eyebrow: "Categories / Search",
       title: "Find essays, reviews, interviews, artwork, and culture notes.",
-      dek: "Search the published Babas & Brasse archive or browse by launch category."
+      dek: "Search the published Babas & Brasse archive by keyword or use the magazine sections above."
     },
     search: {
       id: "article-search",
@@ -118,7 +136,8 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
     },
     activeFilters: {
       query,
-      category
+      category,
+      topic
     },
     selectedCategory: selectedCategory ? {
       id: selectedCategory.id,
@@ -126,16 +145,6 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
       slug: selectedCategory.slug
     } : null,
     sections: {
-      categoryFilters: [
-        { id: "all", label: "All", slug: "all", href: "/search", active: !category },
-        ...fixtures.categories.map((item) => ({
-          id: item.id,
-          label: item.label,
-          slug: item.slug,
-          href: `/search?category=${item.slug}`,
-          active: normalize(item.slug) === normalize(category)
-        }))
-      ],
       results: results.length > 0 ? {
         state: "results",
         heading: "Search results",
@@ -144,7 +153,7 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
         state: "no-results",
         heading: "No articles found",
         message: "No articles found",
-        body: "Try another keyword or clear the selected category.",
+        body: "Try another keyword or clear the selected section.",
         resetHref: "/search",
         items: []
       }

@@ -65,11 +65,11 @@ test("React-ready HomePage component is scaffolded from the route model", () => 
   assert.match(component, /export function HomePage/);
   assert.match(component, /buildHomeRouteModel/);
   assert.match(component, /data-page="home"/);
-  assert.match(component, /data-section="lead-story"/);
-  assert.match(component, /data-section="latest-articles"/);
-  assert.match(component, /data-section="category-access"/);
-  assert.match(component, /data-section="media-preview"/);
-  assert.match(component, /data-section="people-preview"/);
+  assert.match(component, /data-section="figma-featured-article"/);
+  assert.match(component, /data-section="figma-recent-articles"/);
+  assert.match(component, /data-section="figma-more-articles"/);
+  assert.match(component, /data-section="figma-newsletter"/);
+  assert.doesNotMatch(component, /data-section="people-preview"/);
   assert.match(component, /newsletter/);
 });
 

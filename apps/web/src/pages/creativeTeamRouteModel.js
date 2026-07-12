@@ -1,5 +1,12 @@
 import { getRouteByPath } from "../routes.js";
 
+const profileImages = {
+  "zubayr-charles": "/media/editorial/editorial-theatre.jpg",
+  "zoe-petersen": "/media/editorial/editorial-stagecraft.jpg",
+  "naledi-maseko": "/media/editorial/editorial-language.jpg",
+  "ayesha-daniels": "/media/editorial/editorial-belonging.jpg"
+};
+
 function profileCard(profile) {
   const socialLinks = Array.isArray(profile.socialLinks) ? profile.socialLinks : [];
 
@@ -11,8 +18,8 @@ function profileCard(profile) {
     slug: profile.slug,
     shortBio: profile.shortBio,
     image: {
-      url: "/media/profile-placeholder.jpg",
-      altText: `Portrait placeholder for ${profile.name}`
+      url: profileImages[profile.id] || "/media/editorial/editorial-theatre.jpg",
+      altText: `Editorial setting representing ${profile.name}'s role`
     },
     socialLinks,
     stateNotes: socialLinks.length > 0 ? [] : ["social-links-empty"]
@@ -41,11 +48,11 @@ export function buildCreativeTeamRouteModel(fixtures) {
     hero: {
       eyebrow: "Creative Team",
       title: "The people shaping Babas & Brasse.",
-      dek: "Editorial roles stay visible so readers understand who owns product direction, development, and publication decisions."
+      dek: "Editors, makers, and visual storytellers working together to publish generous, rigorous cultural writing."
     },
     editorialRoleNote: {
-      heading: "Editorial roles",
-      body: "Profile records need a public role, short bio, image alt text, and social-link labels before launch."
+      heading: "How we work",
+      body: "Every story moves through conversation: commissioning, close editing, thoughtful visual direction, and a final reading shaped for the web."
     },
     sections: {
       teamGrid: teamProfiles.length > 0 ? {

@@ -4,11 +4,13 @@ export const publicRoutes = [
   { id: "creative-team", label: "Creative Team", path: "/creative-team", area: "public", prototypeFile: "src/pages/creative-team.html" },
   { id: "contributors", label: "Contributors", path: "/contributors", area: "public", prototypeFile: "src/pages/contributors.html" },
   { id: "visceral-mag", label: "Visceral Mag", path: "/visceral-mag", area: "public", prototypeFile: "src/pages/visceral-mag.html" },
-  { id: "article-detail", label: "Article Detail", path: "/visceral-mag/:slug", area: "public", prototypeFile: "src/pages/article-detail.html" },
+  { id: "article-detail", label: "Article Detail", path: "/visceral-mag/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/article-detail.html" },
   { id: "search", label: "Search", path: "/search", area: "public", prototypeFile: "src/pages/categories-search.html" },
   { id: "featured", label: "Featured", path: "/featured", area: "public", prototypeFile: "src/pages/featured-media.html" },
   { id: "contact", label: "Contact", path: "/contact", area: "public", prototypeFile: "src/pages/contact.html" }
 ];
+
+export const publicNavigationRoutes = publicRoutes.filter((route) => route.navVisible !== false && !route.path.includes(":"));
 
 export const adminRoutes = [
   { id: "admin-dashboard", label: "Dashboard", path: "/admin", area: "admin", authRequired: true, prototypeFile: "src/pages/admin/dashboard.html" },

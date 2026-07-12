@@ -46,10 +46,10 @@ test("MVP coverage review document summarizes implemented routes and remaining l
   assert.match(doc, /14 core route artifacts/i);
   assert.match(doc, /9 public routes/i);
   assert.match(doc, /5 admin routes/i);
-  assert.match(doc, /214 passing tests/i);
+  assert.match(doc, /391 passing tests/i);
   assert.match(doc, /8 implemented support routes/i);
   assert.match(doc, /frontend app integration/i);
-  assert.match(doc, /authentication integration/i);
+  assert.match(doc, /authentication hardening/i);
   assert.match(doc, /backend persistence/i);
   assert.match(doc, /visual styling/i);
   assert.match(doc, /July 31, 2026/i);
@@ -111,7 +111,19 @@ test("all implemented route renderers and focused test scripts are registered", 
     "test:production-categories-search",
     "test:production-featured-media",
     "test:production-creative-team",
-    "test:production-contributors"
+    "test:production-contributors",
+    "test:production-contact",
+    "test:production-admin-dashboard",
+    "test:production-article-management",
+    "test:production-profile-media-management",
+    "test:production-comments-reviews-moderation",
+    "test:production-contact-submissions",
+    "test:production-auth-support",
+    "test:production-error-support",
+    "test:production-admin-workflow-support",
+    "test:production-mobile-wireframes",
+    "test:web-runtime",
+    "test:visual-system"
   ];
 
   for (const script of expectedScripts) {
@@ -137,6 +149,18 @@ test("all implemented route renderers and focused test scripts are registered", 
   assert.match(runTests, /production-featured-media-route\.test\.js/);
   assert.match(runTests, /production-creative-team-route\.test\.js/);
   assert.match(runTests, /production-contributors-route\.test\.js/);
+  assert.match(runTests, /production-contact-route\.test\.js/);
+  assert.match(runTests, /production-admin-dashboard-route\.test\.js/);
+  assert.match(runTests, /production-article-management-route\.test\.js/);
+  assert.match(runTests, /production-profile-media-management-route\.test\.js/);
+  assert.match(runTests, /production-comments-reviews-moderation-route\.test\.js/);
+  assert.match(runTests, /production-contact-submissions-route\.test\.js/);
+  assert.match(runTests, /production-auth-support-route\.test\.js/);
+  assert.match(runTests, /production-error-support-route\.test\.js/);
+  assert.match(runTests, /production-admin-workflow-support-route\.test\.js/);
+  assert.match(runTests, /production-mobile-wireframe-comps-route\.test\.js/);
+  assert.match(runTests, /production-web-runtime\.test\.js/);
+  assert.match(runTests, /production-visual-system\.test\.js/);
 });
 
 test("all support wireframes are implemented as generated prototype contracts", () => {
@@ -186,34 +210,3 @@ test("all support wireframes are implemented as generated prototype contracts", 
   assert.match(mobileHtml, /data-page="mobile-wireframe-comps"/);
   assert.match(mobileHtml, /data-generated="mobile-wireframe-comps-renderer"/);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

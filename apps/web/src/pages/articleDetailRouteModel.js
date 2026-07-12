@@ -86,7 +86,7 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
         id: article.authorProfileId,
         name: author.name,
         slug: author.slug,
-        href: `/contributors/${author.slug}`
+        href: `/contributors#${author.slug}`
       }
     },
     relatedArticles: fixtures.articles

@@ -57,17 +57,10 @@ test("production Visceral Mag model lists published articles only with metadata"
   assert.doesNotMatch(serialized, /"status":"draft"/);
 });
 
-test("production Visceral Mag model includes category chips from launch fixtures", async () => {
+test("production Visceral Mag model omits redundant category controls", async () => {
   const { buildVisceralMagRouteModel } = await loadVisceralMagModel();
   const model = buildVisceralMagRouteModel(loadFixtures());
-
-  assert.deepEqual(model.sections.categoryFilters.map((category) => category.slug), ["essays", "reviews", "interviews", "artwork"]);
-  assert.deepEqual(model.sections.categoryFilters.map((category) => category.href), [
-    "/search?category=essays",
-    "/search?category=reviews",
-    "/search?category=interviews",
-    "/search?category=artwork"
-  ]);
+  assert.equal(model.sections.categoryFilters, undefined);
 });
 
 test("React-ready VisceralMagPage component is scaffolded from the route model", () => {
@@ -79,9 +72,11 @@ test("React-ready VisceralMagPage component is scaffolded from the route model",
   assert.match(component, /buildVisceralMagRouteModel/);
   assert.match(component, /data-page="visceral-mag"/);
   assert.match(component, /data-section="archive-intro"/);
-  assert.match(component, /data-section="search-entry"/);
-  assert.match(component, /data-section="category-filters"/);
+  assert.doesNotMatch(component, /data-section="search-entry"/);
+  assert.doesNotMatch(component, /data-section="category-filters"|Browse by category/);
   assert.match(component, /data-section="article-listing"/);
+  assert.match(component, /<FigmaArticleCard article=\{leadStory\} featured/);
+  assert.match(component, /className="visceral-story-feed"/);
   assert.match(app, /VisceralMagPage/);
   assert.match(app, /route\.id === "visceral-mag"/);
 });

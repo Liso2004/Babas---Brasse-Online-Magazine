@@ -93,6 +93,9 @@ test("React-ready ArticleDetailPage component is scaffolded from the route model
   assert.match(component, /data-page="article-detail"/);
   assert.match(component, /data-section="article-hero"/);
   assert.match(component, /data-section="article-meta"/);
+  assert.match(component, /aria-label="Breadcrumb"/);
+  assert.match(component, /formatArticleDate/);
+  assert.doesNotMatch(component, /\{article\.href\}<\/p>/);
   assert.match(component, /data-section="article-body"/);
   assert.match(component, /data-section="related-articles"/);
   assert.match(component, /data-section="comments"/);

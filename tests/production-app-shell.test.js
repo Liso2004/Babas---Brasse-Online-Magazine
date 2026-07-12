@@ -1,4 +1,4 @@
-﻿const test = require("node:test");
+const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -81,7 +81,8 @@ test("React-ready app shell scaffold exists under apps web", () => {
   assert.ok(pkg.scripts.dev);
   assert.ok(pkg.scripts.build);
   assert.ok(pkg.scripts.test);
-  assert.equal(Boolean(pkg.dependencies), false, "dependencies should not be installed in this boundary slice");
+  assert.ok(pkg.dependencies.react, "React should be declared after runtime install approval");
+  assert.ok(pkg.dependencies["react-dom"], "React DOM should be declared after runtime install approval");
 });
 
 test("production route registry maps all public admin and support paths", () => {
@@ -102,18 +103,22 @@ test("app shell includes public and admin layouts with route navigation", () => 
   const app = read("apps/web/src/App.jsx");
   const publicLayout = read("apps/web/src/layouts/PublicLayout.jsx");
   const adminLayout = read("apps/web/src/layouts/AdminLayout.jsx");
+  assert.ok(exists("apps/web/src/layouts/AuthLayout.jsx"));
+  const authLayout = read("apps/web/src/layouts/AuthLayout.jsx");
 
   assert.match(app, /function AppShell/);
   assert.match(app, /getRouteByPath/);
   assert.match(app, /PublicLayout/);
   assert.match(app, /AdminLayout/);
+  assert.match(app, /AuthLayout/);
   assert.match(app, /data-app-shell="babas-brasse-web"/);
   assert.match(publicLayout, /aria-label="Public navigation"/);
   assert.match(publicLayout, /Babas & Brasse/);
   assert.match(publicLayout, /skip-link/);
   assert.match(adminLayout, /aria-label="Admin navigation"/);
   assert.match(adminLayout, /authRequired/);
-  assert.match(adminLayout, /Editor access/);
+  assert.match(adminLayout, /Sign out/);
+  assert.match(authLayout, /Back to magazine/);
 });
 
 test("app shell handoff docs preserve TDD and preview commands", () => {
@@ -124,7 +129,7 @@ test("app shell handoff docs preserve TDD and preview commands", () => {
   assert.match(readme, /Sprint 1 app shell/i);
   assert.match(readme, /npm.cmd test/i);
   assert.match(readme, /npm.cmd run preview:mvp/i);
-  assert.match(readme, /install dependencies only after approval/i);
+  assert.match(readme, /Runtime Dependency Install/i);
   assert.ok(rootPkg.scripts["test:app-shell"]);
   assert.match(runTests, /production-app-shell\.test\.js/);
 });
