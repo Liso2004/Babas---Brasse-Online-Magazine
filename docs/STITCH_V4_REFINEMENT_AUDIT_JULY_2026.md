@@ -58,3 +58,19 @@ No ZIP files or generated Stitch HTML were copied into the repository, avoiding 
 - Production build: passed with 1,676 modules transformed.
 - Public browser geometry: passed at 1440px and 360px for Article Detail, Search, Contributors, Profile Detail, and Featured / Media.
 - Admin privacy: unauthenticated private route redirected to login with no public header and `noindex,nofollow`.
+
+
+## Admin Experience Addendum - July 14, 2026
+
+The Stitch private-workspace reference now covers both entry and daily operations. AdminLoginPage.jsx uses a dedicated admin-login-v4 treatment; AdminDashboardPage.jsx replaces visible prototype-state labels with fixture-derived metrics, activity, shortcuts, and a real system-status footer. AdminLayout.jsx carries icon-led navigation and administrator context without exposing the route publicly.
+
+The additional production layer is apps/web/src/stitch-admin-experience.css, loaded after the base Stitch refinement. The focused contract is tests/production-stitch-admin-experience.test.js and runs with npm.cmd run test:stitch-admin.
+
+Authenticated Chrome QA passed at 1440px and 390px with no horizontal overflow. It also caught and closed a legacy pseudo-element grid displacement before sign-off. Final evidence for this addendum is 3/3 focused tests, 461/461 full tests, and a successful production build with 1,677 modules transformed.
+
+### Screenshot Follow-up
+
+The final 16-image desktop/mobile matrix exposed and closed two defects: a blank admin login caused by an undeclared field-map index and an opened mobile menu crossing the desktop-sized logo. The corrected matrix passed 16/16 integrity checks, and the interactive navigation audit passed at desktop, tablet, and mobile widths. Generated PNGs remain local and disposable; docs/design-reference/babas-brasse/navigation-audit.json is the durable geometry evidence.
+### Mobile Admin Navigation Alignment
+
+The authenticated mobile sidebar now uses one full-width grid with five equal 64px navigation rows and a fixed icon column. A 390px live geometry check confirmed equal link widths and heights with no horizontal overflow.

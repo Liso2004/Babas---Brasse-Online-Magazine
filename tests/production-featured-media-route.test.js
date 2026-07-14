@@ -53,6 +53,7 @@ test("production Featured/Media model renders every launch media asset with meta
   assert.ok(model.sections.mediaGallery.items.every((item) => item.caption));
   assert.ok(model.sections.mediaGallery.items.every((item) => item.credit));
   assert.ok(model.sections.mediaGallery.items.every((item) => item.type));
+  assert.ok(model.sections.mediaGallery.items.every((item) => item.thumbnail && item.href && item.height));
 });
 
 test("production Featured/Media links published article media while excluding drafts", async () => {
@@ -92,8 +93,10 @@ test("React-ready FeaturedMediaPage component is scaffolded from the route model
   assert.match(component, /data-page="featured-media"/);
   assert.match(component, /data-section="media-intro"/);
   assert.match(component, /data-section="media-gallery"/);
-  assert.match(component, /data-section="article-media-links"/);
-  assert.match(component, /className="figma-published-story-feed"/);
+  assert.match(component, /import Masonry from "\.\.\/components\/Masonry\.jsx"/);
+  assert.match(component, /<Masonry/);
+  assert.match(component, /variant="overlay"/);
+  assert.doesNotMatch(component, /figma-media-gallery|figma-published-story-feed|<FigmaArticleCard/);
   assert.match(component, /data-state="no-media"/);
   assert.match(app, /FeaturedMediaPage/);
   assert.match(app, /route\.id === "featured"/);

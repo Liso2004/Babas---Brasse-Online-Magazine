@@ -103,7 +103,9 @@
     "test:production-styling": "node tests/production-styling-integration.test.js",
     "db:migrate": "node apps/api/migrate.js",
     "test:managed-storage": "node tests/production-managed-postgres.test.js",
-    "test:stitch-v4": "node tests/production-stitch-v4-refinement.test.js"
+    "test:stitch-v4": "node tests/production-stitch-v4-refinement.test.js",
+    "test:stitch-admin": "node tests/production-stitch-admin-experience.test.js",
+    "test:home-media-experience": "node tests/production-home-media-experience.test.js"
   },
   "dependencies": {
     "pg": "^8.16.3"

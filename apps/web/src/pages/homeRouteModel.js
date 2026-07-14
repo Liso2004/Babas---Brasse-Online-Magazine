@@ -1,4 +1,4 @@
-﻿import { getRouteByPath } from "../routes.js";
+import { getRouteByPath } from "../routes.js";
 
 function publishedArticles(fixtures) {
   return fixtures.articles.filter((article) => article.status === "published");
@@ -27,6 +27,59 @@ function buildSectionShortcuts() {
   ];
 }
 
+function buildCarouselSlides() {
+  return [
+    {
+      id: "cape-collage",
+      image: "/media/carousel/babas-brasse-cape-collage.webp",
+      alt: "A vivid Babas and Brasse collage of Cape Town, art, literature, fashion, and local creative life",
+      eyebrow: "Babas & Brasse",
+      title: "South African culture, cut loose.",
+      description: "Original voices, visual culture, performance, books, and the people making the present tense.",
+      href: "/visceral-mag",
+      cta: "Read the magazine"
+    },
+    {
+      id: "stage-collage",
+      image: "/media/carousel/babas-brasse-stage-collage.webp",
+      alt: "Cape Town performers, readers, and writers assembled in a vivid cut-paper theatre collage",
+      eyebrow: "Performance / Publishing",
+      title: "The stage is also a page.",
+      description: "Enter the rehearsal rooms, independent presses, and shared spaces where new cultural language is built.",
+      href: "/search?category=reviews&topic=theatre",
+      cta: "Explore theatre"
+    },
+    {
+      id: "city-collage",
+      image: "/media/carousel/babas-brasse-city-collage.webp",
+      alt: "Johannesburg musicians, a fashion maker, and a mural artist in an energetic night-time collage",
+      eyebrow: "Music / Fashion / Art",
+      title: "Made in the city after dark.",
+      description: "A visual dispatch from the artists, musicians, and makers shaping contemporary Johannesburg.",
+      href: "/featured",
+      cta: "View featured media"
+    }
+  ];
+}
+
+function buildFeaturedMedia(fixtures, articles) {
+  const heights = [640, 500, 720, 560, 680];
+  return fixtures.mediaItems.map((item, index) => {
+    const article = articles.find((candidate) => candidate.featuredImage?.id === item.id);
+    return {
+      id: item.id,
+      title: item.title,
+      category: item.type === "video" ? "Video" : "Visual story",
+      thumbnail: item.url,
+      alt: item.altText,
+      description: item.caption,
+      publishedAt: article?.publishedAt || "2026-07-14",
+      href: article ? "/visceral-mag/" + article.slug : "/featured",
+      label: article ? "Article" : "Media",
+      height: heights[index % heights.length]
+    };
+  });
+}
 function buildMoreFromMagazine(fixtures, articles) {
   if (articles.length >= 3) {
     return { heading: "More from Babas & Brasse", items: articles.slice(0, 4) };
@@ -77,6 +130,8 @@ export function buildHomeRouteModel(fixtures) {
     sections: {
       leadStory,
       featuredArticle: leadStory,
+      carouselSlides: buildCarouselSlides(),
+      featuredMedia: buildFeaturedMedia(fixtures, articles),
       recentArticles,
       latestArticles: articles.slice(0, 3),
       sectionShortcuts: buildSectionShortcuts(),

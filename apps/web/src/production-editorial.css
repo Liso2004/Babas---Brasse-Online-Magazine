@@ -673,6 +673,21 @@
 
   [data-public-design="visceral-brutalist-archive"] .header-topline {
     min-height: 70px;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-mark {
+    width: 112px;
+    height: 52px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-logo {
+    width: 52px;
+    height: 52px;
+    margin-left: 30px;
+    transform: scale(2);
   }
 
   [data-public-design="visceral-brutalist-archive"] .final-design-navigation {

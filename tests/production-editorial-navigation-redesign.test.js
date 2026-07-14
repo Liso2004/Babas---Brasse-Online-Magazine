@@ -105,3 +105,10 @@ test("direct admin entry owns login and dashboard states without changing the en
   assert.match(adminLayout, /dispatchEvent\(new Event\("babas-admin-session-changed"\)\)/);
   assert.match(adminLayout, /navigate\("\/admin", \{ replace: true \}\)/);
 });
+
+test("mobile production header keeps the menu below the compact brand", () => {
+  const css = read("apps/web/src/production-editorial.css");
+
+  assert.match(css, /@media\s*\(max-width:\s*960px\)[\s\S]*\.header-topline \.brand-mark\s*\{[\s\S]*width:\s*112px;[\s\S]*height:\s*52px;/);
+  assert.match(css, /@media\s*\(max-width:\s*960px\)[\s\S]*\.header-topline \.brand-logo\s*\{[\s\S]*width:\s*52px;[\s\S]*height:\s*52px;/);
+});

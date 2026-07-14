@@ -19,6 +19,7 @@ test("web runtime keeps a focused approved dependency set", () => {
     "@radix-ui/react-slot",
     "class-variance-authority",
     "clsx",
+    "gsap",
     "lucide-react",
     "react",
     "react-dom",

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import * as launchFixtures from "../data/launchFixtures.js";
 import { NewsletterSignup } from "../components/NewsletterSignup.jsx";
 import { FigmaArticleCard } from "../components/FigmaArticleCard.jsx";
+import { HomeCarousel } from "../components/HomeCarousel.jsx";
+import Masonry from "../components/Masonry.jsx";
 import { ArrowRight } from "lucide-react";
 import { buildHomeRouteModel } from "./homeRouteModel.js";
 
@@ -12,6 +14,7 @@ export function HomePage({ fixtures = launchFixtures }) {
 
   return (
     <section className="figma-final-home" data-design-reference="home-brutalist-broadsheet" data-page="home" data-design-source={model.designSource} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+      <HomeCarousel slides={sections.carouselSlides} />
       {sections.leadStory ? (
         <section data-section="figma-featured-article" className="figma-home__feature-shell">
           <FigmaArticleCard article={sections.featuredArticle} featured />
@@ -26,6 +29,14 @@ export function HomePage({ fixtures = launchFixtures }) {
         <div className="figma-card-grid">
           {recent.map((article) => <FigmaArticleCard key={article.id} article={article} />)}
         </div>
+      </section>
+
+      <section data-section="home-featured-media" className="home-featured-media">
+        <div className="section-heading-row">
+          <h2>Featured Media</h2>
+          <Link to="/featured">View all <ArrowRight size={16} aria-hidden="true" /></Link>
+        </div>
+        <Masonry items={sections.featuredMedia} blurToFocus={false} />
       </section>
 
       <section data-section="figma-more-articles" className="figma-more-list">

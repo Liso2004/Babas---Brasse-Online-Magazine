@@ -1,15 +1,27 @@
 import { getRouteByPath } from "../routes.js";
 
 export function getFeaturedMediaItems(fixtures) {
-  return Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems.map((item) => ({
-    id: item.id,
-    title: item.title,
-    type: item.type,
-    url: item.url,
-    altText: item.altText,
-    caption: item.caption,
-    credit: item.credit
-  })) : [];
+  const heights = [860, 620, 760, 560, 720];
+  const articles = Array.isArray(fixtures.articles) ? fixtures.articles : [];
+  return Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems.map((item, index) => {
+    const article = articles.find((candidate) => candidate.status === "published" && candidate.featuredImage?.id === item.id);
+    return {
+      id: item.id,
+      title: item.title,
+      type: item.type,
+      url: item.url,
+      altText: item.altText,
+      caption: item.caption,
+      credit: item.credit,
+      category: item.type === "video" ? "Video" : "Visual story",
+      thumbnail: item.url,
+      alt: item.altText,
+      description: item.caption,
+      publishedAt: article?.publishedAt || "",
+      href: article ? "/visceral-mag/" + article.slug : item.url,
+      height: heights[index % heights.length]
+    };
+  }) : [];
 }
 
 function articleCategory(fixtures, article) { const c = fixtures.categories.find((item) => item.id === article.categoryId); return c ? { ...c, href: `/search?category=${c.slug}` } : null; }

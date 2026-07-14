@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { ChevronDown, Facebook, Instagram, Linkedin, Menu, Music2, Search, X, Youtube } from "lucide-react";
 import { Button } from "../components/ui/button.jsx";
 import { Input } from "../components/ui/input.jsx";
 
@@ -22,6 +22,15 @@ const editorialNavigation = [
 const peopleNavigation = [
   { label: "Creative Team", href: "/creative-team" },
   { label: "Contributors", href: "/contributors" }
+];
+
+// Replace these platform homepages with verified Babas & Brasse profile URLs before launch.
+const socialNavigation = [
+  { label: "Instagram", href: "https://www.instagram.com/", placeholder: true, Icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/", placeholder: true, Icon: Facebook },
+  { label: "TikTok", href: "https://www.tiktok.com/", placeholder: true, Icon: Music2 },
+  { label: "YouTube", href: "https://www.youtube.com/", placeholder: true, Icon: Youtube },
+  { label: "LinkedIn", href: "https://www.linkedin.com/", placeholder: true, Icon: Linkedin }
 ];
 
 export function PublicLayout({ route, children }) {
@@ -210,6 +219,25 @@ export function PublicLayout({ route, children }) {
             <Link to="/contributors">Submit Writing</Link>
             <Link to="/#newsletter">Newsletter</Link>
           </nav>
+          <section className="figma-footer__socials" aria-label="Social media">
+            <h2>Follow</h2>
+            <div className="figma-footer__social-links">
+              {socialNavigation.map(({ label, href, placeholder, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-placeholder={placeholder ? "true" : undefined}
+                  aria-label={label + (placeholder ? " placeholder profile" : "") + " (opens in a new tab)"}
+                  title={label + (placeholder ? " placeholder profile" : "")}
+                >
+                  <Icon size={20} aria-hidden="true" />
+                  <span className="sr-only">{label}</span>
+                </a>
+              ))}
+            </div>
+          </section>
         </div>
         <p className="figma-footer__legal">Copyright 2026 Babas & Brasse. All rights reserved.</p>
       </footer>

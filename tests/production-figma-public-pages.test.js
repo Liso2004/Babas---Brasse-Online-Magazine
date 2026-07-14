@@ -55,15 +55,15 @@ test("Visceral Mag and Search use the shared Figma article card layout", () => {
   assert.match(search, /<FigmaArticleCard/);
 });
 
-test("Featured Media and Article Detail carry the Figma editorial reading system", () => {
+test("Featured Media uses the React Bits image masonry and Article Detail keeps the editorial reading system", () => {
   const featured = read("apps/web/src/pages/FeaturedMediaPage.jsx");
   const detail = read("apps/web/src/pages/ArticleDetailPage.jsx");
 
-  assert.match(featured, /import \{ FigmaArticleCard \}/);
+  assert.match(featured, /import Masonry/);
   assert.match(featured, /className="figma-public-page figma-featured-page"/);
-  assert.match(featured, /className="figma-media-gallery"/);
-  assert.match(featured, /data-section="figma-article-media-links"/);
-  assert.match(featured, /<FigmaArticleCard/);
+  assert.match(featured, /variant="overlay"/);
+  assert.match(featured, /<Masonry/);
+  assert.doesNotMatch(featured, /className="figma-media-gallery"|<FigmaArticleCard/);
 
   assert.match(detail, /className="figma-article-detail"/);
   assert.match(detail, /className="figma-article-hero"/);

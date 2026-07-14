@@ -137,3 +137,6 @@ require("./production-styling-integration.test.js");
 require("./production-managed-postgres.test.js");
 require("./production-startup-readiness.test.js");
 require("./production-stitch-v4-refinement.test.js");
+require("./production-stitch-admin-experience.test.js");
+
+require("./production-home-media-experience.test.js");

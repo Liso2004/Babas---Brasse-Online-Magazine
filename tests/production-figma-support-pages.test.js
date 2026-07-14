@@ -28,12 +28,12 @@ test("shared Figma support surface component exists", () => {
   assert.match(component, /figma-support-grid/);
 });
 
-test("auth support routes use Figma support forms", () => {
+test("auth routes use the production Stitch login and Figma reset support", () => {
   const login = read("apps/web/src/pages/AdminLoginPage.jsx");
   const reset = read("apps/web/src/pages/PasswordResetPage.jsx");
 
-  assert.match(login, /FigmaSupportPanel/);
-  assert.match(login, /figma-auth-shell/);
+  assert.match(login, /data-design-reference="admin-login-v4"/);
+  assert.match(login, /stitch-admin-login/);
   assert.match(login, /fetch\("\/api\/admin\/login"/);
 
   for (const page of [reset]) {

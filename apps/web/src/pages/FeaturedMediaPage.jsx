@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import * as launchFixtures from "../data/launchFixtures.js";
-import { FigmaArticleCard } from "../components/FigmaArticleCard.jsx";
+import Masonry from "../components/Masonry.jsx";
 import { buildFeaturedMediaRouteModel } from "./featuredMediaRouteModel.js";
 
 export function FeaturedMediaPage({ fixtures = launchFixtures }) {
@@ -14,41 +15,24 @@ export function FeaturedMediaPage({ fixtures = launchFixtures }) {
         <p>{hero.dek}</p>
       </header>
 
-      <section data-section="media-gallery" className="figma-content-section" data-state={sections.mediaGallery.state}>
+      <section data-section="media-gallery" className="figma-content-section featured-media-masonry-shell" data-state={sections.mediaGallery.state}>
         <div className="section-heading-row">
           <h2>{sections.mediaGallery.heading}</h2>
-          <a href="/contact">Submit media</a>
+          <Link to="/contact">Submit media</Link>
         </div>
         {sections.mediaGallery.state === "no-media" ? (
           <div className="figma-empty-state" data-state="no-media">
             <p>{sections.mediaGallery.body}</p>
-            <a href={sections.mediaGallery.contactHref}>Contact the editors</a>
+            <Link to={sections.mediaGallery.contactHref}>Contact the editors</Link>
           </div>
         ) : (
-          <div className="figma-media-gallery">
-            {sections.mediaGallery.items.map((item) => (
-              <article key={item.id} className="media-card" data-media={item.id} data-media-type={item.type} data-credit={item.credit}>
-                <img src={item.url} alt={item.altText} />
-                <p className="eyebrow">{item.type}</p>
-                <h3>{item.title}</h3>
-                <p>{item.caption}</p>
-                <p className="media-credit">Credit: {item.credit}</p>
-              </article>
-            ))}
-          </div>
+          <Masonry
+            items={sections.mediaGallery.items}
+            variant="overlay"
+            blurToFocus={false}
+            hoverScale={1.015}
+          />
         )}
-      </section>
-
-      <section data-section="article-media-links" className="figma-content-section">
-        <div className="section-heading-row">
-          <h2>{sections.articleMediaLinks.heading}</h2>
-          <a href="/visceral-mag">Read stories</a>
-        </div>
-        <div data-section="figma-article-media-links" className="figma-published-story-feed">
-          {sections.articleMediaLinks.items.map((article) => (
-            <FigmaArticleCard key={article.id} article={article} compact showCredit />
-          ))}
-        </div>
       </section>
     </section>
   );

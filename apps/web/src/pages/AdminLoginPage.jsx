@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FigmaSupportPanel } from "../components/FigmaSupportSurface.jsx";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, Eye, EyeOff, LockKeyhole, ShieldCheck } from "lucide-react";
 import { buildAdminLoginRouteModel } from "./adminAuthRouteModel.js";
 
 export function AdminLoginPage() {
   const model = buildAdminLoginRouteModel();
   const navigate = useNavigate();
   const [status, setStatus] = useState("idle");
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -30,20 +31,77 @@ export function AdminLoginPage() {
   }
 
   return (
-    <section className="figma-support-page figma-auth-page figma-login-page" data-page="admin-login" data-route={model.route.path} data-support-route="auth">
-      <header className="figma-support-header"><a className="brand-mark" href="/">{model.header.brand}</a><p>{model.header.label}</p></header>
-      <section className="figma-auth-shell">
-        <FigmaSupportPanel as="div" className="figma-support-form-panel">
-          <p className="eyebrow">{model.hero.eyebrow}</p>
+    <section
+      className="stitch-admin-login"
+      data-page="admin-login"
+      data-route={model.route.path}
+      data-design-reference="admin-login-v4"
+    >
+      <aside className="stitch-login-manifesto" aria-label="Babas and Brasse editorial access">
+        <div className="stitch-login-lockup">
+          <span className="stitch-login-monogram">B/B</span>
+          <p>Babas &amp; Brasse</p>
+        </div>
+        <div className="stitch-login-statement">
+          <LockKeyhole size={42} strokeWidth={1.5} aria-hidden="true" />
+          <p>Private</p>
+          <p>Editorial</p>
+          <p>Access</p>
+        </div>
+        <p className="stitch-login-edition">Johannesburg / 2026</p>
+      </aside>
+
+      <div className="stitch-login-stage">
+        <div className="stitch-login-heading">
+          <p className="eyebrow"><ShieldCheck size={15} aria-hidden="true" /> Admin only</p>
           <h1>{model.hero.title}</h1>
-          <form onSubmit={handleSubmit} data-form={model.form.id} noValidate>
-            {model.form.fields.map((field) => <label key={field.name} htmlFor={field.id}>{field.label}<input id={field.id} name={field.name} type={field.type} autoComplete={field.autocomplete} required /></label>)}
-            <button type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Signing in..." : model.form.submitLabel}</button>
-            <p className="public-form-status" data-form-status={status} aria-live="polite">{status === "error" ? "The email or password is incorrect, or admin access is not configured." : ""}</p>
-          </form>
-        </FigmaSupportPanel>
-        <FigmaSupportPanel as="aside" className="figma-support-copy-panel"><h2>{model.accessCopy.heading}</h2><p>{model.accessCopy.body}</p><a href="/">Return to public site</a></FigmaSupportPanel>
-      </section>
+          <p>{model.accessCopy.body}</p>
+        </div>
+
+        <form className="stitch-login-form" onSubmit={handleSubmit} data-form={model.form.id} noValidate>
+          {model.form.fields.map((field) => {
+            const isPassword = field.type === "password";
+            return (
+              <label key={field.name} htmlFor={field.id}>
+                <span>{field.label}</span>
+                <span className={isPassword ? "stitch-password-field" : undefined}>
+                  <input
+                    id={field.id}
+                    name={field.name}
+                    type={isPassword && showPassword ? "text" : field.type}
+                    autoComplete={field.autocomplete}
+                    aria-invalid={status === "error" ? "true" : undefined}
+                    required
+                  />
+                  {isPassword ? (
+                    <button
+                      className="stitch-password-toggle"
+                      type="button"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                      aria-pressed={showPassword}
+                      onClick={() => setShowPassword((visible) => !visible)}
+                    >
+                      {showPassword ? <EyeOff aria-hidden="true" /> : <Eye aria-hidden="true" />}
+                    </button>
+                  ) : null}
+                </span>
+              </label>
+            );
+          })}
+          <button className="stitch-login-submit" type="submit" disabled={status === "submitting"}>
+            <span>{status === "submitting" ? "Signing in..." : model.form.submitLabel}</span>
+            <ArrowRight aria-hidden="true" />
+          </button>
+          <p className="stitch-login-status" data-form-status={status} aria-live="polite">
+            {status === "error" ? "The email or password is incorrect, or admin access is not configured." : ""}
+          </p>
+        </form>
+
+        <div className="stitch-login-footer">
+          <p><ShieldCheck size={16} aria-hidden="true" /> Protected administrator session</p>
+          <Link to="/">Return to the magazine</Link>
+        </div>
+      </div>
     </section>
   );
 }

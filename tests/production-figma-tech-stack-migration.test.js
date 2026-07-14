@@ -38,7 +38,7 @@ test("public and admin shells use router links and Lucide controls", () => {
   const adminLayout = read("apps/web/src/layouts/AdminLayout.jsx");
 
   assert.match(publicLayout, /import \{ Link, useLocation, useNavigate \} from "react-router-dom"/);
-  assert.match(publicLayout, /import \{ ChevronDown, Menu, Search, X \} from "lucide-react"/);
+  assert.match(publicLayout, /import \{[^}]*ChevronDown[^}]*Menu[^}]*Search[^}]*X[^}]*\} from "lucide-react"/);
   assert.match(publicLayout, /aria-current=\{isSectionActive\(item\)/);
   assert.match(publicLayout, /navigate\(`/);
   assert.match(adminLayout, /import \{ Link, NavLink, useNavigate \} from "react-router-dom"/);

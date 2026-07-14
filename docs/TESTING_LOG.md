@@ -2674,3 +2674,130 @@ Green evidence:
 - Private-route check: direct `/admin/articles` access without a session redirected to `/admin/login`, rendered no public header, and retained `noindex,nofollow`.
 
 Remaining live evidence: authenticated admin screenshots should be captured during staging sign-off with the real administrator session; credentials were not bypassed for this review.
+
+
+## Stitch Admin Login and Dashboard TDD - July 14, 2026
+
+Red evidence:
+
+- The focused contract began at 0 passed and 3 failed: the login still used the older support-panel composition, dashboard prototype states were visible, and admin navigation lacked the Stitch icon hierarchy.
+- The first full regression found one stale Figma support assertion after the login moved to its dedicated production treatment.
+- Authenticated browser QA found the legacy protected-workflow pseudo-element occupying the first grid track and displacing the sidebar.
+
+Implemented:
+
+- Added a dedicated private login with squared controls, password visibility control, session feedback, strong editorial identity, and no client-side credential storage.
+- Refined the protected layout with Lucide navigation, administrator status, real publishing metrics, recent activity, quick actions, and an operational footer.
+- Removed visible dashboard design-state placeholders while retaining route-model state contracts.
+- Added a scoped stitch-admin-experience.css layer and suppressed the obsolete grid pseudo-element.
+- Preserved the existing admin login, session, logout, rate-limit, cookie, and route behavior.
+
+Green evidence:
+
+- Focused Stitch admin contract: 3 passed, 0 failed.
+- Full regression: 460 passed, 0 failed.
+- Production Vite build: passed with 1,677 modules transformed.
+- Authenticated browser QA: desktop 1440/1440 and mobile 390/390 viewport-to-scroll widths, with the real dashboard present.
+- Temporary local screenshots were generated for visual review and removed after verification to avoid repository bloat.
+
+## Screenshot-Based UI Audit - July 14, 2026
+
+Red evidence:
+
+- The 16-route viewport capture exposed a blank unauthenticated /admin screen. Runtime inspection traced it to a stale autofocus index reference after the login field map no longer declared index.
+- The live navigation geometry audit exposed the opened tablet/mobile menu beginning at 76px while the production logo still used its 178 by 72 desktop dimensions, causing the menu layer to cross the bottom of the brand area.
+
+Implemented:
+
+- Removed the stale login autofocus/index reference and added a regression assertion that prevents the undeclared variable from returning.
+- Restored compact 112 by 52 mobile brand geometry and a 52px logo in the production editorial breakpoint.
+- Added a focused navigation regression test for the mobile brand dimensions.
+
+Green evidence:
+
+- Fresh browser matrix: Home, Visceral Mag, Article Detail, Profile Detail, Search, Featured / Media, Contact, and Admin Login at 1440 by 1200 and 390 by 1200.
+- Screenshot integrity: 16 of 16 PNGs passed signature, dimension, and non-trivial-size checks.
+- Visual review: no clipping, malformed grids, duplicate search controls, broken public routes, or desktop/mobile content drift remained in the captured routes.
+- Navigation interaction audit: passed at 1440 by 900, 768 by 1024, and 390 by 844, including expanded Sections, Escape closure, active route state, one search form, and private admin entry.
+- Focused editorial-navigation contract: 8 passed, 0 failed.
+- Focused Stitch admin contract: 3 passed, 0 failed.
+- Full regression: 461 passed, 0 failed.
+- Production Vite build: passed with 1,677 modules transformed.
+- Generated PNGs were removed after inspection; the reproducible commands and JSON navigation evidence remain in the repository.
+## Mobile Admin Navigation Alignment - July 14, 2026
+
+Red evidence:
+
+- The authenticated 390px admin sidebar rendered navigation links at label-driven widths, so Dashboard, Articles, Profiles / Media, Moderation, and Contact Submissions did not share one visual size.
+
+Implemented:
+
+- Added a final 768px admin breakpoint with one full-width navigation grid.
+- Standardized every link to a 64px minimum row, square corners, identical padding, left-aligned labels, and a fixed 24px icon column.
+- Added a focused regression contract for equal full-width mobile navigation rows.
+
+Green evidence:
+
+- Focused Stitch admin contract: 4 passed, 0 failed.
+- Authenticated 390px browser geometry: all five links reported equal widths and equal heights; viewport and document width both measured 390px.
+- Full regression: 462 passed, 0 failed.
+- Production Vite build: passed with 1,677 modules transformed.
+
+## Homepage Carousel, Masonry, and Social Footer TDD - July 14, 2026
+
+Source: supplied `carrosole4.jpg` and the React Bits Masonry integration brief.
+
+Red evidence:
+
+- The focused production contract began at 0 passed and 4 failed before the carousel model, React components, GSAP dependency, social footer records, optimized assets, styles, and documentation existed.
+- The first full regression reported two stale assumptions: an exact four-icon Lucide import and a dependency allowlist that predated the requested GSAP integration.
+- Visual QA captured the optional Masonry blur while content was entering; the homepage now disables that blur while retaining position and hover motion.
+- A final accessibility regression verified that inactive carousel links leave the keyboard tab order.
+
+Implemented:
+
+- Added a three-slide responsive homepage carousel with the supplied collage, two project-specific generated collages, stable 1920 by 1080 WebP assets, HTML copy, controls, indicators, swipe, pause behavior, lazy loading, and reduced-motion handling.
+- Adapted React Bits Masonry to existing editorial fixtures with React Router links, GSAP layout motion, responsive 3/2/1-column geometry at tested widths, accessible metadata, and no demo globals.
+- Added Instagram, Facebook, TikTok, YouTube, and LinkedIn footer records as explicit placeholders with accessible labels and safe external-link attributes.
+- Kept all routes, API behavior, admin authentication, and public admin privacy unchanged.
+- Recorded exact generated-image prompts and launch replacement requirements in `docs/HOME_MEDIA_EXPERIENCE_JULY_2026.md`.
+
+Green evidence:
+
+- Focused home media contract: 4 passed, 0 failed.
+- Full regression: 466 passed, 0 failed.
+- Production Vite build: passed with 1,683 modules transformed.
+- Route matrix: 16 desktop/mobile screenshots captured successfully.
+- Browser interaction and geometry audit: no horizontal overflow at 1440, 768, or 390 pixels; five non-overlapping Masonry items; working next and swipe transitions; three 1920 by 1080 carousel images; five valid external social records; no public admin links; no console errors.
+- Temporary conversion files and browser screenshots were removed after visual review.
+
+Launch follow-up:
+
+- Replace all five platform-homepage placeholders with verified Babas & Brasse social profile URLs before production release.
+
+## Carousel and Featured Media Refinement - July 14, 2026
+
+Red evidence:
+
+- The focused contract initially failed because carousel controls shared one control cluster, slide media was not a navigation target, the footer social treatment retained visible chrome, and Featured / Media still used the older card gallery.
+- Browser QA then exposed a throttled-animation failure: React Bits-style Masonry links had correct geometry but GSAP could leave their computed opacity near zero, producing a blank image wall.
+
+Implemented:
+
+- Positioned previous and next controls on opposite image edges and linked each active slide through React Router while suppressing accidental navigation after a swipe.
+- Removed social icon borders, shadows, and backgrounds while preserving 44 by 44 pixel accessible targets.
+- Replaced the Featured / Media card feed with the shared GSAP Masonry and linked all five launch media records to their published article routes.
+- Added desktop hover and keyboard-focus overlays, always-readable mobile overlays, and immediate full-opacity card paint with motion limited to position and blur.
+
+Green evidence:
+
+- Focused contracts: Home media 4 passed, Featured / Media 6 passed, and Figma public pages 5 passed.
+- Full regression: 466 passed, 0 failed.
+- Production Vite build: passed with 1,683 modules transformed.
+- Browser geometry at 1440 and 390 pixels: no horizontal overflow, opposite-side carousel controls, five non-overlapping Masonry cards, and no old Featured card feed.
+- Browser interaction: active carousel image reached `/visceral-mag`; every Featured tile had a published article destination; desktop keyboard focus revealed metadata; mobile metadata was visible without hover.
+- Browser paint: all five cards computed to opacity `1`; footer social links computed to `border: 0px` and transparent backgrounds; no runtime errors were reported.
+
+Launch follow-up:
+
+- Replace the five platform-homepage social placeholders with verified Babas & Brasse profile URLs before production release.
