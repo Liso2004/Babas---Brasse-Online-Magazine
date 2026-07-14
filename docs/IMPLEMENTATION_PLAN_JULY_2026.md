@@ -1,10 +1,10 @@
-# Babas & Brasse MVP Implementation Roadmap
+# Archived Babas & Brasse MVP Implementation Roadmap
 
 Date: July 2, 2026
 Launch deadline: July 31, 2026
 Current design source: complete Open Design wireframe handoff in `designs/open-design-wireframes/`
 Current prototype source: generated route artifacts in `src/pages/`
-Current verification: 391 passing tests after the admin-only browser-session slice, with all core/support contracts and the React app shell green.
+Current verification: 428 passing tests, production Vite build green, and 16 desktop/mobile screenshot integrity checks green as of July 13, 2026.
 
 ## Current MVP Status
 
@@ -175,12 +175,12 @@ Exit criteria:
 
 ## Current Risks
 
-- Production React app boundary is not confirmed.
-- Backend/auth/storage provider decisions still need to be locked.
-- Brand assets, final launch articles, profile bios, and production media still need final content.
-- Domain/DNS/hosting/SSL/email provider setup is not yet proven.
-- Preview is currently a prototype route viewer, not production styling.
-- The deadline leaves little room for post-MVP features.
+- The React/Vite and Node production boundary is implemented, but a managed hosting target and environment owner are not confirmed.
+- Durable managed editorial storage, object storage, encrypted backup/restore, monitoring, and rollback still need deployment evidence.
+- Brand assets, final launch articles, profile bios, production media, social URLs, legal copy, and licensed Sabon files still need client approval.
+- Domain, DNS, TLS termination, trusted-proxy behavior, and contact email delivery are not yet proven on staging.
+- In-memory rate limits are appropriate for the current single-service runtime; horizontal scaling requires a shared limiter store.
+- The deadline leaves little room for post-launch features.
 
 ## Deferred Until After MVP Launch
 
@@ -191,3 +191,15 @@ Exit criteria:
 - Advanced analytics dashboards.
 - Native mobile app.
 - Large multimedia expansion.
+
+
+## Production Report Realignment - July 13, 2026
+
+The active production roadmap is now `docs/PRODUCTION_RELEASE_PLAN_JULY_2026.md`, governed by root `DESIGN.md` and `docs/BABAS_BRASSE_REPORT_REVIEW_JULY_2026.md`.
+
+The report review confirms the current React/Vite and Node stack. No framework rewrite is required. Remaining roadmap work is:
+
+1. Preserve the completed profile, public book-rating review, and admin search/filter/delete workflows; finish article feature control, verified social navigation, binary image upload, email delivery, and structured metadata.
+2. Preserve the completed one-origin runtime, rate limits, and structured logs; complete deployment-managed storage, object storage, backups, TLS, staging, monitoring, and rollback evidence.
+3. Replace provisional content and imagery with approved launch material, including credits, social URLs, canonical domain, legal/contact copy, and licensed Sabon.
+4. Pass the production design, accessibility, cross-browser, content, security, data, and deployment gates by July 31, 2026.

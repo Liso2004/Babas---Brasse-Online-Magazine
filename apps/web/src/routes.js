@@ -3,6 +3,7 @@ export const publicRoutes = [
   { id: "about", label: "About", path: "/about", area: "public", prototypeFile: "src/pages/about.html" },
   { id: "creative-team", label: "Creative Team", path: "/creative-team", area: "public", prototypeFile: "src/pages/creative-team.html" },
   { id: "contributors", label: "Contributors", path: "/contributors", area: "public", prototypeFile: "src/pages/contributors.html" },
+  { id: "profile-detail", label: "Profile", path: "/people/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/profile-detail.html" },
   { id: "visceral-mag", label: "Visceral Mag", path: "/visceral-mag", area: "public", prototypeFile: "src/pages/visceral-mag.html" },
   { id: "article-detail", label: "Article Detail", path: "/visceral-mag/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/article-detail.html" },
   { id: "search", label: "Search", path: "/search", area: "public", prototypeFile: "src/pages/categories-search.html" },
@@ -28,7 +29,6 @@ export const supportRoutes = [
   { id: "offline", label: "Offline", path: "/offline", area: "support", prototypeFile: "src/pages/offline-maintenance.html" },
   { id: "media-upload", label: "Media Upload", path: "/admin/media/upload", area: "support", authRequired: true, prototypeFile: "src/pages/admin/media-upload-modal.html" },
   { id: "article-editor-workflow", label: "Article Editor Workflow", path: "/admin/articles/editor-workflow", area: "support", authRequired: true, prototypeFile: "src/pages/admin/article-editor-workflow.html" },
-  { id: "mobile-wireframes", label: "Mobile Wireframes", path: "/mobile-wireframes", area: "support", prototypeFile: "src/pages/mobile-wireframes.html" }
 ];
 
 export const routes = [...publicRoutes, ...adminRoutes, ...supportRoutes];

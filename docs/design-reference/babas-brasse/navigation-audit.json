@@ -1,0 +1,863 @@
+{
+  "generatedAt": "2026-07-13T20:20:16.496Z",
+  "baseUrl": "http://127.0.0.1:5173",
+  "issues": [],
+  "results": [
+    {
+      "id": "desktop",
+      "initial": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "documentWidth": 1425,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1425,
+          "height": 93,
+          "right": 1425,
+          "bottom": 93
+        },
+        "nav": {
+          "x": 249,
+          "y": 24,
+          "width": 1124,
+          "height": 44,
+          "right": 1373,
+          "bottom": 68
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 53,
+              "y": 14,
+              "width": 164,
+              "height": 64,
+              "right": 217,
+              "bottom": 78
+            }
+          },
+          {
+            "label": "Home///About///Visceral Mag///Featured /",
+            "rect": {
+              "x": 249,
+              "y": 24,
+              "width": 1124,
+              "height": 44,
+              "right": 1373,
+              "bottom": 68
+            }
+          }
+        ]
+      },
+      "expanded": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "documentWidth": 1425,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1425,
+          "height": 93,
+          "right": 1425,
+          "bottom": 93
+        },
+        "nav": {
+          "x": 249,
+          "y": 24,
+          "width": 1124,
+          "height": 44,
+          "right": 1373,
+          "bottom": 68
+        },
+        "panel": {
+          "x": 0,
+          "y": 91,
+          "width": 1425,
+          "height": 335,
+          "right": 1425,
+          "bottom": 426
+        },
+        "panelVisible": true,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 53,
+              "y": 14,
+              "width": 164,
+              "height": 64,
+              "right": 217,
+              "bottom": 78
+            }
+          },
+          {
+            "label": "Home///About///Visceral Mag///Featured /",
+            "rect": {
+              "x": 249,
+              "y": 24,
+              "width": 1124,
+              "height": 44,
+              "right": 1373,
+              "bottom": 68
+            }
+          }
+        ]
+      },
+      "escaped": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "documentWidth": 1425,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1425,
+          "height": 93,
+          "right": 1425,
+          "bottom": 93
+        },
+        "nav": {
+          "x": 249,
+          "y": 24,
+          "width": 1124,
+          "height": 44,
+          "right": 1373,
+          "bottom": 68
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 53,
+              "y": 14,
+              "width": 164,
+              "height": 64,
+              "right": 217,
+              "bottom": 78
+            }
+          },
+          {
+            "label": "Home///About///Visceral Mag///Featured /",
+            "rect": {
+              "x": 249,
+              "y": 24,
+              "width": 1124,
+              "height": 44,
+              "right": 1373,
+              "bottom": 68
+            }
+          }
+        ]
+      },
+      "activePage": {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "documentWidth": 1425,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 1425,
+          "height": 93,
+          "right": 1425,
+          "bottom": 93
+        },
+        "nav": {
+          "x": 249,
+          "y": 24,
+          "width": 1124,
+          "height": 44,
+          "right": 1373,
+          "bottom": 68
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "About"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 53,
+              "y": 14,
+              "width": 164,
+              "height": 64,
+              "right": 217,
+              "bottom": 78
+            }
+          },
+          {
+            "label": "Home///About///Visceral Mag///Featured /",
+            "rect": {
+              "x": 249,
+              "y": 24,
+              "width": 1124,
+              "height": 44,
+              "right": 1373,
+              "bottom": 68
+            }
+          }
+        ]
+      },
+      "adminEntry": {
+        "pathname": "/admin",
+        "loginVisible": true,
+        "dashboardVisible": false,
+        "publicHeaderVisible": false,
+        "robots": "noindex,nofollow"
+      }
+    },
+    {
+      "id": "tablet",
+      "initial": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "documentWidth": 753,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 753,
+          "height": 73,
+          "right": 753,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 16,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 128,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Open navigation",
+            "rect": {
+              "x": 693,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 737,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "expanded": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "documentWidth": 753,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 753,
+          "height": 73,
+          "right": 753,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 72,
+          "width": 753,
+          "height": 73,
+          "right": 753,
+          "bottom": 145
+        },
+        "panel": {
+          "x": 38,
+          "y": 539,
+          "width": 661,
+          "height": 477,
+          "right": 700,
+          "bottom": 1017
+        },
+        "panelVisible": true,
+        "mobileMenuOpen": true,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 16,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 128,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Home///About///Visceral Mag///Featured /",
+            "rect": {
+              "x": 0,
+              "y": 72,
+              "width": 753,
+              "height": 73,
+              "right": 753,
+              "bottom": 145
+            }
+          },
+          {
+            "label": "Close navigation",
+            "rect": {
+              "x": 693,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 737,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "escaped": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "documentWidth": 753,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 753,
+          "height": 73,
+          "right": 753,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 16,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 128,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Open navigation",
+            "rect": {
+              "x": 693,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 737,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "activePage": {
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        },
+        "documentWidth": 753,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 753,
+          "height": 73,
+          "right": 753,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "About"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 16,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 128,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Open navigation",
+            "rect": {
+              "x": 693,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 737,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "adminEntry": {
+        "pathname": "/admin",
+        "loginVisible": true,
+        "dashboardVisible": false,
+        "publicHeaderVisible": false,
+        "robots": "noindex,nofollow"
+      }
+    },
+    {
+      "id": "mobile",
+      "initial": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "documentWidth": 390,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 73,
+          "right": 390,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 12,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 124,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Open navigation",
+            "rect": {
+              "x": 334,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 378,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "expanded": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "documentWidth": 390,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 73,
+          "right": 390,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 72,
+          "width": 390,
+          "height": 73,
+          "right": 390,
+          "bottom": 145
+        },
+        "panel": {
+          "x": 18,
+          "y": 539,
+          "width": 354,
+          "height": 636,
+          "right": 372,
+          "bottom": 1175
+        },
+        "panelVisible": true,
+        "mobileMenuOpen": true,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 12,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 124,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Home///About///Visceral Mag///Featured /",
+            "rect": {
+              "x": 0,
+              "y": 72,
+              "width": 390,
+              "height": 73,
+              "right": 390,
+              "bottom": 145
+            }
+          },
+          {
+            "label": "Close navigation",
+            "rect": {
+              "x": 334,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 378,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "escaped": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "documentWidth": 390,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 73,
+          "right": 390,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "Home"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 12,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 124,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Open navigation",
+            "rect": {
+              "x": 334,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 378,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "activePage": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "documentWidth": 390,
+        "horizontalOverflow": false,
+        "topLevelOverlap": false,
+        "navigationItemOverlap": false,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 73,
+          "right": 390,
+          "bottom": 73
+        },
+        "nav": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "panelVisible": false,
+        "mobileMenuOpen": false,
+        "searchCount": 1,
+        "sectionLinkCount": 6,
+        "currentLinks": [
+          "About"
+        ],
+        "duplicateHrefs": [],
+        "publicAdminLinks": [],
+        "visibleTopLevel": [
+          {
+            "label": "",
+            "rect": {
+              "x": 12,
+              "y": 10,
+              "width": 112,
+              "height": 52,
+              "right": 124,
+              "bottom": 62
+            }
+          },
+          {
+            "label": "Open navigation",
+            "rect": {
+              "x": 334,
+              "y": 14,
+              "width": 44,
+              "height": 44,
+              "right": 378,
+              "bottom": 58
+            }
+          }
+        ]
+      },
+      "adminEntry": {
+        "pathname": "/admin",
+        "loginVisible": true,
+        "dashboardVisible": false,
+        "publicHeaderVisible": false,
+        "robots": "noindex,nofollow"
+      }
+    }
+  ]
+}

@@ -15,12 +15,13 @@ export function AdminLayout({ route, children }) {
         headers: { Accept: "application/json" }
       });
     } finally {
-      navigate("/admin/login", { replace: true });
+      window.dispatchEvent(new Event("babas-admin-session-changed"));
+      navigate("/admin", { replace: true });
     }
   }
 
   return (
-    <div className="app-layout admin-layout figma-admin-shell" data-auth-required={authRequired ? "true" : "false"}>
+    <div className="app-layout admin-layout figma-admin-shell" data-admin-design="stitch-private-workspace-v4" data-auth-required={authRequired ? "true" : "false"}>
       <a className="skip-link" href="#main-content">Skip to admin content</a>
       <header className="admin-header figma-admin-header">
         <Link className="brand-mark" to="/admin">B&B Admin</Link>

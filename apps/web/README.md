@@ -1,8 +1,10 @@
 # Babas & Brasse Web
 
-Sprint 1 app shell scaffold for the production React migration.
+Status: Production Release Candidate. Active release gates: `docs/PRODUCTION_RELEASE_PLAN_JULY_2026.md`.
 
-This folder is the selected production app boundary: `apps/web`.
+Production React application for the editorial platform.
+
+This folder is the production web application boundary.
 
 ## Current State
 
@@ -24,10 +26,10 @@ Run the app shell route smoke gate with:
 ```powershell
 npm.cmd run test:route-smoke
 ```
-Preview the generated prototype with:
+Verify the production release boundary with:
 
 ```powershell
-npm.cmd run preview:mvp
+npm.cmd run verify:production
 ```
 
 After dependencies are installed inside `apps/web`, this app is prepared for:

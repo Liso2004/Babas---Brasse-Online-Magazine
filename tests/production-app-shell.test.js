@@ -26,6 +26,7 @@ const expectedPaths = [
   "/about",
   "/creative-team",
   "/contributors",
+  "/people/:slug",
   "/visceral-mag",
   "/visceral-mag/:slug",
   "/search",
@@ -42,8 +43,7 @@ const expectedPaths = [
   "/500",
   "/offline",
   "/admin/media/upload",
-  "/admin/articles/editor-workflow",
-  "/mobile-wireframes"
+  "/admin/articles/editor-workflow"
 ];
 
 test("production app boundary is documented before scaffolding", () => {
@@ -121,14 +121,14 @@ test("app shell includes public and admin layouts with route navigation", () => 
   assert.match(authLayout, /Back to magazine/);
 });
 
-test("app shell handoff docs preserve TDD and preview commands", () => {
+test("app shell handoff docs preserve TDD and production verification commands", () => {
   const readme = read("apps/web/README.md");
   const rootPkg = readJson("package.json");
   const runTests = read("tests/run-tests.js");
 
-  assert.match(readme, /Sprint 1 app shell/i);
+  assert.match(readme, /Production Release Candidate/i);
   assert.match(readme, /npm.cmd test/i);
-  assert.match(readme, /npm.cmd run preview:mvp/i);
+  assert.match(readme, /npm.cmd run verify:production/i);
   assert.match(readme, /Runtime Dependency Install/i);
   assert.ok(rootPkg.scripts["test:app-shell"]);
   assert.match(runTests, /production-app-shell\.test\.js/);

@@ -2,7 +2,7 @@
 
 Date: July 2, 2026
 Launch deadline: July 31, 2026
-Baseline: completed wireframe-backed prototype and Sprint 3 production visual system and Live Route QA boundary, 391 passing tests after the admin-only browser-session slice.
+Baseline: production release candidate with 428 passing tests, a green Vite build, and 16 desktop/mobile screenshot integrity checks after the July 13 report workflow slice.
 
 ## Sprint 0: Complete - Prototype Contract
 
@@ -242,7 +242,7 @@ Delivered scope:
 - Preserved existing admin routes: `/admin`, `/admin/articles`, `/admin/profiles-media`, `/admin/moderation`, and `/admin/contact-submissions`.
 - Kept final-design public section shortcuts routed through existing MVP paths instead of adding duplicate top-level category pages.
 
-Verification target: 391 passing tests, successful Vite build, and all 22 MVP public/admin/support routes returning 200 in the live route smoke check.
+Verification target: 396 passing tests, successful Vite build, and all 22 MVP public/admin/support routes returning 200 in the live route smoke check.
 
 ## Figma support pages sprint update - July 10, 2026
 
@@ -255,7 +255,7 @@ Delivered scope:
 - Preserved the existing support route paths and avoided duplicate shortcut routes such as `/login`, `/reset-password`, or `/media-upload`.
 - Kept auth, recovery, accessibility, modal focus, editor workflow, and mobile handoff state contracts intact.
 
-Verification target: 391 passing tests, successful Vite build, all 22 MVP public/admin/support routes returning 200, and browser QA for at least one converted support route.
+Verification target: 396 passing tests, successful Vite build, all 22 MVP public/admin/support routes returning 200, and browser QA for at least one converted support route.
 
 ## Figma browser QA matrix sprint update - July 10, 2026
 
@@ -268,7 +268,7 @@ Delivered scope:
 - Preserved the 22-route MVP registry and the no-duplicate public shortcut route decision.
 - Recorded browser QA outputs under `apps/web/browser-qa/figma-viewport-matrix/`.
 
-Verification target: 391 passing tests, successful Vite build, all 22 MVP routes returning 200, and 14 desktop/mobile screenshots captured from the running app.
+Verification target: 396 passing tests, successful Vite build, all 22 MVP routes returning 200, and 14 desktop/mobile screenshots captured from the running app.
 
 ## Figma screenshot integrity sprint update - July 10, 2026
 
@@ -281,7 +281,7 @@ Delivered scope:
 - Registered `qa:web:screenshots:check` so regenerated screenshots can be verified before frontend sign-off.
 - Preserved the 22-route MVP registry and no-duplicate route decision.
 
-Verification target: 391 passing tests, successful screenshot integrity check, successful Vite build, and all 22 MVP routes returning 200.
+Verification target: 396 passing tests, successful screenshot integrity check, successful Vite build, and all 22 MVP routes returning 200.
 
 ## Figma SEO metadata sprint update - July 10, 2026
 
@@ -294,7 +294,7 @@ Delivered scope:
 - Preserved draft/private article safety with `noindex,follow` metadata for unavailable article slugs.
 - Kept final-design section shortcuts mapped into existing MVP routes instead of creating duplicate category routes.
 
-Verification target: 391 passing tests, successful Vite build, all 22 MVP routes returning 200, and screenshot integrity still passing.
+Verification target: 396 passing tests, successful Vite build, all 22 MVP routes returning 200, and screenshot integrity still passing.
 
 
 ## Final design ZIP adoption sprint update - July 10, 2026
@@ -307,7 +307,7 @@ Delivered scope:
 - Added the exported collapsible mobile navigation behavior to the live MVP.
 - Preserved one canonical 22-route registry and search-based editorial aliases.
 
-Verification target: 391 passing tests, successful Vite build, 22 live route responses, and refreshed desktop/mobile screenshot integrity.
+Verification target: 396 passing tests, successful Vite build, 22 live route responses, and refreshed desktop/mobile screenshot integrity.
 
 ## Launch discovery and Lighthouse sprint update - July 10, 2026
 
@@ -317,7 +317,7 @@ Delivered scope:
 - Valid robots.txt and sitemap.xml discovery files.
 - llms.txt magazine and canonical-reader-route discovery file.
 - Brand-link accessible-name correction from the audit.
-- Test target raised to 391 passing tests.
+- Test target raised to 396 passing tests.
 ## Public form interaction sprint update - July 11, 2026
 
 Delivered frontend scope:
@@ -327,7 +327,7 @@ Delivered frontend scope:
 - Contact validation, pending, success, and retry feedback.
 - Article comments submit into a pending moderation state and never render publicly before approval.
 - Accessible live regions and disabled submitting controls.
-- Current verification target: 391 passing tests, production build, live routes, browser form checks, and screenshot integrity.
+- Current verification target: 396 passing tests, production build, live routes, browser form checks, and screenshot integrity.
 
 Backend boundary:
 
@@ -356,7 +356,7 @@ Security compatibility note:
 - Removed global section and article card styling that warped nested Figma content.
 - Connected section navigation to live query filters and independent active states.
 - Preserved the route registry and avoided duplicate category routes.
-- Verification target achieved: 391 tests, production build, zero audit findings, 22 route responses, and desktop/mobile browser geometry checks.
+- Verification target achieved: 396 tests, production build, zero audit findings, 22 route responses, and desktop/mobile browser geometry checks.
 
 ### Persistent Public API Slice - Complete
 
@@ -364,4 +364,106 @@ Security compatibility note:
 - Connected newsletter, contact, and comment forms without changing their Figma interaction states.
 - Preserved approved-only public comment rendering.
 - Documented production security and deployment work that remains.
-- Verification target achieved: 391 tests, live browser submissions, restart persistence, and moderation-safe comment status.
+- Verification target achieved: 396 tests, live browser submissions, restart persistence, and moderation-safe comment status.
+
+
+## Report And Design Realignment - July 13, 2026
+
+This update supersedes the earlier Sprint 3 assumption that admin route migration was still the main task. The production routes, administrator session, editorial persistence, and live admin queues now exist. Remaining work is sequenced by launch risk and the reviewed report.
+
+### July 13-17: Contract And Report Completion
+
+- Adopt root `DESIGN.md` and the report traceability review.
+- Implement dedicated profile detail/authored-work discovery.
+- Implement public review submission, accessible one-to-five book rating, approved count, and moderation proof.
+- Complete high-confidence admin report gaps: delete confirmations, search, article/rating filters, profile social links, and feature control.
+- Obtain client inputs: approved copy/media, opening banner decision, official social URLs, Sabon license/files, domain ownership, and designated contact inbox.
+- Select hosting, editorial storage, object storage, email, backup, monitoring, and secret-management providers.
+
+TDD gates:
+
+- A failing contract or behavior test precedes each production change.
+- Public content remains published/approved-only.
+- No duplicate route or category module is introduced.
+- Full regression and production build remain green.
+
+### July 18-23: Infrastructure And Content
+
+- Deploy staging with managed secrets, durable editorial storage, object storage, TLS, health checks, rate limits, structured logs, monitoring, and alerts.
+- Prove encrypted backup and restore.
+- Complete contact email delivery and retries.
+- Import approved content, credits, social URLs, and font assets.
+- Complete admin image upload/replacement and remaining workflow depth.
+
+### July 24-28: Release Verification
+
+- Run cross-browser and 360/390/768/1024/1280/1440/1920 visual checks.
+- Complete keyboard, screen-reader, performance, SEO, structured data, canonical, sitemap, and social-card checks.
+- Rehearse rollback and data restore.
+- Resolve all P0 findings and record any client-accepted P1 exception.
+
+### July 29-31: Freeze And Launch
+
+- Freeze content and code.
+- Obtain dated client sign-off.
+- Run all release commands.
+- Deploy, smoke test, monitor, and retain the verified rollback artifact.
+
+
+### July 13 Report Workflow Slice - Complete
+
+- [x] Canonical profile detail and published-work discovery.
+- [x] Public moderated book-rating review form and approved count.
+- [x] Persisted moderation/contact search and moderation type/status/article/rating filters.
+- [x] Confirmed comment, review, and article deletion.
+- [x] Profile create/edit/delete, full biography, and social-link editing.
+- [x] Guarded media metadata deletion.
+- [x] Sixteen desktop/mobile browser captures and integrity checks.
+- [ ] Article feature control and structured Article/Person data.
+- [ ] Object storage, binary upload/replacement, transforms, and backup.
+- [x] One-origin production web/API runtime, login/public-form rate limits, request IDs, cache policy, and privacy-safe structured logs.
+- [ ] Managed hosting/storage, backups, TLS/proxy verification, monitoring, contact delivery, approved content, domain, social URLs, Sabon, and client sign-off.
+
+Verification: 440 tests passed, combined production verification passed 10/10, production build passed with 1,674 modules transformed, production-mode same-origin smoke passed, and dependency audit reported 0 vulnerabilities.
+
+### July 14 Production Styling Package - Source Complete
+
+- [x] Confirm Visceral Brutalist Archive as the shared public foundation.
+- [x] Map Home, About v1, Contact Dispatch v2, Featured/Media, and Archive v2 to existing routes.
+- [x] Keep reference HTML visual-only and preserve live content, components, routes, and behaviour.
+- [x] Add shared production tokens, full-width bands, sharp editorial rules, monochrome media, and responsive type.
+- [x] Restyle the single public header/search/Sections system without exposing Admin.
+- [x] Restyle public cards, archive, media, About, Contact, newsletter, forms, article, profile, and footer surfaces.
+- [x] Repair the expanded mobile-menu grid found during live 390px QA.
+- [x] Verify 1440, 1024, 768, 390, and 360 widths across the five mapped routes.
+- [x] Pass 446 regression tests and two 100-score Lighthouse audits.
+- [x] Reran the Vite production build with subprocess permission; 1,675 modules transformed.
+
+The production build remains an evidence gate, not an implementation redesign. External launch blockers and the July 31 NO-GO criteria remain unchanged.
+
+### July 14 Managed PostgreSQL Runtime - Complete
+
+- [x] Add a production-only PostgreSQL store selected by `NODE_ENV=production`.
+- [x] Keep atomic JSON persistence for local development and automated tests only.
+- [x] Add an idempotent migration and seed-on-empty behavior.
+- [x] Serialize writes with transactions and row locking; roll back failures.
+- [x] Make all API store calls async-compatible without changing routes or response shapes.
+- [x] Require `DATABASE_URL` in production and add database SSL controls.
+- [x] Pass 451 regression tests, 15/15 production gates, and the 1,675-module Vite build.
+- [ ] Provision staging PostgreSQL and prove managed backups, restore, retention, monitoring, and ownership.
+
+The next launch-risk slices are object storage with validated image upload/replacement, designated contact/newsletter email delivery, and provider-backed staging evidence.
+
+
+### July 14 Stitch v4 Production Refinement - Complete
+
+- [x] Map the second-pass Stitch package to existing production routes without importing fictional content or replacement navigation.
+- [x] Refine Article Detail, Search, Contributors, Creative Team, Profile Detail, and Featured / Media.
+- [x] Refine private Admin Dashboard, article editor, and media metadata management surfaces.
+- [x] Remove duplicate contributor discovery output and keep each media/search item rendered once.
+- [x] Correct desktop media-row packing, full-width contributor directory flow, and equal-height profile tracks.
+- [x] Verify 1440px and 360px geometry with no public horizontal overflow.
+- [x] Preserve admin session enforcement, noindex behavior, API calls, moderation, and object-storage gate.
+- [x] Pass 457 regression tests and the 1,676-module production build.
+
+The remaining launch-critical work is external staging proof: managed PostgreSQL provisioning and restore rehearsal, object storage and validated binary upload/replacement, contact/newsletter delivery, domain/TLS/monitoring, approved content and official links, licensed Sabon files, and dated client sign-off.

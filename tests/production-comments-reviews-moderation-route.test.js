@@ -88,7 +88,9 @@ test("React-ready CommentsReviewsModerationPage component is scaffolded from the
 
   assert.match(component, /export function CommentsReviewsModerationPage/);
   assert.match(component, /buildCommentsReviewsModerationRouteModel/);
-  assert.match(component, /fetch\("\/api\/admin\/comments\?status=pending"/);
+  assert.match(component, /fetch\("\/api\/admin\/comments"/);
+  assert.match(component, /name="moderation-article"/);
+  assert.match(component, /name="moderation-rating"/);
   assert.match(component, /credentials: "include"/);
   assert.match(component, /method: "PATCH"/);
   assert.match(component, /data-page="comments-reviews-moderation"/);

@@ -6,6 +6,8 @@ export function ContactSubmissionsPage({ fixtures = launchFixtures }) {
   const [submissions, setSubmissions] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
   const [requestState, setRequestState] = useState("loading");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
 
   useEffect(() => {
     let active = true;
@@ -32,8 +34,14 @@ export function ContactSubmissionsPage({ fixtures = launchFixtures }) {
   );
   const model = buildContactSubmissionsRouteModel(liveFixtures);
   const { hero, sections } = model;
-  const selected = sections.inbox.items.find((item) => item.id === selectedId)
-    || sections.inbox.selectedSubmission || null;
+  const normalizedSearch = searchQuery.trim().toLowerCase();
+  const filteredItems = sections.inbox.items.filter((item) => {
+    const matchesSearch = !normalizedSearch || [item.sender, item.email, item.subject, item.message]
+      .some((value) => String(value || "").toLowerCase().includes(normalizedSearch));
+    const matchesStatus = statusFilter === "all" || item.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
+  const selected = filteredItems.find((item) => item.id === selectedId) || null;
 
   async function updateStatus(status) {
     if (!selected) return;
@@ -48,10 +56,17 @@ export function ContactSubmissionsPage({ fixtures = launchFixtures }) {
       if (!response.ok) throw new Error("Unable to update submission");
       const updated = await response.json();
       setSubmissions((items) => items.map((item) => item.id === updated.id ? updated : item));
+      setSelectedId(null);
       setRequestState("ready");
     } catch {
       setRequestState("error");
     }
+  }
+
+  function clearFilters() {
+    setSearchQuery("");
+    setStatusFilter("all");
+    setSelectedId(null);
   }
 
   return (
@@ -63,20 +78,21 @@ export function ContactSubmissionsPage({ fixtures = launchFixtures }) {
         <h2>{sections.stats.heading}</h2>
         {sections.stats.items.map((metric) => <article key={metric.key} className="metric"><p className="eyebrow">{metric.label}</p><strong>{metric.value}</strong></article>)}
       </section>
-      <section className="figma-admin-toolbar" data-section="submissions-filter">
+      <section className="figma-admin-toolbar admin-filter-toolbar" data-section="submissions-filter">
         <h2>{sections.filters.heading}</h2>
-        <label>Search submissions<input name={sections.filters.search.name} type="search" placeholder={sections.filters.search.placeholder} /></label>
-        <label>Status<select name="status">{sections.filters.filters[0].options.map((option) => <option key={option}>{option}</option>)}</select></label>
+        <label>Search submissions<input name={sections.filters.search.name} type="search" placeholder={sections.filters.search.placeholder} value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} /></label>
+        <label>Status<select name="submission-status" value={statusFilter} onChange={(event) => setStatusFilter(event.target.value)}><option value="all">All statuses</option><option value="new">New</option><option value="read">Read</option><option value="archived">Archived</option></select></label>
+        <button type="button" onClick={clearFilters}>Clear filters</button>
       </section>
       <p className="public-form-status" data-form-status={requestState} aria-live="polite">
         {requestState === "loading" ? "Loading contact submissions..." : requestState === "saving" ? "Saving status..." : requestState === "error" ? "The inbox could not be loaded or updated. Try again." : ""}
       </p>
       <section className="figma-admin-workspace" data-section="submissions-inbox">
         <h2>{sections.inbox.heading}</h2>
-        {requestState === "ready" && sections.inbox.items.length === 0 ? <p>No contact submissions yet.</p> : null}
+        {requestState === "ready" && filteredItems.length === 0 ? <p>No submissions match the current filters.</p> : null}
         <div className="submissions-table figma-admin-table-panel" role="table" aria-label="Contact submissions inbox">
           <div role="row" className="table-header">{sections.inbox.columns.map((column) => <span key={column} role="columnheader">{column}</span>)}</div>
-          {sections.inbox.items.map((row) => <div key={row.id} role="row" className="submission-row" data-submission-id={row.id} data-status={row.status}>
+          {filteredItems.map((row) => <div key={row.id} role="row" className="submission-row" data-submission-id={row.id} data-status={row.status}>
             <span role="cell">{row.sender}</span><a role="cell" href={`mailto:${row.email}`}>{row.email}</a>
             <span role="cell"><strong>{row.subject}</strong><small>{row.message}</small></span>
             <span role="cell">{row.status}</span><span role="cell">{row.receivedDate}</span>
@@ -94,7 +110,7 @@ export function ContactSubmissionsPage({ fixtures = launchFixtures }) {
         <button type="button" disabled={!selected || requestState === "saving"} onClick={() => updateStatus("archived")}>Archive</button>
       </section>
       <section className="figma-admin-state-grid" data-section="submissions-states" aria-live="polite">
-        <h2>Inbox status</h2><p>{requestState === "ready" ? `${sections.inbox.items.length} submissions loaded.` : "Waiting for inbox data."}</p>
+        <h2>Inbox status</h2><p>{requestState === "ready" ? `${filteredItems.length} of ${sections.inbox.items.length} submissions shown.` : "Waiting for inbox data."}</p>
       </section>
     </section>
   );

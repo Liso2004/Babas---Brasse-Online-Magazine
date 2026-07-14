@@ -14,7 +14,7 @@ export function getFeaturedMediaItems(fixtures) {
 
 function articleCategory(fixtures, article) { const c = fixtures.categories.find((item) => item.id === article.categoryId); return c ? { ...c, href: `/search?category=${c.slug}` } : null; }
 
-function articleAuthor(fixtures, article) { const a = fixtures.profiles.find((item) => item.id === article.authorProfileId); return a ? { ...a, href: `/contributors#${a.slug}` } : null; }
+function articleAuthor(fixtures, article) { const a = fixtures.profiles.find((item) => item.id === article.authorProfileId); return a ? { ...a, href: `/people/${a.slug}` } : null; }
 
 export function getPublishedMediaArticles(fixtures) {
   return fixtures.articles

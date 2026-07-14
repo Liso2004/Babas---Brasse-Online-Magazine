@@ -5,8 +5,7 @@ export function FigmaProfileCard({ profile, showPublishedWorks = false }) {
 
   const links = Array.isArray(profile.socialLinks) ? profile.socialLinks : [];
   const works = Array.isArray(profile.publishedWorks) ? profile.publishedWorks : [];
-  const profileRoute = profile.type === "creative_team" ? "/creative-team" : "/contributors";
-  const profileHref = profile.href || `${profileRoute}#${profile.slug}`;
+  const profileHref = profile.href || `/people/${profile.slug}`;
 
   return (
     <article id={profile.slug} className="profile-card figma-profile-card" data-profile={profile.slug} data-profile-type={profile.type}>

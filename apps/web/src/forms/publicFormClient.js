@@ -13,12 +13,13 @@ export function validateEmail(value) {
 }
 
 export function resolvePublicFormEndpoint(kind, payload = {}) {
-  if (kind === "comment") {
+  if (kind === "comment" || kind === "review") {
     const articleKey = payload.articleSlug || payload.articleId;
     if (!articleKey) {
-      throw new Error("An article is required for comment submission.");
+      throw new Error("An article is required for comment or review submission.");
     }
-    return `/api/articles/${encodeURIComponent(articleKey)}/comments`;
+    const collection = kind === "review" ? "reviews" : "comments";
+    return `/api/articles/${encodeURIComponent(articleKey)}/${collection}`;
   }
 
   const endpoint = defaultEndpoints[kind];

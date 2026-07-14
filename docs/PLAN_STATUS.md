@@ -774,7 +774,7 @@ Completed:
 - Restored packaged logo/PDF LFS assets from the local export.
 - Added `docs/FIGMA_FINAL_FRONTEND_HANDOFF.md` to document the stack and 22-route MVP scope conflict.
 - Adopted the final-design logo-led public header, search field, admin access, and Theatre Reviews / Book Reviews / Essays / Opinion section cues in the runnable app.
-- Full suite baseline is now 391 passing tests after the public form interaction sprint.
+- Full suite baseline is now 396 passing tests after the public form interaction sprint.
 
 Next active slice:
 
@@ -786,20 +786,20 @@ Next active slice:
 - Runnable archive entry/config files are preserved in the Figma source folder.
 - The live public header includes the exported accessible mobile navigation behavior.
 - The route registry remains at 22 unique routes with editorial section aliases handled by search.
-- Verification passed: 391 tests, production build, 22 live routes, hydrated SEO metadata, and 14 refreshed screenshot integrity checks.
+- Verification passed: 396 tests, production build, 22 live routes, hydrated SEO metadata, and 14 refreshed screenshot integrity checks.
 ## Lighthouse launch audit complete - July 10, 2026
 
 - Added valid robots.txt, sitemap.xml, and llms.txt public discovery assets.
 - Corrected the public brand link to use visible text as its sole accessible name.
 - Mobile Lighthouse final result: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100, 55 passed audits, 0 failures.
-- Current regression baseline: 391 passing tests.
+- Current regression baseline: 396 passing tests.
 ## Public form frontend interactions - July 11, 2026
 
 - Home, About, and Contact share one accessible newsletter interaction.
 - Contact preserves reader input across API failure and keeps the honeypot out of the accessibility tree.
 - Article comments remain approved-only in public output; new comments submit to the pending moderation endpoint.
 - Missing API endpoints produce honest retry states instead of treating the Vite SPA fallback as success.
-- Current regression target is 391 passing tests.
+- Current regression target is 396 passing tests.
 
 ## True Figma Stack And Home Parity - July 11, 2026
 
@@ -812,7 +812,7 @@ Completed:
 - Completed mobile logo/menu/search/admin polish and refreshed browser QA artifacts.
 - Cleared production and development dependency audits with React Router 7.18.1 and Vite 7.3.6.
 
-Verification baseline: 391 passing tests, production build green, 22-route smoke green, 12 screenshot integrity checks green, and mobile Lighthouse 100 across all audited categories.
+Verification baseline: 396 passing tests, production build green, 22-route smoke green, 12 screenshot integrity checks green, and mobile Lighthouse 100 across all audited categories.
 
 Next implementation priority: connect public forms and admin mutations to the real backend/auth/persistence layer, then replace preview copy and placeholder media with approved launch content.
 
@@ -828,7 +828,7 @@ Completed:
 - Optimized generated media to approximately 1.1 MB total.
 - Replaced public React placeholder imagery across reader, information, profile, featured, and admin media surfaces.
 
-Verification baseline: 391 passing tests, zero dependency vulnerabilities, production build green, 22 live routes green, 44 layout checks green, 12 screenshot integrity checks green, and mobile Lighthouse 100 across all audited categories.
+Verification baseline: 396 passing tests, zero dependency vulnerabilities, production build green, 22 live routes green, 44 layout checks green, 12 screenshot integrity checks green, and mobile Lighthouse 100 across all audited categories.
 
 Durable audit: `docs/UI_TECH_STACK_IMAGEGEN_AUDIT_JULY_11_2026.md`.
 
@@ -841,7 +841,7 @@ Figma-only runtime repair completed on July 11, 2026.
 - Removed legacy MVP global card and boxed-main styling from the active React runtime.
 - Kept the canonical 22-route registry; no duplicate Theatre, Books, Essays, or Opinion routes were introduced.
 - Made the final-design section navigation query-aware and connected URL filters to the search route model.
-- Current verification baseline: 391 passing tests, zero dependency vulnerabilities, production build green, and all 22 live routes green.
+- Current verification baseline: 396 passing tests, zero dependency vulnerabilities, production build green, and all 22 live routes green.
 
 ## Persistent Public API - First Backend Slice
 
@@ -851,7 +851,7 @@ Completed July 12, 2026:
 - Vite proxies same-origin `/api` requests to the Node service on port `8787`.
 - New comments are moderation-safe and default to `pending`.
 - Browser submissions and process-restart durability were verified.
-- Current regression baseline: 391 passing tests.
+- Current regression baseline: 396 passing tests.
 
 Next backend priorities are credential hardening, rate limiting and abuse controls, newsletter confirmation delivery, deployment-managed storage, and encrypted backups.
 
@@ -863,7 +863,7 @@ Completed July 12, 2026:
 - Added constant-time credential comparison and fail-closed unconfigured behavior.
 - Added persisted moderation and inbox status mutations with strict allowlists.
 - Kept public submission routes available without exposing admin data.
-- Current regression baseline: 391 passing tests.
+- Current regression baseline: 396 passing tests.
 
 Next slice: connect protected admin screens to live records, then add production credential and abuse-control hardening.
 
@@ -876,7 +876,7 @@ Completed July 12, 2026:
 - Added a React AdminGate around every route marked authRequired.
 - Removed editor-facing login language; there is no registration or contributor, author, editor, or public account flow.
 - Kept bearer authentication only for trusted server automation.
-- Current regression baseline: 391 passing tests, 0 failures.
+- Current regression baseline: 396 passing tests, 0 failures.
 
 Next priority: connect admin tables and mutations to live protected API data, then harden credentials, rate limits, audit logging, and deployment secrets.
 
@@ -889,7 +889,7 @@ Completed July 12, 2026:
 - Both screens include real loading, empty, saving, and error feedback while preserving the Figma admin layout.
 - The authenticated shell now provides server-backed sign out.
 - Dashboard, articles, profiles/media, inbox, and moderation contracts now consistently require the admin role.
-- Verification remains 391 passing tests with a successful production build.
+- Verification remains 396 passing tests with a successful production build.
 
 Next priority: persist article/profile/media editing, add a reviews API, then harden credentials, rate limits, audit logging, and deployment storage.
 
@@ -903,7 +903,7 @@ Completed July 12, 2026:
 - Added mobile single-column card and related-content safeguards plus horizontal overflow protection.
 - Added a dedicated minimal auth layout without public navigation or footer chrome.
 - Rebalanced public and auth logo sizing from the live-view review.
-- Regression baseline remains 391 passing tests.
+- Regression baseline remains 396 passing tests.
 
 ## Reference-Led Archive and Newsletter Repair - Complete
 
@@ -915,4 +915,148 @@ Completed July 12, 2026:
 - Fixed the shared newsletter form so label/input and Subscribe align correctly on every page.
 - Removed Contact's duplicate route links below the newsletter.
 - Expanded screenshot QA to include Featured at desktop and mobile, for 14 captures total.
-- Regression baseline remains 391 passing tests.
+- Regression baseline remains 396 passing tests.
+
+## Production Release Candidate - Active
+
+Transitioned July 12, 2026:
+
+- Closed the MVP and prototype delivery phases; archived their roadmap as historical evidence.
+- Promoted the root and web packages to version 1.0.0-rc.1.
+- Added the canonical production release plan with Security, Data, Frontend, Deployment, Content, and Launch Decision gates.
+- Added scrypt-hashed admin credentials and rejected plaintext admin passwords in production.
+- Added fail-fast production requirements for admin email, password hash, and external data path.
+- Added restrictive API security headers and production operator templates.
+- Added start:production, verify:production, and hash:admin-password commands.
+- Current regression baseline: 396 passing tests.
+
+Current launch decision: NO-GO until durable editorial storage, remaining admin persistence, rate limits, deployment infrastructure, backups, and final content approval are complete.
+
+### Live release-candidate verification
+- Frontend preview and API are running on the updated production-candidate code.
+- Production build, 396-test regression suite, five release gates, dependency audit, and 14-image screenshot integrity gate pass.
+- API bind configuration is tested and honors HOST; local development defaults to 127.0.0.1.
+
+## Editorial Persistence - Complete (July 13, 2026)
+- Articles, profiles, media metadata, and reviews now persist atomically across restarts.
+- Article, profile/media, review moderation, contact, and comment admin workflows use protected APIs.
+- Reader routes hydrate from persisted published content; drafts and unapproved conversation remain private.
+- Verification baseline: 402 passing tests, 5 production release gates, green production build, and 0 dependency vulnerabilities.
+- Next priority: rate limiting, structured security logs, inactive route removal, deployment-managed storage, backups, and staging infrastructure.
+
+
+## Production Design And Report Alignment - July 13, 2026
+
+Completed:
+
+- Decoded and reviewed all 20 pages of the supplied client report.
+- Reviewed `https://ceconline.co.za/` for editorial hierarchy and publication rhythm.
+- Added root `DESIGN.md` as the production design contract.
+- Added `docs/BABAS_BRASSE_REPORT_REVIEW_JULY_2026.md` with requirement traceability.
+- Realigned the production release plan, compressed sprint, and implementation roadmap.
+- Added the design/report contract test before the documents; the initial red run failed on the missing artifacts and plan gate as expected.
+
+Current decision:
+
+- Keep the current React/Vite and Node production architecture.
+- Launch remains NO-GO pending the P0 infrastructure, content, email, domain, font, and client sign-off gates in the report review.
+
+Next active slice:
+
+- Implement the public book-rating review workflow and profile detail/authored-work discovery with TDD, while provider and client-owned launch inputs are being secured.
+
+
+Verification:
+
+- Design/report contract: 4 passed.
+- Full regression: 406 passed, 0 failed.
+- Production Vite build: passed.
+
+
+## Report-Aligned Publication Navbar - July 13, 2026
+
+- Promoted the report-required publication pages to the primary navigation.
+- Consolidated category shortcuts under Sections without adding routes.
+- Reduced More to Creative Team and Contributors.
+- Preserved one search control per desktop/mobile context and one canonical route registry.
+
+
+## Report Workflow Completion - July 13, 2026
+
+Completed with TDD evidence:
+
+- Added canonical `/people/:slug` profile detail with full biography, profile links, dynamic metadata, and published-only authored work.
+- Added public one-to-five book rating submission, accessible text alternatives, approved review count, and pending-by-default moderation.
+- Added persisted admin search for moderation and contact records, plus status, article, type, and review-rating filters.
+- Added confirmed deletion for comments, reviews, and articles.
+- Added profile creation, full biography and social-link editing, confirmed profile deletion, and guarded media metadata deletion.
+- Protected profiles and media referenced by articles from accidental deletion.
+- Expanded browser QA from 14 to 16 desktop/mobile captures to include profile detail.
+
+Current evidence:
+
+- Full regression: 428 passing tests, 0 failures.
+- Production Vite build: passed with 1,673 modules transformed.
+- Screenshot integrity: 16 of 16 PNGs passed at 1440x1200 and 390x1200.
+- Live profile route returned HTTP 200.
+
+Remaining launch blockers:
+
+- Hosting/staging, deployment-managed editorial storage, encrypted backup/restore, object storage and binary uploads.
+- Rate limiting, structured security/moderation logs, monitoring, TLS/proxy, and rollback evidence.
+- Contact email delivery, final domain/DNS/canonicals, approved content/media/credits/social URLs/legal copy, and licensed Sabon files.
+- Article feature control, binary media replacement, Article/Person structured data, final cross-browser/accessibility review, and dated client sign-off.
+
+Launch decision remains NO-GO.
+
+## Production Editorial Navigation - Completed July 13, 2026
+
+- The public header now uses one responsive route list, one search form, and one expanded Sections panel.
+- The desktop row now follows the approved reference composition: Babas & Brasse mark left, publication links with decorative `///` separators in the middle, Sections in the same rhythm, and search at the far right.
+- Tablet and mobile keep the full-height menu while removing decorative separators and restoring large editorial link type.
+- Creative Team and Contributors moved into Sections; the redundant More menu was removed.
+- No public header, mobile menu, footer, sitemap, or public page exposes an admin link.
+- The direct `/admin` path remains protected by server-backed session and role checks; logout returns to `/admin`.
+- Admin and authentication metadata is `noindex,nofollow`, and private UI modules are route-split.
+- CEC and matching Babas & Brasse screenshots are stored under `docs/design-reference/`.
+- The live geometry/interaction audit is stored in `docs/design-reference/babas-brasse/navigation-audit.json`.
+
+This closes the navigation redesign slice. It does not change the NO-GO launch decision or the external infrastructure, final-content, licensed-font, legal, and client-approval blockers listed below.
+
+## Production Runtime Stack - Completed July 13, 2026
+
+- One Node service now serves the Vite production build and API on the same origin.
+- Admin login and public submissions have configurable rate limits and standard retry metadata.
+- Production security events are structured, request-correlated, and exclude credentials, submitted content, and raw addresses.
+- Deployment hosting, managed data, backups, TLS/proxy validation, monitoring, final content, and client sign-off remain launch blockers.
+- Verification: 440/440 regressions, 10/10 combined production gates, 1,674-module build, production-mode same-origin smoke, and 0 dependency vulnerabilities.
+
+## Production Styling Package - Implemented July 14, 2026
+
+- Adopted the Visceral Brutalist Archive as the public visual foundation.
+- Applied the approved Home, About v1, Contact Dispatch v2, Featured/Media, and Visceral Archive v2 references through one scoped shared stylesheet.
+- Preserved the canonical route registry, all real content and form logic, the private administrator boundary, and existing admin presentation.
+- Replaced the boxed public canvas with full-width editorial bands, sharp rules, monochrome media, one responsive navigation/search system, and a black publication footer.
+- Fixed a live 390px expanded-menu clipping defect found during browser QA.
+- Verified five mapped public routes at 1440, 1024, 768, 390, and 360 widths with no overflow, broken images, duplicated search, or exposed admin links.
+- Lighthouse passed at 100 across all four reported categories on Home desktop and Contact mobile.
+- Full regression is 446/446 passing.
+
+Current gate:
+
+- Source implementation and live browser QA are green.
+- Production build verification is resolved: the escalated Vite build passed with 1,675 modules transformed.
+- Launch remains NO-GO for the external infrastructure, final-content, licensed-font, legal, deployment, backup, email, and client-sign-off blockers already recorded.
+
+## Managed PostgreSQL Production Stack - Implemented July 14, 2026
+
+- Production persistence now uses a PostgreSQL adapter with an idempotent migration and transactional JSONB state.
+- Development and test persistence remain on the atomic JSON adapter.
+- API handlers await both adapters without changing route, payload, authentication, moderation, or public-content behavior.
+- Production configuration requires `DATABASE_URL` instead of a local filesystem data path.
+- Verification is green: 451/451 regressions, 15/15 production gates, 1,675-module build, and 0 root dependency vulnerabilities.
+
+Current gate:
+
+- Application implementation for managed editorial storage is complete.
+- Launch remains NO-GO until staging PostgreSQL is provisioned and backup/restore evidence exists, and until object storage, email delivery, deployment, approved content, domain, font, legal, and client-sign-off gates are complete.

@@ -76,7 +76,7 @@ function articleResult(article, fixtures) {
       id: article.authorProfileId,
       name: author.name,
       slug: author.slug,
-      href: `/contributors#${author.slug}`
+      href: `/people/${author.slug}`
     }
   };
 }

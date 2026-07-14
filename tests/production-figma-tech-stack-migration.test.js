@@ -38,15 +38,16 @@ test("public and admin shells use router links and Lucide controls", () => {
   const adminLayout = read("apps/web/src/layouts/AdminLayout.jsx");
 
   assert.match(publicLayout, /import \{ Link, useLocation, useNavigate \} from "react-router-dom"/);
-  assert.match(publicLayout, /import \{ Menu, Search, UserRound, X \} from "lucide-react"/);
+  assert.match(publicLayout, /import \{ ChevronDown, Menu, Search, X \} from "lucide-react"/);
   assert.match(publicLayout, /aria-current=\{isSectionActive\(item\)/);
   assert.match(publicLayout, /navigate\(`/);
   assert.match(adminLayout, /import \{ Link, NavLink, useNavigate \} from "react-router-dom"/);
   const css = read("apps/web/src/styles.css");
-  assert.match(publicLayout, /className="mobile-navigation-tools"/);
-  assert.match(publicLayout, /id="mobile-site-search"/);
+  assert.match(publicLayout, /className="header-search"/);
+  assert.match(publicLayout, /id="site-search"/);
+  assert.equal((publicLayout.match(/role="search"/g) || []).length, 1);
   assert.match(css, /\.public-layout \.header-topline \.brand-mark/);
-  assert.match(css, /\.mobile-navigation-tools/);
+  assert.match(css, /\.editorial-navigation-panel/);
 });
 
 test("shadcn-style primitives exist for buttons inputs and class composition", () => {

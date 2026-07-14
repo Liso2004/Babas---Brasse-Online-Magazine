@@ -40,7 +40,7 @@ test("About page uses the Figma public info layout", () => {
   assert.match(about, /className="figma-newsletter-panel"/);
 });
 
-test("Creative Team and Contributors use shared Figma profile cards", () => {
+test("Creative Team uses profile cards and Contributors uses the Stitch directory", () => {
   const team = read("apps/web/src/pages/CreativeTeamPage.jsx");
   const contributors = read("apps/web/src/pages/ContributorsPage.jsx");
 
@@ -50,11 +50,11 @@ test("Creative Team and Contributors use shared Figma profile cards", () => {
   assert.match(team, /className="figma-profile-grid"/);
   assert.match(team, /<FigmaProfileCard/);
 
-  assert.match(contributors, /import \{ FigmaProfileCard \}/);
+  assert.doesNotMatch(contributors, /import \{ FigmaProfileCard \}/);
   assert.match(contributors, /className="figma-public-page figma-contributors-page"/);
   assert.doesNotMatch(contributors, /className="figma-search-tools"/);
-  assert.match(contributors, /className="figma-profile-grid"/);
-  assert.match(contributors, /<FigmaProfileCard/);
+  assert.match(contributors, /className="stitch-contributor-directory"/);
+  assert.match(contributors, /className="stitch-directory-row"/);
 });
 
 test("Contact page uses the Figma contact and newsletter layout", () => {

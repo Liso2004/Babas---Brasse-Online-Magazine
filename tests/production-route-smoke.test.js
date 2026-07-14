@@ -14,9 +14,9 @@ function read(relativePath) {
   return fs.readFileSync(filePath(relativePath), "utf8").replace(/^\uFEFF/, "");
 }
 
-const expectedPublicPaths = ["/", "/about", "/creative-team", "/contributors", "/visceral-mag", "/visceral-mag/:slug", "/search", "/featured", "/contact"];
+const expectedPublicPaths = ["/", "/about", "/creative-team", "/contributors", "/people/:slug", "/visceral-mag", "/visceral-mag/:slug", "/search", "/featured", "/contact"];
 const expectedAdminPaths = ["/admin", "/admin/articles", "/admin/profiles-media", "/admin/moderation", "/admin/contact-submissions"];
-const expectedSupportPaths = ["/admin/login", "/admin/password-reset", "/404", "/500", "/offline", "/admin/media/upload", "/admin/articles/editor-workflow", "/mobile-wireframes"];
+const expectedSupportPaths = ["/admin/login", "/admin/password-reset", "/404", "/500", "/offline", "/admin/media/upload", "/admin/articles/editor-workflow"];
 
 async function loadSmokeModule() {
   const modulePath = filePath("apps/web/src/routeSmoke.js");
@@ -69,6 +69,7 @@ test("route smoke contract resolves fallback and dynamic article paths", async (
   const smoke = await loadSmokeModule();
 
   assert.equal(smoke.resolveSmokeRoute("/visceral-mag/new-voices").id, "article-detail");
+  assert.equal(smoke.resolveSmokeRoute("/people/visceral-contributor").id, "profile-detail");
   assert.equal(smoke.resolveSmokeRoute("/visceral-mag/new-voices").params.slug, "new-voices");
   assert.equal(smoke.resolveSmokeRoute("/missing-route").id, "not-found");
   assert.equal(smoke.resolveSmokeRoute("/missing-route").path, "/404");

@@ -1,5 +1,5 @@
+import { ArrowRight } from "lucide-react";
 import * as launchFixtures from "../data/launchFixtures.js";
-import { FigmaProfileCard } from "../components/FigmaProfileCard.jsx";
 import { buildContributorsRouteModel } from "./contributorsRouteModel.js";
 
 export function ContributorsPage({ fixtures = launchFixtures }) {
@@ -7,7 +7,7 @@ export function ContributorsPage({ fixtures = launchFixtures }) {
   const { hero, sections } = model;
 
   return (
-    <section className="figma-public-page figma-contributors-page" data-page="contributors" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+    <section className="figma-public-page figma-contributors-page" data-page="contributors" data-design-reference="contributors-directory-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       <header data-section="contributors-intro" className="figma-page-intro">
         <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>
@@ -25,29 +25,31 @@ export function ContributorsPage({ fixtures = launchFixtures }) {
             <a data-action="reset-filter" href={sections.contributorsGrid.resetHref}>View contributors</a>
           </div>
         ) : (
-          <div className="figma-profile-grid">
-            {sections.contributorsGrid.items.map((profile) => <FigmaProfileCard key={profile.id} profile={profile} showPublishedWorks />)}
+          <div className="stitch-contributor-directory" role="table" aria-label="Contributor directory">
+            <div className="stitch-directory-header" role="row">
+              <span role="columnheader">ID</span>
+              <span role="columnheader">Name</span>
+              <span role="columnheader">Role</span>
+              <span role="columnheader">Latest work</span>
+            </div>
+            {sections.contributorsGrid.items.map((profile, index) => {
+              const latestWork = profile.publishedWorks?.[0];
+              const profileHref = profile.href || "/people/" + profile.slug;
+              return (
+                <article key={profile.id} className="stitch-directory-row" role="row" data-profile={profile.slug}>
+                  <span className="stitch-directory-id" role="cell">{String(index + 1).padStart(3, "0")}</span>
+                  <h3 role="cell"><a href={profileHref}>{profile.name}</a></h3>
+                  <p role="cell">{profile.role}</p>
+                  <p className="stitch-directory-latest" role="cell">
+                    {latestWork ? <a href={latestWork.href}>{latestWork.title}</a> : <span>No published work yet</span>}
+                    <ArrowRight size={20} aria-hidden="true" />
+                  </p>
+                </article>
+              );
+            })}
           </div>
         )}
       </section>
-
-      <section data-section="published-works" className="figma-content-section">
-        <div className="section-heading-row">
-          <h2>{sections.publishedWorks.heading}</h2>
-          <a href="/visceral-mag">Read articles</a>
-        </div>
-        <div className="figma-more-list__items">
-          {sections.publishedWorks.items.map((article) => (
-            <article key={article.id} className="published-work-row figma-more-list__item" data-article={article.slug} data-status={article.status} data-category={article.category.slug}>
-              <a href={article.href}>{article.title}</a>
-              <span>{article.category.label}</span>
-              <span>{article.author.name}</span>
-              <span>{article.publishedAt || "Upcoming"}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
     </section>
   );
 }

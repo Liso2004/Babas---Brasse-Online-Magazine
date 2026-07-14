@@ -116,8 +116,8 @@ test("SEO metadata sprint is documented and wired into the full suite", () => {
   assert.match(runTests, /production-seo-metadata-route\.test\.js/);
   assert.match(testingLog, /Figma SEO Metadata Sprint/i);
   assert.match(sprintPlan, /Figma SEO metadata sprint/i);
-  assert.match(roadmap, /391 passing tests/i);
-  assert.match(coverage, /391 passing tests/i);
+  assert.match(roadmap, /428 passing tests/i);
+  assert.match(coverage, /428 passing tests/i);
 });
 
 

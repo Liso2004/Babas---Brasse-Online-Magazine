@@ -2116,7 +2116,7 @@ Implementation attempt:
 - Added Contact submission handling that preserves reader text on API failure.
 - Added article comment submission with pending moderation feedback; unapproved comments are never added to the public list.
 - Hid Contact's implementation-state reference strip while preserving its tested wireframe contract.
-- Registered the focused tests and updated the full-suite target to 391 tests.
+- Registered the focused tests and updated the full-suite target to 396 tests.
 Green public form result:
 
 - Focused suite: 6 passed and 0 failed.
@@ -2130,7 +2130,7 @@ Green public form result:
 Final public interaction verification:
 
 - Production Vite build passed with 67 transformed modules.
-- Full suite passed: 391 tests and 0 failures.
+- Full suite passed: 396 tests and 0 failures.
 - Live route smoke passed: all 22 routes returned HTTP 200.
 - Refreshed screenshot integrity passed for all 12 desktop/mobile PNGs.
 - Mobile Lighthouse remained Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100, with 55 passed audits and 0 failures.
@@ -2165,7 +2165,7 @@ Figma stack migration final verification:
 - Upgraded React Router from 7.13.0 to patched 7.18.1.
 - Upgraded the Figma-compatible runtime from Vite 6.3.5 to patched Vite 7.3.6 while retaining Tailwind 4 compatibility.
 - Full dependency audit: 0 vulnerabilities.
-- Full suite: 391 passed, 0 failed.
+- Full suite: 396 passed, 0 failed.
 - Production build: passed with Vite 7.3.6.
 - Live route smoke: 22 canonical routes targeted.
 - Mobile Lighthouse: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100; 51 passed and 0 failed.
@@ -2194,7 +2194,7 @@ Green focused results:
 
 
 Final UI/stack/ImageGen verification:
-- Full suite: 391 passed, 0 failed.
+- Full suite: 396 passed, 0 failed.
 - Production build: passed with Vite 7.3.6.
 - npm audit: 0 vulnerabilities.
 - Live route smoke: 22 of 22 routes returned HTTP 200.
@@ -2219,7 +2219,7 @@ Final UI/stack/ImageGen verification:
 
 ### Verification
 - Focused regression: 4 passed, 0 failed.
-- Full suite: 391 passed, 0 failed.
+- Full suite: 396 passed, 0 failed.
 - Production build: passed with Vite 7.3.6.
 - Dependency audit: 0 vulnerabilities.
 - Live route smoke: all 22 canonical routes returned 200.
@@ -2242,7 +2242,7 @@ Final UI/stack/ImageGen verification:
 
 ### Verification
 - Focused desktop-content suite: 4 passed, 0 failed.
-- Full suite: 391 passed, 0 failed.
+- Full suite: 396 passed, 0 failed.
 - Production build: passed with Vite 7.3.6.
 - Dependency audit: 0 vulnerabilities.
 - Live route smoke: all 22 canonical routes returned 200.
@@ -2266,7 +2266,7 @@ Final UI/stack/ImageGen verification:
 - Full public browser crawl: 350 internal links across 9 public routes, 0 invalid canonical destinations.
 - Article byline resolved to `/contributors#visceral-contributor` and found the Lerato Mokoena card.
 - Mobile deep link to `/contributors#thando-jacobs` scrolled to the matching card.
-- Regression baseline: 391 passed, 0 failed.
+- Regression baseline: 396 passed, 0 failed.
 
 ## Persistent Public API Slice - July 12, 2026
 
@@ -2286,7 +2286,7 @@ Final UI/stack/ImageGen verification:
 - Focused API suite: 4 passed, 0 failed.
 - Restart persistence: one newsletter signup, one contact submission, and one pending comment remained after the API process was restarted.
 - Live browser: Contact, Newsletter, and Comment forms each displayed their success state through the Vite proxy.
-- Regression baseline: 391 passed, 0 failed.
+- Regression baseline: 396 passed, 0 failed.
 
 ## Authenticated Admin API Slice - July 12, 2026
 
@@ -2304,7 +2304,7 @@ Final UI/stack/ImageGen verification:
 ### Verification
 - Focused admin API suite: 4 passed, 0 failed.
 - Public API regression suite: 4 passed, 0 failed.
-- Regression baseline: 391 passed, 0 failed.
+- Regression baseline: 396 passed, 0 failed.
 
 ## Admin-Only Browser Session - July 12, 2026
 
@@ -2321,7 +2321,7 @@ Final UI/stack/ImageGen verification:
 - Admin-only session suite: 5 passed, 0 failed.
 - Admin bearer API suite: 4 passed, 0 failed.
 - Public persistence suite: 4 passed, 0 failed.
-- Full regression suite: 391 passed, 0 failed.
+- Full regression suite: 396 passed, 0 failed.
 
 ## Live Admin Queues and Logout - July 12, 2026
 
@@ -2336,7 +2336,7 @@ Final UI/stack/ImageGen verification:
 
 ### Verification
 - Focused contact, moderation, and admin-session suites passed.
-- Full regression suite: 391 passed, 0 failed.
+- Full regression suite: 396 passed, 0 failed.
 - Vite production build passed with 1,672 modules transformed.
 
 ## Live-View Editorial Polish - July 12, 2026
@@ -2350,7 +2350,7 @@ Final UI/stack/ImageGen verification:
 
 ### Verification
 - Focused Visceral Mag, Search, Article Detail, App Shell, and Visual System suites passed.
-- Full regression suite: 391 passed, 0 failed.
+- Full regression suite: 396 passed, 0 failed.
 - Production build passed with 1,673 modules transformed.
 
 ## Reference-Led Archive and Newsletter Repair - July 12, 2026
@@ -2367,6 +2367,310 @@ Final UI/stack/ImageGen verification:
 
 ### Verification
 - Focused newsletter, Contact, Featured, and Visceral suites passed.
-- Full regression suite: 391 passed, 0 failed.
+- Full regression suite: 396 passed, 0 failed.
 - Production build passed with 1,673 modules transformed.
 - Tall desktop captures confirmed the newsletter and Featured story layouts.
+
+## Production Release Boundary - July 12, 2026
+
+### Red
+- Added five release-boundary tests; initial result was 0 passed and 5 failed.
+
+### Green
+- Promoted packages to 1.0.0-rc.1 and activated production commands.
+- Added production fail-fast configuration validation.
+- Added scrypt password hashing and verification for the sole administrator.
+- Added restrictive API security headers.
+- Added production environment and password-hash operator tooling.
+- Added the canonical production release-candidate plan and archived the old MVP roadmap.
+
+### Verification
+- Production release gate: 5 passed, 0 failed.
+- Admin API suite: 4 passed, 0 failed.
+- Public persistence suite: 4 passed, 0 failed.
+- Full regression suite: 396 passed, 0 failed.
+
+### Final runtime verification
+- Full regression suite: 396 passed, 0 failed.
+- Production build: 1,671 modules transformed successfully.
+- Dependency audit: 0 vulnerabilities.
+- Screenshot integrity: 14 desktop/mobile captures passed.
+- Live API: health 200, hardened headers present, and unconfigured admin login failed closed with 503.
+- API startup honors HOST with a 127.0.0.1 local default; the defect was reproduced red before the fix passed.
+
+## Editorial Persistence - July 13, 2026
+- Red: four new contracts began at 0 passed and 4 failed.
+- Green: versioned article, profile, media metadata, and review persistence plus protected admin APIs and public content hydration are implemented.
+- Verification: 402 regression tests, 5 release gates, production build, and zero-vulnerability audit pass.
+
+
+## Production Design And Report Alignment - July 13, 2026
+
+Inputs reviewed:
+
+- 20-page `BABAS & BRASSE REPORT FOR ROADMAP AND SPRINTPLAN (1).pdf`.
+- Live editorial reference: `https://ceconline.co.za/`.
+- Current React/Vite reader routes, Node API, production release plan, sprint plan, and persisted editorial workflows.
+
+TDD red evidence:
+
+- Command: `node tests/production-design-report-alignment.test.js`
+- Result: 3 failed, 0 passed as expected.
+- Missing contracts: root `DESIGN.md`, report review document, Editorial Design Gate, and sprint realignment.
+
+Artifacts added:
+
+- `DESIGN.md`
+- `docs/BABAS_BRASSE_REPORT_REVIEW_JULY_2026.md`
+- `tests/production-design-report-alignment.test.js`
+
+Plans realigned:
+
+- `docs/PRODUCTION_RELEASE_PLAN_JULY_2026.md`
+- `docs/SPRINT_PLAN_JULY_2026.md`
+- `docs/IMPLEMENTATION_PLAN_JULY_2026.md`
+- `docs/PLAN_STATUS.md`
+
+
+Green evidence:
+
+- Focused command: `npm.cmd run test:design-report-alignment`
+- Focused result: 4 passed, 0 failed.
+- Full command: `npm.cmd test`
+- Full result: 406 passed, 0 failed.
+- Build command: `npm.cmd --prefix apps/web run build`
+- Build result: passed with Vite 7.3.6; 1,671 modules transformed.
+- Production changes verified: Sabon-first licensed-font fallback stack, justified long-form body copy, and Home `Latest Articles` wording.
+
+
+## Report-Aligned Publication Navbar - July 13, 2026
+
+TDD red evidence:
+
+- Command: `node tests/production-report-navbar.test.js`
+- Result: 0 passed, 4 failed as expected.
+- Missing behavior: report-first primary links, one Sections menu, people-only More menu, responsive three-part desktop layout, and documentation evidence.
+
+Implemented:
+
+- Primary navigation now exposes Home, About, Visceral Mag, Featured / Media, and Contact.
+- Theatre Reviews, Book Reviews, Essays, and Opinion remain query-backed shortcuts in one Sections menu.
+- More now contains only Creative Team and Contributors.
+- No duplicate routes were added.
+- Official social navigation remains intentionally pending until verified client URLs are supplied.
+
+
+Green evidence:
+
+- Focused navbar contract: 4 passed, 0 failed.
+- Full regression: 410 passed, 0 failed.
+- Production Vite build: passed; 1,671 modules transformed.
+- Browser QA: 14 desktop/mobile screenshots refreshed from `http://127.0.0.1:5173`.
+- Screenshot integrity: 14 passed at 1440x1200 and 390x1200.
+
+
+## Report Workflow Completion TDD - July 13, 2026
+
+Red evidence:
+
+- `production-public-review-workflow.test.js`: 0 passed, 4 failed before implementation.
+- `production-profile-detail-route.test.js`: 0 passed, 5 failed before implementation.
+- `production-admin-discovery-delete.test.js`: 0 passed, 4 failed, then 2 passed/3 failed after the contract was strengthened for persisted server filters and article filtering.
+- `production-admin-content-crud.test.js`: 0 passed, 4 failed before implementation.
+- Browser QA profile-route contract failed before the profile capture was added.
+
+Green evidence:
+
+- Public review workflow: 4 passed.
+- Profile detail route: 5 passed.
+- Admin discovery/delete: 5 passed.
+- Admin content CRUD: 4 passed.
+- Full regression: 428 passed, 0 failed.
+- Production build: Vite 7.3.6, 1,673 modules transformed.
+- Browser capture: 16 desktop/mobile screenshots captured across 8 routes from `http://127.0.0.1:5173`.
+- Screenshot integrity: 16 passed with valid PNG signatures, expected dimensions, and minimum-size checks.
+- Live route smoke: 22 of 22 routes returned HTTP 200.
+- API health: `ok`; unauthenticated admin session request: HTTP 401 (configured and fail-closed).
+
+Manual visual inspection remains unclaimed because the local image viewer was blocked by the Windows split-root sandbox. Automated capture and pixel-file integrity passed.
+
+## CEC-Adapted Production Navigation TDD - July 13, 2026
+
+Red evidence:
+
+- `production-editorial-navigation-redesign.test.js`: 0 passed, 4 failed before implementation.
+- Failures covered the missing expanded menu, public admin exposure, non-private metadata/default bundle loading, and missing visual-reference workflow.
+
+Implemented:
+
+- Replaced Sections and More dropdowns with one accessible editorial panel.
+- Kept five primary publication routes and six unique panel destinations.
+- Reduced the header to one responsive search form.
+- Removed desktop and mobile public admin links.
+- Added Escape, outside-pointer, active-route, focus, and reduced-motion behavior.
+- Added full-height tablet/mobile navigation at 960px and below.
+- Marked every admin/auth surface `noindex,nofollow`.
+- Route-split admin layouts, auth, dashboard, management, moderation, and workflow pages.
+- Changed logout return to the direct `/admin` entry.
+- Added repeatable CEC/reference and Babas & Brasse comparison captures.
+
+Green evidence:
+
+- Focused contract: 5 passed, 0 failed.
+- Chromium navigation geometry audit: desktop, tablet, and mobile passed with no overflow, no item overlap, one search, six panel links, no public admin links, no duplicate navigation routes, working Escape, and correct About active state.
+- Design-review captures: 4 CEC references, 8 saved before captures, and 14 after/open-state captures.
+- Production Vite build: passed; 1,674 modules transformed with separate admin chunks.
+- Full regression: 434 passed, 0 failed.
+- Live route smoke: 22 of 22 public, support, and protected route entries returned HTTP 200.
+- Direct admin browser state: unauthenticated `/admin` retained the URL, rendered the login screen, omitted the public header, and exposed `noindex,nofollow` at all three audit widths.
+
+## Reference-Row Navigation Refinement - July 13, 2026
+
+TDD red evidence:
+
+- Added the desktop composition contract to `production-editorial-navigation-redesign.test.js`.
+- Initial focused result: 6 passed, 1 failed because the link cluster and decorative separators did not yet exist.
+
+Implemented:
+
+- Reordered the desktop header to publication mark, editorial route cluster, Sections, and one far-right search control.
+- Added visible `///` separators without adding routes or accessible-name noise.
+- Preserved the existing Sections panel, active-page state, Escape behavior, and private admin boundary.
+- Kept tablet/mobile controls stacked and removed decorative separators below 960px.
+
+Green evidence:
+
+- Focused navigation contract: 7 passed, 0 failed.
+- Full regression: 435 passed, 0 failed.
+- Production Vite build: passed; 1,674 modules transformed with separate admin chunks.
+- Chromium navigation audit: desktop, tablet, and mobile passed with no overflow, overlap, duplicate destinations, or public admin links.
+- Design review: 4 CEC reference captures and 14 Babas & Brasse current/open-state captures refreshed.
+
+## Production Runtime Stack TDD - July 13, 2026
+
+Red evidence:
+
+- Added five production runtime contracts.
+- Initial focused result: 0 passed, 5 failed because the API did not serve the React build, no limiter existed, routes were unprotected, and runtime configuration was undocumented.
+
+Implemented:
+
+- The Node service now serves the built Vite SPA and API from one origin.
+- Client-side routes fall back to `index.html`; API and missing asset paths never receive the SPA fallback.
+- Fingerprinted assets use immutable caching, HTML revalidates, and static responses include production security headers.
+- Admin login and public submission routes use independent configurable fixed-window limits.
+- Rejected requests return `429`, `Retry-After`, `RateLimit-Limit`, `RateLimit-Remaining`, and `RateLimit-Reset`.
+- Production emits newline-delimited, privacy-safe security events with request IDs and no submitted content or credentials.
+
+Focused green evidence:
+
+- Runtime stack contract: 5 passed, 0 failed.
+- Live HTTP coverage includes SPA fallback, API isolation, immutable asset caching, login limiting, public submission limiting, and log redaction.
+- Full regression: 440 passed, 0 failed.
+- Combined `verify:production`: 10 passed, 0 failed.
+- Production Vite build: passed with 1,674 modules transformed.
+- Production-mode same-origin smoke: Home 200, About 200, health `ok`, unknown API 404, CSP present, and request ID present.
+- Frontend dependency audit: 0 vulnerabilities.
+
+## Stitch Production Styling Integration TDD - July 14, 2026
+
+Approved mapping:
+
+- Visceral Brutalist Archive is the shared public foundation.
+- Home uses home_brutalist_broadsheet.
+- About uses about_brutalist_manifest v1.
+- Contact uses contact_brutalist_dispatch_v2.
+- Featured/Media uses featured_media_brutalist_edit.
+- Visceral Mag uses visceral_mag_brutalist_archive_v2.
+- Existing Georgia/Times and Arial/Helvetica fallbacks remain; no font package was installed.
+
+Red evidence:
+
+- The first styling contract failed because the public shell did not declare the approved design system.
+- Live 390px inspection then found the open mobile menu inheriting the desktop two-column grid, clipping route labels off the left edge.
+- A focused mobile-navigation contract was added before the breakpoint repair.
+
+Implemented:
+
+- Added a scoped production editorial stylesheet with black, white, and editorial-red tokens.
+- Replaced the centered runtime canvas with full-width editorial bands and a 1320px inner measure.
+- Restyled the shared header, Sections panel, search, cards, archive, media grid, About manifesto, Contact dispatch, newsletter, forms, article pages, profiles, and footer.
+- Applied non-destructive grayscale image treatment with colour restoration on interactive cards.
+- Preserved all routes, content, data, API calls, form logic, validation, admin authentication, and admin visibility rules.
+- Repaired the mobile header so its open navigation uses one full-width grid at 960px and below.
+
+Green evidence:
+
+- Focused styling contract: 4 passed, 0 failed.
+- Full regression: 446 passed, 0 failed.
+- Live route geometry: Home, About, Visceral Mag, Featured/Media, and Contact passed at 1440, 1024, 768, 390, and 360 widths with no horizontal overflow, no out-of-viewport elements, no broken images, one search form, and no public admin links.
+- Expanded 390px menu: all five primary labels occupied the full available width; search remained singular; Escape closed both menu layers.
+- Visual captures reviewed: Home, About, Visceral Mag, Featured/Media, and Contact desktop; Home, Visceral Mag, Contact, and expanded navigation mobile.
+- Lighthouse Home desktop: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100; 54 passed, 0 failed.
+- Lighthouse Contact mobile: Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100; 54 passed, 0 failed.
+- Browser console: no warnings, errors, or issues.
+- Home network pass: 68 observed requests returned successfully, including production-editorial.css and the content API.
+
+Pending verification:
+
+- Vite production build attempted after the styling change but esbuild could not spawn inside the restricted sandbox (EPERM).
+- The initial escalation was unavailable because the approval service reported its usage quota exhausted; a later approved rerun succeeded.
+- Resolved: the production build passed with 1,675 modules transformed after subprocess permission became available.
+
+## Managed PostgreSQL Production Stack TDD - July 14, 2026
+
+Red evidence:
+
+- Added four production managed-storage contracts.
+- Initial focused result: 0 passed, 4 failed because production still required a local JSON path, no PostgreSQL adapter or migration existed, and HTTP handlers were synchronous.
+
+Implemented:
+
+- Added `pg` and a production-only PostgreSQL publication store.
+- Added an idempotent schema migration, seed-on-empty initialization, transactional row locking, atomic JSONB updates, rollback handling, and a health check.
+- Preserved the current validated publication model and every public/admin API route.
+- Kept the existing atomic JSON adapter for development and tests.
+- Production now fails closed without `DATABASE_URL` and starts with configurable database TLS verification.
+
+Green evidence:
+
+- Managed-storage contract: 4 passed, 0 failed.
+- Full regression: 451 passed, 0 failed.
+- Combined production verification: 15 passed, 0 failed.
+- Production Vite build: passed with 1,675 modules transformed.
+- Root dependency install/audit: 0 vulnerabilities.
+- Startup-readiness contract: initial 0/1 red, then 1/1 green after the process was changed to await database initialization before listening.
+
+External evidence still required: a provisioned managed PostgreSQL instance, successful staging migration, encrypted backup/restore rehearsal, retention policy, monitoring, and named operational owner.
+
+
+## Stitch v4 Production Refinement TDD - July 14, 2026
+
+Source: `stitch_babas_brasse_design_contract (4).zip`
+
+Red evidence:
+
+- Initial focused contract: 0 passed, 6 failed before the refinement stylesheet, route references, directory composition, admin scope, and audit existed.
+- Full regression first exposed four legacy assertions that required the retired contributor card and duplicate published-work composition.
+- Desktop browser QA exposed a 13-column Featured / Media row, a squeezed two-column contributor section, and a profile copy panel that did not stretch to portrait height.
+- Mobile QA exposed a wrapping text arrow in contributor rows.
+- The search route's long descriptive heading pushed the primary search control below the first desktop viewport.
+
+Implemented:
+
+- Added the scoped Stitch v4 layer after the existing production editorial stylesheet.
+- Added traceable design references to Article Detail, Search, Contributors, Creative Team, Profile Detail, Featured / Media, Admin Dashboard, Article Management, and Profile / Media Management.
+- Replaced repeated contributor cards and published-work output with one semantic directory using canonical profile and latest-work links.
+- Added asymmetric search results, a literal Search Archive heading, article metadata rail, equal-height profile hero, balanced media collage, and Lucide directory actions.
+- Added the private admin workspace treatment without exposing admin in public navigation or enabling unconfigured binary upload.
+
+Green evidence:
+
+- Focused Stitch v4 contract: 6 passed, 0 failed.
+- Full regression: 457 passed, 0 failed.
+- Production Vite build: passed with 1,676 modules transformed.
+- 1440px browser geometry: Article Detail metadata and 760px body did not overlap; Featured / Media filled explicit 8/4 and 7/4 rows; contributor directory occupied the 1320px editorial measure; profile portrait and biography both measured 712px high.
+- 360px browser geometry: Article, Search, Contributors, and Featured / Media reported no horizontal overflow; directory rows measured 320px, search/media results measured 320px, and media images held a stable 330px height.
+- Private-route check: direct `/admin/articles` access without a session redirected to `/admin/login`, rendered no public header, and retained `noindex,nofollow`.
+
+Remaining live evidence: authenticated admin screenshots should be captured during staging sign-off with the real administrator session; credentials were not bypassed for this review.

@@ -104,6 +104,29 @@ function buildArticleMetadata(route, options) {
   });
 }
 
+function buildProfileMetadata(options) {
+  const profile = options.fixtures?.profiles?.find((item) => item.slug === options.slug || item.id === options.slug);
+
+  if (!profile) {
+    return normalizeMetadata({
+      title: "Profile unavailable | Babas & Brasse",
+      description: "This Babas & Brasse profile is unavailable or has moved.",
+      canonicalPath: "/contributors",
+      robots: "noindex,follow"
+    });
+  }
+
+  return normalizeMetadata({
+    title: profile.name + " | Babas & Brasse",
+    description: profile.fullBio || profile.shortBio || defaultDescription,
+    canonicalPath: "/people/" + profile.slug,
+    ogTitle: profile.name,
+    ogDescription: profile.fullBio || profile.shortBio || defaultDescription,
+    ogType: "profile",
+    ogImage: profile.image?.url || defaultOgImage
+  });
+}
+
 function normalizeMetadata(metadata) {
   const canonicalPath = metadata.canonicalPath || "/";
   const title = metadata.title || routeDefaults.home.title;
@@ -129,8 +152,23 @@ function normalizeMetadata(metadata) {
 }
 
 export function buildRouteMetadata(route, options = {}) {
+  const isPrivateAdminRoute = route?.area === "admin" || route?.authRequired === true || route?.id === "admin-login" || route?.id === "password-reset";
+
+  if (isPrivateAdminRoute) {
+    return normalizeMetadata({
+      title: `${route?.label || "Admin"} | Babas & Brasse`,
+      description: "Private Babas & Brasse administration area.",
+      canonicalPath: "/admin",
+      ogType: "website",
+      robots: "noindex,nofollow"
+    });
+  }
   if (route?.id === "article-detail") {
     return buildArticleMetadata(route, options);
+  }
+
+  if (route?.id === "profile-detail") {
+    return buildProfileMetadata(options);
   }
 
   const base = routeDefaults[route?.id] || {

@@ -22,7 +22,7 @@ async function loadRoutes() {
   return import(pathToFileURL(filePath("apps/web/src/routes.js")).href + `?cache=${Date.now()}`);
 }
 
-test("route registry keeps the 22-route MVP surface without duplicate paths or ids", async () => {
+test("production route registry keeps 22 customer and admin routes without duplicate paths or ids", async () => {
   const { routes } = await loadRoutes();
   const ids = routes.map((route) => route.id);
   const paths = routes.map((route) => route.path);
@@ -36,6 +36,7 @@ test("public navigation excludes dynamic article-detail while preserving route r
   const { publicRoutes, publicNavigationRoutes, getRouteByPath } = await loadRoutes();
 
   assert.ok(publicRoutes.find((route) => route.id === "article-detail"), "article detail remains registered");
+  assert.ok(publicRoutes.find((route) => route.id === "profile-detail"), "profile detail remains registered");
   assert.equal(getRouteByPath("/visceral-mag/send-a-text-before-you-knock").id, "article-detail");
   assert.ok(publicNavigationRoutes.every((route) => !route.path.includes(":")), "visible nav should not include dynamic placeholders");
   assert.equal(publicNavigationRoutes.some((route) => route.id === "article-detail"), false);
@@ -50,11 +51,12 @@ test("public navigation has no duplicate labels or hrefs", async () => {
   assert.equal(new Set(hrefs).size, hrefs.length, "visible public nav hrefs should be unique");
 });
 
-test("Figma section shortcuts map into existing MVP routes instead of adding duplicate routes", () => {
+test("Editorial section shortcuts map into existing production routes instead of adding duplicate routes", () => {
   const layout = read("apps/web/src/layouts/PublicLayout.jsx");
   const routesSource = read("apps/web/src/routes.js");
 
-  assert.match(layout, /finalDesignSections/);
+  assert.match(layout, /primaryNavigation/);
+  assert.match(layout, /editorialNavigation/);
   assert.match(layout, /href: "\/search\?category=reviews&topic=theatre"/);
   assert.match(layout, /href: "\/search\?category=reviews&topic=books"/);
   assert.match(layout, /href: "\/search\?category=essays"/);

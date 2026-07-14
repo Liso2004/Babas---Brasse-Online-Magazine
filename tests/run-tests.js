@@ -122,3 +122,18 @@ require("./production-public-api-persistence.test.js");
 require("./production-admin-api-auth.test.js");
 
 require("./production-admin-only-session.test.js");
+
+require("./production-release-boundary.test.js");
+require("./production-editorial-persistence.test.js");
+require("./production-design-report-alignment.test.js");
+require("./production-report-navbar.test.js");
+require("./production-public-review-workflow.test.js");
+require("./production-profile-detail-route.test.js");
+require("./production-admin-discovery-delete.test.js");
+require("./production-admin-content-crud.test.js");
+require("./production-editorial-navigation-redesign.test.js");
+require("./production-runtime-stack.test.js");
+require("./production-styling-integration.test.js");
+require("./production-managed-postgres.test.js");
+require("./production-startup-readiness.test.js");
+require("./production-stitch-v4-refinement.test.js");

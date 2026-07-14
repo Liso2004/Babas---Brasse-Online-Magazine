@@ -11,7 +11,7 @@ export function HomePage({ fixtures = launchFixtures }) {
   const recent = sections.recentArticles.length ? sections.recentArticles : sections.latestArticles;
 
   return (
-    <section className="figma-final-home" data-page="home" data-design-source={model.designSource} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+    <section className="figma-final-home" data-design-reference="home-brutalist-broadsheet" data-page="home" data-design-source={model.designSource} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       {sections.leadStory ? (
         <section data-section="figma-featured-article" className="figma-home__feature-shell">
           <FigmaArticleCard article={sections.featuredArticle} featured />
@@ -20,7 +20,7 @@ export function HomePage({ fixtures = launchFixtures }) {
 
       <section data-section="figma-recent-articles" className="figma-home__recent-shell">
         <div className="section-heading-row">
-          <h2>Recent Articles</h2>
+          <h2>Latest Articles</h2>
           <Link to="/visceral-mag">View all <ArrowRight size={16} aria-hidden="true" /></Link>
         </div>
         <div className="figma-card-grid">

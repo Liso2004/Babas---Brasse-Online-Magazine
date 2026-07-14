@@ -12,6 +12,8 @@ const expectedScreenshots = [
   ["visceral-mag-mobile.png", 390, 1200],
   ["article-detail-desktop.png", 1440, 1200],
   ["article-detail-mobile.png", 390, 1200],
+  ["profile-detail-desktop.png", 1440, 1200],
+  ["profile-detail-mobile.png", 390, 1200],
   ["search-desktop.png", 1440, 1200],
   ["search-mobile.png", 390, 1200],
   ["featured-desktop.png", 1440, 1200],

@@ -24,7 +24,7 @@ export function CategoriesSearchPage({ fixtures = launchFixtures, query, categor
   });
   const { hero, search, activeFilters, selectedCategory, sections } = model;
   const showSearchTools = !activeCategory && !activeTopic;
-  const section = sectionCopy[activeTopic] || sectionCopy[activeCategory] || hero;
+  const section = sectionCopy[activeTopic] || sectionCopy[activeCategory] || { ...hero, title: "Search Archive" };
 
   function submitSearch(event) {
     event.preventDefault();
@@ -36,7 +36,7 @@ export function CategoriesSearchPage({ fixtures = launchFixtures, query, categor
   }
 
   return (
-    <section className="figma-public-page figma-search-page" data-page="categories-search" data-route={model.route.path} data-generated={model.generatedFrom} data-state-note={model.stateNote} data-prototype-file={model.route.prototypeFile}>
+    <section className="figma-public-page figma-search-page" data-page="categories-search" data-design-reference="search-archive-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-state-note={model.stateNote} data-prototype-file={model.route.prototypeFile}>
       <header data-section="search-intro" className="figma-page-intro">
         <p className="eyebrow">{section.eyebrow}</p>
         <h1>{section.title}</h1>
@@ -68,9 +68,11 @@ export function CategoriesSearchPage({ fixtures = launchFixtures, query, categor
             <Link data-action="reset-search" to={sections.results.resetHref}>Reset search</Link>
           </div>
         ) : (
-          <div data-section="figma-search-results" className="figma-card-grid">
-            {sections.results.items.map((article) => (
-              <FigmaArticleCard key={article.id} article={article} compact />
+          <div data-section="figma-search-results" className="figma-card-grid stitch-search-results">
+            {sections.results.items.map((article, index) => (
+              <div key={article.id} className="stitch-search-result" data-result-index={index + 1}>
+                <FigmaArticleCard article={article} compact />
+              </div>
             ))}
           </div>
         )}

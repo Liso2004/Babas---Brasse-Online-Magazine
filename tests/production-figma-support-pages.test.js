@@ -77,7 +77,7 @@ test("workflow and mobile support pages use Figma support layouts", () => {
   assert.match(mobile, /className="figma-mobile-grid"/);
 });
 
-test("Figma support sprint is styled documented wired and keeps the 22 route contract", () => {
+test("Figma support sprint is styled documented wired and keeps the production route contract", () => {
   const rootPkg = readJson("package.json");
   const runTests = read("tests/run-tests.js");
   const css = read("apps/web/src/styles.css");

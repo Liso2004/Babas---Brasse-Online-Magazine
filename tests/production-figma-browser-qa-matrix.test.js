@@ -9,7 +9,7 @@ const readJson = (file) => JSON.parse(read(file));
 
 test("Figma browser QA screenshot script covers the required route and viewport matrix", () => {
   const script = read("apps/web/scripts/capture-route-screenshots.mjs");
-  for (const route of ["/", "/visceral-mag", "/visceral-mag/send-a-text-before-you-knock", "/search", "/featured", "/contact", "/admin"]) {
+  for (const route of ["/", "/visceral-mag", "/visceral-mag/send-a-text-before-you-knock", "/people/visceral-contributor", "/search", "/featured", "/contact", "/admin"]) {
     assert.match(script, new RegExp(route.replace(/[.*+?^$\{\}()|[\]\\]/g, "\\$&")));
   }
   assert.match(script, /desktop/);
@@ -52,8 +52,8 @@ test("Figma browser QA keeps route scope unchanged while documenting current ver
   const routes = read("apps/web/src/routes.js");
   const roadmap = read("docs/IMPLEMENTATION_PLAN_JULY_2026.md");
   const status = read("docs/PLAN_STATUS.md");
-  assert.match(roadmap, /391 passing tests/i);
-  assert.match(status, /391 passing tests/i);
+  assert.match(roadmap, /428 passing tests/i);
+  assert.match(status, /428 passing tests/i);
   for (const path of ["/theatre", "/books", "/essays", "/opinion"]) {
     assert.doesNotMatch(routes, new RegExp('path: "' + path + '"'));
   }

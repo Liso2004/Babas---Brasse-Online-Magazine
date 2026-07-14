@@ -46,7 +46,7 @@ test("MVP coverage review document summarizes implemented routes and remaining l
   assert.match(doc, /14 core route artifacts/i);
   assert.match(doc, /9 public routes/i);
   assert.match(doc, /5 admin routes/i);
-  assert.match(doc, /391 passing tests/i);
+  assert.match(doc, /428 passing tests/i);
   assert.match(doc, /8 implemented support routes/i);
   assert.match(doc, /frontend app integration/i);
   assert.match(doc, /authentication hardening/i);

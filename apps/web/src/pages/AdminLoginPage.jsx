@@ -22,6 +22,7 @@ export function AdminLoginPage() {
       if (!response.ok) throw new Error("Login failed");
       const session = await response.json();
       if (session.role !== "admin") throw new Error("Admin role required");
+      window.dispatchEvent(new Event("babas-admin-session-changed"));
       navigate("/admin", { replace: true });
     } catch {
       setStatus("error");

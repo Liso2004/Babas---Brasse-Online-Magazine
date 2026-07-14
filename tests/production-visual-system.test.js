@@ -17,7 +17,8 @@ test("production visual system defines editorial tokens and typography without v
   assert.match(css, /--surface:/);
   assert.match(css, /--muted:/);
   assert.match(css, /--focus:/);
-  assert.match(css, /font-family: Georgia/);
+  assert.match(css, /--font-editorial:[^;]*Georgia/);
+  assert.match(css, /font-family: var\(--font-editorial\)/);
   assert.match(css, /letter-spacing: 0/);
   assert.doesNotMatch(css, /font-size:\s*[^;]*vw/);
   assert.doesNotMatch(css, /letter-spacing:\s*-/);

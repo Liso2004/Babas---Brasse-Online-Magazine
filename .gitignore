@@ -12,8 +12,14 @@ apps/web/browser-qa-*.snapshot.txt
 *.pid
 .test-data/
 apps/api/data/*.json
+!apps/api/data/editorial-seed.json
 apps/api/data/*.tmp
 
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# Environment files and local secrets
+.env
+.env.*
+!.env.production.example

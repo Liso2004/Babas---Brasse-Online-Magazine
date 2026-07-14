@@ -7,7 +7,7 @@ export function AdminDashboardPage({ fixtures = launchFixtures }) {
   const { hero, sections } = model;
 
   return (
-    <section className="figma-admin-page figma-admin-dashboard-page" data-page="admin-dashboard" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile} data-auth-required={model.auth.role}>
+    <section className="figma-admin-page figma-admin-dashboard-page" data-page="admin-dashboard" data-design-reference="admin-dashboard-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile} data-auth-required={model.auth.role}>
       <header className="figma-admin-page-intro" data-section="admin-dashboard-intro">
         <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>

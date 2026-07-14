@@ -1,0 +1,473 @@
+{
+  "categories": [
+    {
+      "id": "essays",
+      "label": "Essays",
+      "slug": "essays",
+      "description": "Personal and cultural essays."
+    },
+    {
+      "id": "reviews",
+      "label": "Reviews",
+      "slug": "reviews",
+      "description": "Books, culture, and media reviews."
+    },
+    {
+      "id": "interviews",
+      "label": "Interviews",
+      "slug": "interviews",
+      "description": "Conversations with artists and cultural voices."
+    },
+    {
+      "id": "artwork",
+      "label": "Artwork",
+      "slug": "artwork",
+      "description": "Photography, visual art, and media features."
+    }
+  ],
+  "profiles": [
+    {
+      "id": "zubayr-charles",
+      "type": "creative_team",
+      "name": "Zubayr Charles",
+      "role": "Publisher & Product Owner",
+      "slug": "zubayr-charles",
+      "shortBio": "Sets the publication vision, commissions new work, and guides each Babas & Brasse edition.",
+      "socialLinks": [
+        {
+          "label": "Editorial enquiries",
+          "url": "/contact"
+        },
+        {
+          "label": "Read Visceral Mag",
+          "url": "/visceral-mag"
+        }
+      ]
+    },
+    {
+      "id": "zoe-petersen",
+      "type": "creative_team",
+      "name": "Zoe Petersen",
+      "role": "Web Developer",
+      "slug": "zoe-petersen",
+      "shortBio": "Builds the reading experience, editorial tools, accessibility systems, and production release.",
+      "socialLinks": [
+        {
+          "label": "Project overview",
+          "url": "/about"
+        },
+        {
+          "label": "Technical enquiries",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "id": "naledi-maseko",
+      "type": "creative_team",
+      "name": "Naledi Maseko",
+      "role": "Managing Editor",
+      "slug": "naledi-maseko",
+      "shortBio": "Shapes the editorial calendar and works with writers from first pitch through final publication.",
+      "socialLinks": [
+        {
+          "label": "Latest essays",
+          "url": "/search?category=essays"
+        },
+        {
+          "label": "Pitch the editors",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "id": "ayesha-daniels",
+      "type": "creative_team",
+      "name": "Ayesha Daniels",
+      "role": "Visual Editor",
+      "slug": "ayesha-daniels",
+      "shortBio": "Commissions photography and artwork that gives each story a distinct visual language.",
+      "socialLinks": [
+        {
+          "label": "Featured media",
+          "url": "/featured"
+        },
+        {
+          "label": "Submit visual work",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "id": "visceral-contributor",
+      "type": "contributor",
+      "name": "Lerato Mokoena",
+      "role": "Culture Essayist",
+      "slug": "visceral-contributor",
+      "shortBio": "Writes intimate cultural essays about hospitality, daily rituals, and the changing shape of community.",
+      "socialLinks": [
+        {
+          "label": "Read latest essay",
+          "url": "/visceral-mag/send-a-text-before-you-knock"
+        },
+        {
+          "label": "Contributor enquiries",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "id": "sihle-ndlovu",
+      "type": "contributor",
+      "name": "Sihle Ndlovu",
+      "role": "Theatre Critic",
+      "slug": "sihle-ndlovu",
+      "shortBio": "Covers rehearsal processes, performance, and the designers building South African stages.",
+      "socialLinks": [
+        {
+          "label": "Theatre reviews",
+          "url": "/search?category=reviews&topic=theatre"
+        },
+        {
+          "label": "Pitch a performance",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "id": "mia-van-wyk",
+      "type": "contributor",
+      "name": "Mia van Wyk",
+      "role": "Books Editor",
+      "slug": "mia-van-wyk",
+      "shortBio": "Reviews fiction and criticism with particular attention to translation and multilingual craft.",
+      "socialLinks": [
+        {
+          "label": "Book reviews",
+          "url": "/search?category=reviews&topic=books"
+        },
+        {
+          "label": "Recommend a book",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "id": "thando-jacobs",
+      "type": "contributor",
+      "name": "Thando Jacobs",
+      "role": "Essayist & Interviewer",
+      "slug": "thando-jacobs",
+      "shortBio": "Writes about belonging, language, and the creative communities making culture across the Cape.",
+      "socialLinks": [
+        {
+          "label": "Read essays",
+          "url": "/search?category=essays"
+        },
+        {
+          "label": "Contributor profile",
+          "url": "/contributors"
+        }
+      ]
+    }
+  ],
+  "mediaItems": [
+    {
+      "id": "editorial-theatre",
+      "title": "The Rehearsal Room",
+      "type": "image",
+      "url": "/media/editorial/editorial-theatre.jpg",
+      "altText": "A South African theatre ensemble rehearsing on a black-box stage",
+      "caption": "A new generation finding its voice in rehearsal.",
+      "credit": "Babas & Brasse / ImageGen"
+    },
+    {
+      "id": "editorial-books",
+      "title": "Between Languages",
+      "type": "image",
+      "url": "/media/editorial/editorial-books.jpg",
+      "altText": "A reader turning a page at a book-lined wooden table",
+      "caption": "Reading, translation, and the material life of books.",
+      "credit": "Babas & Brasse / ImageGen"
+    },
+    {
+      "id": "editorial-belonging",
+      "title": "On Belonging",
+      "type": "image",
+      "url": "/media/editorial/editorial-belonging.jpg",
+      "altText": "Neighbors talking in a colorful Cape Town residential street",
+      "caption": "Community, memory, and everyday ideas of home.",
+      "credit": "Babas & Brasse / ImageGen"
+    },
+    {
+      "id": "editorial-language",
+      "title": "The Language Workshop",
+      "type": "image",
+      "url": "/media/editorial/editorial-language.jpg",
+      "altText": "A diverse writing group discussing pages around a table",
+      "caption": "Multilingual cultural work built through conversation.",
+      "credit": "Babas & Brasse / ImageGen"
+    },
+    {
+      "id": "editorial-stagecraft",
+      "title": "Stagecraft and Storytelling",
+      "type": "image",
+      "url": "/media/editorial/editorial-stagecraft.jpg",
+      "altText": "A theatre designer adjusting a miniature stage model in a workshop",
+      "caption": "The craft and material imagination behind a performance.",
+      "credit": "Babas & Brasse / ImageGen"
+    }
+  ],
+  "articles": [
+    {
+      "id": "send-a-text-before-you-knock",
+      "title": "Send A Text Before You Knock",
+      "slug": "send-a-text-before-you-knock",
+      "dek": "On privacy, hospitality, and why arriving at someone's door now begins with a message.",
+      "status": "published",
+      "categoryId": "essays",
+      "authorProfileId": "visceral-contributor",
+      "publishedAt": "2026-07-01",
+      "featuredImage": {
+        "id": "editorial-belonging",
+        "title": "On Belonging",
+        "type": "image",
+        "url": "/media/editorial/editorial-belonging.jpg",
+        "altText": "Neighbors talking in a colorful Cape Town residential street",
+        "caption": "Community, memory, and everyday ideas of home.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "A knock at the door used to be ordinary. Now it can feel like a small interruption in a life coordinated by messages.",
+        "This essay considers privacy, hospitality, and the changing rituals around arriving in someone else's space."
+      ],
+      "seo": {
+        "title": "Send A Text Before You Knock | Babas & Brasse",
+        "description": "An essay on privacy, hospitality, and the changing rituals of arrival.",
+        "ogTitle": "Send A Text Before You Knock",
+        "ogDescription": "Privacy, hospitality, and the changing rituals of arrival."
+      }
+    },
+    {
+      "id": "baxter-new-voices-review",
+      "title": "Review: New Voices at the Baxter",
+      "slug": "baxter-new-voices-review",
+      "dek": "A draft review of an emerging theatre programme balancing formal ambition with raw new voices.",
+      "status": "draft",
+      "categoryId": "reviews",
+      "authorProfileId": "visceral-contributor",
+      "publishedAt": null,
+      "featuredImage": {
+        "id": "editorial-theatre",
+        "title": "The Rehearsal Room",
+        "type": "image",
+        "url": "/media/editorial/editorial-theatre.jpg",
+        "altText": "A South African theatre ensemble rehearsing on a black-box stage",
+        "caption": "A new generation finding its voice in rehearsal.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "The programme puts emerging directors beside established makers and lets their differences remain visible.",
+        "This draft considers where the evening finds a shared theatrical language and where it productively resists one."
+      ],
+      "seo": {
+        "title": "Review: New Voices at the Baxter | Babas & Brasse",
+        "description": "A draft review of the New Voices theatre programme at the Baxter.",
+        "ogTitle": "Review: New Voices at the Baxter",
+        "ogDescription": "Emerging theatre-makers test a shared stage language."
+      }
+    },
+    {
+      "id": "inside-the-rehearsal-room",
+      "title": "Inside the Rehearsal Room",
+      "slug": "inside-the-rehearsal-room",
+      "dek": "Five theatre-makers talk about trust, process, and the difficult work of building an ensemble.",
+      "status": "published",
+      "categoryId": "interviews",
+      "authorProfileId": "sihle-ndlovu",
+      "publishedAt": "2026-07-02",
+      "featuredImage": {
+        "id": "editorial-language",
+        "title": "The Language Workshop",
+        "type": "image",
+        "url": "/media/editorial/editorial-language.jpg",
+        "altText": "A diverse writing group discussing pages around a table",
+        "caption": "Multilingual cultural work built through conversation.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "A rehearsal room is built from attention before it is built from scenery.",
+        "These theatre-makers describe the rituals, disagreements, and shared language behind an ensemble."
+      ],
+      "seo": {
+        "title": "Inside the Rehearsal Room | Babas & Brasse",
+        "description": "A conversation with South African theatre-makers.",
+        "ogTitle": "Inside the Rehearsal Room",
+        "ogDescription": "A conversation from the rehearsal room."
+      }
+    },
+    {
+      "id": "afrikaans-theatre-revival",
+      "title": "The Revival of Afrikaans Theatre",
+      "slug": "afrikaans-theatre-revival",
+      "dek": "A new generation of playwrights is reimagining traditional narratives for contemporary South African stages.",
+      "status": "published",
+      "categoryId": "reviews",
+      "authorProfileId": "sihle-ndlovu",
+      "publishedAt": "2026-06-28",
+      "featuredImage": {
+        "id": "editorial-theatre",
+        "title": "The Rehearsal Room",
+        "type": "image",
+        "url": "/media/editorial/editorial-theatre.jpg",
+        "altText": "A South African theatre ensemble rehearsing on a black-box stage",
+        "caption": "A new generation finding its voice in rehearsal.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "Young theatre-makers are bringing fresh perspectives to familiar forms.",
+        "Their work joins tradition and experimentation without treating either as decoration."
+      ],
+      "seo": {
+        "title": "The Revival of Afrikaans Theatre | Babas & Brasse",
+        "description": "A look at a new generation on South African stages.",
+        "ogTitle": "The Revival of Afrikaans Theatre",
+        "ogDescription": "A new generation takes the stage."
+      }
+    },
+    {
+      "id": "between-languages",
+      "title": "Between Languages: The Craft of a South African Novel",
+      "slug": "between-languages",
+      "dek": "On literary craftsmanship, translation, and the playful possibilities of language.",
+      "status": "published",
+      "categoryId": "reviews",
+      "authorProfileId": "mia-van-wyk",
+      "publishedAt": "2026-06-24",
+      "featuredImage": {
+        "id": "editorial-books",
+        "title": "Between Languages",
+        "type": "image",
+        "url": "/media/editorial/editorial-books.jpg",
+        "altText": "A reader turning a page at a book-lined wooden table",
+        "caption": "Reading, translation, and the material life of books.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "Language shapes both the rhythm and the reach of a novel.",
+        "Reading between languages can reveal what a single vocabulary leaves unsaid."
+      ],
+      "seo": {
+        "title": "Between Languages | Babas & Brasse",
+        "description": "Literary craft across South African languages.",
+        "ogTitle": "Between Languages",
+        "ogDescription": "The playful possibilities of language."
+      }
+    },
+    {
+      "id": "on-belonging",
+      "title": "On Belonging: Reflections from the Cape Flats",
+      "slug": "on-belonging",
+      "dek": "A personal essay about identity, community, memory, and the meaning of home.",
+      "status": "published",
+      "categoryId": "essays",
+      "authorProfileId": "thando-jacobs",
+      "publishedAt": "2026-06-20",
+      "featuredImage": {
+        "id": "editorial-belonging",
+        "title": "On Belonging",
+        "type": "image",
+        "url": "/media/editorial/editorial-belonging.jpg",
+        "altText": "Neighbors talking in a colorful Cape Town residential street",
+        "caption": "Community, memory, and everyday ideas of home.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "Belonging is personal, communal, and political.",
+        "The stories of home carry contradiction as honestly as they carry affection."
+      ],
+      "seo": {
+        "title": "On Belonging | Babas & Brasse",
+        "description": "Reflections from the Cape Flats.",
+        "ogTitle": "On Belonging",
+        "ogDescription": "Identity, community, and home."
+      }
+    },
+    {
+      "id": "why-multilingualism-matters",
+      "title": "Why Multilingualism Matters",
+      "slug": "why-multilingualism-matters",
+      "dek": "An argument for cultural spaces that reflect the languages South Africans actually live in.",
+      "status": "published",
+      "categoryId": "essays",
+      "authorProfileId": "thando-jacobs",
+      "publishedAt": "2026-06-16",
+      "featuredImage": {
+        "id": "editorial-language",
+        "title": "The Language Workshop",
+        "type": "image",
+        "url": "/media/editorial/editorial-language.jpg",
+        "altText": "A diverse writing group discussing pages around a table",
+        "caption": "Multilingual cultural work built through conversation.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "Multilingualism is a creative resource, not a problem to solve.",
+        "Our cultural institutions should make room for the full texture of public language."
+      ],
+      "seo": {
+        "title": "Why Multilingualism Matters | Babas & Brasse",
+        "description": "A case for multilingual cultural spaces.",
+        "ogTitle": "Why Multilingualism Matters",
+        "ogDescription": "Language as a cultural resource."
+      }
+    },
+    {
+      "id": "stagecraft-and-storytelling",
+      "title": "Stagecraft and Storytelling",
+      "slug": "stagecraft-and-storytelling",
+      "dek": "How set design shapes the emotional and physical world of a performance.",
+      "status": "published",
+      "categoryId": "reviews",
+      "authorProfileId": "sihle-ndlovu",
+      "publishedAt": "2026-06-12",
+      "featuredImage": {
+        "id": "editorial-stagecraft",
+        "title": "Stagecraft and Storytelling",
+        "type": "image",
+        "url": "/media/editorial/editorial-stagecraft.jpg",
+        "altText": "A theatre designer adjusting a miniature stage model in a workshop",
+        "caption": "The craft and material imagination behind a performance.",
+        "credit": "Babas & Brasse / ImageGen"
+      },
+      "bodyBlocks": [
+        "A set is never only a backdrop.",
+        "The best stagecraft reveals meaning through space, material, light, and movement."
+      ],
+      "seo": {
+        "title": "Stagecraft and Storytelling | Babas & Brasse",
+        "description": "The art of local set design.",
+        "ogTitle": "Stagecraft and Storytelling",
+        "ogDescription": "How design transforms performance."
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "id": "review-1",
+      "articleId": "send-a-text-before-you-knock",
+      "name": "Reviewer",
+      "rating": 4,
+      "body": "A warm, precise essay that turns an ordinary social habit into a larger reflection on care and boundaries.",
+      "status": "approved"
+    },
+    {
+      "id": "review-2",
+      "articleId": "send-a-text-before-you-knock",
+      "name": "Reviewer",
+      "rating": 2,
+      "body": "This response was held for moderation because it did not address the published work.",
+      "status": "rejected"
+    }
+  ]
+}

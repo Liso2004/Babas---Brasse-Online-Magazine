@@ -51,7 +51,7 @@ test("Admin management pages use Figma toolbar table and editor panels", () => {
     assert.match(page, /figma-admin-table-panel/);
   }
 
-  assert.match(articles, /className="figma-admin-toolbar"/);
+  assert.match(articles, /className="figma-admin-toolbar[^"]*"/);
   assert.match(articles, /className="figma-admin-editor-panel"/);
   assert.match(profiles, /className="figma-admin-upload-panel"/);
   assert.match(moderation, /className="figma-admin-workspace"/);

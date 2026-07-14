@@ -10,6 +10,7 @@ const routes = [
   { id: "home", path: "/" },
   { id: "visceral-mag", path: "/visceral-mag" },
   { id: "article-detail", path: "/visceral-mag/send-a-text-before-you-knock" },
+  { id: "profile-detail", path: "/people/visceral-contributor" },
   { id: "search", path: "/search" },
   { id: "featured", path: "/featured" },
   { id: "contact", path: "/contact" },

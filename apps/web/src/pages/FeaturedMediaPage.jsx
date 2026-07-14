@@ -7,7 +7,7 @@ export function FeaturedMediaPage({ fixtures = launchFixtures }) {
   const { hero, sections } = model;
 
   return (
-    <section className="figma-public-page figma-featured-page" data-page="featured-media" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+    <section className="figma-public-page figma-featured-page" data-page="featured-media" data-design-reference="featured-media-gallery-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       <header data-section="media-intro" className="figma-page-intro">
         <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>

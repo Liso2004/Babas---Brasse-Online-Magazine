@@ -96,7 +96,9 @@ test("React-ready ContributorsPage component is scaffolded from the route model"
   assert.match(component, /data-section="contributors-intro"/);
   assert.doesNotMatch(component, /data-section="contributors-tools"/);
   assert.match(component, /data-section="contributors-grid"/);
-  assert.match(component, /data-section="published-works"/);
+  assert.match(component, /className="stitch-contributor-directory"/);
+  assert.match(component, /className="stitch-directory-row"/);
+  assert.doesNotMatch(component, /data-section="published-works"/);
   assert.doesNotMatch(component, /data-section="contributors-states"/);
   assert.match(component, /data-action="reset-filter"/);
   assert.match(app, /ContributorsPage/);

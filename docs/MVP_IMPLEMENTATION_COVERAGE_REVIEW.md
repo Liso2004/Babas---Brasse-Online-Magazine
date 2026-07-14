@@ -36,7 +36,7 @@ Admin coverage includes authenticated route contracts, dashboard health metrics,
 
 ## Verified Test Coverage
 
-Current full-suite expectation after the admin-only browser-session slice: 391 passing tests, 0 failing tests.
+Current full-suite expectation after the July 13 report workflow slice: 428 passing tests, 0 failing tests.
 
 Coverage is organized as:
 
@@ -78,3 +78,10 @@ The following items are not complete production behavior yet and must be handled
 2. Build shared layout/navigation/components from the tested route contracts.
 3. Add authentication and persistence behind the admin flows.
 4. Run visual QA against the Open Design wireframes and production responsive breakpoints.
+
+
+## Production Report Workflow Update - July 13, 2026
+
+The active React/Vite and Node release candidate now includes the canonical profile-detail route, moderated public book ratings, persisted admin discovery filters, confirmed destructive actions, profile creation/social-link editing, and dependency-safe media/profile deletion.
+
+Current evidence: 428 tests passed, production build passed, and 16 desktop/mobile screenshot integrity checks passed. The active launch decision remains NO-GO under `docs/PRODUCTION_RELEASE_PLAN_JULY_2026.md`.

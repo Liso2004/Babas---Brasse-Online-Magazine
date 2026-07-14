@@ -1,11 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { BookOpen } from "lucide-react";
 import * as launchFixtures from "../data/launchFixtures.js";
 import { submitPublicForm } from "../forms/publicFormClient.js";
 import { buildArticleDetailRouteModel } from "./articleDetailRouteModel.js";
 
 function formatArticleDate(value) {
   return new Intl.DateTimeFormat("en-ZA", { day: "numeric", month: "long", year: "numeric" }).format(new Date(value));
+}
+
+function BookRating({ value }) {
+  const rating = Math.max(0, Math.min(5, Number(value) || 0));
+
+  return (
+    <span className="book-rating" role="img" aria-label={`${rating} out of 5 books`}>
+      {Array.from({ length: rating }, (_, index) => (
+        <BookOpen key={index} size={18} aria-hidden="true" />
+      ))}
+    </span>
+  );
 }
 
 const commentMessages = {
@@ -16,16 +29,25 @@ const commentMessages = {
   error: "We couldn't submit your comment. Your text is still here, so you can try again."
 };
 
+const reviewMessages = {
+  idle: "",
+  validation: "Add your name, review, and a book rating from one to five.",
+  submitting: "Submitting your review...",
+  success: "Your review was submitted for moderation.",
+  error: "We couldn't submit your review. Your text is still here, so you can try again."
+};
+
 export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-text-before-you-knock" }) {
   const model = buildArticleDetailRouteModel(fixtures, slug);
   const [commentStatus, setCommentStatus] = useState("idle");
+  const [reviewStatus, setReviewStatus] = useState("idle");
 
   if (model.state === "not-found") {
     return (
       <section className="figma-public-page figma-article-detail" data-page="article-detail" data-generated={model.generatedFrom} data-state="not-found" data-slug={model.slug}>
         <h1>Article unavailable</h1>
         <p>This article is not published or does not exist.</p>
-        <a href={model.backHref}>Back to Visceral Mag</a>
+        <Link to={model.backHref}>Back to Visceral Mag</Link>
       </section>
     );
   }
@@ -59,8 +81,37 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
     }
   }
 
+  async function handleReviewSubmit(event) {
+    event.preventDefault();
+    const reviewForm = event.currentTarget;
+    const payload = Object.fromEntries(new FormData(reviewForm).entries());
+    const name = payload.name?.trim();
+    const body = payload.body?.trim();
+    const rating = Number(payload.rating);
+
+    if (!name || !body || !Number.isInteger(rating) || rating < 1 || rating > 5) {
+      setReviewStatus("validation");
+      return;
+    }
+
+    setReviewStatus("submitting");
+    try {
+      await submitPublicForm("review", {
+        articleId: article.id,
+        articleSlug: article.slug,
+        name,
+        body,
+        rating
+      });
+      reviewForm.reset();
+      setReviewStatus("success");
+    } catch {
+      setReviewStatus("error");
+    }
+  }
+
   return (
-    <article className="figma-article-detail" data-page="article-detail" data-generated={model.generatedFrom} data-slug={article.slug} data-prototype-file={model.route.prototypeFile}>
+    <article className="figma-article-detail" data-page="article-detail" data-design-reference="article-detail-v4" data-generated={model.generatedFrom} data-slug={article.slug} data-prototype-file={model.route.prototypeFile}>
       <header data-section="article-hero" className="figma-article-hero">
         <nav className="figma-breadcrumb" aria-label="Breadcrumb"><Link to="/visceral-mag">Visceral Mag</Link><span aria-hidden="true">/</span><span>{article.category.label}</span></nav>
         <p className="eyebrow">{article.category.label}</p>
@@ -70,24 +121,24 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
       </header>
 
       <section data-section="article-meta" className="figma-article-meta">
-        <a data-category={article.category.slug} href={article.category.href}>{article.category.label}</a>
+        <Link data-category={article.category.slug} to={article.category.href}>{article.category.label}</Link>
         <time dateTime={article.publishedAt}>{formatArticleDate(article.publishedAt)}</time>
-        <a href={article.author.href}>{article.author.name}</a>
+        <Link to={article.author.href}>{article.author.name}</Link>
       </section>
 
       <section data-section="article-body" className="figma-article-body">
-        {article.bodyBlocks.map((block) => <p key={block}>{block}</p>)}
+        {article.bodyBlocks.map((block, index) => <p key={block} className={index === 0 ? "article-standfirst" : undefined}>{block}</p>)}
       </section>
 
       <section data-section="related-articles" className="figma-content-section">
         <div className="section-heading-row">
           <h2>Related Articles</h2>
-          <a href="/visceral-mag">All articles</a>
+          <Link to="/visceral-mag">All articles</Link>
         </div>
         <div className="figma-related-grid">
           {model.relatedArticles.map((related) => (
             <article key={related.id} className="related-card" data-related={related.slug}>
-              <h3><a href={related.href}>{related.title}</a></h3>
+              <h3><Link to={related.href}>{related.title}</Link></h3>
               <p>{related.dek}</p>
             </article>
           ))}
@@ -122,13 +173,49 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
       </section>
 
       <section data-section="reviews" className="figma-conversation-section">
-        <h2>Reviews</h2>
+        <div className="section-heading-row">
+          <h2>Reader Reviews</h2>
+          <span>{model.reviews.length} approved</span>
+        </div>
+        {model.reviews.length === 0 ? <p>No approved reviews yet. Be the first to respond.</p> : null}
         {model.reviews.map((review) => (
           <article key={review.id} className="review" data-review={review.id} data-rating={review.rating}>
             <h3>{review.name}</h3>
+            <BookRating value={review.rating} />
             <p>{review.body}</p>
           </article>
         ))}
+
+        <form className="public-review-form" data-form="public-review" data-form-status={reviewStatus} onSubmit={handleReviewSubmit} noValidate>
+          <h3>Review this article</h3>
+          <label htmlFor="review-name">Name</label>
+          <input id="review-name" name="name" type="text" autoComplete="name" required />
+
+          <fieldset>
+            <legend>Book rating</legend>
+            <div className="book-rating-options">
+              {[1, 2, 3, 4, 5].map((rating) => (
+                <label key={rating} className="book-rating-option">
+                  <input type="radio" name="rating" value={rating} required />
+                  <span className="book-rating-option__icons" aria-hidden="true">
+                    {Array.from({ length: rating }, (_, index) => <BookOpen key={index} size={16} />)}
+                  </span>
+                  <span className="sr-only">{rating} out of 5 books</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <label htmlFor="review-body">Review</label>
+          <textarea id="review-body" name="body" rows="5" required />
+          <p>Reviews appear only after editorial approval.</p>
+          <button type="submit" disabled={reviewStatus === "submitting"}>
+            {reviewStatus === "submitting" ? "Submitting..." : "Submit review"}
+          </button>
+          <p className="public-form-status" data-form-status={reviewStatus} aria-live="polite">
+            {reviewMessages[reviewStatus]}
+          </p>
+        </form>
       </section>
 
       <section data-section="seo-metadata" hidden>

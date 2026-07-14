@@ -34,8 +34,7 @@ const requiredPaths = [
   "/500",
   "/offline",
   "/admin/media/upload",
-  "/admin/articles/editor-workflow",
-  "/mobile-wireframes"
+  "/admin/articles/editor-workflow"
 ];
 
 test("live route smoke script is registered for app and root execution", () => {
@@ -49,7 +48,7 @@ test("live route smoke script is registered for app and root execution", () => {
   assert.equal(rootPkg.scripts["test:live-route-qa"], "node tests/production-live-route-qa.test.js");
 });
 
-test("live route smoke script covers the complete MVP route surface", () => {
+test("live route smoke script covers the complete production route surface", () => {
   const script = read("apps/web/scripts/smoke-routes.mjs");
 
   for (const routePath of requiredPaths) {

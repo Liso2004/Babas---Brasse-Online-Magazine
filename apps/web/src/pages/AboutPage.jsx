@@ -7,7 +7,7 @@ export function AboutPage({ fixtures = launchFixtures }) {
   const { hero, sections, newsletter } = model;
 
   return (
-    <section className="figma-public-page figma-about-page" data-page="about" data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+    <section className="figma-public-page figma-about-page" data-design-reference="about-brutalist-manifest" data-page="about" data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       <header data-section="about-intro" className="figma-page-intro">
         <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>

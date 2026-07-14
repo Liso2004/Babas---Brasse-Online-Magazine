@@ -7,7 +7,7 @@ export function CreativeTeamPage({ fixtures = launchFixtures }) {
   const { hero, editorialRoleNote, sections, footer } = model;
 
   return (
-    <section className="figma-public-page figma-team-page" data-page="creative-team" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+    <section className="figma-public-page figma-team-page" data-page="creative-team" data-design-reference="creative-team-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       <header data-section="team-intro" className="figma-page-intro">
         <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>

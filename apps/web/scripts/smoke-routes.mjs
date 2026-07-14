@@ -5,6 +5,7 @@ const routes = [
   "/about",
   "/creative-team",
   "/contributors",
+  "/people/visceral-contributor",
   "/visceral-mag",
   "/visceral-mag/send-a-text-before-you-knock",
   "/search",
@@ -21,8 +22,7 @@ const routes = [
   "/500",
   "/offline",
   "/admin/media/upload",
-  "/admin/articles/editor-workflow",
-  "/mobile-wireframes"
+  "/admin/articles/editor-workflow"
 ];
 
 async function smokeRoute(pathname) {

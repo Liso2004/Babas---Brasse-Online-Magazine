@@ -17,7 +17,7 @@ test("updated roadmap captures current MVP status and preview command", () => {
   const roadmap = read("docs/IMPLEMENTATION_PLAN_JULY_2026.md");
 
   assert.match(roadmap, /Date: July 2, 2026/i);
-  assert.match(roadmap, /391 passing tests/i);
+  assert.match(roadmap, /428 passing tests/i);
   assert.match(roadmap, /14 core route artifacts/i);
   assert.match(roadmap, /8 support routes/i);
   assert.match(roadmap, /preview:mvp/i);
@@ -72,5 +72,5 @@ test("plan status points to sprint plan and production app boundary as the next 
   assert.match(status, /Sprint Plan Refresh - July 2, 2026/i);
   assert.match(status, /docs\/SPRINT_PLAN_JULY_2026\.md/i);
   assert.match(status, /production React app boundary/i);
-  assert.match(status, /391 passing tests/i);
+  assert.match(status, /428 passing tests/i);
 });
