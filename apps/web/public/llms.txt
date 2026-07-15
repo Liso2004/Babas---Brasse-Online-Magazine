@@ -1,0 +1,15 @@
+# Babas & Brasse
+
+Babas & Brasse is a South African digital magazine publishing arts, literature, theatre, reviews, essays, interviews, photography, and cultural commentary.
+
+## Reader routes
+
+- [Home](https://babasandbrasse.co.za/)
+- [Visceral Mag](https://babasandbrasse.co.za/visceral-mag)
+- [About](https://babasandbrasse.co.za/about)
+- [Creative Team](https://babasandbrasse.co.za/creative-team)
+- [Contributors](https://babasandbrasse.co.za/contributors)
+- [Featured Media](https://babasandbrasse.co.za/featured)
+- [Contact](https://babasandbrasse.co.za/contact)
+
+Only published editorial content belongs in public discovery responses. Draft articles and protected admin routes are not public content.
