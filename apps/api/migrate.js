@@ -1,6 +1,9 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { loadEnvFile } = require("./env.js");
 const { PostgresSubmissionStore } = require("./postgresSubmissionStore.js");
+
+loadEnvFile();
 
 async function migrate(environment = process.env) {
   if (!environment.DATABASE_URL) throw new Error("DATABASE_URL is required.");
@@ -28,3 +31,4 @@ if (require.main === module) {
 }
 
 module.exports = { migrate };
+

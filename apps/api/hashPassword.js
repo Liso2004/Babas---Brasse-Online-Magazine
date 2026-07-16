@@ -1,4 +1,7 @@
+const { loadEnvFile } = require("./env.js");
 const { createPasswordHash } = require("./adminAuth.js");
+
+loadEnvFile();
 
 const password = process.env.BABAS_ADMIN_PASSWORD_INPUT || "";
 if (!password) {
@@ -7,3 +10,4 @@ if (!password) {
 } else {
   process.stdout.write(`${createPasswordHash(password)}\n`);
 }
+

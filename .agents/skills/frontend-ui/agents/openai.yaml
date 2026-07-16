@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend UI"
+  short_description: "Build polished React user interfaces"
+  default_prompt: "Use $frontend-ui to improve the Magazine web interface."

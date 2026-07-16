@@ -2,6 +2,7 @@ const crypto = require("node:crypto");
 const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
+const { loadEnvFile } = require("./env.js");
 const { ValidationError } = require("./submissionStore.js");
 const { createPublicationStore } = require("./storeFactory.js");
 const { AdminAuth } = require("./adminAuth.js");
@@ -16,6 +17,7 @@ const {
 
 const MAX_BODY_BYTES = 64 * 1024;
 const DEFAULT_RATE_WINDOW_MS = 15 * 60 * 1000;
+loadEnvFile();
 const MIME_TYPES = {
   ".css": "text/css; charset=utf-8",
   ".gif": "image/gif",
@@ -346,7 +348,12 @@ function createApiServer(options = {}) {
       }
 
       if (request.method === "GET" && url.pathname === "/api/content") {
-        sendJson(response, 200, { ...await store.editorialSnapshot({ publishedOnly: true, reviewStatus: "approved" }), comments: await store.listComments("approved").map((comment) => ({ ...comment, articleId: comment.articleSlug })) });
+        const snapshot = await store.editorialSnapshot({ publishedOnly: true, reviewStatus: "approved" });
+        const comments = await store.listComments("approved");
+        sendJson(response, 200, {
+          ...snapshot,
+          comments: comments.map((comment) => ({ ...comment, articleId: comment.articleSlug }))
+        });
         return;
       }
 
@@ -491,3 +498,5 @@ module.exports = {
   requireAdmin,
   tokensMatch
 };
+
+

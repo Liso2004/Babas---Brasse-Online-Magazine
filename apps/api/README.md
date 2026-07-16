@@ -2,6 +2,48 @@
 
 This Node service runs the production API, serves the built React application, and persists the publication through PostgreSQL.
 
+## Environment setup
+
+Copy `.env.production.example` to `.env` at the repository root, then replace the placeholder values before starting production. The API entrypoints load that root `.env` automatically when shell variables are not already set.
+
+Required production values:
+
+- `BABAS_ADMIN_EMAIL` with the administrator login email.
+- `BABAS_ADMIN_PASSWORD_HASH`, generated with `BABAS_ADMIN_PASSWORD_INPUT='<long-password>' npm.cmd run hash:admin-password` in PowerShell syntax as shown below.
+- `DATABASE_URL` with the managed PostgreSQL connection string.
+- `BABAS_WEB_DIST_PATH` only when the built frontend is outside `apps/web/dist`.
+
+```powershell
+Copy-Item .env.production.example .env
+$env:BABAS_ADMIN_PASSWORD_INPUT='<use-a-long-unique-password>'
+npm.cmd run hash:admin-password
+Remove-Item Env:BABAS_ADMIN_PASSWORD_INPUT
+npm.cmd run build:production
+npm.cmd run db:migrate
+npm.cmd run start:production
+```
+
+
+## Neon PostgreSQL setup
+
+Use the pooled Neon connection string from the Neon dashboard's Connect modal. It should look like this:
+
+```env
+DATABASE_URL=postgresql://role:password@ep-example-pooler.region.aws.neon.tech/dbname?sslmode=require&channel_binding=require
+BABAS_DATABASE_SSL=1
+BABAS_DATABASE_SSL_REJECT_UNAUTHORIZED=1
+```
+
+Keep the `-pooler` hostname for normal web/API traffic. Neon requires SSL/TLS, so leave `BABAS_DATABASE_SSL=1`; only set `BABAS_DATABASE_SSL_REJECT_UNAUTHORIZED=0` temporarily if you are diagnosing a local certificate trust issue.
+
+After updating `.env`, verify Neon before starting the server:
+
+```powershell
+npm.cmd run db:check
+npm.cmd run db:migrate
+npm.cmd run start:production
+```
+
 ## Run locally
 
 From the repository root:
@@ -94,3 +136,5 @@ Bearer access is reserved for trusted server automation. Never store admin secre
 Public: GET /api/content and POST /api/articles/:slug/reviews.
 
 Admin only: GET /api/admin/editorial, GET/PATCH /api/admin/reviews, POST/PATCH /api/admin/articles, PUT /api/admin/profiles/:id, and POST/PUT /api/admin/media.
+
+
