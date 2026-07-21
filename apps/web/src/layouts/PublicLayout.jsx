@@ -1,44 +1,43 @@
-import { Fragment, useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Facebook, Instagram, Linkedin, Menu, Music2, X, Youtube } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ChevronDown, Facebook, Instagram, Menu, Music2, Pin, X as CloseIcon } from "lucide-react";
 import { Button } from "../components/ui/button.jsx";
-import { FigmaSearchTool } from "../components/FigmaSearchTool.jsx";
 
 const primaryNavigation = [
-  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Visceral Mag", href: "/visceral-mag" },
-  { label: "Featured / Media", href: "/featured" },
-  { label: "Contact", href: "/contact" }
+  { label: "Photography", href: "/search?topic=photography" },
+  { label: "Media", href: "/featured" },
+  { label: "Contact Us", href: "/contact" }
 ];
 
-const editorialNavigation = [
-  { label: "Theatre Reviews", href: "/search?category=reviews&topic=theatre" },
-  { label: "Book Reviews", href: "/search?category=reviews&topic=books" },
+const homeDropdownNavigation = [
+  { label: "Theater", href: "/search?category=reviews&topic=theatre" },
   { label: "Essays", href: "/search?category=essays" },
-  { label: "Opinion", href: "/search?category=essays&topic=opinion" }
+  { label: "Literature", href: "/search?category=reviews&topic=books" },
+  { label: "Interviews", href: "/search?category=interviews" },
+  { label: "Opinion Pieces", href: "/search?category=essays&topic=opinion" }
 ];
 
-const peopleNavigation = [
-  { label: "Creative Team", href: "/creative-team" },
-  { label: "Contributors", href: "/contributors" }
+const articleDropdownNavigation = [
+  { label: "Fashion", href: "/search?category=articles&topic=fashion" },
+  { label: "Music", href: "/search?category=articles&topic=music" },
+  { label: "Art", href: "/search?category=articles&topic=art" }
 ];
 
 // Replace these platform homepages with verified Babas & Brasse profile URLs before launch.
 const socialNavigation = [
-  { label: "Instagram", href: "https://www.instagram.com/", placeholder: true, Icon: Instagram },
   { label: "Facebook", href: "https://www.facebook.com/", placeholder: true, Icon: Facebook },
+  { label: "Instagram", href: "https://www.instagram.com/", placeholder: true, Icon: Instagram },
   { label: "TikTok", href: "https://www.tiktok.com/", placeholder: true, Icon: Music2 },
-  { label: "YouTube", href: "https://www.youtube.com/", placeholder: true, Icon: Youtube },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", placeholder: true, Icon: Linkedin }
+  { label: "Pinterest", href: "https://www.pinterest.com/", placeholder: true, Icon: Pin }
 ];
 
 export function PublicLayout({ route, children }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [editorialMenuOpen, setEditorialMenuOpen] = useState(false);
+  const [homeMenuOpen, setHomeMenuOpen] = useState(false);
+  const [articleMenuOpen, setArticleMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const location = useLocation();
-  const navigate = useNavigate();
 
   function isSectionActive(item) {
     const [pathname, search = ""] = item.href.split("?");
@@ -53,8 +52,20 @@ export function PublicLayout({ route, children }) {
   }
 
   function closeNavigation() {
-    setEditorialMenuOpen(false);
+    setHomeMenuOpen(false);
+    setArticleMenuOpen(false);
     setMobileMenuOpen(false);
+  }
+
+  function closeHomeMenu() {
+    setHomeMenuOpen(false);
+    setArticleMenuOpen(false);
+  }
+
+  function handleDropdownBlur(event) {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      closeHomeMenu();
+    }
   }
 
   useEffect(() => {
@@ -67,8 +78,8 @@ export function PublicLayout({ route, children }) {
     }
 
     function handlePointerDown(event) {
-      if (editorialMenuOpen && !headerRef.current?.contains(event.target)) {
-        setEditorialMenuOpen(false);
+      if ((homeMenuOpen || articleMenuOpen) && !headerRef.current?.contains(event.target)) {
+        closeHomeMenu();
       }
     }
 
@@ -78,14 +89,7 @@ export function PublicLayout({ route, children }) {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("pointerdown", handlePointerDown);
     };
-  }, [editorialMenuOpen]);
-
-  function submitSearch(event) {
-    event.preventDefault();
-    const query = new FormData(event.currentTarget).get("q")?.toString().trim() || "";
-    navigate(`/search${query ? `?q=${encodeURIComponent(query)}` : ""}`);
-    closeNavigation();
-  }
+  }, [homeMenuOpen, articleMenuOpen]);
 
   return (
     <div className="app-layout public-layout" data-public-design="visceral-brutalist-archive">
@@ -103,75 +107,86 @@ export function PublicLayout({ route, children }) {
           >
             <div className="primary-navigation-cluster">
               <nav className="primary-public-navigation" aria-label="Public navigation">
-                {primaryNavigation.map((item, index) => (
-                  <Fragment key={item.href}>
-                    {index > 0 && <span className="primary-nav-separator" aria-hidden="true">///</span>}
-                    <Link
-                      to={item.href}
-                      aria-current={isSectionActive(item) ? "page" : undefined}
-                      onClick={closeNavigation}
-                    >
-                      {item.label}
+                <div
+                  className="primary-nav-dropdown"
+                  onMouseEnter={() => setHomeMenuOpen(true)}
+                  onMouseLeave={closeHomeMenu}
+                  onFocus={() => setHomeMenuOpen(true)}
+                  onBlur={handleDropdownBlur}
+                >
+                  <div className="primary-nav-dropdown__topline">
+                    <Link to="/" aria-current={location.pathname === "/" ? "page" : undefined} onClick={closeNavigation}>
+                      Home
                     </Link>
-                  </Fragment>
+                    <button
+                      type="button"
+                      className="primary-nav-dropdown__toggle"
+                      aria-label="Toggle Home sections"
+                      aria-expanded={homeMenuOpen}
+                      aria-controls="home-navigation-menu"
+                      onClick={() => setHomeMenuOpen((open) => !open)}
+                    >
+                      <ChevronDown size={16} aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div id="home-navigation-menu" className="primary-nav-menu" data-open={homeMenuOpen ? "true" : "false"} hidden={!homeMenuOpen}>
+                    {homeDropdownNavigation.map((item) => (
+                      <Link key={item.href} to={item.href} aria-current={isSectionActive(item) ? "page" : undefined} onClick={closeNavigation}>
+                        {item.label}
+                      </Link>
+                    ))}
+                    <div
+                      className="primary-nav-submenu"
+                      onMouseEnter={() => setArticleMenuOpen(true)}
+                      onMouseLeave={() => setArticleMenuOpen(false)}
+                      onFocus={() => setArticleMenuOpen(true)}
+                      onBlur={handleDropdownBlur}
+                    >
+                      <button
+                        type="button"
+                        aria-expanded={articleMenuOpen}
+                        aria-controls="articles-navigation-menu"
+                        onClick={() => setArticleMenuOpen((open) => !open)}
+                      >
+                        Articles <ChevronDown size={15} aria-hidden="true" />
+                      </button>
+                      <div id="articles-navigation-menu" className="primary-nav-submenu__panel" data-open={articleMenuOpen ? "true" : "false"} hidden={!articleMenuOpen}>
+                        {articleDropdownNavigation.map((item) => (
+                          <Link key={item.href} to={item.href} aria-current={isSectionActive(item) ? "page" : undefined} onClick={closeNavigation}>
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {primaryNavigation.map((item) => (
+                  <Link
+                    key={`${item.label}-${item.href}`}
+                    to={item.href}
+                    aria-current={isSectionActive(item) ? "page" : undefined}
+                    onClick={closeNavigation}
+                  >
+                    {item.label}
+                  </Link>
                 ))}
               </nav>
-
-              <span className="primary-nav-separator primary-nav-separator--sections" aria-hidden="true">///</span>
-              <Button
-                className="editorial-menu-trigger"
-                type="button"
-                variant="ghost"
-                aria-expanded={editorialMenuOpen}
-                aria-controls="editorial-navigation-panel"
-                onClick={() => setEditorialMenuOpen((open) => !open)}
-              >
-                Sections <ChevronDown size={17} aria-hidden="true" />
-              </Button>
             </div>
-
-            <FigmaSearchTool className="figma-search-tool--overlay" id="site-search" onSubmit={submitSearch} overlay />
-            <section
-              id="editorial-navigation-panel"
-              className="editorial-navigation-panel"
-              data-open={editorialMenuOpen ? "true" : "false"}
-              aria-label="Explore Babas and Brasse"
-              hidden={!editorialMenuOpen}
-            >
-              <div className="editorial-navigation-grid">
-                <div className="editorial-navigation-intro">
-                  <p className="eyebrow">Explore the magazine</p>
-                  <h2>Stories with nerve, care, and a point of view.</h2>
-                  <p>South African literature, theatre, art, and culture, edited for readers who want to stay with an idea.</p>
-                </div>
-                <nav aria-label="Editorial sections">
-                  <h2>Read</h2>
-                  {editorialNavigation.map((item) => (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      aria-current={isSectionActive(item) ? "page" : undefined}
-                      onClick={closeNavigation}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-                <nav aria-label="People">
-                  <h2>People</h2>
-                  {peopleNavigation.map((item) => (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      aria-current={isSectionActive(item) ? "page" : undefined}
-                      onClick={closeNavigation}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            </section>
+            <nav className="header-social-navigation" aria-label="Social media">
+              {socialNavigation.map(({ label, href, placeholder, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-placeholder={placeholder ? "true" : undefined}
+                  aria-label={`${label}${placeholder ? " placeholder profile" : ""} (opens in a new tab)`}
+                  title={label}
+                >
+                  <Icon size={18} aria-hidden="true" />
+                </a>
+              ))}
+            </nav>
           </div>
 
           <Button
@@ -183,10 +198,10 @@ export function PublicLayout({ route, children }) {
             aria-controls="public-navigation"
             onClick={() => {
               setMobileMenuOpen((open) => !open);
-              setEditorialMenuOpen(false);
+              closeHomeMenu();
             }}
           >
-            {mobileMenuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+            {mobileMenuOpen ? <CloseIcon size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
             <span className="sr-only">{mobileMenuOpen ? "Close navigation" : "Open navigation"}</span>
           </Button>
         </div>
@@ -198,23 +213,12 @@ export function PublicLayout({ route, children }) {
         <div className="figma-footer__inner">
           <section className="figma-footer__brand" aria-label="Babas and Brasse summary">
             <img src="/media/babas-brasse-logo.jpeg" alt="Babas and Brasse" />
-            <p>A digital magazine celebrating South African literature, theatre, and culture. Featuring critical essays, reviews, and thought-provoking commentary.</p>
+            <p>Stories with nerve, care, and a point of view.</p>
           </section>
-          <nav aria-label="Footer sections">
-            <h2>Sections</h2>
-            <Link to="/visceral-mag">Visceral Mag</Link>
-            <Link to="/featured">Featured / Media</Link>
-            {editorialNavigation.map((item) => <Link key={item.href} to={item.href}>{item.label}</Link>)}
-          </nav>
-          <nav aria-label="Footer about links">
-            <h2>About</h2>
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/contributors">Submit Writing</Link>
-            <Link to="/#newsletter">Newsletter</Link>
-          </nav>
+          <section className="figma-footer__copyright" aria-label="Copyright">
+            <p>Copyright 2026 Babas & Brasse. All rights reserved.</p>
+          </section>
           <section className="figma-footer__socials" aria-label="Social media">
-            <h2>Follow</h2>
             <div className="figma-footer__social-links">
               {socialNavigation.map(({ label, href, placeholder, Icon }) => (
                 <a
@@ -233,7 +237,6 @@ export function PublicLayout({ route, children }) {
             </div>
           </section>
         </div>
-        <p className="figma-footer__legal">Copyright 2026 Babas & Brasse. All rights reserved.</p>
       </footer>
     </div>
   );
