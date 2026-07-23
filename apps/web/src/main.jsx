@@ -6,5 +6,6 @@ import "./production-editorial.css";
 import "./stitch-refinement-v4.css";
 import "./stitch-admin-experience.css";
 import "./home-media-experience.css";
+import "./editorial-ux-improvements.css";
 
 createRoot(document.getElementById("root")).render(<AppShell />);

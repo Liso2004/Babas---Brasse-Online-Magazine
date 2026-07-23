@@ -10,6 +10,7 @@ import { VisceralMagPage } from "./pages/VisceralMagPage.jsx";
 import { ArticleDetailPage } from "./pages/ArticleDetailPage.jsx";
 import { CategoriesSearchPage } from "./pages/CategoriesSearchPage.jsx";
 import { FeaturedMediaPage } from "./pages/FeaturedMediaPage.jsx";
+import { MediaDetailPage } from "./pages/MediaDetailPage.jsx";
 import { CreativeTeamPage } from "./pages/CreativeTeamPage.jsx";
 import { ContributorsPage } from "./pages/ContributorsPage.jsx";
 import { ProfileDetailPage } from "./pages/ProfileDetailPage.jsx";
@@ -38,6 +39,7 @@ function ShellContent({ route, fixtures }) {
   if (route.id === "article-detail") return <ArticleDetailPage slug={route.params?.slug} fixtures={fixtures} />;
   if (route.id === "search") return <CategoriesSearchPage fixtures={fixtures} />;
   if (route.id === "featured") return <FeaturedMediaPage fixtures={fixtures} />;
+  if (route.id === "media-detail") return <MediaDetailPage mediaId={route.params?.mediaId} fixtures={fixtures} />;
   if (route.id === "creative-team") return <CreativeTeamPage fixtures={fixtures} />;
   if (route.id === "contributors") return <ContributorsPage fixtures={fixtures} />;
   if (route.id === "profile-detail") return <ProfileDetailPage slug={route.params?.slug} fixtures={fixtures} />;
@@ -94,6 +96,14 @@ function ResolvedShell({ route, fixtures }) {
   );
 }
 
+function ScrollToTop() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname, location.search]);
+  return null;
+}
+
 function RoutedShell() {
   const location = useLocation();
   const route = getRouteByPath(location.pathname);
@@ -115,7 +125,7 @@ function RoutedShell() {
     return () => { active = false; };
   }, []);
 
-  return <ResolvedShell route={route} fixtures={fixtures} />;
+  return <><ScrollToTop /><ResolvedShell route={route} fixtures={fixtures} /></>;
 }
 
 export function AppShell({ pathname }) {

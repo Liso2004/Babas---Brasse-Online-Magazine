@@ -7,7 +7,8 @@ export const publicRoutes = [
   { id: "visceral-mag", label: "Visceral Mag", path: "/visceral-mag", area: "public", prototypeFile: "src/pages/visceral-mag.html" },
   { id: "article-detail", label: "Article Detail", path: "/visceral-mag/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/article-detail.html" },
   { id: "search", label: "Search", path: "/search", area: "public", prototypeFile: "src/pages/categories-search.html" },
-  { id: "featured", label: "Featured", path: "/featured", area: "public", prototypeFile: "src/pages/featured-media.html" },
+  { id: "featured", label: "Media", path: "/featured", area: "public", prototypeFile: "src/pages/featured-media.html" },
+  { id: "media-detail", label: "Media Detail", path: "/media/:mediaId", area: "public", navVisible: false, prototypeFile: "src/pages/media-detail.html" },
   { id: "contact", label: "Contact", path: "/contact", area: "public", prototypeFile: "src/pages/contact.html" }
 ];
 

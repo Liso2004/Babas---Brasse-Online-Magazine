@@ -1,6 +1,5 @@
 import { useState } from "react";
 import * as launchFixtures from "../data/launchFixtures.js";
-import { NewsletterSignup } from "../components/NewsletterSignup.jsx";
 import { submitPublicForm, validateEmail } from "../forms/publicFormClient.js";
 import { buildContactRouteModel } from "./contactRouteModel.js";
 
@@ -53,7 +52,7 @@ function ContactField({ field, className = "" }) {
 
 export function ContactPage({ fixtures = launchFixtures }) {
   const model = buildContactRouteModel(fixtures);
-  const { hero, sections, form, newsletter } = model;
+  const { hero, sections, form } = model;
   const [contactStatus, setContactStatus] = useState("idle");
 
   async function handleContactSubmit(event) {
@@ -132,12 +131,6 @@ export function ContactPage({ fixtures = launchFixtures }) {
 
       <section data-section="contact-states" className="figma-state-grid" hidden data-state-note="contact-validation" data-state-note-secondary="contact-success">
         {sections.states.items.map((state) => <span key={state} data-state={state}>{state}</span>)}
-      </section>
-
-      <section data-section="newsletter-footer" className="figma-newsletter-panel" id={newsletter.id}>
-        <h2>{newsletter.heading}</h2>
-        <p>{newsletter.body}</p>
-        <NewsletterSignup idPrefix="contact-newsletter" placeholder={newsletter.placeholder} />
       </section>
     </section>
   );

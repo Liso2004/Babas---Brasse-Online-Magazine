@@ -18,9 +18,10 @@ function profileCard(profile) {
     slug: profile.slug,
     shortBio: profile.shortBio,
     image: {
-      url: profileImages[profile.id] || "/media/editorial/editorial-theatre.jpg",
-      altText: `Editorial setting representing ${profile.name}'s role`
+      url: profile.image?.url || profileImages[profile.id] || "/media/editorial/editorial-theatre.jpg",
+      altText: profile.image?.altText || `Editorial setting representing ${profile.name}'s role`
     },
+    href: "/people/" + profile.slug,
     socialLinks,
     stateNotes: socialLinks.length > 0 ? [] : ["social-links-empty"]
   };

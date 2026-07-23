@@ -62,14 +62,6 @@ export function buildContactRouteModel(fixtures) {
         { id: "contact-website", name: "website", type: "text", label: "Spam protection placeholder", autocomplete: "off", tabIndex: -1, required: false, purpose: "spam-protection" }
       ],
       submitLabel: "Submit contact request"
-    },
-    newsletter: {
-      id: "newsletter",
-      heading: "Newsletter",
-      body: "Occasional notes on new essays, reviews, performances, and books worth spending time with.",
-      placeholder: "your@email.com",
-      action: "/subscribe",
-      states: ["newsletter-invalid", "newsletter-success"]
     }
   };
 }

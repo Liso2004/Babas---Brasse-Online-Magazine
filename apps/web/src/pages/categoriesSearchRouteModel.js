@@ -122,7 +122,7 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
     stateNote: "search-loading",
     hero: {
       eyebrow: "Categories / Search",
-      title: "Find essays, reviews, interviews, artwork, and culture notes.",
+      title: "Find essays, opinion pieces, short stories, reviews, interviews, artwork, and culture notes.",
       dek: "Search the published Babas & Brasse archive by keyword or use the magazine sections above."
     },
     search: {

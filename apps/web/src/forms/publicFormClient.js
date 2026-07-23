@@ -1,6 +1,4 @@
-const defaultEndpoints = {
-  newsletter: "/api/newsletter-signups",
-  contact: "/api/contact-submissions"
+const defaultEndpoints = {  contact: "/api/contact-submissions"
 };
 
 export function normalizeEmail(value) {

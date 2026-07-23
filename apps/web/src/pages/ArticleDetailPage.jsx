@@ -149,7 +149,6 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
       <section data-section="comments" className="figma-conversation-section reader-section reader-section--comments" aria-labelledby="article-comments-heading">
         <div className="section-heading-row">
           <h2 id="article-comments-heading">Comments</h2>
-          <span>{model.comments.length} approved {model.comments.length === 1 ? "comment" : "comments"}</span>
         </div>
         {model.comments.map((comment) => (
           <article key={comment.id} className="comment" data-comment={comment.id}>
@@ -180,7 +179,6 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
       <section data-section="reviews" className="figma-conversation-section reader-section reader-section--reviews" aria-labelledby="article-reviews-heading">
         <div className="section-heading-row">
           <h2 id="article-reviews-heading">Reader Reviews</h2>
-          <span>{model.reviews.length} approved {model.reviews.length === 1 ? "review" : "reviews"}</span>
         </div>
         {model.reviews.length === 0 ? <p>No approved reviews yet. Be the first to respond.</p> : null}
         {model.reviews.map((review) => (

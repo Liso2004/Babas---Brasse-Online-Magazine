@@ -1,7 +1,7 @@
 import { getRouteByPath } from "../routes.js";
 
 const publicComps = [
-  { id: "home", label: "Home", route: "/", stackOrder: "hero-rail-teasers-newsletter", note: "Hero image, section rail, recent teasers, and newsletter stack in one column." },
+  { id: "home", label: "Home", route: "/", stackOrder: "hero-rail-teasers-media", note: "Hero image, section rail, recent teasers, and media stack in one column." },
   { id: "article", label: "Article", route: "/visceral-mag/send-a-text-before-you-knock", stackOrder: "metadata-title-body-related-comments", note: "Metadata, title, body, related links, comments, and reviews stay readable." },
   { id: "search", label: "Search", route: "/search", stackOrder: "search-field-filter-chips-results", note: "Search input, category chips, reset, and results avoid horizontal overflow." },
   { id: "contact", label: "Contact", route: "/contact", stackOrder: "intro-form-validation-footer", note: "Intro, form controls, validation states, and footer stack with clear spacing." }

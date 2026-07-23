@@ -44,10 +44,16 @@ const routeDefaults = {
     ogType: "website"
   },
   featured: {
-    title: "Featured Media | Babas & Brasse",
-    description: "Browse featured photography, artwork, visual notes, and article-linked media from Babas & Brasse.",
+    title: "Media | Babas & Brasse",
+    description: "Browse photography from Babas & Brasse, including captions, credits, and publication details.",
     canonicalPath: "/featured",
     ogType: "website"
+  },
+  "media-detail": {
+    title: "Media | Babas & Brasse",
+    description: "View Babas & Brasse photography with title, description, photographer, and publication details.",
+    canonicalPath: "/featured",
+    ogType: "article"
   },
   contact: {
     title: "Contact | Babas & Brasse",

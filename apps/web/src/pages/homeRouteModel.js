@@ -31,8 +31,8 @@ function buildCarouselSlides() {
   return [
     {
       id: "cape-collage",
-      image: "/media/carousel/babas-brasse-cape-collage.webp",
-      alt: "A vivid Babas and Brasse collage of Cape Town, art, literature, fashion, and local creative life",
+      image: "/media/carousel/babas-brasse-cape-collage-replacement.jpeg",
+      alt: "Babas and Brasse collage banner with Table Mountain, Cape Town imagery, books, theatre masks, flowers, wildlife, and South African cultural symbols",
       eyebrow: "Babas & Brasse",
       title: "South African culture, cut loose.",
       description: "Original voices, visual culture, performance, books, and the people making the present tense.",
@@ -64,17 +64,17 @@ function buildCarouselSlides() {
 
 function buildFeaturedMedia(fixtures, articles) {
   const heights = [640, 500, 720, 560, 680];
-  return fixtures.mediaItems.map((item, index) => {
+  return fixtures.mediaItems.filter((item) => item.type === "image").map((item, index) => {
     const article = articles.find((candidate) => candidate.featuredImage?.id === item.id);
     return {
       id: item.id,
       title: item.title,
-      category: item.type === "video" ? "Video" : "Visual story",
+      category: "Photography",
       thumbnail: item.url,
       alt: item.altText,
       description: item.caption,
       publishedAt: article?.publishedAt || "2026-07-14",
-      href: article ? "/visceral-mag/" + article.slug : "/featured",
+      href: `/media/${encodeURIComponent(item.id)}`,
       label: article ? "Article" : "Media",
       height: heights[index % heights.length]
     };
@@ -157,11 +157,6 @@ export function buildHomeRouteModel(fixtures) {
         slug: profile.slug
       })),
       moreFromMagazine: buildMoreFromMagazine(fixtures, moreArticles)
-    },
-    newsletter: {
-      id: "newsletter",
-      action: "/subscribe",
-      states: ["newsletter-invalid", "newsletter-success"]
     }
   };
 }

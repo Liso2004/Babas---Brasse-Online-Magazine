@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import * as launchFixtures from "../data/launchFixtures.js";
-import { NewsletterSignup } from "../components/NewsletterSignup.jsx";
 import { FigmaArticleCard } from "../components/FigmaArticleCard.jsx";
 import { HomeCarousel } from "../components/HomeCarousel.jsx";
 import Masonry from "../components/Masonry.jsx";
@@ -9,7 +8,7 @@ import { buildHomeRouteModel } from "./homeRouteModel.js";
 
 export function HomePage({ fixtures = launchFixtures }) {
   const model = buildHomeRouteModel(fixtures);
-  const { sections, newsletter } = model;
+  const { sections } = model;
   const recent = sections.recentArticles.length ? sections.recentArticles : sections.latestArticles;
 
   return (
@@ -33,7 +32,7 @@ export function HomePage({ fixtures = launchFixtures }) {
 
       <section data-section="home-featured-media" className="home-featured-media">
         <div className="section-heading-row">
-          <h2>Featured Media</h2>
+          <h2>Media</h2>
           <Link to="/featured">View all <ArrowRight size={16} aria-hidden="true" /></Link>
         </div>
         <Masonry items={sections.featuredMedia} blurToFocus={false} />
@@ -49,12 +48,6 @@ export function HomePage({ fixtures = launchFixtures }) {
             <FigmaArticleCard key={article.id} article={article} compact />
           ))}
         </div>
-      </section>
-
-      <section data-section="figma-newsletter" id={newsletter.id} className="figma-newsletter-panel">
-        <h2>Stay Connected</h2>
-        <p>Get the latest articles, reviews, and cultural commentary delivered to your inbox.</p>
-        <NewsletterSignup idPrefix="home-newsletter" />
       </section>
     </section>
   );

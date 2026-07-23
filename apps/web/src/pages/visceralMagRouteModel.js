@@ -60,7 +60,7 @@ export function buildVisceralMagRouteModel(fixtures) {
     hero: {
       eyebrow: "Visceral Mag / Articles",
       title: "Latest cultural writing from Babas & Brasse.",
-      dek: "Browse essays, reviews, interviews, photography, artwork, and launch editorial features."
+      dek: "Browse essays, opinion pieces, short stories, reviews, interviews, photography, artwork, and launch editorial features."
     },
     search: {
       id: "article-search",

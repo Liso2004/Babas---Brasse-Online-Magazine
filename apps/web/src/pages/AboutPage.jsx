@@ -1,50 +1,54 @@
+import { Link } from "react-router-dom";
 import * as launchFixtures from "../data/launchFixtures.js";
 import { buildAboutRouteModel } from "./aboutRouteModel.js";
-import { NewsletterSignup } from "../components/NewsletterSignup.jsx";
 
 export function AboutPage({ fixtures = launchFixtures }) {
   const model = buildAboutRouteModel(fixtures);
-  const { hero, sections, newsletter } = model;
+  const { hero, sections } = model;
 
   return (
-    <section className="figma-public-page figma-about-page" data-design-reference="about-brutalist-manifest" data-page="about" data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
-      <header data-section="about-intro" className="figma-page-intro">
+    <section className="figma-public-page figma-about-page about-editorial-page" data-design-reference="about-brutalist-manifest" data-page="about" data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+      <header data-section="about-intro" className="figma-page-intro about-editorial-hero">
         <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>
         <p>{hero.dek}</p>
       </header>
 
-      <section data-section="about-overview" className="figma-about-overview" data-state-note={sections.overview.stateNote}>
-        <div className="figma-about-overview__copy">
-          <article data-about-block="mission">
-            <p className="eyebrow">Mission</p>
-            <h2>Mission</h2>
-            <p>{sections.overview.mission}</p>
-          </article>
-          <article data-about-block="vision">
-            <p className="eyebrow">Vision</p>
-            <h2>Vision</h2>
-            <p>{sections.overview.vision}</p>
-          </article>
+      <section data-section="about-who-we-are" className="about-editorial-section">
+        <div className="about-editorial-copy">
+          <h2>Who are we?</h2>
+          {sections.overview.whoWeAre.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          <p className="about-editorial-standfirst">{sections.overview.collective}</p>
         </div>
-        <figure data-about-block="organisation">
-          <img src={sections.overview.image.url} alt={sections.overview.image.altText} />
-          <figcaption><strong>Organisation</strong> {sections.overview.organisation}</figcaption>
-        </figure>
       </section>
 
-      <section data-section="editorial-pillars" className="figma-content-section">
-        <div className="section-heading-row">
-          <h2>Editorial pillars</h2>
-          <a href="/visceral-mag">Read Visceral Mag</a>
+      <section data-section="about-name" className="about-editorial-section about-editorial-section--split">
+        <figure>
+          <img src={sections.overview.image.url} alt={sections.overview.image.altText} />
+        </figure>
+        <div className="about-editorial-copy">
+          <h2>What&apos;s in the name?</h2>
+          {sections.overview.name.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
-        <div className="figma-info-grid">
-          {sections.editorialPillars.map((pillar) => (
-            <article key={pillar.slug} className="pillar-card" data-pillar={pillar.slug}>
-              <p className="eyebrow">{pillar.label}</p>
-              <h3>{pillar.label}</h3>
-              <p>{pillar.description}</p>
-            </article>
+      </section>
+
+      <section data-section="about-creative-team" className="about-editorial-section">
+        <div className="section-heading-row">
+          <h2>Meet the creative team</h2>
+          <Link to="/creative-team">View all</Link>
+        </div>
+        <div className="about-team-grid">
+          {sections.creativeTeam.map((member) => (
+            <Link key={member.id} to={member.href} className="about-team-card" aria-label={`Open ${member.name} profile`}>
+              <span className="about-team-card__media">
+                <img src={member.image.url} alt={member.image.altText} />
+              </span>
+              <span className="about-team-card__body">
+                <span className="eyebrow">{member.role}</span>
+                <strong>{member.name}</strong>
+                <span>{member.shortBio}</span>
+              </span>
+            </Link>
           ))}
         </div>
       </section>
@@ -58,18 +62,11 @@ export function AboutPage({ fixtures = launchFixtures }) {
             <article key={card.href} className="route-card">
               <h3>{card.label}</h3>
               <p>{card.body}</p>
-              <a href={card.href}>Open {card.label}</a>
+              <Link to={card.href}>Open {card.label}</Link>
             </article>
           ))}
         </div>
       </section>
-
-      <footer data-section="newsletter-footer" id={newsletter.id}>
-        <div className="figma-newsletter-panel">
-          <h2>Stay Connected</h2>
-          <NewsletterSignup idPrefix="about-newsletter" />
-        </div>
-      </footer>
     </section>
   );
 }

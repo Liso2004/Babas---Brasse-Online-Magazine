@@ -72,6 +72,17 @@ export function buildProfileDetailRouteModel(fixtures, slug) {
       image: profileImage(profile),
       socialLinks: Array.isArray(profile.socialLinks) ? profile.socialLinks : []
     },
-    publishedWorks
+    publishedWorks,
+    mediaItems: [
+      profileImage(profile),
+      ...publishedWorks.map((article) => article.featuredImage).filter(Boolean)
+    ].map((item, index) => ({
+      id: item.id || `profile-media-${index}`,
+      url: item.url,
+      altText: item.altText || `Media connected to ${profile.name}`,
+      title: item.title || profile.name,
+      caption: item.caption || profile.role
+    })),
+    submissions: Array.isArray(profile.submissions) ? profile.submissions : []
   };
 }

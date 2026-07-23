@@ -1,0 +1,63 @@
+/* UI/UX refinements for homepage carousel, article reading, and media detail pages. */
+.public-layout .home-carousel { min-height: 100vh; }
+.public-layout .home-carousel__track, .public-layout .home-carousel__slide { min-height: 100vh; }
+.public-layout .home-carousel__slide { grid-template-rows: minmax(0, 1fr); }
+.public-layout .home-carousel__media-link { grid-area: 1 / 1; }
+.public-layout .home-carousel__media { height: 100vh; display: grid; place-items: center; }
+.public-layout .home-carousel__media img { width: 100%; height: 100%; object-fit: contain; background: var(--production-ink); }
+.public-layout .home-carousel__copy { grid-area: 1 / 1; align-self: end; z-index: 3; background: linear-gradient(0deg, rgba(20, 17, 16, .92), rgba(20, 17, 16, .62) 58%, rgba(20, 17, 16, 0)); padding-top: 30vh; }
+.public-layout .home-carousel__controls { height: 100vh; }
+.public-layout .home-carousel__copy h1, .public-layout .home-carousel__copy h2 { font-size: clamp(38px, 6vw, 86px); line-height: .92; }
+@media (max-width: 768px) { .public-layout .home-carousel__media, .public-layout .home-carousel__controls { height: 100vh; } .public-layout .home-carousel__copy { grid-template-columns: minmax(0, 1fr); padding: 34vh 18px 34px; } .public-layout .home-carousel__copy h1, .public-layout .home-carousel__copy h2 { font-size: clamp(36px, 14vw, 56px); } }
+[data-public-design="visceral-brutalist-archive"] .figma-article-hero { padding-top: 18px; padding-bottom: 34px; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-hero h1, [data-public-design="visceral-brutalist-archive"] .media-detail-hero h1 { max-width: 1160px; margin: 12px auto 18px; font-size: clamp(48px, 8vw, 118px); font-weight: 950; line-height: .86; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-hero p:not(.eyebrow), [data-public-design="visceral-brutalist-archive"] .media-detail-hero p:not(.eyebrow) { max-width: 760px; margin: 0 auto 28px; font-size: clamp(19px, 2.2vw, 27px); line-height: 1.35; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-hero img { width: min(1120px, 100%); object-fit: contain; background: var(--production-ink); margin-top: 8px; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body { width: min(820px, calc(100% - 48px)); padding: 56px 0 70px; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body p { margin: 0 0 1.55em; font-size: clamp(20px, 1.6vw, 23px); line-height: 1.82; text-align: left; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body .article-standfirst { margin-bottom: 1.7em; font-size: clamp(24px, 2vw, 31px); line-height: 1.42; font-weight: 750; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body h2, [data-public-design="visceral-brutalist-archive"] .figma-article-body h3 { margin: 2.1em 0 .7em; line-height: 1; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body blockquote { margin: 2.4em 0; padding: 24px 0 24px 28px; border-left: 6px solid var(--production-signal); font-size: clamp(24px, 2vw, 34px); line-height: 1.28; font-weight: 850; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body figure, [data-public-design="visceral-brutalist-archive"] .figma-article-body img { margin: 2.4em auto; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body figcaption { margin-top: 10px; color: var(--production-muted); font-family: var(--production-ui); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+[data-public-design="visceral-brutalist-archive"] .figma-article-body ul, [data-public-design="visceral-brutalist-archive"] .figma-article-body ol { margin: 1.8em 0 2em; padding-left: 1.4em; font-size: clamp(20px, 1.6vw, 23px); line-height: 1.7; }
+[data-public-design="visceral-brutalist-archive"] .figma-related-grid { gap: 28px; border: 0; }
+[data-public-design="visceral-brutalist-archive"] .figma-related-grid .related-card { padding: 28px; border: 2px solid var(--production-ink); }
+[data-public-design="visceral-brutalist-archive"] .media-detail-hero { display: grid; justify-items: center; text-align: center; padding: 18px max(24px, calc((100% - 1320px) / 2)) 36px; border-bottom: 5px solid var(--production-ink); }
+[data-public-design="visceral-brutalist-archive"] .media-detail-figure { margin: 0; padding: 42px max(24px, calc((100% - 1320px) / 2)); border-bottom: 5px solid var(--production-ink); background: var(--production-paper); }
+[data-public-design="visceral-brutalist-archive"] .media-detail-figure img { width: 100%; max-height: 82vh; object-fit: contain; background: var(--production-ink); filter: grayscale(1) contrast(1.05); }
+[data-public-design="visceral-brutalist-archive"] .media-detail-figure figcaption { margin-top: 14px; color: var(--production-muted); font-size: 15px; }
+[data-public-design="visceral-brutalist-archive"] .media-detail-meta { padding: 34px max(24px, calc((100% - 960px) / 2)) 72px; }
+[data-public-design="visceral-brutalist-archive"] .media-detail-meta dl { display: grid; gap: 0; border-top: 2px solid var(--production-ink); }
+[data-public-design="visceral-brutalist-archive"] .media-detail-meta div { display: grid; grid-template-columns: minmax(140px, .35fr) 1fr; gap: 24px; padding: 18px 0; border-bottom: 2px solid var(--production-ink); }
+[data-public-design="visceral-brutalist-archive"] .media-detail-meta dt { font-family: var(--production-ui); font-size: 12px; font-weight: 900; text-transform: uppercase; color: var(--production-muted); }
+[data-public-design="visceral-brutalist-archive"] .media-detail-meta dd { margin: 0; font-size: 20px; font-weight: 750; }
+@media (max-width: 760px) { [data-public-design="visceral-brutalist-archive"] .figma-article-hero { padding-top: 12px; } [data-public-design="visceral-brutalist-archive"] .figma-article-body { width: calc(100% - 32px); padding: 38px 0 52px; } [data-public-design="visceral-brutalist-archive"] .figma-related-grid { gap: 18px; } [data-public-design="visceral-brutalist-archive"] .media-detail-meta div { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Updated About and creative profile experience. */
+[data-public-design="visceral-brutalist-archive"] .about-editorial-section { padding: 72px max(24px, calc((100% - 1140px) / 2)); border-bottom: 2px solid var(--production-line); }
+[data-public-design="visceral-brutalist-archive"] .about-editorial-copy { max-width: 780px; }
+[data-public-design="visceral-brutalist-archive"] .about-editorial-copy h2 { margin-bottom: 24px; font-size: clamp(32px, 4vw, 56px); line-height: 1; }
+[data-public-design="visceral-brutalist-archive"] .about-editorial-copy p { font-size: clamp(18px, 1.5vw, 22px); line-height: 1.72; color: var(--production-ink); }
+[data-public-design="visceral-brutalist-archive"] .about-editorial-standfirst { margin-top: 28px; padding-top: 24px; border-top: 4px solid var(--production-ink); font-weight: 800; }
+[data-public-design="visceral-brutalist-archive"] .about-editorial-section--split { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 44px; align-items: center; }
+[data-public-design="visceral-brutalist-archive"] .about-editorial-section--split figure { margin: 0; border: 2px solid var(--production-ink); background: var(--production-ink); }
+[data-public-design="visceral-brutalist-archive"] .about-editorial-section--split img { width: 100%; display: block; object-fit: contain; }
+[data-public-design="visceral-brutalist-archive"] .about-team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 34px; }
+[data-public-design="visceral-brutalist-archive"] .about-team-card { display: grid; gap: 16px; color: var(--production-ink); text-decoration: none; }
+[data-public-design="visceral-brutalist-archive"] .about-team-card__media { aspect-ratio: 3 / 4; overflow: hidden; border: 2px solid var(--production-ink); background: var(--production-paper); }
+[data-public-design="visceral-brutalist-archive"] .about-team-card__media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); transition: filter 180ms ease, transform 220ms ease; }
+[data-public-design="visceral-brutalist-archive"] .about-team-card:hover img, [data-public-design="visceral-brutalist-archive"] .about-team-card:focus-visible img { filter: grayscale(0) contrast(1); transform: scale(1.02); }
+[data-public-design="visceral-brutalist-archive"] .about-team-card__body { display: grid; gap: 8px; }
+[data-public-design="visceral-brutalist-archive"] .about-team-card__body strong { font-size: 25px; line-height: 1; }
+[data-public-design="visceral-brutalist-archive"] .profile-social-icons { display: flex; flex-wrap: wrap; gap: 10px; }
+[data-public-design="visceral-brutalist-archive"] .profile-social-icons a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 12px; border: 2px solid var(--production-ink); color: var(--production-ink); font-family: var(--production-ui); font-size: 12px; font-weight: 900; text-decoration: none; text-transform: uppercase; }
+[data-public-design="visceral-brutalist-archive"] .profile-social-icons a:hover, [data-public-design="visceral-brutalist-archive"] .profile-social-icons a:focus-visible { background: var(--production-ink); color: var(--production-paper); }
+[data-public-design="visceral-brutalist-archive"] .profile-media-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 320px); gap: 18px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x proximity; }
+[data-public-design="visceral-brutalist-archive"] .profile-media-strip figure { margin: 0; scroll-snap-align: start; border: 2px solid var(--production-ink); background: var(--production-paper); }
+[data-public-design="visceral-brutalist-archive"] .profile-media-strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+[data-public-design="visceral-brutalist-archive"] .profile-media-strip figcaption { padding: 12px; color: var(--production-muted); font-family: var(--production-ui); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+[data-public-design="visceral-brutalist-archive"] .profile-submission-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+[data-public-design="visceral-brutalist-archive"] .profile-submission-card { padding: 24px; border: 2px solid var(--production-ink); background: var(--production-paper); }
+[data-public-design="visceral-brutalist-archive"] .profile-submission-card a { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-family: var(--production-ui); font-weight: 900; text-transform: uppercase; }
+@media (max-width: 760px) { [data-public-design="visceral-brutalist-archive"] .about-editorial-section { padding: 48px 16px; } [data-public-design="visceral-brutalist-archive"] .about-editorial-section--split { grid-template-columns: 1fr; } [data-public-design="visceral-brutalist-archive"] .profile-media-strip { grid-auto-columns: minmax(200px, 78vw); } }

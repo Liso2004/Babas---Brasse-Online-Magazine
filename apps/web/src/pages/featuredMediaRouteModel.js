@@ -3,7 +3,7 @@ import { getRouteByPath } from "../routes.js";
 export function getFeaturedMediaItems(fixtures) {
   const heights = [860, 620, 760, 560, 720];
   const articles = Array.isArray(fixtures.articles) ? fixtures.articles : [];
-  return Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems.map((item, index) => {
+  return Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems.filter((item) => item.type === "image").map((item, index) => {
     const article = articles.find((candidate) => candidate.status === "published" && candidate.featuredImage?.id === item.id);
     return {
       id: item.id,
@@ -13,12 +13,12 @@ export function getFeaturedMediaItems(fixtures) {
       altText: item.altText,
       caption: item.caption,
       credit: item.credit,
-      category: item.type === "video" ? "Video" : "Visual story",
+      category: "Photography",
       thumbnail: item.url,
       alt: item.altText,
       description: item.caption,
       publishedAt: article?.publishedAt || "",
-      href: article ? "/visceral-mag/" + article.slug : item.url,
+      href: `/media/${encodeURIComponent(item.id)}`,
       height: heights[index % heights.length]
     };
   }) : [];
@@ -68,19 +68,19 @@ export function buildFeaturedMediaRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "Featured / Media",
-      title: "Photography, artwork, and visual notes from Babas & Brasse.",
-      dek: "Browse launch media assets with captions, credits, and accessible alt text."
+      eyebrow: "Media",
+      title: "Photography from Babas & Brasse.",
+      dek: "Browse photographs with captions, credits, and publication details."
     },
     sections: {
       mediaGallery: mediaItems.length > 0 ? {
         state: "ready",
-        heading: "Featured media gallery",
+        heading: "Media",
         items: mediaItems
       } : {
         state: "no-media",
         heading: "No featured media is published yet",
-        body: "Check back for photography, artwork, and visual editorial features.",
+        body: "Check back for photography and visual editorial features.",
         contactHref: "/contact",
         items: []
       },

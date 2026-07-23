@@ -1,32 +1,38 @@
 import { getRouteByPath } from "../routes.js";
 
 const aboutCopy = {
-  mission: "Babas & Brasse creates a home for cultural writing, criticism, interviews, photography, and artwork with a voice rooted in lived experience.",
-  vision: "The magazine exists to make theatre, books, essays, opinion, and culture feel close, discussable, and worth returning to.",
-  organisation: "Babas & Brasse brings essays, reviews, interviews, and visual culture into one independent South African publication."
+  whoWeAre: [
+    "Babas and Brasse is an inclusive non-profit arts, fashion, and literary platform and collective created to showcase, archive, and celebrate local creative work.",
+    "Created in 2026 as a response to the gatekeeping often found in mainstream media and online publishing spaces, Babas and Brasse aims to support creatives who may not always have access to the resources, visibility, and archive needed to share their stories, build their profiles, and reach wider audiences.",
+    "Beyond art, fashion, and literature, we are committed to giving voice to individuals from marginalised communities and creating a space where their lived experiences, creativity, and contributions can be seen, heard, and celebrated."
+  ],
+  name: [
+    "Baba is the Afrikaans word for baby, a term of endearment often used to refer to someone affectionately, while brasse is a colloquial word for brother, friend, or close companion. Both terms are gender-neutral and can be used to warmly describe another.",
+    "Creative Director and Editor-in-Chief Zubayr Charles purposefully chose this localised name to align with the platform and collective brand and vision. Through Babas and Brasse, the team aims to capture the spirit of a local platform and collective that promotes pride in South African art, fashion, literature, and language through community, inclusivity, and belonging."
+  ],
+  collective: "Our collective is for all the babas and brasse out there: the artists, misfits, writers, makers and shakers, and lovers of all things creative who are hustling through the gatekeeping and kapping aan despite the many challenges of life in South Africa."
 };
-
-const pillarFallbacks = [
-  { slug: "theatre", label: "Theatre", description: "Stage work, performance notes, and cultural scenes that deserve slower attention." },
-  { slug: "books", label: "Books", description: "Reading culture, reviews, interviews, and writer-focused editorial work." },
-  { slug: "culture", label: "Culture", description: "Essays, artwork, opinion, and media features from the Babas & Brasse world." }
-];
 
 const routeCards = [
   { href: "/creative-team", label: "Creative Team", body: "Meet the people shaping the publication." },
   { href: "/contributors", label: "Contributors", body: "Browse writers and their published work." },
-  { href: "/contact", label: "Contact", body: "Send editorial queries, corrections, submissions, and general notes." }
+  { href: "/contact", label: "Submissions", body: "Send pitches, requests, corrections, and media submissions." }
 ];
+
+function teamCard(profile) {
+  return {
+    id: profile.id,
+    name: profile.name,
+    role: profile.role,
+    slug: profile.slug,
+    href: "/people/" + profile.slug,
+    shortBio: profile.shortBio,
+    image: profile.image || { url: "/media/profile-placeholder.jpg", altText: "Portrait of " + profile.name }
+  };
+}
 
 export function buildAboutRouteModel(fixtures) {
   const route = getRouteByPath("/about");
-  const fixturePillars = fixtures.categories
-    .filter((category) => ["essays", "interviews"].includes(category.slug))
-    .map((category) => ({
-      slug: category.slug,
-      label: category.label,
-      description: category.description
-    }));
 
   return {
     pageId: "about",
@@ -39,28 +45,22 @@ export function buildAboutRouteModel(fixtures) {
     },
     hero: {
       eyebrow: "About Babas & Brasse",
-      title: "Mission, vision, and the shape of the publication.",
-      dek: "Babas & Brasse is an independent home for attentive writing about South African books, theatre, art, language, and everyday cultural life."
+      title: "About Page",
+      dek: "A literary vessel, cultural anchor, and inclusive platform for South African arts, fashion, literature, and lived experience."
     },
     sections: {
       overview: {
-        stateNote: "about-empty-stub",
-        mission: aboutCopy.mission,
-        vision: aboutCopy.vision,
-        organisation: aboutCopy.organisation,
+        stateNote: "about-content-updated",
+        whoWeAre: aboutCopy.whoWeAre,
+        name: aboutCopy.name,
+        collective: aboutCopy.collective,
         image: {
-          url: "/media/editorial/editorial-belonging.jpg",
-          altText: "Neighbors in conversation on a Cape Town street"
+          url: "/media/carousel/babas-brasse-cape-collage-replacement.jpeg",
+          altText: "Babas and Brasse collage banner with Table Mountain and South African cultural symbols"
         }
       },
-      editorialPillars: [...pillarFallbacks, ...fixturePillars],
+      creativeTeam: fixtures.profiles.filter((profile) => profile.type === "creative_team").map(teamCard),
       routeCards
-    },
-    newsletter: {
-      id: "newsletter",
-      action: "/subscribe",
-      states: ["newsletter-invalid", "newsletter-success"],
-      footerLinks: ["/visceral-mag", "/about", "/contact", "/submit-writing"]
     }
   };
 }

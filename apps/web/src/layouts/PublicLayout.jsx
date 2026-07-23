@@ -13,9 +13,10 @@ const primaryNavigation = [
 const homeDropdownNavigation = [
   { label: "Theater", href: "/search?category=reviews&topic=theatre" },
   { label: "Essays", href: "/search?category=essays" },
+  { label: "Short Stories", href: "/search?category=short-stories" },
   { label: "Literature", href: "/search?category=reviews&topic=books" },
   { label: "Interviews", href: "/search?category=interviews" },
-  { label: "Opinion Pieces", href: "/search?category=essays&topic=opinion" }
+  { label: "Opinion Pieces", href: "/search?category=opinion" }
 ];
 
 const articleDropdownNavigation = [
