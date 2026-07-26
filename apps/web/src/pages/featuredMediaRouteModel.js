@@ -53,8 +53,8 @@ export function getPublishedMediaArticles(fixtures) {
     }));
 }
 
-export function buildFeaturedMediaRouteModel(fixtures) {
-  const route = getRouteByPath("/featured");
+export function buildFeaturedMediaRouteModel(fixtures, routePath = "/photography") {
+  const route = getRouteByPath(routePath);
   const mediaItems = getFeaturedMediaItems(fixtures);
   const publishedArticles = getPublishedMediaArticles(fixtures);
 
@@ -68,14 +68,14 @@ export function buildFeaturedMediaRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "Media",
-      title: "Photography from Babas & Brasse.",
-      dek: "Browse photographs with captions, credits, and publication details."
+      eyebrow: "Photography",
+      title: "Photography",
+      dek: "A responsive editorial mood board of photographs, captions, credits, and publication details."
     },
     sections: {
       mediaGallery: mediaItems.length > 0 ? {
         state: "ready",
-        heading: "Media",
+        heading: "Photography mood board",
         items: mediaItems
       } : {
         state: "no-media",

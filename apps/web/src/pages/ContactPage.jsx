@@ -26,7 +26,8 @@ function ContactField({ field, className = "" }) {
     return (
       <label className={className} htmlFor={field.id} data-field={field.purpose || field.name}>
         <span>{field.label}</span>
-        <select id={field.id} name={field.name} autoComplete={field.autocomplete || "off"} required={field.required}>
+        <select id={field.id} name={field.name} autoComplete={field.autocomplete || "off"} required={field.required} defaultValue="">
+          {field.placeholder ? <option value="" disabled>{field.placeholder}</option> : null}
           {field.options.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
         </select>
       </label>
@@ -37,7 +38,7 @@ function ContactField({ field, className = "" }) {
     return (
       <label className={className} htmlFor={field.id} data-field={field.name}>
         <span>{field.label}</span>
-        <textarea id={field.id} name={field.name} rows={field.rows} autoComplete={field.autocomplete || "off"} required={field.required} />
+        <textarea id={field.id} name={field.name} rows={field.rows} autoComplete={field.autocomplete || "off"} required={field.required} placeholder={field.placeholder} />
       </label>
     );
   }
@@ -45,7 +46,7 @@ function ContactField({ field, className = "" }) {
   return (
     <label className={className} htmlFor={field.id} data-field={field.purpose || field.name}>
       <span>{field.label}</span>
-      <input id={field.id} name={field.name} type={field.type} autoComplete={field.autocomplete} required={field.required} tabIndex={field.tabIndex} />
+      <input id={field.id} name={field.name} type={field.type} autoComplete={field.autocomplete} required={field.required} tabIndex={field.tabIndex} placeholder={field.placeholder} />
     </label>
   );
 }

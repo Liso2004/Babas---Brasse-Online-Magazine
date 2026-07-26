@@ -1,140 +1,212 @@
-# Babas & Brasse Public API
+# Baba's Brasse API
 
-This Node service runs the production API, serves the built React application, and persists the publication through PostgreSQL.
+`apps/api` is the Node.js backend for Baba's Brasse. It serves the public API, admin authentication, public submissions, moderation/admin endpoints, and the built React app in production.
 
-## Environment setup
+The server uses Node's built-in HTTP module plus `pg` for production PostgreSQL storage. There is no separate API framework.
 
-Copy `.env.production.example` to `.env` at the repository root, then replace the placeholder values before starting production. The API entrypoints load that root `.env` automatically when shell variables are not already set.
-
-Required production values:
-
-- `BABAS_ADMIN_EMAIL` with the administrator login email.
-- `BABAS_ADMIN_PASSWORD_HASH`, generated with `BABAS_ADMIN_PASSWORD_INPUT='<long-password>' npm.cmd run hash:admin-password` in PowerShell syntax as shown below.
-- `DATABASE_URL` with the managed PostgreSQL connection string.
-- `BABAS_WEB_DIST_PATH` only when the built frontend is outside `apps/web/dist`.
-
-```powershell
-Copy-Item .env.production.example .env
-$env:BABAS_ADMIN_PASSWORD_INPUT='<use-a-long-unique-password>'
-npm.cmd run hash:admin-password
-Remove-Item Env:BABAS_ADMIN_PASSWORD_INPUT
-npm.cmd run build:production
-npm.cmd run db:migrate
-npm.cmd run start:production
-```
-
-
-## Neon PostgreSQL setup
-
-Use the pooled Neon connection string from the Neon dashboard's Connect modal. It should look like this:
-
-```env
-DATABASE_URL=postgresql://role:password@ep-example-pooler.region.aws.neon.tech/dbname?sslmode=require&channel_binding=require
-BABAS_DATABASE_SSL=1
-BABAS_DATABASE_SSL_REJECT_UNAUTHORIZED=1
-```
-
-Keep the `-pooler` hostname for normal web/API traffic. Neon requires SSL/TLS, so leave `BABAS_DATABASE_SSL=1`; only set `BABAS_DATABASE_SSL_REJECT_UNAUTHORIZED=0` temporarily if you are diagnosing a local certificate trust issue.
-
-After updating `.env`, verify Neon before starting the server:
-
-```powershell
-npm.cmd run db:check
-npm.cmd run db:migrate
-npm.cmd run start:production
-```
-
-## Run locally
+## Run Locally
 
 From the repository root:
 
 ```powershell
-npm.cmd run start:production
-npm.cmd --prefix apps/web run dev
+npm.cmd install
+npm.cmd run dev:api
 ```
 
-The API listens on `http://127.0.0.1:8787`. Vite proxies browser requests from `/api` to that service, keeping the frontend on one origin.
+The API listens at `http://127.0.0.1:8787` by default.
 
-
-## Production web runtime
-
-Run the production stack from the repository root:
+For full local development, run the frontend in another terminal:
 
 ```powershell
-npm.cmd run build:production
-npm.cmd run start:production
+npm.cmd run dev:web
 ```
 
-The Node runtime serves the built React application and API on one origin. Public client routes use the Vite `index.html` fallback, missing `/api/*` routes remain JSON 404 responses, fingerprinted assets receive immutable one-year caching, and HTML is revalidated.
+Vite proxies `/api` requests to the local API.
 
-Set `BABAS_WEB_DIST_PATH` only when the Vite output is deployed outside `apps/web/dist`. Production startup fails closed when the build entry is missing.
+## Local Storage
 
-## Abuse controls and security events
+When `NODE_ENV` is not `production`, the API uses the JSON store in:
 
-Admin login and all public submission routes have separate fixed-window client budgets. A rejected request returns `429`, `Retry-After`, and `RateLimit-*` headers. Defaults are five login attempts and twenty public submissions per fifteen minutes.
+```text
+apps/api/data/submissions.json
+```
 
-Set `BABAS_TRUST_PROXY=1` only behind a trusted reverse proxy that replaces `X-Forwarded-For`. Leaving it at `0` uses the direct socket address.
+Set `BABAS_API_DATA_PATH` to use a different local JSON file. This is for local development and tests only.
 
-Production security events are written to stdout as newline-delimited JSON for the deployment log collector. Records include timestamp, request ID, method, route, event, and status. Submitted email addresses, passwords, contact messages, comments, reviews, tokens, and raw client addresses are never logged.
+The local store validates and persists:
 
-## Endpoints
+- newsletter signups;
+- contact submissions;
+- article comments;
+- article reviews;
+- editorial articles, profiles, media, and categories seeded from `apps/api/data/editorial-seed.json` when needed.
 
-- `GET /api/health`
-- `POST /api/newsletter-signups`
-- `POST /api/contact-submissions`
-- `POST /api/articles/:slug/comments`
-- `POST /api/articles/:slug/reviews`
-- `GET /api/content` for published editorial content
+## Production Storage
 
-Every response is JSON. Invalid payloads return `422`; malformed JSON returns `400`; oversized bodies return `413`. New comments always enter `pending` moderation status.
+When `NODE_ENV=production`, the API requires PostgreSQL through `DATABASE_URL`.
 
-## Persistence
+Production uses `apps/api/postgresSubmissionStore.js`, which stores the publication model in a singleton `publication_state` JSONB row. Mutations run inside a transaction, lock the row with `SELECT ... FOR UPDATE`, and roll back on failure.
 
-Production requires `DATABASE_URL` and uses PostgreSQL through `pg`. `npm.cmd run db:migrate` creates the singleton `publication_state` table and seeds it from `apps/api/data/editorial-seed.json` only when the database is empty.
-
-Every production mutation runs inside a transaction, locks the publication row with `SELECT ... FOR UPDATE`, writes JSONB atomically, and rolls back on failure. This preserves the validated domain model and API while moving durable state out of the application filesystem.
-
-Local development and automated tests keep the atomic JSON adapter at `apps/api/data/submissions.json`. `BABAS_API_DATA_PATH` may override that local-only path. Production ignores the JSON path and fails closed without PostgreSQL.
-
-## Production release boundary
-
-The API is in production release-candidate hardening. Before public deployment, complete:
-
-- provision the managed PostgreSQL service and run the migration on staging;
-- prove encrypted backup, restore, retention, and recovery;
-- complete newsletter confirmation and contact email delivery;
-- complete object storage and validated binary media uploads.
-
-## Admin-only authentication
-
-Only the administrator can sign in and edit or moderate the site. There is no registration endpoint. Production requires a scrypt hash and rejects BABAS_ADMIN_PASSWORD.
+Run the migration before starting production:
 
 ```powershell
-$env:BABAS_ADMIN_EMAIL='admin@example.com'
+npm.cmd run db:migrate
+```
+
+Optional database check:
+
+```powershell
+npm.cmd run db:check
+```
+
+## Environment Variables
+
+The API loads `.env` from the repository root if variables are not already present in the shell.
+
+Required in production:
+
+- `NODE_ENV=production`
+- `PORT` - server port, default `8787`.
+- `HOST` - bind host, default `127.0.0.1`; use `0.0.0.0` on most hosts.
+- `BABAS_ADMIN_EMAIL` - administrator email.
+- `BABAS_ADMIN_PASSWORD_HASH` - scrypt hash generated by `npm.cmd run hash:admin-password`.
+- `DATABASE_URL` - PostgreSQL connection string.
+
+Optional:
+
+- `BABAS_DATABASE_SSL` - set to `0` to disable SSL; otherwise SSL is enabled.
+- `BABAS_DATABASE_SSL_REJECT_UNAUTHORIZED` - set to `0` only for temporary certificate troubleshooting.
+- `BABAS_ADMIN_TOKEN` - optional bearer token for trusted server automation.
+- `BABAS_WEB_DIST_PATH` - custom path to the frontend build; defaults to `apps/web/dist` in production.
+- `BABAS_LOGIN_RATE_LIMIT` - admin login attempts per rate window; default `5`.
+- `BABAS_PUBLIC_RATE_LIMIT` - public submission attempts per rate window; default `20`.
+- `BABAS_RATE_WINDOW_MS` - rate-limit window; default `900000`.
+- `BABAS_TRUST_PROXY` - set to `1` only behind a trusted reverse proxy.
+- `BABAS_API_DATA_PATH` - local JSON store override outside production.
+
+Never use `BABAS_ADMIN_PASSWORD` in production. Production startup rejects it.
+
+## Admin Password Hash
+
+Generate a production-safe password hash from the repository root:
+
+```powershell
 $env:BABAS_ADMIN_PASSWORD_INPUT='<use-a-long-unique-password>'
-$env:BABAS_ADMIN_PASSWORD_HASH=(node apps/api/hashPassword.js)
+npm.cmd run hash:admin-password
 Remove-Item Env:BABAS_ADMIN_PASSWORD_INPUT
-$env:DATABASE_URL='<from-the-deployment-secret-manager>'
-$env:NODE_ENV='production'
-$env:HOST='0.0.0.0'
+```
+
+Copy the printed `scrypt$...` value into `BABAS_ADMIN_PASSWORD_HASH`.
+
+## API Endpoints
+
+Public endpoints:
+
+- `GET /api/health` - health and storage status.
+- `GET /api/content` - published content for the frontend.
+- `POST /api/newsletter-signups` - stores a pending newsletter signup.
+- `POST /api/contact-submissions` - stores a contact message with status `new`.
+- `POST /api/articles/:slug/comments` - stores a pending comment.
+- `POST /api/articles/:slug/reviews` - stores a pending review.
+
+Admin endpoints require a valid admin session cookie or configured trusted bearer automation:
+
+- `POST /api/admin/login`
+- `GET /api/admin/session`
+- `POST /api/admin/logout`
+- `GET /api/admin/editorial`
+- `POST /api/admin/articles`
+- `PATCH /api/admin/articles/:id`
+- `DELETE /api/admin/articles/:id`
+- `POST /api/admin/profiles`
+- `PUT/PATCH /api/admin/profiles/:id`
+- `DELETE /api/admin/profiles/:id`
+- `POST /api/admin/media`
+- `PUT/PATCH /api/admin/media/:id`
+- `DELETE /api/admin/media/:id`
+- `GET /api/admin/contact-submissions`
+- `PATCH /api/admin/contact-submissions/:id`
+- `GET /api/admin/comments`
+- `PATCH /api/admin/comments/:id`
+- `DELETE /api/admin/comments/:id`
+- `GET /api/admin/reviews`
+- `PATCH /api/admin/reviews/:id`
+- `DELETE /api/admin/reviews/:id`
+
+Responses are JSON. Validation errors return `422`, malformed JSON returns `400`, oversized bodies return `413`, and unauthorized admin requests return `401`.
+
+## Contact Form Submission Flow
+
+The contact form is connected to this API.
+
+Frontend:
+
+- `apps/web/src/pages/ContactPage.jsx` gathers form data.
+- It checks required `name`, valid `email`, `subject`, and `message` fields.
+- It includes a hidden `website` honeypot field; honeypot submissions are silently treated as successful without hitting the API.
+- It calls `submitPublicForm("contact", payload)`.
+
+Client API helper:
+
+- `apps/web/src/forms/publicFormClient.js` resolves contact submissions to `POST /api/contact-submissions`.
+- It sends JSON and requires a JSON response.
+
+Backend:
+
+- `apps/api/server.js` rate-limits public submission endpoints.
+- `POST /api/contact-submissions` calls `store.createContactSubmission(payload)`.
+- `apps/api/submissionStore.js` validates `name`, `email`, `subject`, and `message`.
+- Valid submissions receive an ID, `status: "new"`, and `createdAt` timestamp.
+- Local development writes to the JSON store.
+- Production writes to PostgreSQL.
+
+Admin review:
+
+- `apps/web/src/pages/ContactSubmissionsPage.jsx` loads `GET /api/admin/contact-submissions`.
+- Admin users can search/filter submissions.
+- Admin users can mark submissions `read` or `archived` with `PATCH /api/admin/contact-submissions/:id`.
+- Reply action opens a `mailto:` link; the app does not send reply email itself.
+
+Current limitation: the backend stores contact messages but does not send email notifications.
+
+## Build And Deploy
+
+The current deployment model is one Node service serving both frontend and API.
+
+From the repository root:
+
+```powershell
+npm.cmd install
+npm.cmd --prefix apps/web install
+npm.cmd run build:production
+npm.cmd run db:migrate
 npm.cmd run start:production
 ```
 
-Protected endpoints:
+Production startup expects:
 
-- `GET /api/admin/contact-submissions`
-- `GET /api/admin/comments?status=pending`
-- `PATCH /api/admin/contact-submissions/:id` with `new`, `read`, or `archived`
-- `PATCH /api/admin/comments/:id` with `pending`, `approved`, or `rejected`
+- `NODE_ENV=production`;
+- required admin and database variables;
+- reachable PostgreSQL database;
+- built frontend at `apps/web/dist` or `BABAS_WEB_DIST_PATH`.
 
-Browser login uses the login, session, and logout API routes with an HttpOnly, SameSite Strict cookie.
+The production server serves:
 
-Bearer access is reserved for trusted server automation. Never store admin secrets in frontend code or Git.
+- `/api/*` as JSON API routes;
+- static assets from the Vite build;
+- `index.html` fallback for frontend routes.
 
-## Editorial persistence endpoints
+## Security And Rate Limits
 
-Public: GET /api/content and POST /api/articles/:slug/reviews.
+The API applies separate fixed-window budgets for:
 
-Admin only: GET /api/admin/editorial, GET/PATCH /api/admin/reviews, POST/PATCH /api/admin/articles, PUT /api/admin/profiles/:id, and POST/PUT /api/admin/media.
+- admin login attempts;
+- public submissions: newsletter, contact, comments, and reviews.
 
+Production security events are written to stdout as JSON records without logging raw passwords, messages, emails, tokens, or raw client addresses.
 
+## Known Gaps
+
+- Contact submissions and newsletter signups are stored, but email delivery is not implemented.
+- Newsletter confirmation flow is not implemented.
+- Binary media upload/object storage is not implemented; current media endpoints store metadata and URLs.

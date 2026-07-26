@@ -3,6 +3,7 @@ const baseUrl = (process.env.WEB_BASE_URL || "http://127.0.0.1:5173").replace(/\
 const routes = [
   "/",
   "/about",
+  "/content",
   "/creative-team",
   "/contributors",
   "/people/visceral-contributor",

@@ -55,8 +55,8 @@ export function buildAboutRouteModel(fixtures) {
         name: aboutCopy.name,
         collective: aboutCopy.collective,
         image: {
-          url: "/media/carousel/babas-brasse-cape-collage-replacement.jpeg",
-          altText: "Babas and Brasse collage banner with Table Mountain and South African cultural symbols"
+          url: "/media/moodboard/south-african-arts-editorial-moodboard.png",
+          altText: "Brutalist South African arts magazine mood board with collage texture, paper grain, and oxblood accents"
         }
       },
       creativeTeam: fixtures.profiles.filter((profile) => profile.type === "creative_team").map(teamCard),
@@ -64,3 +64,4 @@ export function buildAboutRouteModel(fixtures) {
     }
   };
 }
+

@@ -1,12 +1,14 @@
 export const publicRoutes = [
   { id: "home", label: "Home", path: "/", area: "public", prototypeFile: "src/pages/home.html" },
   { id: "about", label: "About", path: "/about", area: "public", prototypeFile: "src/pages/about.html" },
+  { id: "content", label: "Content", path: "/content", area: "public", prototypeFile: "src/pages/content.html" },
   { id: "creative-team", label: "Creative Team", path: "/creative-team", area: "public", prototypeFile: "src/pages/creative-team.html" },
   { id: "contributors", label: "Contributors", path: "/contributors", area: "public", prototypeFile: "src/pages/contributors.html" },
   { id: "profile-detail", label: "Profile", path: "/people/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/profile-detail.html" },
   { id: "visceral-mag", label: "Visceral Mag", path: "/visceral-mag", area: "public", prototypeFile: "src/pages/visceral-mag.html" },
   { id: "article-detail", label: "Article Detail", path: "/visceral-mag/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/article-detail.html" },
   { id: "search", label: "Search", path: "/search", area: "public", prototypeFile: "src/pages/categories-search.html" },
+  { id: "photography", label: "Photography", path: "/photography", area: "public", prototypeFile: "src/pages/featured-media.html" },
   { id: "featured", label: "Media", path: "/featured", area: "public", prototypeFile: "src/pages/featured-media.html" },
   { id: "media-detail", label: "Media Detail", path: "/media/:mediaId", area: "public", navVisible: false, prototypeFile: "src/pages/media-detail.html" },
   { id: "contact", label: "Contact", path: "/contact", area: "public", prototypeFile: "src/pages/contact.html" }

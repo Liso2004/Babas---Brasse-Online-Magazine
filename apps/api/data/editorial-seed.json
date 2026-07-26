@@ -30,9 +30,13 @@
       "id": "zubayr-charles",
       "type": "creative_team",
       "name": "Zubayr Charles",
-      "role": "Publisher & Product Owner",
+      "role": "Creative Director and Editor-in-Chief",
       "slug": "zubayr-charles",
-      "shortBio": "Sets the publication vision, commissions new work, and guides each Babas & Brasse edition.",
+      "shortBio": "A multidisciplinary writer, theatre maker, published author, and creative lead shaping the Babas & Brasse editorial voice.",
+      "image": {
+        "url": "/media/team/creative-director-editor-in-chief.png",
+        "altText": "Stylized editorial portrait representing the Creative Director and Editor-in-Chief"
+      },
       "socialLinks": [
         {
           "label": "Editorial enquiries",
@@ -48,9 +52,13 @@
       "id": "zoe-petersen",
       "type": "creative_team",
       "name": "Zoe Petersen",
-      "role": "Web Developer",
+      "role": "Software Developer",
       "slug": "zoe-petersen",
-      "shortBio": "Builds the reading experience, editorial tools, accessibility systems, and production release.",
+      "shortBio": "A Bonteheuwel-born developer building digital spaces that uplift communities and amplify South African voices.",
+      "image": {
+        "url": "/media/team/software-developer.png",
+        "altText": "Stylized editorial portrait representing the Software Developer"
+      },
       "socialLinks": [
         {
           "label": "Project overview",
@@ -69,6 +77,10 @@
       "role": "Managing Editor",
       "slug": "naledi-maseko",
       "shortBio": "Shapes the editorial calendar and works with writers from first pitch through final publication.",
+      "image": {
+        "url": "/media/team/managing-editor-writer.png",
+        "altText": "Stylized editorial portrait representing the Managing Editor and writer"
+      },
       "socialLinks": [
         {
           "label": "Latest essays",
@@ -87,6 +99,10 @@
       "role": "Visual Editor",
       "slug": "ayesha-daniels",
       "shortBio": "Commissions photography and artwork that gives each story a distinct visual language.",
+      "image": {
+        "url": "/media/team/visual-artist-photographer.png",
+        "altText": "Stylized editorial portrait representing the Visual Artist and Photographer"
+      },
       "socialLinks": [
         {
           "label": "Featured media",

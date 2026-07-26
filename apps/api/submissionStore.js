@@ -47,6 +47,30 @@ function collection(seed, key) {
   return Array.isArray(seed?.[key]) ? clone(seed[key]) : [];
 }
 
+function identityKey(item) {
+  return item?.id || item?.slug || item?.url || item?.email || "";
+}
+
+function mergeMissingSeedItems(existingItems, seedItems) {
+  const existing = Array.isArray(existingItems) ? clone(existingItems) : [];
+  const keys = new Set(existing.map(identityKey).filter(Boolean));
+  for (const item of Array.isArray(seedItems) ? seedItems : []) {
+    const key = identityKey(item);
+    if (!key || keys.has(key)) continue;
+    keys.add(key);
+    existing.push(clone(item));
+  }
+  return existing;
+}
+
+function mergeSeedData(data, seed = {}) {
+  const merged = clone(data);
+  for (const key of ["categories", "articles", "profiles", "mediaItems", "reviews"]) {
+    merged[key] = mergeMissingSeedItems(merged[key], seed?.[key]);
+  }
+  return merged;
+}
+
 function emptyData(seed = {}) {
   return {
     version: 2,
@@ -105,10 +129,11 @@ class SubmissionStore {
     const needsMigration = Number(parsed.version || 1) < 2;
     this.needsMigration = needsMigration;
     const defaults = emptyData(needsMigration ? seed : {});
-    return Object.fromEntries(Object.entries({ ...defaults, ...parsed }).map(([key, value]) => {
+    const normalized = Object.fromEntries(Object.entries({ ...defaults, ...parsed }).map(([key, value]) => {
       if (Array.isArray(defaults[key])) return [key, Array.isArray(value) ? value : []];
       return [key, key === "version" ? 2 : value];
     }));
+    return mergeSeedData(normalized, seed);
   }
 
   persist() {
@@ -395,5 +420,6 @@ class SubmissionStore {
 module.exports = {
   SubmissionStore,
   ValidationError,
-  cleanEmail
+  cleanEmail,
+  mergeSeedData
 };

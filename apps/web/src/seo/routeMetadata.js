@@ -19,6 +19,12 @@ const routeDefaults = {
     canonicalPath: "/about",
     ogType: "website"
   },
+  content: {
+    title: "Content | Babas & Brasse",
+    description: "Browse Babas & Brasse magazine sections including essays, reviews, short stories, opinion pieces, interviews, and artwork.",
+    canonicalPath: "/content",
+    ogType: "website"
+  },
   "creative-team": {
     title: "Creative Team | Babas & Brasse",
     description: "Meet the people shaping the Babas & Brasse online magazine and launch editorial direction.",
@@ -41,6 +47,12 @@ const routeDefaults = {
     title: "Search Reviews, Essays, Interviews | Babas & Brasse",
     description: "Search Babas & Brasse reviews, essays, interviews, theatre writing, book criticism, and cultural features.",
     canonicalPath: "/search",
+    ogType: "website"
+  },
+  photography: {
+    title: "Photography | Babas & Brasse",
+    description: "Browse Babas & Brasse photography in a responsive editorial mood board with captions, credits, and publication details.",
+    canonicalPath: "/photography",
     ogType: "website"
   },
   featured: {

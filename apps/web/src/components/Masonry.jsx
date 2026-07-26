@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { gsap } from "gsap";
 
 const COLUMN_QUERIES = ["(min-width: 1500px)", "(min-width: 1000px)", "(min-width: 600px)"];
 const COLUMN_VALUES = [4, 3, 2];
@@ -23,29 +22,34 @@ function useMedia(queries, values, fallback) {
 function useMeasure() {
   const ref = useRef(null);
   const [width, setWidth] = useState(0);
+  const [renderCount, setRenderCount] = useState(0);
 
   useLayoutEffect(() => {
     if (!ref.current) return undefined;
-    const observer = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
+    
+    const updateWidth = () => {
+      const currentWidth = ref.current?.clientWidth ?? 0;
+      setWidth(currentWidth);
+    };
+    
+    // Measure immediately
+    updateWidth();
+    
+    const observer = new ResizeObserver(() => updateWidth());
     observer.observe(ref.current);
-    return () => observer.disconnect();
+    
+    // Force a re-measure on next frame to catch any layout changes
+    const frameId = requestAnimationFrame(() => {
+      updateWidth();
+    });
+    
+    return () => {
+      cancelAnimationFrame(frameId);
+      observer.disconnect();
+    };
   }, []);
 
   return [ref, width];
-}
-
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
-  return reduced;
 }
 
 function preloadImages(urls) {
@@ -59,20 +63,11 @@ function preloadImages(urls) {
 
 export default function Masonry({
   items,
-  ease = "power3.out",
-  duration = 0.55,
-  stagger = 0.04,
-  animateFrom = "bottom",
-  scaleOnHover = true,
-  hoverScale = 0.98,
-  blurToFocus = true,
   variant = "editorial"
 }) {
   const columns = useMedia(COLUMN_QUERIES, COLUMN_VALUES, 1);
   const [containerRef, width] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
-  const mounted = useRef(false);
-  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     let current = true;
@@ -82,9 +77,33 @@ export default function Masonry({
     return () => { current = false; };
   }, [items]);
 
+  // Fallback to containerRef.current.clientWidth if width hasn't been set yet
+  const effectiveWidth = width || (containerRef.current?.clientWidth ?? 0);
+
   const layout = useMemo(() => {
-    if (!width) return { placements: [], height: 0 };
-    const columnWidth = width / columns;
+    if (!effectiveWidth) {
+      // If we still don't have width, use a minimum fallback width for calculation
+      // This ensures height is never 0 on initial render
+      const fallbackWidth = 320; // Minimum reasonable width
+      const columnWidth = fallbackWidth / columns;
+      const heights = new Array(columns).fill(0);
+      const placements = items.map((item) => {
+        const column = heights.indexOf(Math.min(...heights));
+        const itemHeight = Math.max(280, item.height / 2);
+        const placement = {
+          ...item,
+          x: columnWidth * column,
+          y: heights[column],
+          width: columnWidth,
+          layoutHeight: itemHeight
+        };
+        heights[column] += itemHeight;
+        return placement;
+      });
+      return { placements, height: items.length > 0 ? Math.max(...heights) : 0 };
+    }
+    
+    const columnWidth = effectiveWidth / columns;
     const heights = new Array(columns).fill(0);
     const placements = items.map((item) => {
       const column = heights.indexOf(Math.min(...heights));
@@ -100,62 +119,7 @@ export default function Masonry({
       return placement;
     });
     return { placements, height: Math.max(...heights) };
-  }, [columns, items, width]);
-
-  useLayoutEffect(() => {
-    if (!imagesReady || !containerRef.current) return undefined;
-    const elements = layout.placements
-      .map((item) => containerRef.current.querySelector('[data-key="' + item.id + '"]'))
-      .filter(Boolean);
-
-    layout.placements.forEach((item, index) => {
-      const element = elements[index];
-      if (!element) return;
-      const finalState = {
-        x: item.x,
-        y: item.y,
-        width: item.width,
-        height: item.layoutHeight
-      };
-
-      if (reducedMotion) {
-        gsap.set(element, { ...finalState, opacity: 1, filter: "blur(0px)" });
-      } else if (!mounted.current) {
-        const offset = animateFrom === "top" || animateFrom === "left" ? -80 : 80;
-        const initial = {
-          opacity: 1,
-          x: animateFrom === "left" || animateFrom === "right" ? item.x + offset : item.x,
-          y: animateFrom === "top" || animateFrom === "bottom" ? item.y + offset : item.y,
-          width: item.width,
-          height: item.layoutHeight,
-          filter: blurToFocus ? "blur(8px)" : "blur(0px)"
-        };
-        gsap.fromTo(element, initial, {
-          ...finalState,
-          opacity: 1,
-          filter: "blur(0px)",
-          duration,
-          ease,
-          delay: index * stagger
-        });
-      } else {
-        gsap.to(element, { ...finalState, duration, ease, overwrite: "auto" });
-      }
-    });
-
-    mounted.current = true;
-    return () => gsap.killTweensOf(elements);
-  }, [animateFrom, blurToFocus, duration, ease, imagesReady, layout, reducedMotion, stagger]);
-
-  function handleEnter(event) {
-    if (!scaleOnHover || reducedMotion) return;
-    gsap.to(event.currentTarget, { scale: hoverScale, duration: 0.2, ease: "power2.out" });
-  }
-
-  function handleLeave(event) {
-    if (!scaleOnHover || reducedMotion) return;
-    gsap.to(event.currentTarget, { scale: 1, duration: 0.2, ease: "power2.out" });
-  }
+  }, [columns, items, effectiveWidth]);
 
   return (
     <div ref={containerRef} className="home-media-masonry" data-variant={variant} style={{ height: layout.height + "px" }} aria-label="Featured media">
@@ -166,10 +130,14 @@ export default function Masonry({
           key={item.id}
           to={item.href}
           aria-label={item.title + ", " + item.category}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-          onFocus={handleEnter}
-          onBlur={handleLeave}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: item.width + "px",
+            height: item.layoutHeight + "px",
+            transform: `translate(${item.x}px, ${item.y}px)`
+          }}
         >
           <img src={item.thumbnail} alt={item.alt} width="800" height={item.height} loading={index < 2 ? "eager" : "lazy"} />
           <span className="home-media-masonry__body">

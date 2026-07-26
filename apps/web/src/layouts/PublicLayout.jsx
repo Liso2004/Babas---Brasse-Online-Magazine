@@ -5,8 +5,8 @@ import { Button } from "../components/ui/button.jsx";
 
 const primaryNavigation = [
   { label: "About", href: "/about" },
-  { label: "Photography", href: "/search?topic=photography" },
-  { label: "Media", href: "/featured" },
+  { label: "Content", href: "/content" },
+  { label: "Photography", href: "/photography" },
   { label: "Contact Us", href: "/contact" }
 ];
 
@@ -242,3 +242,4 @@ export function PublicLayout({ route, children }) {
     </div>
   );
 }
+

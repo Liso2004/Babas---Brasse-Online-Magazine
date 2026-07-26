@@ -6,6 +6,7 @@ import { getRouteByPath } from "./routes.js";
 import { RouteMetadata } from "./seo/RouteMetadata.jsx";
 import { HomePage } from "./pages/HomePage.jsx";
 import { AboutPage } from "./pages/AboutPage.jsx";
+import { ContentPage } from "./pages/ContentPage.jsx";
 import { VisceralMagPage } from "./pages/VisceralMagPage.jsx";
 import { ArticleDetailPage } from "./pages/ArticleDetailPage.jsx";
 import { CategoriesSearchPage } from "./pages/CategoriesSearchPage.jsx";
@@ -35,10 +36,11 @@ const ArticleEditorWorkflowPage = lazy(() => import("./pages/ArticleEditorWorkfl
 function ShellContent({ route, fixtures }) {
   if (route.id === "home") return <HomePage fixtures={fixtures} />;
   if (route.id === "about") return <AboutPage fixtures={fixtures} />;
+  if (route.id === "content") return <ContentPage fixtures={fixtures} />;
   if (route.id === "visceral-mag") return <VisceralMagPage fixtures={fixtures} />;
   if (route.id === "article-detail") return <ArticleDetailPage slug={route.params?.slug} fixtures={fixtures} />;
   if (route.id === "search") return <CategoriesSearchPage fixtures={fixtures} />;
-  if (route.id === "featured") return <FeaturedMediaPage fixtures={fixtures} />;
+  if (route.id === "photography" || route.id === "featured") return <FeaturedMediaPage fixtures={fixtures} routePath={route.path} />;
   if (route.id === "media-detail") return <MediaDetailPage mediaId={route.params?.mediaId} fixtures={fixtures} />;
   if (route.id === "creative-team") return <CreativeTeamPage fixtures={fixtures} />;
   if (route.id === "contributors") return <ContributorsPage fixtures={fixtures} />;
@@ -104,6 +106,68 @@ function ScrollToTop() {
   return null;
 }
 
+function mergeCollection(fallbackItems = [], incomingItems = [], keyFn = (item) => item?.id || item?.slug) {
+  const merged = [];
+  const indexes = new Map();
+
+  for (const item of fallbackItems || []) {
+    const key = keyFn(item);
+    if (!key) continue;
+    indexes.set(key, merged.length);
+    merged.push(item);
+  }
+
+  for (const item of incomingItems || []) {
+    const key = keyFn(item);
+    if (!key) continue;
+    const index = indexes.get(key);
+    if (index === undefined) {
+      indexes.set(key, merged.length);
+      merged.push(item);
+    } else {
+      merged[index] = { ...merged[index], ...item };
+    }
+  }
+
+  return merged;
+}
+
+function mergePublicationFixtures(payload) {
+  const categories = mergeCollection(launchFixtures.categories, payload?.categories, (item) => item?.id || item?.slug);
+  const articles = mergeCollection(launchFixtures.articles, payload?.articles, (item) => item?.id || item?.slug);
+  const comments = mergeCollection(launchFixtures.comments, payload?.comments, (item) => item?.id);
+  const reviews = mergeCollection(launchFixtures.reviews, payload?.reviews, (item) => item?.id);
+  const profiles = mergeCollection(launchFixtures.profiles, payload?.profiles, (item) => item?.id || item?.slug).map((profile, index) => {
+    const fallback = launchFixtures.profiles.find((item) => item.id === profile.id || item.slug === profile.slug) || launchFixtures.profiles[index] || {};
+    const name = profile.name || fallback.name || "this contributor";
+    return {
+      ...fallback,
+      ...profile,
+      image: profile.image || fallback.image || { url: "/media/profile-placeholder.jpg", altText: "Portrait of " + name }
+    };
+  });
+  const mediaItems = mergeCollection(launchFixtures.mediaItems, payload?.mediaItems, (item) => item?.id || item?.url).map((item, index) => {
+    const fallback = launchFixtures.mediaItems.find((candidate) => candidate.id === item.id || candidate.url === item.url) || launchFixtures.mediaItems[index] || {};
+    return {
+      ...fallback,
+      ...item,
+      url: item.url || fallback.url || "/media/profile-placeholder.jpg",
+      altText: item.altText || fallback.altText || "Editorial image"
+    };
+  });
+
+  return {
+    ...launchFixtures,
+    ...payload,
+    categories,
+    articles,
+    comments,
+    reviews,
+    profiles,
+    mediaItems
+  };
+}
+
 function RoutedShell() {
   const location = useLocation();
   const route = getRouteByPath(location.pathname);
@@ -117,7 +181,8 @@ function RoutedShell() {
         return response.json();
       })
       .then((payload) => {
-        if (active) setFixtures({ ...launchFixtures, ...payload });
+        if (!active) return;
+        setFixtures(mergePublicationFixtures(payload));
       })
       .catch(() => {
         if (active) setFixtures(launchFixtures);
