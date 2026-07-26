@@ -133,6 +133,8 @@ Admin endpoints require a valid admin session cookie or configured trusted beare
 - `PATCH /api/admin/reviews/:id`
 - `DELETE /api/admin/reviews/:id`
 
+The public article review form has been removed from the current frontend. The review endpoints and admin moderation queue remain available for existing records and future editorial use.
+
 Responses are JSON. Validation errors return `422`, malformed JSON returns `400`, oversized bodies return `413`, and unauthorized admin requests return `401`.
 
 ## Contact Form Submission Flow

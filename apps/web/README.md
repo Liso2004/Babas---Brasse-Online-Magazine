@@ -116,7 +116,7 @@ The current production path is a single Node deployment:
 2. Start `node apps/api/server.js` through `npm.cmd run start:production`.
 3. Let the API serve both `/api/*` and the built React app.
 
-Static-only deployment is possible for public preview pages, but contact forms, comments/reviews, admin login, admin queues, and live editorial persistence require the API.
+Static-only deployment is possible for public preview pages, but contact forms, comments, admin login, admin queues, and live editorial persistence require the API.
 
 ## Checks
 
@@ -125,7 +125,7 @@ From the repository root:
 ```powershell
 npm.cmd test
 npm.cmd run smoke:web:routes
-npm.cmd run test:public-form-interactions
+npm.cmd run test:api
 ```
 
 From `apps/web`:

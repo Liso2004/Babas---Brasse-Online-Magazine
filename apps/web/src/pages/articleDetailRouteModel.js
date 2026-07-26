@@ -46,7 +46,6 @@ function notFoundModel(route, slug) {
     },
     relatedArticles: [],
     comments: [],
-    reviews: [],
     seo: null
   };
 }
@@ -102,9 +101,6 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
     comments: fixtures.comments
       .filter((comment) => comment.articleId === article.id && comment.status === "approved")
       .map((comment) => ({ id: comment.id, name: comment.name, body: comment.body, createdAt: comment.createdAt || null })),
-    reviews: fixtures.reviews
-      .filter((review) => review.articleId === article.id && review.status === "approved")
-      .map((review) => ({ id: review.id, name: review.name, rating: review.rating, body: review.body, createdAt: review.createdAt || null })),
     seo: { ...article.seo }
   };
 }

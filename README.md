@@ -13,13 +13,13 @@ The frontend can run by itself in Vite for design and route work. For real form 
 
 ```text
 .
-├── apps/
-│   ├── api/              # Node API, auth, persistence, migrations, seed data
-│   └── web/              # React/Vite website and admin UI
-├── designs/              # Design source/reference material
-├── docs/                 # Production and planning notes
-├── package.json          # Root scripts for API, build, tests, and release checks
-└── .env.production.example
+â”œâ”€â”€ apps/
+â”‚   â”œâ”€â”€ api/              # Node API, auth, persistence, migrations, seed data
+â”‚   â””â”€â”€ web/              # React/Vite website and admin UI
+â”œâ”€â”€ designs/              # Design source/reference material
+â”œâ”€â”€ docs/                 # Production and planning notes
+â”œâ”€â”€ package.json          # Root scripts for API, build, tests, and release checks
+â””â”€â”€ .env.production.example
 ```
 
 Important files:
@@ -42,7 +42,7 @@ Public pages include:
 - `/about` - magazine mission, editorial pillars, workflow context, and links into submissions.
 - `/photography` and `/featured` - media/photography gallery pages.
 - `/visceral-mag` - article archive.
-- `/visceral-mag/:slug` - article detail pages with comments and reviews.
+- `/visceral-mag/:slug` - article detail pages with reader comments.
 - `/people/:slug` - contributor or creative-team profile pages.
 - `/contact` - public contact/submission form.
 
@@ -158,7 +158,7 @@ Use the Vite URL for normal frontend work. Keep the API running when testing:
 
 - contact form submissions;
 - newsletter signups;
-- article comments and reviews;
+- article comments;
 - admin login and admin queues;
 - live editorial content loaded from `/api/content`.
 
@@ -232,13 +232,15 @@ Useful checks from the repository root:
 
 ```powershell
 npm.cmd test
+npm.cmd run test:api
 npm.cmd run verify:production
-npm.cmd run test:public-api-persistence
-npm.cmd run test:public-form-interactions
 ```
 
 `npm.cmd test` builds the frontend and runs the route smoke check.
 
+`npm.cmd run test:api` checks content delivery, contact validation and persistence, admin login, and the contact inbox using an isolated in-memory store.
+
+`npm.cmd run verify:production` runs both checks.
 ## Known Gaps
 
 - Contact submissions are stored and visible in admin, but no email notification is sent.

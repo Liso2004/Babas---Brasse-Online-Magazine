@@ -10,6 +10,7 @@ const routes = [
   "/visceral-mag",
   "/visceral-mag/send-a-text-before-you-knock",
   "/search",
+  "/photography",
   "/featured",
   "/contact",
   "/admin",
