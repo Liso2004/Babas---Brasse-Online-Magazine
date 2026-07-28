@@ -9,7 +9,6 @@ const publicComps = [
 
 const adminComps = [
   { id: "dashboard", label: "Dashboard", route: "/admin", rule: "stacked-panels", note: "Metrics, activity, and quick actions become stacked panels." },
-  { id: "editor", label: "Editor", route: "/admin/articles/editor-workflow", rule: "actions-near-record", note: "Editor actions stay close to the active article or workflow section." },
   { id: "moderate", label: "Moderate", route: "/admin/moderation", rule: "simplified-tables", note: "Moderation queues collapse into card rows with local approve/reject actions." },
   { id: "inbox", label: "Inbox", route: "/admin/contact-submissions", rule: "actions-near-record", note: "Submission detail and status actions remain reachable under each record." }
 ];

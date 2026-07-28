@@ -520,33 +520,6 @@
   color: var(--production-paper);
 }
 
-/* Shared red dispatch panel. */
-[data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel {
-  padding: 64px max(24px, calc((100% - 1120px) / 2));
-  border-bottom: 5px solid var(--production-ink);
-  background: var(--production-signal) !important;
-  color: var(--production-paper);
-}
-
-[data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel h2,
-[data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel p,
-[data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel label {
-  color: var(--production-paper);
-}
-
-[data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel .newsletter-form {
-  grid-template-columns: minmax(0, 1fr) minmax(180px, auto);
-}
-
-[data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel input {
-  border-color: var(--production-paper);
-}
-
-[data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel button {
-  border-color: var(--production-ink);
-  background: var(--production-ink);
-}
-
 /* Other public routes inherit the same archive language. */
 [data-public-design="visceral-brutalist-archive"] .figma-profile-card,
 [data-public-design="visceral-brutalist-archive"] .figma-empty-state,
@@ -778,13 +751,6 @@
     border-bottom: 0;
   }
 
-  [data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel .newsletter-form {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  [data-public-design="visceral-brutalist-archive"] .figma-newsletter-panel .newsletter-form button {
-    width: 100%;
-  }
 }
 
 @media (max-width: 520px) {

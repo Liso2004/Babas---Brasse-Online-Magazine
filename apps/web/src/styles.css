@@ -327,8 +327,7 @@ button:hover, .button:hover, [data-action]:hover { background: var(--accent); bo
 .figma-section-rail,
 .figma-more-list,
 .figma-media-strip,
-.figma-people-strip,
-.figma-newsletter-panel {
+.figma-people-strip {
   padding: 48px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -439,25 +438,6 @@ button:hover, .button:hover, [data-action]:hover { background: var(--accent); bo
   grid-column: 1 / -1;
 }
 
-.figma-newsletter-panel {
-  display: grid;
-  justify-items: center;
-  text-align: center;
-  background: #f6f6f7 !important;
-  padding: 56px 24px;
-}
-
-.figma-newsletter-panel p {
-  color: var(--muted);
-}
-
-.figma-newsletter-panel form {
-  width: min(520px, 100%);
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  text-align: left;
-}
-
 .figma-footer {
   border-top: 1px solid var(--line);
   background: #f6f6f7;
@@ -527,18 +507,13 @@ button:hover, .button:hover, [data-action]:hover { background: var(--accent); bo
   .figma-section-rail,
   .figma-more-list,
   .figma-media-strip,
-  .figma-people-strip,
-  .figma-newsletter-panel {
+  .figma-people-strip {
     padding: 28px 0;
   }
 
   .article-card--featured {
     grid-template-columns: 1fr;
     gap: 18px;
-  }
-
-  .figma-newsletter-panel form {
-    grid-template-columns: 1fr;
   }
 
   .figma-footer__inner {
@@ -1249,10 +1224,6 @@ button:disabled {
   background: #ffffff;
 }
 
-.figma-final-home .figma-newsletter-panel {
-  background: #f6f6f7 !important;
-}
-
 .section-heading-row a {
   display: inline-flex;
   align-items: center;
@@ -1357,20 +1328,6 @@ body,
   .auth-header .brand-logo { width: 48px; height: 48px; margin-left: 28px; transform: scale(1.8); }
 }
 
-/* Newsletter and editorial feed repair */
-.figma-newsletter-panel .newsletter-form {
-  width: min(680px, 100%);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 14px;
-  align-items: end;
-  text-align: left;
-}
-
-.newsletter-field { min-width: 0; }
-.newsletter-field span { display: block; }
-.figma-newsletter-panel .newsletter-form button { min-width: 170px; }
-
 .figma-media-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .figma-media-gallery .media-card { min-width: 0; }
 
@@ -1409,8 +1366,6 @@ body,
 }
 
 @media (max-width: 760px) {
-  .figma-newsletter-panel .newsletter-form { grid-template-columns: 1fr; }
-  .figma-newsletter-panel .newsletter-form button { width: 100%; min-width: 0; }
   .figma-media-gallery { grid-template-columns: 1fr; }
   .visceral-lead-story { padding-bottom: 28px; margin-bottom: 24px; }
   .visceral-story-feed .article-card--compact,

@@ -38,7 +38,7 @@ The frontend is a Vite app in `apps/web`.
 
 Public pages include:
 
-- `/` - homepage with featured editorial content, categories, media, profiles, and newsletter entry points.
+- `/` - homepage with featured editorial content, categories, media, and profiles.
 - `/about` - magazine mission, editorial pillars, workflow context, and links into submissions.
 - `/photography` and `/featured` - media/photography gallery pages.
 - `/visceral-mag` - article archive.
@@ -54,7 +54,6 @@ Admin and support pages include:
 - `/admin/profiles-media` - profile and media management.
 - `/admin/moderation` - comment/review moderation.
 - `/admin/contact-submissions` - contact form inbox.
-- `/admin/media/upload` and `/admin/articles/editor-workflow` - workflow support pages.
 - `/404`, `/500`, and `/offline` - support states.
 
 ### Run The Frontend Locally
@@ -96,7 +95,6 @@ It provides:
 
 - `GET /api/health`
 - `GET /api/content`
-- `POST /api/newsletter-signups`
 - `POST /api/contact-submissions`
 - `POST /api/articles/:slug/comments`
 - `POST /api/articles/:slug/reviews`
@@ -137,6 +135,7 @@ Optional / deployment-specific:
 - `BABAS_RATE_WINDOW_MS` - rate-limit window, default `900000`.
 - `BABAS_TRUST_PROXY` - set to `1` only behind a trusted proxy that owns `X-Forwarded-For`.
 - `BABAS_API_DATA_PATH` - local-development JSON storage override; production uses PostgreSQL.
+- `BABAS_PUBLIC_SITE_URL` - canonical public origin used by the dynamic sitemap.
 
 Frontend-only tooling variables:
 
@@ -157,7 +156,6 @@ npm.cmd run dev:web
 Use the Vite URL for normal frontend work. Keep the API running when testing:
 
 - contact form submissions;
-- newsletter signups;
 - article comments;
 - admin login and admin queues;
 - live editorial content loaded from `/api/content`.
@@ -241,8 +239,13 @@ npm.cmd run verify:production
 `npm.cmd run test:api` checks content delivery, contact validation and persistence, admin login, and the contact inbox using an isolated in-memory store.
 
 `npm.cmd run verify:production` runs both checks.
-## Known Gaps
+## Handoff And Operations
 
-- Contact submissions are stored and visible in admin, but no email notification is sent.
-- Newsletter signup stores a pending-confirmation record, but confirmation email delivery is not implemented.
-- Production binary media upload/object storage is not implemented; media records currently reference URLs and metadata.
+The production runbook, ownership checklist, rollback procedure, data-retention decisions, and launch acceptance checks are documented in:
+
+- `docs/HANDOFF.md`
+- `docs/OPERATIONS.md`
+- `docs/DATA_GOVERNANCE.md`
+- `docs/ASSET_REGISTER.md`
+
+Contact submissions are stored and visible in admin, but no automatic notification email is sent. Production media records reference externally hosted URLs and metadata; binary upload is intentionally not exposed.

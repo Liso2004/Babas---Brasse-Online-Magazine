@@ -29,9 +29,6 @@ const ProfileMediaManagementPage = lazy(() => import("./pages/ProfileMediaManage
 const CommentsReviewsModerationPage = lazy(() => import("./pages/CommentsReviewsModerationPage.jsx").then((module) => ({ default: module.CommentsReviewsModerationPage })));
 const ContactSubmissionsPage = lazy(() => import("./pages/ContactSubmissionsPage.jsx").then((module) => ({ default: module.ContactSubmissionsPage })));
 const AdminLoginPage = lazy(() => import("./pages/AdminLoginPage.jsx").then((module) => ({ default: module.AdminLoginPage })));
-const PasswordResetPage = lazy(() => import("./pages/PasswordResetPage.jsx").then((module) => ({ default: module.PasswordResetPage })));
-const MediaUploadModalPage = lazy(() => import("./pages/MediaUploadModalPage.jsx").then((module) => ({ default: module.MediaUploadModalPage })));
-const ArticleEditorWorkflowPage = lazy(() => import("./pages/ArticleEditorWorkflowPage.jsx").then((module) => ({ default: module.ArticleEditorWorkflowPage })));
 
 function ShellContent({ route, fixtures }) {
   if (route.id === "home") return <HomePage fixtures={fixtures} />;
@@ -52,12 +49,9 @@ function ShellContent({ route, fixtures }) {
   if (route.id === "moderation") return <CommentsReviewsModerationPage fixtures={fixtures} />;
   if (route.id === "contact-submissions") return <ContactSubmissionsPage fixtures={fixtures} />;
   if (route.id === "admin-login") return <AdminLoginPage />;
-  if (route.id === "password-reset") return <PasswordResetPage />;
   if (route.id === "not-found") return <NotFoundPage />;
   if (route.id === "server-error") return <ServerErrorPage />;
   if (route.id === "offline") return <OfflinePage />;
-  if (route.id === "media-upload") return <MediaUploadModalPage />;
-  if (route.id === "article-editor-workflow") return <ArticleEditorWorkflowPage />;
 
   return (
     <section className="route-placeholder" data-prototype-file={route.prototypeFile}>
@@ -83,7 +77,7 @@ function ResolvedShell({ route, fixtures }) {
     );
   }
 
-  const isAuthRoute = route.id === "admin-login" || route.id === "password-reset";
+  const isAuthRoute = route.id === "admin-login";
   const Layout = isAuthRoute ? AuthLayout : route.area === "admin" || route.authRequired ? AdminLayout : PublicLayout;
 
   return (
@@ -106,38 +100,21 @@ function ScrollToTop() {
   return null;
 }
 
-function mergeCollection(fallbackItems = [], incomingItems = [], keyFn = (item) => item?.id || item?.slug) {
-  const merged = [];
-  const indexes = new Map();
-
-  for (const item of fallbackItems || []) {
+function hydrateCollection(incomingItems, fallbackItems = [], keyFn = (item) => item?.id || item?.slug) {
+  if (!Array.isArray(incomingItems)) return fallbackItems;
+  return incomingItems.map((item, index) => {
     const key = keyFn(item);
-    if (!key) continue;
-    indexes.set(key, merged.length);
-    merged.push(item);
-  }
-
-  for (const item of incomingItems || []) {
-    const key = keyFn(item);
-    if (!key) continue;
-    const index = indexes.get(key);
-    if (index === undefined) {
-      indexes.set(key, merged.length);
-      merged.push(item);
-    } else {
-      merged[index] = { ...merged[index], ...item };
-    }
-  }
-
-  return merged;
+    const fallback = fallbackItems.find((candidate) => key && keyFn(candidate) === key) || fallbackItems[index] || {};
+    return { ...fallback, ...item };
+  });
 }
 
 function mergePublicationFixtures(payload) {
-  const categories = mergeCollection(launchFixtures.categories, payload?.categories, (item) => item?.id || item?.slug);
-  const articles = mergeCollection(launchFixtures.articles, payload?.articles, (item) => item?.id || item?.slug);
-  const comments = mergeCollection(launchFixtures.comments, payload?.comments, (item) => item?.id);
-  const reviews = mergeCollection(launchFixtures.reviews, payload?.reviews, (item) => item?.id);
-  const profiles = mergeCollection(launchFixtures.profiles, payload?.profiles, (item) => item?.id || item?.slug).map((profile, index) => {
+  const categories = hydrateCollection(payload?.categories, launchFixtures.categories, (item) => item?.id || item?.slug);
+  const articles = hydrateCollection(payload?.articles, launchFixtures.articles, (item) => item?.id || item?.slug);
+  const comments = hydrateCollection(payload?.comments, launchFixtures.comments, (item) => item?.id);
+  const reviews = hydrateCollection(payload?.reviews, launchFixtures.reviews, (item) => item?.id);
+  const profiles = hydrateCollection(payload?.profiles, launchFixtures.profiles, (item) => item?.id || item?.slug).map((profile, index) => {
     const fallback = launchFixtures.profiles.find((item) => item.id === profile.id || item.slug === profile.slug) || launchFixtures.profiles[index] || {};
     const name = profile.name || fallback.name || "this contributor";
     return {
@@ -146,7 +123,7 @@ function mergePublicationFixtures(payload) {
       image: profile.image || fallback.image || { url: "/media/profile-placeholder.jpg", altText: "Portrait of " + name }
     };
   });
-  const mediaItems = mergeCollection(launchFixtures.mediaItems, payload?.mediaItems, (item) => item?.id || item?.url).map((item, index) => {
+  const mediaItems = hydrateCollection(payload?.mediaItems, launchFixtures.mediaItems, (item) => item?.id || item?.url).map((item, index) => {
     const fallback = launchFixtures.mediaItems.find((candidate) => candidate.id === item.id || candidate.url === item.url) || launchFixtures.mediaItems[index] || {};
     return {
       ...fallback,

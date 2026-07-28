@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { Pool } = require("pg");
-const { SubmissionStore, mergeSeedData } = require("./submissionStore.js");
+const { SubmissionStore } = require("./submissionStore.js");
 
 const ROW_ID = "primary";
 const READ_METHODS = [
@@ -15,7 +15,6 @@ const READ_METHODS = [
   "snapshot"
 ];
 const MUTATION_METHODS = [
-  "createNewsletterSignup",
   "createContactSubmission",
   "createComment",
   "createReview",
@@ -61,17 +60,6 @@ class PostgresSubmissionStore {
        ON CONFLICT (id) DO NOTHING`,
       [ROW_ID, JSON.stringify(initial)]
     );
-    const current = await this.pool.query("SELECT data FROM publication_state WHERE id = $1", [ROW_ID]);
-    const currentData = current.rows[0]?.data || initial;
-    const merged = mergeSeedData(currentData, this.seed);
-    if (JSON.stringify(merged) !== JSON.stringify(currentData)) {
-      await this.pool.query(
-        `UPDATE publication_state
-         SET data = $1::jsonb, schema_version = 2, updated_at = now()
-         WHERE id = $2`,
-        [JSON.stringify(merged), ROW_ID]
-      );
-    }
   }
 
   async read(method, args) {

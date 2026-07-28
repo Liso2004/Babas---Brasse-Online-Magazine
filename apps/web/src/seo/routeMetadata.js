@@ -170,7 +170,7 @@ function normalizeMetadata(metadata) {
 }
 
 export function buildRouteMetadata(route, options = {}) {
-  const isPrivateAdminRoute = route?.area === "admin" || route?.authRequired === true || route?.id === "admin-login" || route?.id === "password-reset";
+  const isPrivateAdminRoute = route?.area === "admin" || route?.authRequired === true || route?.id === "admin-login";
 
   if (isPrivateAdminRoute) {
     return normalizeMetadata({

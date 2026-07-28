@@ -55,6 +55,31 @@ function sendJson(response, statusCode, payload) {
   response.end(body);
 }
 
+function sendSitemap(response, snapshot, environment = process.env) {
+  const siteUrl = String(environment.BABAS_PUBLIC_SITE_URL || "https://babasandbrasse.co.za").replace(/\/+$/, "");
+  const paths = new Set([
+    "/", "/about", "/content", "/creative-team", "/contributors", "/visceral-mag",
+    "/search", "/photography", "/featured", "/contact"
+  ]);
+  for (const article of snapshot.articles || []) if (article.slug) paths.add(`/visceral-mag/${encodeURIComponent(article.slug)}`);
+  for (const profile of snapshot.profiles || []) if (profile.slug) paths.add(`/people/${encodeURIComponent(profile.slug)}`);
+  for (const media of snapshot.mediaItems || []) if (media.id) paths.add(`/media/${encodeURIComponent(media.id)}`);
+  const body = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...[...paths].map((pathname) => `  <url><loc>${siteUrl}${pathname}</loc></url>`),
+    "</urlset>",
+    ""
+  ].join("\n");
+  response.writeHead(200, {
+    ...staticSecurityHeaders(),
+    "Content-Type": "application/xml; charset=utf-8",
+    "Content-Length": Buffer.byteLength(body),
+    "Cache-Control": "public, max-age=300"
+  });
+  response.end(body);
+}
+
 function staticSecurityHeaders() {
   return {
     "Content-Security-Policy": "default-src 'self'; img-src 'self' data:; font-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
@@ -110,8 +135,7 @@ function serveWebRequest(request, response, url, webRoot) {
 }
 
 function isPublicSubmissionPath(pathname) {
-  return pathname === "/api/newsletter-signups"
-    || pathname === "/api/contact-submissions"
+  return pathname === "/api/contact-submissions"
     || /^\/api\/articles\/[^/]+\/(comments|reviews)$/.test(pathname);
 }
 
@@ -357,6 +381,12 @@ function createApiServer(options = {}) {
         return;
       }
 
+      if (request.method === "GET" && url.pathname === "/sitemap.xml") {
+        const snapshot = await store.editorialSnapshot({ publishedOnly: true, reviewStatus: "approved" });
+        sendSitemap(response, snapshot, environment);
+        return;
+      }
+
       if (request.method === "POST" && url.pathname === "/api/admin/login") {
         const rateResult = loginLimiter.consume(clientKey(request, "admin-login", trustProxy));
         applyRateLimitHeaders(response, rateResult);
@@ -421,17 +451,6 @@ function createApiServer(options = {}) {
 
       const payload = await readJson(request);
 
-      if (url.pathname === "/api/newsletter-signups") {
-        const signup = await store.createNewsletterSignup(payload);
-        logSecurity("public_submission.accepted", signup.duplicate ? 200 : 201);
-        sendJson(response, signup.duplicate ? 200 : 201, {
-          id: signup.id,
-          email: signup.email,
-          status: signup.status
-        });
-        return;
-      }
-
       if (url.pathname === "/api/contact-submissions") {
         const submission = await store.createContactSubmission(payload);
         logSecurity("public_submission.accepted", 201);
@@ -475,7 +494,30 @@ function createApiServer(options = {}) {
     }
   });
   server.storeReady = Promise.resolve(store.ready);
+  server.publicationStore = store;
   return server;
+}
+
+function installShutdownHandlers(server, options = {}) {
+  const exit = options.exit || ((code) => { process.exitCode = code; });
+  let shuttingDown = false;
+  const shutdown = (signal) => {
+    if (shuttingDown) return;
+    shuttingDown = true;
+    process.stdout.write(`Babas & Brasse received ${signal}; shutting down.\n`);
+    server.close(async (closeError) => {
+      try {
+        if (typeof server.publicationStore?.close === "function") await server.publicationStore.close();
+        exit(closeError ? 1 : 0);
+      } catch (error) {
+        process.stderr.write(`Babas & Brasse shutdown failed: ${error.message}\n`);
+        exit(1);
+      }
+    });
+  };
+  process.once("SIGTERM", shutdown);
+  process.once("SIGINT", shutdown);
+  return shutdown;
 }
 
 if (require.main === module) {
@@ -486,6 +528,7 @@ if (require.main === module) {
     server.listen(port, host, () => {
       process.stdout.write(`Babas & Brasse API listening at http://${host}:${port}\n`);
     });
+    installShutdownHandlers(server);
   }).catch((error) => {
     process.stderr.write(`Babas & Brasse failed to start: ${error.message}\n`);
     process.exitCode = 1;
@@ -494,6 +537,7 @@ if (require.main === module) {
 
 module.exports = {
   createApiServer,
+  installShutdownHandlers,
   readJson,
   requireAdmin,
   tokensMatch

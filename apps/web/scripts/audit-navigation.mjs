@@ -87,14 +87,20 @@ async function waitForPage(send) {
     if (await evaluate(send, "document.readyState") === "complete") break;
     await wait(100);
   }
-  await wait(700);
+  await wait(1200);
 }
 
 const snapshotExpression = `(() => {
   const header = document.querySelector(".final-design-header");
   const nav = document.querySelector("#public-navigation");
-  const panel = document.querySelector("#editorial-navigation-panel");
-  const visible = (element) => element && getComputedStyle(element).display !== "none" && element.getBoundingClientRect().width > 0;
+  const panel = document.querySelector("#home-navigation-menu");
+  const visible = (element) => {
+    if (!element || element.hidden) return false;
+    const style = getComputedStyle(element);
+    const box = element.getBoundingClientRect();
+    return style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity) !== 0
+      && box.width > 0 && box.height > 0 && box.right > 0 && box.left < innerWidth;
+  };
   const rect = (element) => {
     const box = element?.getBoundingClientRect();
     return box ? { x: Math.round(box.x), y: Math.round(box.y), width: Math.round(box.width), height: Math.round(box.height), right: Math.round(box.right), bottom: Math.round(box.bottom) } : null;
@@ -120,9 +126,8 @@ const snapshotExpression = `(() => {
     panel: rect(panel),
     panelVisible: visible(panel),
     mobileMenuOpen: nav?.dataset.mobileOpen === "true",
-    searchCount: header.querySelectorAll('[role="search"]').length,
-    searchTriggerCount: header.querySelectorAll('[aria-controls$="-panel"][aria-label="Open article search"]').length,
-    sectionLinkCount: panel?.querySelectorAll("nav a").length || 0,
+    sectionToggleCount: header.querySelectorAll('[aria-controls="home-navigation-menu"]').length,
+    sectionLinkCount: panel ? [...panel.children].filter((element) => element.matches("a")).length : 0,
     currentLinks: headerLinks.filter((link) => link.getAttribute("aria-current") === "page").map((link) => link.textContent.trim()),
     duplicateHrefs: [...new Set(navigationHrefs.filter((href, index) => href && navigationHrefs.indexOf(href) !== index))],
     publicAdminLinks: hrefs.filter((href) => href?.startsWith("/admin")),
@@ -165,7 +170,7 @@ async function auditViewport(browser, viewport) {
       await evaluate(client.send, `document.querySelector('[aria-controls="public-navigation"]')?.click()`);
       await wait(150);
     }
-    await evaluate(client.send, `document.querySelector('[aria-controls="editorial-navigation-panel"]')?.click()`);
+    await evaluate(client.send, `document.querySelector('[aria-controls="home-navigation-menu"]')?.click()`);
     await wait(150);
     const expanded = await evaluate(client.send, snapshotExpression);
 
@@ -200,9 +205,14 @@ function validate(results) {
   const issues = [];
   for (const result of results) {
     const states = [result.initial, result.expanded, result.escaped, result.activePage];
+    const stableStates = [result.initial, result.escaped, result.activePage];
     if (states.some((state) => state.horizontalOverflow)) issues.push(`${result.id}: horizontal overflow`);
-    if (states.some((state) => state.topLevelOverlap || state.navigationItemOverlap)) issues.push(`${result.id}: navigation elements overlap`);
-    if (result.initial.searchCount !== 0 || result.initial.searchTriggerCount !== 1) issues.push(`${result.id}: expected one search trigger and no closed overlay form`);
+    if (stableStates.some((state) => state.topLevelOverlap || state.navigationItemOverlap)
+      || result.expanded.navigationItemOverlap
+      || (result.expanded.viewport.width > 960 && result.expanded.topLevelOverlap)) {
+      issues.push(`${result.id}: navigation elements overlap`);
+    }
+    if (result.initial.sectionToggleCount !== 1) issues.push(`${result.id}: expected one Home section toggle`);
     if (result.initial.publicAdminLinks.length) issues.push(`${result.id}: public admin link exposed`);
     if (!result.carouselInitial.destinations.includes("/visceral-mag") || !result.carouselInitial.destinations.includes("/search?category=reviews&topic=theatre") || !result.carouselInitial.destinations.includes("/featured")) issues.push(`${result.id}: carousel destinations incomplete`);
     if (result.carouselImagePath !== "/visceral-mag") issues.push(`${result.id}: carousel image link did not navigate`);

@@ -19,12 +19,9 @@ const routes = [
   "/admin/moderation",
   "/admin/contact-submissions",
   "/admin/login",
-  "/admin/password-reset",
   "/404",
   "/500",
-  "/offline",
-  "/admin/media/upload",
-  "/admin/articles/editor-workflow"
+  "/offline"
 ];
 
 async function smokeRoute(pathname) {

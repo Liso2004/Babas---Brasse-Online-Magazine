@@ -1,23 +1,20 @@
-const fs = require("node:fs");
-const path = require("node:path");
+const { Pool } = require("pg");
 const { loadEnvFile } = require("./env.js");
-const { createPublicationStore } = require("./storeFactory.js");
 
 async function checkDatabase(environment = process.env) {
   loadEnvFile(undefined, environment);
   if (!environment.DATABASE_URL) throw new Error("DATABASE_URL is required.");
-  const seedPath = path.join(__dirname, "data", "editorial-seed.json");
-  const seed = fs.existsSync(seedPath) ? JSON.parse(fs.readFileSync(seedPath, "utf8")) : {};
-  const store = createPublicationStore({
-    environment: { ...environment, NODE_ENV: "production" },
-    seed
+  const pool = new Pool({
+    connectionString: environment.DATABASE_URL,
+    ssl: environment.BABAS_DATABASE_SSL === "0"
+      ? false
+      : { rejectUnauthorized: environment.BABAS_DATABASE_SSL_REJECT_UNAUTHORIZED !== "0" }
   });
   try {
-    await store.ready;
-    const health = await store.healthCheck();
-    process.stdout.write(`Database ready: ${health.storage}\n`);
+    await pool.query("SELECT 1 AS ready");
+    process.stdout.write("Database connection ready: postgresql\n");
   } finally {
-    await store.close();
+    await pool.end();
   }
 }
 

@@ -68,7 +68,7 @@ API and production variables are documented in the root `README.md` and `apps/ap
 
 Public routes are defined in `src/routes.js`:
 
-- `/` - homepage with featured content, categories, media, profiles, and newsletter prompts.
+- `/` - homepage with featured content, categories, media, and profiles.
 - `/about` - magazine mission, editorial pillars, structure, and submission links.
 - `/content` - temporary content directory that groups published articles by magazine section.
 - `/photography` - photography/media gallery.
@@ -90,11 +90,10 @@ Admin/support routes include:
 - `/admin/profiles-media` - profile and media metadata management.
 - `/admin/moderation` - comment and review moderation.
 - `/admin/contact-submissions` - contact inbox review.
-- `/admin/media/upload` - media upload workflow support.
-- `/admin/articles/editor-workflow` - article editor workflow support.
-- `/admin/password-reset`, `/404`, `/500`, `/offline` - support states.
+- `/404`, `/500`, and `/offline` - support states.
 
 Admin routes use `AdminGate` and require a valid same-origin API session cookie.
+Password recovery and binary uploads are intentionally not exposed as incomplete browser workflows.
 
 ## Data Flow
 

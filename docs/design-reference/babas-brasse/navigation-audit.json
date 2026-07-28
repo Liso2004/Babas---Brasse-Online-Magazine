@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T12:58:09.876Z",
+  "generatedAt": "2026-07-28T11:57:25.442Z",
   "baseUrl": "http://127.0.0.1:5173",
   "issues": [],
   "results": [
@@ -18,17 +18,17 @@
           "x": 0,
           "y": 0,
           "width": 1425,
-          "height": 111,
+          "height": 92,
           "right": 1425,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1167,
-          "height": 48,
-          "right": 1401,
-          "bottom": 81
+          "x": 218,
+          "y": 19,
+          "width": 1139,
+          "height": 59,
+          "right": 1357,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -40,8 +40,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -52,23 +51,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1167,
-              "height": 48,
-              "right": 1401,
-              "bottom": 81
+              "x": 218,
+              "y": 19,
+              "width": 1139,
+              "height": 59,
+              "right": 1357,
+              "bottom": 78
             }
           }
         ]
@@ -97,30 +96,29 @@
           "x": 0,
           "y": 0,
           "width": 1425,
-          "height": 111,
+          "height": 92,
           "right": 1425,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1167,
-          "height": 48,
-          "right": 1401,
-          "bottom": 81
+          "x": 218,
+          "y": 19,
+          "width": 1139,
+          "height": 59,
+          "right": 1357,
+          "bottom": 78
         },
         "panel": {
-          "x": 0,
-          "y": 108,
-          "width": 1425,
-          "height": 357,
-          "right": 1425,
-          "bottom": 465
+          "x": 109,
+          "y": 86,
+          "width": 240,
+          "height": 332,
+          "right": 349,
+          "bottom": 418
         },
         "panelVisible": true,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -131,23 +129,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1167,
-              "height": 48,
-              "right": 1401,
-              "bottom": 81
+              "x": 218,
+              "y": 19,
+              "width": 1139,
+              "height": 59,
+              "right": 1357,
+              "bottom": 78
             }
           }
         ]
@@ -165,17 +163,17 @@
           "x": 0,
           "y": 0,
           "width": 1425,
-          "height": 111,
+          "height": 92,
           "right": 1425,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1167,
-          "height": 48,
-          "right": 1401,
-          "bottom": 81
+          "x": 218,
+          "y": 19,
+          "width": 1139,
+          "height": 59,
+          "right": 1357,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -187,8 +185,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -199,23 +196,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1167,
-              "height": 48,
-              "right": 1401,
-              "bottom": 81
+              "x": 218,
+              "y": 19,
+              "width": 1139,
+              "height": 59,
+              "right": 1357,
+              "bottom": 78
             }
           }
         ]
@@ -233,17 +230,17 @@
           "x": 0,
           "y": 0,
           "width": 1425,
-          "height": 111,
+          "height": 92,
           "right": 1425,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1167,
-          "height": 48,
-          "right": 1401,
-          "bottom": 81
+          "x": 218,
+          "y": 19,
+          "width": 1139,
+          "height": 59,
+          "right": 1357,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -255,8 +252,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "About"
@@ -267,23 +263,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1167,
-              "height": 48,
-              "right": 1401,
-              "bottom": 81
+              "x": 218,
+              "y": 19,
+              "width": 1139,
+              "height": 59,
+              "right": 1357,
+              "bottom": 78
             }
           }
         ]
@@ -311,17 +307,17 @@
           "x": 0,
           "y": 0,
           "width": 1265,
-          "height": 111,
+          "height": 92,
           "right": 1265,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1007,
-          "height": 48,
-          "right": 1241,
-          "bottom": 81
+          "x": 216,
+          "y": 19,
+          "width": 982,
+          "height": 59,
+          "right": 1199,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -333,8 +329,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -345,23 +340,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1007,
-              "height": 48,
-              "right": 1241,
-              "bottom": 81
+              "x": 216,
+              "y": 19,
+              "width": 982,
+              "height": 59,
+              "right": 1199,
+              "bottom": 78
             }
           }
         ]
@@ -390,30 +385,29 @@
           "x": 0,
           "y": 0,
           "width": 1265,
-          "height": 111,
+          "height": 92,
           "right": 1265,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1007,
-          "height": 48,
-          "right": 1241,
-          "bottom": 81
+          "x": 216,
+          "y": 19,
+          "width": 982,
+          "height": 59,
+          "right": 1199,
+          "bottom": 78
         },
         "panel": {
-          "x": 0,
-          "y": 108,
-          "width": 1265,
-          "height": 357,
-          "right": 1265,
-          "bottom": 465
+          "x": 100,
+          "y": 85,
+          "width": 240,
+          "height": 332,
+          "right": 340,
+          "bottom": 417
         },
         "panelVisible": true,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -424,23 +418,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1007,
-              "height": 48,
-              "right": 1241,
-              "bottom": 81
+              "x": 216,
+              "y": 19,
+              "width": 982,
+              "height": 59,
+              "right": 1199,
+              "bottom": 78
             }
           }
         ]
@@ -458,17 +452,17 @@
           "x": 0,
           "y": 0,
           "width": 1265,
-          "height": 111,
+          "height": 92,
           "right": 1265,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1007,
-          "height": 48,
-          "right": 1241,
-          "bottom": 81
+          "x": 216,
+          "y": 19,
+          "width": 982,
+          "height": 59,
+          "right": 1199,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -480,8 +474,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -492,23 +485,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1007,
-              "height": 48,
-              "right": 1241,
-              "bottom": 81
+              "x": 216,
+              "y": 19,
+              "width": 982,
+              "height": 59,
+              "right": 1199,
+              "bottom": 78
             }
           }
         ]
@@ -526,17 +519,17 @@
           "x": 0,
           "y": 0,
           "width": 1265,
-          "height": 111,
+          "height": 92,
           "right": 1265,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 1007,
-          "height": 48,
-          "right": 1241,
-          "bottom": 81
+          "x": 216,
+          "y": 19,
+          "width": 982,
+          "height": 59,
+          "right": 1199,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -548,8 +541,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "About"
@@ -560,23 +552,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 1007,
-              "height": 48,
-              "right": 1241,
-              "bottom": 81
+              "x": 216,
+              "y": 19,
+              "width": 982,
+              "height": 59,
+              "right": 1199,
+              "bottom": 78
             }
           }
         ]
@@ -604,17 +596,17 @@
           "x": 0,
           "y": 0,
           "width": 1009,
-          "height": 111,
+          "height": 92,
           "right": 1009,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 751,
-          "height": 48,
-          "right": 985,
-          "bottom": 81
+          "x": 178,
+          "y": 19,
+          "width": 785,
+          "height": 59,
+          "right": 963,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -626,8 +618,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -638,23 +629,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 751,
-              "height": 48,
-              "right": 985,
-              "bottom": 81
+              "x": 178,
+              "y": 19,
+              "width": 785,
+              "height": 59,
+              "right": 963,
+              "bottom": 78
             }
           }
         ]
@@ -683,30 +674,29 @@
           "x": 0,
           "y": 0,
           "width": 1009,
-          "height": 111,
+          "height": 92,
           "right": 1009,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 751,
-          "height": 48,
-          "right": 985,
-          "bottom": 81
+          "x": 178,
+          "y": 19,
+          "width": 785,
+          "height": 59,
+          "right": 963,
+          "bottom": 78
         },
         "panel": {
-          "x": 0,
-          "y": 108,
-          "width": 1009,
-          "height": 357,
-          "right": 1009,
-          "bottom": 465
+          "x": 83,
+          "y": 86,
+          "width": 240,
+          "height": 332,
+          "right": 323,
+          "bottom": 418
         },
         "panelVisible": true,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -717,23 +707,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 751,
-              "height": 48,
-              "right": 985,
-              "bottom": 81
+              "x": 178,
+              "y": 19,
+              "width": 785,
+              "height": 59,
+              "right": 963,
+              "bottom": 78
             }
           }
         ]
@@ -751,17 +741,17 @@
           "x": 0,
           "y": 0,
           "width": 1009,
-          "height": 111,
+          "height": 92,
           "right": 1009,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 751,
-          "height": 48,
-          "right": 985,
-          "bottom": 81
+          "x": 178,
+          "y": 19,
+          "width": 785,
+          "height": 59,
+          "right": 963,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -773,8 +763,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -785,23 +774,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 751,
-              "height": 48,
-              "right": 985,
-              "bottom": 81
+              "x": 178,
+              "y": 19,
+              "width": 785,
+              "height": 59,
+              "right": 963,
+              "bottom": 78
             }
           }
         ]
@@ -819,17 +808,17 @@
           "x": 0,
           "y": 0,
           "width": 1009,
-          "height": 111,
+          "height": 92,
           "right": 1009,
-          "bottom": 111
+          "bottom": 92
         },
         "nav": {
-          "x": 234,
-          "y": 33,
-          "width": 751,
-          "height": 48,
-          "right": 985,
-          "bottom": 81
+          "x": 178,
+          "y": 19,
+          "width": 785,
+          "height": 59,
+          "right": 963,
+          "bottom": 78
         },
         "panel": {
           "x": 0,
@@ -841,8 +830,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "About"
@@ -853,23 +841,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 21,
-              "width": 178,
-              "height": 72,
-              "right": 202,
-              "bottom": 93
+              "x": -22,
+              "y": 17,
+              "width": 150,
+              "height": 62,
+              "right": 128,
+              "bottom": 79
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
-              "x": 234,
-              "y": 33,
-              "width": 751,
-              "height": 48,
-              "right": 985,
-              "bottom": 81
+              "x": 178,
+              "y": 19,
+              "width": 785,
+              "height": 59,
+              "right": 963,
+              "bottom": 78
             }
           }
         ]
@@ -897,9 +885,9 @@
           "x": 0,
           "y": 0,
           "width": 753,
-          "height": 77,
+          "height": 90,
           "right": 753,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -919,8 +907,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -931,23 +918,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 136,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 685,
-              "y": 18,
+              "x": 693,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 729,
-              "bottom": 62
+              "right": 737,
+              "bottom": 69
             }
           }
         ]
@@ -970,36 +957,35 @@
         },
         "documentWidth": 753,
         "horizontalOverflow": false,
-        "topLevelOverlap": false,
+        "topLevelOverlap": true,
         "navigationItemOverlap": false,
         "header": {
           "x": 0,
           "y": 0,
           "width": 753,
-          "height": 77,
+          "height": 90,
           "right": 753,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
-          "y": 76,
+          "y": 72,
           "width": 753,
-          "height": 948,
+          "height": 952,
           "right": 753,
           "bottom": 1024
         },
         "panel": {
           "x": 38,
-          "y": 538,
-          "width": 661,
-          "height": 579,
-          "right": 700,
-          "bottom": 1117
+          "y": 239,
+          "width": 676,
+          "height": 356,
+          "right": 715,
+          "bottom": 595
         },
         "panelVisible": true,
         "mobileMenuOpen": true,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1010,21 +996,21 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 136,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
               "x": 0,
-              "y": 76,
+              "y": 72,
               "width": 753,
-              "height": 948,
+              "height": 952,
               "right": 753,
               "bottom": 1024
             }
@@ -1032,12 +1018,12 @@
           {
             "label": "Close navigation",
             "rect": {
-              "x": 685,
-              "y": 18,
+              "x": 693,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 729,
-              "bottom": 62
+              "right": 737,
+              "bottom": 69
             }
           }
         ]
@@ -1055,9 +1041,9 @@
           "x": 0,
           "y": 0,
           "width": 753,
-          "height": 77,
+          "height": 90,
           "right": 753,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1077,8 +1063,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1089,23 +1074,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 136,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 685,
-              "y": 18,
+              "x": 693,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 729,
-              "bottom": 62
+              "right": 737,
+              "bottom": 69
             }
           }
         ]
@@ -1123,9 +1108,9 @@
           "x": 0,
           "y": 0,
           "width": 753,
-          "height": 77,
+          "height": 90,
           "right": 753,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1145,8 +1130,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "About"
@@ -1157,23 +1141,23 @@
           {
             "label": "",
             "rect": {
-              "x": 24,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 136,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 685,
-              "y": 18,
+              "x": 693,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 729,
-              "bottom": 62
+              "right": 737,
+              "bottom": 69
             }
           }
         ]
@@ -1201,9 +1185,9 @@
           "x": 0,
           "y": 0,
           "width": 415,
-          "height": 77,
+          "height": 90,
           "right": 415,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1223,8 +1207,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1235,23 +1218,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 357,
-              "y": 18,
+              "x": 355,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 401,
-              "bottom": 62
+              "right": 399,
+              "bottom": 69
             }
           }
         ]
@@ -1274,36 +1257,35 @@
         },
         "documentWidth": 415,
         "horizontalOverflow": false,
-        "topLevelOverlap": false,
+        "topLevelOverlap": true,
         "navigationItemOverlap": false,
         "header": {
           "x": 0,
           "y": 0,
           "width": 415,
-          "height": 77,
+          "height": 90,
           "right": 415,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
-          "y": 76,
+          "y": 72,
           "width": 415,
-          "height": 768,
+          "height": 772,
           "right": 415,
           "bottom": 844
         },
         "panel": {
-          "x": 18,
-          "y": 538,
-          "width": 364,
-          "height": 845,
-          "right": 382,
-          "bottom": 1383
+          "x": 22,
+          "y": 240,
+          "width": 357,
+          "height": 356,
+          "right": 379,
+          "bottom": 596
         },
         "panelVisible": true,
         "mobileMenuOpen": true,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1314,21 +1296,21 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
               "x": 0,
-              "y": 76,
+              "y": 72,
               "width": 415,
-              "height": 768,
+              "height": 772,
               "right": 415,
               "bottom": 844
             }
@@ -1336,12 +1318,12 @@
           {
             "label": "Close navigation",
             "rect": {
-              "x": 357,
-              "y": 18,
+              "x": 355,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 401,
-              "bottom": 62
+              "right": 399,
+              "bottom": 69
             }
           }
         ]
@@ -1359,9 +1341,9 @@
           "x": 0,
           "y": 0,
           "width": 415,
-          "height": 77,
+          "height": 90,
           "right": 415,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1381,8 +1363,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1393,23 +1374,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 357,
-              "y": 18,
+              "x": 355,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 401,
-              "bottom": 62
+              "right": 399,
+              "bottom": 69
             }
           }
         ]
@@ -1427,9 +1408,9 @@
           "x": 0,
           "y": 0,
           "width": 415,
-          "height": 77,
+          "height": 90,
           "right": 415,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1449,8 +1430,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "About"
@@ -1461,23 +1441,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 357,
-              "y": 18,
+              "x": 355,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 401,
-              "bottom": 62
+              "right": 399,
+              "bottom": 69
             }
           }
         ]
@@ -1505,9 +1485,9 @@
           "x": 0,
           "y": 0,
           "width": 390,
-          "height": 77,
+          "height": 90,
           "right": 390,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1527,8 +1507,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1539,23 +1518,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 332,
-              "y": 18,
+              "x": 330,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 376,
-              "bottom": 62
+              "right": 374,
+              "bottom": 69
             }
           }
         ]
@@ -1578,36 +1557,35 @@
         },
         "documentWidth": 390,
         "horizontalOverflow": false,
-        "topLevelOverlap": false,
+        "topLevelOverlap": true,
         "navigationItemOverlap": false,
         "header": {
           "x": 0,
           "y": 0,
           "width": 390,
-          "height": 77,
+          "height": 90,
           "right": 390,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
-          "y": 76,
+          "y": 72,
           "width": 390,
-          "height": 768,
+          "height": 772,
           "right": 390,
           "bottom": 844
         },
         "panel": {
-          "x": 18,
-          "y": 538,
-          "width": 354,
-          "height": 767,
-          "right": 372,
-          "bottom": 1305
+          "x": 20,
+          "y": 239,
+          "width": 350,
+          "height": 356,
+          "right": 370,
+          "bottom": 595
         },
         "panelVisible": true,
         "mobileMenuOpen": true,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1618,21 +1596,21 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
               "x": 0,
-              "y": 76,
+              "y": 72,
               "width": 390,
-              "height": 768,
+              "height": 772,
               "right": 390,
               "bottom": 844
             }
@@ -1640,12 +1618,12 @@
           {
             "label": "Close navigation",
             "rect": {
-              "x": 332,
-              "y": 18,
+              "x": 330,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 376,
-              "bottom": 62
+              "right": 374,
+              "bottom": 69
             }
           }
         ]
@@ -1663,9 +1641,9 @@
           "x": 0,
           "y": 0,
           "width": 390,
-          "height": 77,
+          "height": 90,
           "right": 390,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1685,8 +1663,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1697,23 +1674,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 332,
-              "y": 18,
+              "x": 330,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 376,
-              "bottom": 62
+              "right": 374,
+              "bottom": 69
             }
           }
         ]
@@ -1731,9 +1708,9 @@
           "x": 0,
           "y": 0,
           "width": 390,
-          "height": 77,
+          "height": 90,
           "right": 390,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1753,8 +1730,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "About"
@@ -1765,23 +1741,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 332,
-              "y": 18,
+              "x": 330,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 376,
-              "bottom": 62
+              "right": 374,
+              "bottom": 69
             }
           }
         ]
@@ -1809,9 +1785,9 @@
           "x": 0,
           "y": 0,
           "width": 360,
-          "height": 77,
+          "height": 90,
           "right": 360,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1831,8 +1807,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1843,23 +1818,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 302,
-              "y": 18,
+              "x": 300,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 346,
-              "bottom": 62
+              "right": 344,
+              "bottom": 69
             }
           }
         ]
@@ -1882,36 +1857,35 @@
         },
         "documentWidth": 360,
         "horizontalOverflow": false,
-        "topLevelOverlap": false,
+        "topLevelOverlap": true,
         "navigationItemOverlap": false,
         "header": {
           "x": 0,
           "y": 0,
           "width": 360,
-          "height": 77,
+          "height": 90,
           "right": 360,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
-          "y": 76,
+          "y": 72,
           "width": 360,
-          "height": 736,
+          "height": 740,
           "right": 360,
           "bottom": 812
         },
         "panel": {
-          "x": 18,
-          "y": 537,
-          "width": 309,
-          "height": 767,
-          "right": 327,
-          "bottom": 1304
+          "x": 20,
+          "y": 239,
+          "width": 305,
+          "height": 356,
+          "right": 325,
+          "bottom": 595
         },
         "panelVisible": true,
         "mobileMenuOpen": true,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -1922,21 +1896,21 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
-            "label": "Home///About///Visceral Mag///Featured /",
+            "label": "HomeTheaterEssaysShort StoriesLiterature",
             "rect": {
               "x": 0,
-              "y": 76,
+              "y": 72,
               "width": 360,
-              "height": 736,
+              "height": 740,
               "right": 360,
               "bottom": 812
             }
@@ -1944,12 +1918,12 @@
           {
             "label": "Close navigation",
             "rect": {
-              "x": 302,
-              "y": 18,
+              "x": 300,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 346,
-              "bottom": 62
+              "right": 344,
+              "bottom": 69
             }
           }
         ]
@@ -1967,9 +1941,9 @@
           "x": 0,
           "y": 0,
           "width": 360,
-          "height": 77,
+          "height": 90,
           "right": 360,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -1989,8 +1963,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "Home"
@@ -2001,23 +1974,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 302,
-              "y": 18,
+              "x": 300,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 346,
-              "bottom": 62
+              "right": 344,
+              "bottom": 69
             }
           }
         ]
@@ -2035,9 +2008,9 @@
           "x": 0,
           "y": 0,
           "width": 360,
-          "height": 77,
+          "height": 90,
           "right": 360,
-          "bottom": 77
+          "bottom": 90
         },
         "nav": {
           "x": 0,
@@ -2057,8 +2030,7 @@
         },
         "panelVisible": false,
         "mobileMenuOpen": false,
-        "searchCount": 0,
-        "searchTriggerCount": 1,
+        "sectionToggleCount": 1,
         "sectionLinkCount": 6,
         "currentLinks": [
           "About"
@@ -2069,23 +2041,23 @@
           {
             "label": "",
             "rect": {
-              "x": 14,
-              "y": 14,
-              "width": 112,
-              "height": 52,
-              "right": 126,
-              "bottom": 66
+              "x": -34,
+              "y": 19,
+              "width": 128,
+              "height": 56,
+              "right": 94,
+              "bottom": 75
             }
           },
           {
             "label": "Open navigation",
             "rect": {
-              "x": 302,
-              "y": 18,
+              "x": 300,
+              "y": 25,
               "width": 44,
               "height": 44,
-              "right": 346,
-              "bottom": 62
+              "right": 344,
+              "bottom": 69
             }
           }
         ]

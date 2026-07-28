@@ -35,7 +35,6 @@ Set `BABAS_API_DATA_PATH` to use a different local JSON file. This is for local 
 
 The local store validates and persists:
 
-- newsletter signups;
 - contact submissions;
 - article comments;
 - article reviews;
@@ -83,6 +82,7 @@ Optional:
 - `BABAS_RATE_WINDOW_MS` - rate-limit window; default `900000`.
 - `BABAS_TRUST_PROXY` - set to `1` only behind a trusted reverse proxy.
 - `BABAS_API_DATA_PATH` - local JSON store override outside production.
+- `BABAS_PUBLIC_SITE_URL` - canonical public origin used by the dynamic sitemap.
 
 Never use `BABAS_ADMIN_PASSWORD` in production. Production startup rejects it.
 
@@ -104,7 +104,6 @@ Public endpoints:
 
 - `GET /api/health` - health and storage status.
 - `GET /api/content` - published content for the frontend.
-- `POST /api/newsletter-signups` - stores a pending newsletter signup.
 - `POST /api/contact-submissions` - stores a contact message with status `new`.
 - `POST /api/articles/:slug/comments` - stores a pending comment.
 - `POST /api/articles/:slug/reviews` - stores a pending review.
@@ -195,6 +194,7 @@ Production startup expects:
 The production server serves:
 
 - `/api/*` as JSON API routes;
+- `/sitemap.xml` generated from current published editorial records;
 - static assets from the Vite build;
 - `index.html` fallback for frontend routes.
 
@@ -203,12 +203,12 @@ The production server serves:
 The API applies separate fixed-window budgets for:
 
 - admin login attempts;
-- public submissions: newsletter, contact, comments, and reviews.
+- public submissions: contact messages, comments, and reviews.
 
 Production security events are written to stdout as JSON records without logging raw passwords, messages, emails, tokens, or raw client addresses.
 
-## Known Gaps
+## Intentional Launch Boundaries
 
-- Contact submissions and newsletter signups are stored, but email delivery is not implemented.
-- Newsletter confirmation flow is not implemented.
-- Binary media upload/object storage is not implemented; current media endpoints store metadata and URLs.
+- Contact submissions are stored for the admin inbox; automatic notification email is not included.
+- Binary media upload/object storage is not exposed; media endpoints store approved URLs and metadata.
+- Password recovery is an operator procedure documented in `docs/OPERATIONS.md`, not a public endpoint.

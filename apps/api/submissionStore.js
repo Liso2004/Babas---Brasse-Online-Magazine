@@ -47,34 +47,9 @@ function collection(seed, key) {
   return Array.isArray(seed?.[key]) ? clone(seed[key]) : [];
 }
 
-function identityKey(item) {
-  return item?.id || item?.slug || item?.url || item?.email || "";
-}
-
-function mergeMissingSeedItems(existingItems, seedItems) {
-  const existing = Array.isArray(existingItems) ? clone(existingItems) : [];
-  const keys = new Set(existing.map(identityKey).filter(Boolean));
-  for (const item of Array.isArray(seedItems) ? seedItems : []) {
-    const key = identityKey(item);
-    if (!key || keys.has(key)) continue;
-    keys.add(key);
-    existing.push(clone(item));
-  }
-  return existing;
-}
-
-function mergeSeedData(data, seed = {}) {
-  const merged = clone(data);
-  for (const key of ["categories", "articles", "profiles", "mediaItems", "reviews"]) {
-    merged[key] = mergeMissingSeedItems(merged[key], seed?.[key]);
-  }
-  return merged;
-}
-
 function emptyData(seed = {}) {
   return {
     version: 2,
-    newsletterSignups: collection(seed, "newsletterSignups"),
     contactSubmissions: collection(seed, "contactSubmissions"),
     comments: collection(seed, "comments"),
     categories: collection(seed, "categories"),
@@ -133,7 +108,7 @@ class SubmissionStore {
       if (Array.isArray(defaults[key])) return [key, Array.isArray(value) ? value : []];
       return [key, key === "version" ? 2 : value];
     }));
-    return mergeSeedData(normalized, seed);
+    return normalized;
   }
 
   persist() {
@@ -143,16 +118,6 @@ class SubmissionStore {
     const temporary = `${this.filePath}.${process.pid}.${Date.now()}.tmp`;
     fs.writeFileSync(temporary, JSON.stringify(this.data, null, 2) + "\n", { encoding: "utf8", mode: 0o600 });
     fs.renameSync(temporary, this.filePath);
-  }
-
-  createNewsletterSignup(payload) {
-    const email = cleanEmail(payload?.email);
-    const existing = this.data.newsletterSignups.find((item) => item.email === email);
-    if (existing) return { ...existing, duplicate: true };
-    const signup = { id: `newsletter-${crypto.randomUUID()}`, email, status: "pending-confirmation", createdAt: new Date().toISOString() };
-    this.data.newsletterSignups.push(signup);
-    this.persist();
-    return { ...signup };
   }
 
   createContactSubmission(payload) {
@@ -420,6 +385,5 @@ class SubmissionStore {
 module.exports = {
   SubmissionStore,
   ValidationError,
-  cleanEmail,
-  mergeSeedData
+  cleanEmail
 };

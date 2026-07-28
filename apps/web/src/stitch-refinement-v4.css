@@ -1256,7 +1256,6 @@
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status[data-form-status="success"] { background: var(--stitch-v4-ink); color: var(--stitch-v4-paper); }
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status[data-form-status="error"],
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status[data-form-status="validation"] { background: var(--stitch-v4-accent); color: var(--stitch-v4-paper); }
-[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-newsletter-panel { margin: 0; border: 0; border-radius: 0; }
 
 @media (max-width: 760px) {
   [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] { border-inline: 0; }

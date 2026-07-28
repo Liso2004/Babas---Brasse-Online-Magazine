@@ -26,12 +26,9 @@ export const adminRoutes = [
 
 export const supportRoutes = [
   { id: "admin-login", label: "Admin Login", path: "/admin/login", area: "support", prototypeFile: "src/pages/admin/login.html" },
-  { id: "password-reset", label: "Password Reset", path: "/admin/password-reset", area: "support", prototypeFile: "src/pages/admin/password-reset.html" },
   { id: "not-found", label: "Not Found", path: "/404", area: "support", prototypeFile: "src/pages/not-found.html" },
   { id: "server-error", label: "Server Error", path: "/500", area: "support", prototypeFile: "src/pages/server-error.html" },
-  { id: "offline", label: "Offline", path: "/offline", area: "support", prototypeFile: "src/pages/offline-maintenance.html" },
-  { id: "media-upload", label: "Media Upload", path: "/admin/media/upload", area: "support", authRequired: true, prototypeFile: "src/pages/admin/media-upload-modal.html" },
-  { id: "article-editor-workflow", label: "Article Editor Workflow", path: "/admin/articles/editor-workflow", area: "support", authRequired: true, prototypeFile: "src/pages/admin/article-editor-workflow.html" },
+  { id: "offline", label: "Offline", path: "/offline", area: "support", prototypeFile: "src/pages/offline-maintenance.html" }
 ];
 
 export const routes = [...publicRoutes, ...adminRoutes, ...supportRoutes];

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5173",
     "build": "vite build",
-    "test": "node ../../tests/production-app-shell.test.js",
+    "test": "node --test ../../tests/*.test.cjs",
     "preview": "vite preview --host 127.0.0.1 --port 4174",
     "smoke:routes": "node scripts/smoke-routes.mjs",
     "qa:screenshots": "node scripts/capture-route-screenshots.mjs",
@@ -22,7 +22,6 @@
     "lucide-react": "^0.487.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.18.1",
     "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {

@@ -131,7 +131,7 @@ export function buildProfileMediaManagementRouteModel(fixtures) {
       },
       upload: {
         heading: "Upload / select media",
-        action: "/admin/media/upload",
+        action: "/admin/profiles-media",
         method: "post",
         enctype: "multipart/form-data",
         dropzone: { id: "media-upload", label: "Drop image, photo, or artwork here" },
