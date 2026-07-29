@@ -56,6 +56,27 @@ Admin and support pages include:
 - `/admin/contact-submissions` - contact form inbox.
 - `/404`, `/500`, and `/offline` - support states.
 
+## Fresh Clone Setup
+
+A clone intentionally does not include `.env`, `node_modules`, `apps/web/dist`, or local submission data. Nothing in the repository should point to the original developer's computer.
+
+From the cloned repository root:
+
+```powershell
+npm.cmd install
+npm.cmd --prefix apps/web install
+npm.cmd run setup:check
+```
+
+For public development, no `.env` file is required. To use the local admin login, create a machine-local file:
+
+```powershell
+Copy-Item .env.development.example .env
+```
+
+Then change `BABAS_ADMIN_EMAIL` and `BABAS_ADMIN_PASSWORD` in `.env`. The file is ignored by Git.
+
+`npm.cmd run dev:api` always forces development mode and ignores `BABAS_WEB_DIST_PATH`. This prevents a global `NODE_ENV=production` or an absolute path from another computer from breaking local development.
 ### Run The Frontend Locally
 
 Install dependencies once:

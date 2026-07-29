@@ -2,6 +2,8 @@
 
 `apps/web` is the React/Vite frontend for the Baba's Brasse online magazine. It contains the public magazine pages, admin UI pages, route models, SEO metadata, styling, and browser QA scripts.
 
+The frontend has no machine-specific runtime path and requires no `VITE_*` variables for local development.
+
 The app is designed to run with the API on the same origin. During local development, Vite proxies `/api` requests to the Node server at `http://127.0.0.1:8787`.
 
 ## Local Development

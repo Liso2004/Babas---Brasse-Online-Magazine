@@ -94,6 +94,7 @@ const snapshotExpression = `(() => {
   const header = document.querySelector(".final-design-header");
   const nav = document.querySelector("#public-navigation");
   const panel = document.querySelector("#home-navigation-menu");
+  const articlePanel = document.querySelector("#articles-navigation-menu");
   const visible = (element) => {
     if (!element || element.hidden) return false;
     const style = getComputedStyle(element);
@@ -125,9 +126,11 @@ const snapshotExpression = `(() => {
     nav: rect(nav),
     panel: rect(panel),
     panelVisible: visible(panel),
+    articlePanelVisible: visible(articlePanel),
     mobileMenuOpen: nav?.dataset.mobileOpen === "true",
     sectionToggleCount: header.querySelectorAll('[aria-controls="home-navigation-menu"]').length,
     sectionLinkCount: panel ? [...panel.children].filter((element) => element.matches("a")).length : 0,
+    articleLinkCount: articlePanel ? [...articlePanel.children].filter((element) => element.matches("a")).length : 0,
     currentLinks: headerLinks.filter((link) => link.getAttribute("aria-current") === "page").map((link) => link.textContent.trim()),
     duplicateHrefs: [...new Set(navigationHrefs.filter((href, index) => href && navigationHrefs.indexOf(href) !== index))],
     publicAdminLinks: hrefs.filter((href) => href?.startsWith("/admin")),
@@ -170,9 +173,13 @@ async function auditViewport(browser, viewport) {
       await evaluate(client.send, `document.querySelector('[aria-controls="public-navigation"]')?.click()`);
       await wait(150);
     }
+    await wait(150);
     await evaluate(client.send, `document.querySelector('[aria-controls="home-navigation-menu"]')?.click()`);
     await wait(150);
     const expanded = await evaluate(client.send, snapshotExpression);
+    await evaluate(client.send, `document.querySelector('[aria-controls="articles-navigation-menu"]')?.click()`);
+    await wait(150);
+    const nested = await evaluate(client.send, snapshotExpression);
 
     await evaluate(client.send, `document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }))`);
     await wait(150);
@@ -192,7 +199,7 @@ async function auditViewport(browser, viewport) {
       robots: document.querySelector("meta[name=robots]")?.content || ""
     })`);
 
-    return { id: viewport.id, initial, carouselInitial, carouselImagePath, carouselAfterArrow, carouselTextPath, expanded, escaped, activePage, adminEntry };
+    return { id: viewport.id, initial, carouselInitial, carouselImagePath, carouselAfterArrow, carouselTextPath, expanded, nested, escaped, activePage, adminEntry };
   } finally {
     client?.close();
     child.kill();
@@ -204,7 +211,7 @@ async function auditViewport(browser, viewport) {
 function validate(results) {
   const issues = [];
   for (const result of results) {
-    const states = [result.initial, result.expanded, result.escaped, result.activePage];
+    const states = [result.initial, result.expanded, result.nested, result.escaped, result.activePage];
     const stableStates = [result.initial, result.escaped, result.activePage];
     if (states.some((state) => state.horizontalOverflow)) issues.push(`${result.id}: horizontal overflow`);
     if (stableStates.some((state) => state.topLevelOverlap || state.navigationItemOverlap)
@@ -218,7 +225,8 @@ function validate(results) {
     if (result.carouselImagePath !== "/visceral-mag") issues.push(`${result.id}: carousel image link did not navigate`);
     if (!result.carouselAfterArrow.includes("Slide 2") || result.carouselTextPath !== "/search?category=reviews&topic=theatre") issues.push(`${result.id}: carousel arrow or text link did not navigate`);
     if (result.initial.duplicateHrefs.length) issues.push(`${result.id}: duplicate header hrefs`);
-    if (!result.expanded.panelVisible || result.expanded.sectionLinkCount !== 6) issues.push(`${result.id}: editorial panel did not expose six links`);
+    if (!result.expanded.panelVisible || result.expanded.sectionLinkCount !== 6) issues.push(`${result.id}: Home dropdown did not expose six links`);
+    if (!result.nested.articlePanelVisible || result.nested.articleLinkCount !== 3) issues.push(`${result.id}: Articles dropdown did not expose three links`);
     if (result.escaped.panelVisible || result.escaped.mobileMenuOpen) issues.push(`${result.id}: Escape did not close navigation`);
     if (!result.activePage.currentLinks.includes("About")) issues.push(`${result.id}: About active state missing`);
     if (result.adminEntry.pathname !== "/admin" || !result.adminEntry.loginVisible || result.adminEntry.dashboardVisible) issues.push(`${result.id}: direct admin login state failed`);

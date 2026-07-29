@@ -63,11 +63,6 @@ export function PublicLayout({ route, children }) {
     setArticleMenuOpen(false);
   }
 
-  function handleDropdownBlur(event) {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      closeHomeMenu();
-    }
-  }
 
   useEffect(() => {
     closeNavigation();
@@ -110,10 +105,6 @@ export function PublicLayout({ route, children }) {
               <nav className="primary-public-navigation" aria-label="Public navigation">
                 <div
                   className="primary-nav-dropdown"
-                  onMouseEnter={() => setHomeMenuOpen(true)}
-                  onMouseLeave={closeHomeMenu}
-                  onFocus={() => setHomeMenuOpen(true)}
-                  onBlur={handleDropdownBlur}
                 >
                   <div className="primary-nav-dropdown__topline">
                     <Link to="/" aria-current={location.pathname === "/" ? "page" : undefined} onClick={closeNavigation}>
@@ -122,10 +113,10 @@ export function PublicLayout({ route, children }) {
                     <button
                       type="button"
                       className="primary-nav-dropdown__toggle"
-                      aria-label="Toggle Home sections"
+                      aria-label={`${homeMenuOpen ? "Close" : "Open"} Home sections`}
                       aria-expanded={homeMenuOpen}
                       aria-controls="home-navigation-menu"
-                      onClick={() => setHomeMenuOpen((open) => !open)}
+                      onClick={() => { setHomeMenuOpen((open) => !open); setArticleMenuOpen(false); }}
                     >
                       <ChevronDown size={16} aria-hidden="true" />
                     </button>
@@ -138,10 +129,6 @@ export function PublicLayout({ route, children }) {
                     ))}
                     <div
                       className="primary-nav-submenu"
-                      onMouseEnter={() => setArticleMenuOpen(true)}
-                      onMouseLeave={() => setArticleMenuOpen(false)}
-                      onFocus={() => setArticleMenuOpen(true)}
-                      onBlur={handleDropdownBlur}
                     >
                       <button
                         type="button"

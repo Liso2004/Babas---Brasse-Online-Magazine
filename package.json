@@ -1,31 +1,32 @@
 {
-  "name": "babas-brasse-magazine",
-  "version": "1.0.0-rc.1",
-  "private": true,
-  "description": "Babas \u0026 Brasse production release candidate for the online editorial magazine.",
-  "type": "commonjs",
-  "scripts": {
-                  "test": "npm --prefix apps/web test \u0026\u0026 npm --prefix apps/web run build \u0026\u0026 npm --prefix apps/web run smoke:routes",
-                  "smoke:web:routes": "npm --prefix apps/web run smoke:routes",
-                  "qa:web:screenshots": "npm --prefix apps/web run qa:screenshots",
-                  "qa:web:screenshots:check": "npm --prefix apps/web run qa:screenshots:check",
-                  "dev:api": "node apps/api/server.js",
-                  "dev:web": "npm.cmd --prefix apps/web run dev",
-                  "test:api": "node apps/api/smokeApi.js",
-                  "verify:production": "npm test \u0026\u0026 npm run test:api",
-                  "start:production": "node apps/api/server.js",
-                  "hash:admin-password": "node apps/api/hashPassword.js",
-                  "qa:design-review": "npm --prefix apps/web run qa:design-review",
-                  "qa:navigation": "npm --prefix apps/web run qa:navigation",
-                  "build:production": "npm --prefix apps/web run build",
-                  "db:migrate": "node apps/api/migrate.js",
-                  "db:check": "node apps/api/checkDatabase.js"
-              },
-  "engines": {
-                 "node": ">=20.19 <25",
-                 "npm": ">=10"
-             },
-  "dependencies": {
-                       "pg": "^8.16.3"
-                   }
+    "name":  "babas-brasse-magazine",
+    "version":  "1.0.0-rc.1",
+    "private":  true,
+    "description":  "Babas \u0026 Brasse production release candidate for the online editorial magazine.",
+    "type":  "commonjs",
+    "scripts":  {
+                    "test":  "npm --prefix apps/web test \u0026\u0026 npm --prefix apps/web run build \u0026\u0026 npm --prefix apps/web run smoke:routes",
+                    "smoke:web:routes":  "npm --prefix apps/web run smoke:routes",
+                    "qa:web:screenshots":  "npm --prefix apps/web run qa:screenshots",
+                    "qa:web:screenshots:check":  "npm --prefix apps/web run qa:screenshots:check",
+                    "dev:api":  "node scripts/startDevApi.js",
+                    "dev:web":  "npm --prefix apps/web run dev",
+                    "test:api":  "node apps/api/smokeApi.js",
+                    "verify:production":  "npm test \u0026\u0026 npm run test:api",
+                    "start:production":  "node apps/api/server.js",
+                    "hash:admin-password":  "node apps/api/hashPassword.js",
+                    "qa:design-review":  "npm --prefix apps/web run qa:design-review",
+                    "qa:navigation":  "npm --prefix apps/web run qa:navigation",
+                    "build:production":  "npm --prefix apps/web run build",
+                    "db:migrate":  "node apps/api/migrate.js",
+                    "db:check":  "node apps/api/checkDatabase.js",
+                    "setup:check":  "node scripts/checkLocalSetup.js"
+                },
+    "engines":  {
+                    "node":  "\u003e=20.19 \u003c25",
+                    "npm":  "\u003e=10"
+                },
+    "dependencies":  {
+                         "pg":  "^8.16.3"
+                     }
 }

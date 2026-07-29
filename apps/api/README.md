@@ -4,6 +4,17 @@
 
 The server uses Node's built-in HTTP module plus `pg` for production PostgreSQL storage. There is no separate API framework.
 
+## Clone-Safe Configuration
+
+Local development does not require PostgreSQL or a production frontend build. The `dev:api` script starts through `scripts/startDevApi.js`, forces `NODE_ENV=development`, and clears `BABAS_WEB_DIST_PATH` for that process.
+
+Optional local admin credentials can be created with:
+
+```powershell
+Copy-Item .env.development.example .env
+```
+
+Run `npm.cmd run setup:check` to detect missing dependencies, an unsupported Node version, production mode inherited from the operating system, or an invalid custom frontend build path. The checker never prints secret values.
 ## Run Locally
 
 From the repository root:

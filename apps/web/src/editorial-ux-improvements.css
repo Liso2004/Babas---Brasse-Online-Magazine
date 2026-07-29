@@ -521,3 +521,566 @@
     rotate: 0deg;
   }
 }
+
+/* Click-first public navigation and Content directory polish. */
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle {
+  width: 42px;
+  min-height: 44px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle:hover,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle[aria-expanded="true"] {
+  border-color: var(--production-ink);
+  background: var(--production-signal);
+  color: var(--production-paper);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu {
+  top: calc(100% - 2px);
+  width: min(290px, calc(100vw - 32px));
+  gap: 0;
+  padding: 8px;
+  border: 3px solid var(--production-ink);
+  background: var(--production-paper);
+  box-shadow: 8px 8px 0 var(--production-signal);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu a,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-submenu > button,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-submenu__panel a {
+  min-height: 48px;
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--production-line);
+  cursor: pointer;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-submenu > button {
+  border: 0;
+  border-bottom: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-submenu__panel {
+  top: -3px;
+  left: calc(100% - 1px);
+  width: 220px;
+  padding: 7px;
+  border: 3px solid var(--production-ink);
+  background: var(--production-paper);
+  box-shadow: 7px 7px 0 var(--production-signal);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page {
+  background:
+    linear-gradient(rgba(24, 23, 22, .025) 1px, transparent 1px),
+    var(--production-paper);
+  background-size: 100% 7px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .figma-page-intro {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  padding-right: clamp(24px, 9vw, 150px);
+  background: var(--production-paper);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .figma-page-intro::after {
+  content: "INDEX";
+  position: absolute;
+  right: clamp(18px, 5vw, 72px);
+  bottom: -16px;
+  color: var(--production-signal);
+  font-family: var(--production-display);
+  font-size: clamp(72px, 13vw, 190px);
+  font-weight: 900;
+  line-height: .8;
+  letter-spacing: -.08em;
+  opacity: .14;
+  pointer-events: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .figma-page-intro h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 11ch;
+  font-size: clamp(56px, 8vw, 116px);
+  line-height: .86;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .figma-content-section {
+  padding-top: clamp(40px, 6vw, 78px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-grid {
+  counter-reset: content-category;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 34px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card {
+  counter-increment: content-category;
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 24px 22px;
+  border: 3px solid var(--production-ink);
+  background: #fffaf1;
+  box-shadow: 8px 8px 0 var(--production-ink);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card::before {
+  content: counter(content-category, decimal-leading-zero);
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  color: var(--production-signal);
+  font-family: var(--production-display);
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) {
+  background: var(--production-ink);
+  color: var(--production-paper);
+  box-shadow: 8px 8px 0 var(--production-signal);
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) a,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) .eyebrow {
+  color: inherit;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card:hover,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:focus-within {
+  transform: translate(-3px, -3px);
+  box-shadow: 12px 12px 0 var(--production-signal);
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card h3 {
+  max-width: calc(100% - 54px);
+  margin: 22px 0 14px;
+  font-size: clamp(32px, 3vw, 48px);
+  line-height: .92;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card > p:not(.eyebrow) {
+  margin: 0 0 22px;
+  line-height: 1.55;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card ul {
+  display: grid;
+  gap: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid currentColor;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card li a {
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid currentColor;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card__cta {
+  width: fit-content;
+  margin-top: auto;
+  padding: 10px 12px;
+  border: 2px solid currentColor;
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1040px) {
+  [data-public-design="visceral-brutalist-archive"] .content-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle {
+    width: 48px;
+    min-height: 48px;
+    border-left: 1px solid var(--production-line);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-menu,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-submenu__panel {
+    position: static;
+    width: 100%;
+    padding: 6px 0 12px 18px;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-submenu__panel {
+    padding-left: 20px;
+    border-left: 3px solid var(--production-signal);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-menu a,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-submenu > button,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-submenu__panel a {
+    min-height: 52px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .figma-page-intro {
+    min-height: 330px;
+    padding: 50px 20px 34px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .figma-page-intro h1 {
+    font-size: clamp(46px, 14vw, 68px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .figma-page-intro::after {
+    right: 14px;
+    bottom: 4px;
+    font-size: 82px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .content-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .content-category-card {
+    min-height: 0;
+    padding: 22px 20px;
+    box-shadow: 6px 6px 0 var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) {
+    box-shadow: 6px 6px 0 var(--production-signal);
+  }
+}
+
+/* Keep headings and links readable on dark Content cards. */
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) h3 a,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) li a,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) .content-category-card__cta {
+  color: var(--production-paper);
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) h3 a:hover,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) h3 a:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) li a:hover,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) li a:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) .content-category-card__cta:hover,
+[data-public-design="visceral-brutalist-archive"] .content-category-card:nth-child(3n + 2) .content-category-card__cta:focus-visible {
+  color: #ffffff;
+}
+
+/* Stable mobile logo alignment: do not inherit the desktop negative offset. */
+@media (max-width: 960px) {
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-mark {
+    width: 132px;
+    height: 54px;
+    margin-left: 0;
+    overflow: visible;
+    justify-self: start;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-logo {
+    width: 120px;
+    height: 52px;
+    margin: 0;
+    transform: none;
+    object-fit: contain;
+    object-position: left center;
+  }
+}
+
+@media (max-width: 480px) {
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-mark {
+    width: 112px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-logo {
+    width: 104px;
+    height: 48px;
+  }
+}
+
+/* Mobile carousel: stack media and copy instead of forcing a desktop 100vh overlay. */
+@media (max-width: 768px) {
+  [data-public-design="visceral-brutalist-archive"] .home-carousel,
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__track,
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__slide {
+    min-height: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__slide {
+    grid-template-rows: auto auto;
+    background: var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__media-link {
+    grid-area: auto;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__media {
+    height: clamp(250px, 72vw, 350px);
+    display: block;
+    background: var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background: var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__copy {
+    grid-area: auto;
+    align-self: stretch;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 24px 20px 30px;
+    background: var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__copy h1,
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__copy h2 {
+    margin: 7px 0 12px;
+    font-size: clamp(34px, 11vw, 48px);
+    line-height: .94;
+    letter-spacing: -.035em;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__copy p:not(.eyebrow) {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.45;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__copy > a:last-child {
+    min-height: 46px;
+    margin-top: auto;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__controls {
+    height: clamp(250px, 72vw, 350px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__control {
+    width: 48px;
+    min-height: 56px;
+    opacity: 1;
+    background: rgba(20, 17, 16, .72);
+    color: var(--production-paper);
+    transform: translateY(-50%);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__control--previous {
+    left: 8px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__control--next {
+    right: 8px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__indicators {
+    bottom: 10px;
+    display: flex;
+    gap: 5px;
+    padding: 6px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__indicators button {
+    width: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__media,
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__controls {
+    height: 68vw;
+    min-height: 238px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .home-carousel__copy {
+    min-height: 280px;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+}
+
+/* Shared mobile safety layer for every public and support route. */
+@media (max-width: 768px) {
+  html,
+  body,
+  #root,
+  [data-app-shell="babas-brasse-web"] {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .public-layout,
+  .public-layout main,
+  .public-layout .figma-public-page,
+  .public-layout section,
+  .public-layout article,
+  .public-layout form,
+  .public-layout label,
+  .public-layout div {
+    min-width: 0;
+  }
+
+  .public-layout img,
+  .public-layout video,
+  .public-layout iframe,
+  .public-layout svg:not(.lucide) {
+    max-width: 100%;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-page-intro,
+  [data-public-design="visceral-brutalist-archive"] .figma-content-section,
+  [data-public-design="visceral-brutalist-archive"] .figma-about-overview,
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-layout,
+  [data-public-design="visceral-brutalist-archive"] .figma-related-content,
+  [data-public-design="visceral-brutalist-archive"] .profile-detail-section {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-page-intro {
+    min-height: 0;
+    padding-top: 44px;
+    padding-bottom: 36px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-page-intro h1,
+  [data-public-design="visceral-brutalist-archive"] .figma-article-hero h1,
+  [data-public-design="visceral-brutalist-archive"] .media-detail-hero h1,
+  [data-public-design="visceral-brutalist-archive"] .profile-detail-hero h1,
+  [data-public-design="visceral-brutalist-archive"] .support-state h1 {
+    max-width: 100%;
+    font-size: clamp(40px, 13vw, 62px);
+    line-height: .92;
+    overflow-wrap: anywhere;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .section-heading-row,
+  [data-public-design="visceral-brutalist-archive"] .media-library-heading,
+  [data-public-design="visceral-brutalist-archive"] .figma-toolbar,
+  [data-public-design="visceral-brutalist-archive"] .profile-detail-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .section-heading-row > a,
+  [data-public-design="visceral-brutalist-archive"] .profile-detail-actions a,
+  [data-public-design="visceral-brutalist-archive"] .profile-detail-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .public-layout input:not([type="checkbox"]):not([type="radio"]),
+  .public-layout select,
+  .public-layout textarea,
+  .auth-layout input:not([type="checkbox"]):not([type="radio"]),
+  .auth-layout select,
+  .auth-layout textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  .public-layout button,
+  .auth-layout button,
+  .public-layout [role="button"] {
+    min-height: 44px;
+  }
+
+  .public-layout .figma-card-grid,
+  .public-layout .figma-profile-grid,
+  .public-layout .figma-contributor-grid,
+  .public-layout .figma-media-gallery,
+  .public-layout .figma-related-grid,
+  .public-layout .figma-contact-layout,
+  .public-layout .contact-identity-fields,
+  .public-layout .profile-submission-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .public-layout .figma-admin-table-panel,
+  .public-layout .figma-table-panel,
+  .public-layout [role="table"] {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .public-layout .profile-media-strip,
+  .public-layout .figma-inline-list,
+  .public-layout .search-filter-row {
+    max-width: 100%;
+  }
+
+  .public-layout .figma-inline-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .public-layout .content-category-card,
+  .public-layout .about-team-card,
+  .public-layout .article-card,
+  .public-layout .profile-card,
+  .public-layout .media-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  [data-public-design="visceral-brutalist-archive"] .figma-page-intro,
+  [data-public-design="visceral-brutalist-archive"] .figma-content-section,
+  [data-public-design="visceral-brutalist-archive"] .figma-about-overview,
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-layout,
+  [data-public-design="visceral-brutalist-archive"] .figma-related-content,
+  [data-public-design="visceral-brutalist-archive"] .profile-detail-section {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .section-heading-row h2 {
+    font-size: clamp(32px, 11vw, 44px);
+    overflow-wrap: anywhere;
+  }
+}
