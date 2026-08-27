@@ -51,7 +51,7 @@ export function AboutPage({ fixtures = launchFixtures }) {
 
       <section data-section="about-route-cards" className="figma-content-section">
         <div className="section-heading-row">
-          <h2>Continue through Babas & Brasse</h2>
+          <h2>Continue through KASI SUPPLY CO.</h2>
         </div>
         <div className="figma-route-grid">
           {sections.routeCards.map((card) => (

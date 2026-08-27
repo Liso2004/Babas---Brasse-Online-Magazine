@@ -37,10 +37,10 @@ export function AdminLoginPage() {
       data-route={model.route.path}
       data-design-reference="admin-login-v4"
     >
-      <aside className="stitch-login-manifesto" aria-label="Babas and Brasse editorial access">
+      <aside className="stitch-login-manifesto" aria-label="KASI SUPPLY CO. editorial access">
         <div className="stitch-login-lockup">
           <span className="stitch-login-monogram">B/B</span>
-          <p>Babas &amp; Brasse</p>
+          <p>KASI SUPPLY CO.</p>
         </div>
         <div className="stitch-login-statement">
           <LockKeyhole size={42} strokeWidth={1.5} aria-hidden="true" />

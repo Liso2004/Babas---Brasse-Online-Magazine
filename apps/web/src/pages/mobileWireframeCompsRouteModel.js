@@ -36,7 +36,7 @@ export function buildMobileWireframeCompsRouteModel() {
     generatedFrom: "mobile-wireframe-comps-route-model",
     route: { id: route.id, label: route.label, path: route.path, prototypeFile: route.prototypeFile },
     responsive: "mobile-first-support-handoff",
-    nav: { behavior: "compressed-mark-menu-search", brandHref: "/", brandLabel: "Babas and Brasse home", menuAction: "open-mobile-menu" },
+    nav: { behavior: "compressed-mark-menu-search", brandHref: "/", brandLabel: "KASI SUPPLY CO. home", menuAction: "open-mobile-menu" },
     intro: { eyebrow: "Mobile Wireframe Comps", title: "Responsive handoff for public and admin screens.", body: "Mobile-only implementation contract for compressed navigation, stacked reader screens, admin card rows, breakpoints, and accessibility checks." },
     publicComps,
     adminComps,

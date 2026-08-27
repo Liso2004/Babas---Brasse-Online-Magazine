@@ -20,10 +20,10 @@ function publicArticleSummary(article) {
 
 function buildSectionShortcuts() {
   return [
-    { label: "Theatre Reviews", href: "/search?category=reviews&topic=theatre" },
-    { label: "Book Reviews", href: "/search?category=reviews&topic=books" },
-    { label: "Essays", href: "/search?category=essays" },
-    { label: "Opinion", href: "/search?category=essays&topic=opinion" }
+    { label: "Style Codes", href: "/search?category=style" },
+    { label: "Art & Image", href: "/search?category=art" },
+    { label: "Sound", href: "/search?category=sound" },
+    { label: "Objects", href: "/search?category=objects" }
   ];
 }
 
@@ -31,31 +31,31 @@ function buildCarouselSlides() {
   return [
     {
       id: "cape-collage",
-      image: "/media/carousel/babas-brasse-cape-collage.webp",
-      alt: "A vivid Babas and Brasse collage of Cape Town, art, literature, fashion, and local creative life",
-      eyebrow: "Babas & Brasse",
-      title: "South African culture, cut loose.",
-      description: "Original voices, visual culture, performance, books, and the people making the present tense.",
+      image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1800&q=85",
+      alt: "Streetwear model in a city fashion editorial",
+      eyebrow: "KASI SUPPLY CO. / DROP 01",
+      title: "Fashion is a public language.",
+      description: "Style, art, sound, and the people turning city life into a visual statement.",
       href: "/visceral-mag",
       cta: "Read the magazine"
     },
     {
       id: "stage-collage",
-      image: "/media/carousel/babas-brasse-stage-collage.webp",
-      alt: "Cape Town performers, readers, and writers assembled in a vivid cut-paper theatre collage",
-      eyebrow: "Performance / Publishing",
-      title: "The stage is also a page.",
-      description: "Enter the rehearsal rooms, independent presses, and shared spaces where new cultural language is built.",
-      href: "/search?category=reviews&topic=theatre",
-      cta: "Explore theatre"
+      image: "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=85",
+      alt: "Fashion editorial with models in an urban location",
+      eyebrow: "CAPSULE / ART DIRECTION",
+      title: "Art refuses the inside voice.",
+      description: "Enter the studios, walls, and makeshift galleries where new image language is built.",
+      href: "/search?category=art",
+      cta: "Explore art"
     },
     {
       id: "city-collage",
-      image: "/media/carousel/babas-brasse-city-collage.webp",
-      alt: "Johannesburg musicians, a fashion maker, and a mural artist in an energetic night-time collage",
-      eyebrow: "Music / Fashion / Art",
-      title: "Made in the city after dark.",
-      description: "A visual dispatch from the artists, musicians, and makers shaping contemporary Johannesburg.",
+      image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85",
+      alt: "Contemporary streetwear outfit in a city street",
+      eyebrow: "ARCHIVE / 021",
+      title: "Made for the city after dark.",
+      description: "A visual dispatch from the artists, DJs, designers, and makers shaping the present tense.",
       href: "/featured",
       cta: "View featured media"
     }
@@ -82,11 +82,11 @@ function buildFeaturedMedia(fixtures, articles) {
 }
 function buildMoreFromMagazine(fixtures, articles) {
   if (articles.length >= 3) {
-    return { heading: "More from Babas & Brasse", items: articles.slice(0, 4) };
+    return { heading: "More from KASI SUPPLY CO.", items: articles.slice(0, 4) };
   }
 
   return {
-    heading: "More from Babas & Brasse",
+    heading: "More from KASI SUPPLY CO.",
     items: [
       ...fixtures.categories.map((category) => ({
         id: `category-${category.id}`,
@@ -123,9 +123,9 @@ export function buildHomeRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "Babas & Brasse Online Magazine",
-      title: "Culture, essays, reviews, interviews, photography, and artwork.",
-      dek: "Launch-ready discovery hub for the July 31, 2026 MVP."
+      eyebrow: "KASI SUPPLY CO. Online Magazine",
+      title: "Fashion. Art. Culture. No soft edges.",
+      dek: "KASI SUPPLY CO. is a brutalist field guide to the people and images moving the city."
     },
     sections: {
       leadStory,

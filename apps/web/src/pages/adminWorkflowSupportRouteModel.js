@@ -48,7 +48,7 @@ export function buildMediaUploadRouteModel() {
     intro: { eyebrow: "Media Upload Modal", title: "Upload media with publish-ready metadata.", body: "Admin subflow launched from Profile / Media Management or the article editor." },
     form: { id: "media-upload-modal", action: "/admin/media/upload", method: "post", enctype: "multipart/form-data" },
     dropzone: { id: "media-upload", helpId: "upload-file-help", helpText: "Drop an image, photo, or artwork file here, or use the keyboard file input below." },
-    preview: { src: "/media/editorial/editorial-stagecraft.jpg", alt: "Editorial stagecraft preview", caption: "Preview updates after file selection." },
+    preview: { src: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85", alt: "Editorial stagecraft preview", caption: "Preview updates after file selection." },
     fields: mediaUploadFields,
     sections: {
       fields: { id: "media-upload-fields" },

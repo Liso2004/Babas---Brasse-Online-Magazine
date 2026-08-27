@@ -5,26 +5,26 @@ import { Button } from "../components/ui/button.jsx";
 import { FigmaSearchTool } from "../components/FigmaSearchTool.jsx";
 
 const primaryNavigation = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Visceral Mag", href: "/visceral-mag" },
-  { label: "Featured / Media", href: "/featured" },
-  { label: "Contact", href: "/contact" }
+  { label: "Drop 01", href: "/" },
+  { label: "Our Code", href: "/about" },
+  { label: "The Journal", href: "/visceral-mag" },
+  { label: "Lookbook", href: "/featured" },
+  { label: "Stockists", href: "/contact" }
 ];
 
 const editorialNavigation = [
-  { label: "Theatre Reviews", href: "/search?category=reviews&topic=theatre" },
-  { label: "Book Reviews", href: "/search?category=reviews&topic=books" },
-  { label: "Essays", href: "/search?category=essays" },
-  { label: "Opinion", href: "/search?category=essays&topic=opinion" }
+  { label: "Heavyweight Fleece", href: "/search?category=style" },
+  { label: "Boxy Cut", href: "/search?category=objects" },
+  { label: "Capsule Collection", href: "/search?category=art" },
+  { label: "Archive", href: "/search?category=sound" }
 ];
 
 const peopleNavigation = [
-  { label: "Creative Team", href: "/creative-team" },
-  { label: "Contributors", href: "/contributors" }
+  { label: "The Crew", href: "/creative-team" },
+  { label: "The Archive", href: "/contributors" }
 ];
 
-// Replace these platform homepages with verified Babas & Brasse profile URLs before launch.
+// Replace these platform homepages with verified KASI SUPPLY CO. profile URLs before launch.
 const socialNavigation = [
   { label: "Instagram", href: "https://www.instagram.com/", placeholder: true, Icon: Instagram },
   { label: "Facebook", href: "https://www.facebook.com/", placeholder: true, Icon: Facebook },
@@ -93,7 +93,7 @@ export function PublicLayout({ route, children }) {
       <header className="site-header final-design-header production-editorial-header" ref={headerRef}>
         <div className="header-topline">
           <Link className="brand-mark" to="/" onClick={closeNavigation}>
-            <img className="brand-logo" src="/media/babas-brasse-logo.jpeg" alt="Babas and Brasse" />
+            <span className="brand-name">KASI SUPPLY CO.</span>
           </Link>
 
           <div
@@ -135,7 +135,7 @@ export function PublicLayout({ route, children }) {
               id="editorial-navigation-panel"
               className="editorial-navigation-panel"
               data-open={editorialMenuOpen ? "true" : "false"}
-              aria-label="Explore Babas and Brasse"
+              aria-label="Explore KASI SUPPLY CO."
               hidden={!editorialMenuOpen}
             >
               <div className="editorial-navigation-grid">
@@ -196,8 +196,8 @@ export function PublicLayout({ route, children }) {
 
       <footer className="figma-footer" aria-label="Site footer">
         <div className="figma-footer__inner">
-          <section className="figma-footer__brand" aria-label="Babas and Brasse summary">
-            <img src="/media/babas-brasse-logo.jpeg" alt="Babas and Brasse" />
+          <section className="figma-footer__brand" aria-label="KASI SUPPLY CO. summary">
+            <p className="brand-name">KASI SUPPLY CO.</p>
             <p>A digital magazine celebrating South African literature, theatre, and culture. Featuring critical essays, reviews, and thought-provoking commentary.</p>
           </section>
           <nav aria-label="Footer sections">
@@ -233,7 +233,7 @@ export function PublicLayout({ route, children }) {
             </div>
           </section>
         </div>
-        <p className="figma-footer__legal">Copyright 2026 Babas & Brasse. All rights reserved.</p>
+        <p className="figma-footer__legal">Copyright 2026 KASI SUPPLY CO.. All rights reserved.</p>
       </footer>
     </div>
   );

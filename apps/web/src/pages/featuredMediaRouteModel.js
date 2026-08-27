@@ -69,13 +69,13 @@ export function buildFeaturedMediaRouteModel(fixtures) {
     },
     hero: {
       eyebrow: "Featured / Media",
-      title: "Photography, artwork, and visual notes from Babas & Brasse.",
-      dek: "Browse launch media assets with captions, credits, and accessible alt text."
+      title: "Raw image. Real impact.",
+      dek: "A living wall of fashion, art, objects, and city texture from KASI SUPPLY CO.."
     },
     sections: {
       mediaGallery: mediaItems.length > 0 ? {
         state: "ready",
-        heading: "Featured media gallery",
+        heading: "The image wall",
         items: mediaItems
       } : {
         state: "no-media",

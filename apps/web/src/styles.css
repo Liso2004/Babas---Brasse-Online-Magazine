@@ -124,6 +124,17 @@ nav a[aria-current="page"] { background: var(--deep); color: white; }
   font-size: 20px;
   font-weight: 800;
 }
+.brand-mark .brand-name,
+.figma-footer__brand .brand-name {
+  display: inline-block;
+  color: var(--ink);
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 2.15rem);
+  font-weight: 900;
+  letter-spacing: -.035em;
+  line-height: .95;
+  text-transform: uppercase;
+}
 .header-search {
   display: grid;
   gap: 0;
@@ -2150,3 +2161,122 @@ body,
     animation: none;
   }
 }
+
+/* KASI SUPPLY CO. typography */
+@font-face {
+  font-family: "Streets VCR";
+  src: url("/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400 900;
+}
+
+body,
+body :not(svg):not(path) {
+  font-family: "Streets VCR", monospace !important;
+}
+
+/* KASI SUPPLY CO.: fashion / art / culture brutalism */
+:root {
+  --paper: #e9e7df;
+  --surface: #f7f5ef;
+  --surface-raised: #ffffff;
+  --ink: #111111;
+  --muted: #5c5a55;
+  --line: #111111;
+  --accent: #f13a1e;
+  --accent-soft: #ffc6b9;
+  --deep: #111111;
+  --deep-soft: #d7d5cc;
+  --radius: 0;
+}
+body { background: var(--paper); color: var(--ink); }
+.public-layout .final-design-header, .site-header { background: #111; border-color: #111; }
+.public-layout .brand-mark, .public-layout .brand-name { color: #fff; }
+.public-layout .brand-mark .brand-name { font-size: clamp(1.25rem, 2.6vw, 2.25rem); letter-spacing: -.06em; }
+.public-layout .final-design-navigation > nav { border-color: #fff; }
+.public-layout .primary-public-navigation a, .public-layout .editorial-menu-trigger { color: #fff; }
+.public-layout .primary-public-navigation a:hover, .public-layout .primary-public-navigation a[aria-current="page"], .public-layout .editorial-menu-trigger:hover { background: var(--accent); color: #111; }
+.figma-page-intro, .figma-home__feature-shell, .figma-home__recent-shell, .home-featured-media, .figma-more-list, .figma-content-section, .figma-about-overview { border-top: 3px solid #111; }
+.figma-page-intro { background: #111; color: #fff; padding: clamp(32px, 7vw, 88px) max(24px, calc((100vw - 1180px) / 2)); }
+.figma-page-intro .eyebrow { color: var(--accent); }
+h1, h2, h3 { font-family: "Streets VCR", monospace !important; font-weight: 900; letter-spacing: -.07em; text-transform: uppercase; }
+h1 { font-size: clamp(2.8rem, 8vw, 7rem); line-height: .88; max-width: 14ch; }
+h2 { font-size: clamp(1.65rem, 4vw, 3.75rem); line-height: .95; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.55rem); line-height: 1; }
+.figma-article-card, .pillar-card, .route-card, .figma-profile-card, .metric { border: 2px solid #111 !important; border-radius: 0 !important; background: var(--surface-raised) !important; }
+.figma-article-card:hover, .pillar-card:hover, .route-card:hover { background: var(--accent) !important; color: #111; }
+.figma-article-card img, .figma-profile-card img, .home-media-masonry__item img { border-radius: 0; filter: grayscale(1) contrast(1.2); }
+.home-media-masonry__item { border: 2px solid #111; border-radius: 0 !important; }
+.home-media-masonry__item:hover { border-color: var(--accent); }
+.figma-newsletter-panel { border: 3px solid #111; border-radius: 0; background: var(--accent); color: #111; }
+.figma-newsletter-panel h2, .figma-newsletter-panel p { color: #111; }
+.figma-footer { background: #111; color: #fff; border-top: 3px solid var(--accent); }
+.figma-footer a { color: #fff; }
+.figma-footer a:hover { color: var(--accent); }
+.figma-footer__brand .brand-name { color: #fff; }
+button, .button, [data-action] { border-radius: 0; }
+@media (max-width: 760px) {
+  .figma-page-intro { padding: 32px 20px; }
+  h1 { font-size: clamp(2.5rem, 15vw, 4.7rem); }
+}
+
+/* Contrast corrections for text layered over cards and media. */
+.article-card,
+.article-card__body,
+.pillar-card,
+.route-card,
+.figma-profile-card,
+.figma-empty-state { color: #111 !important; background-color: #fff !important; }
+.article-card h2 a,
+.article-card h3 a,
+.article-card__body a,
+.pillar-card a,
+.route-card a { color: #111 !important; text-decoration-color: var(--accent); }
+.article-card__meta,
+.article-card__body .eyebrow { color: #4b4740 !important; }
+.article-card:hover,
+.article-card:hover .article-card__body,
+.article-card:hover h2 a,
+.article-card:hover h3 a,
+.article-card:hover .article-card__body a,
+.pillar-card:hover,
+.route-card:hover { color: #111 !important; background-color: #ffc6b9 !important; }
+.home-media-masonry__body { background: #111 !important; color: #fff !important; }
+.home-media-masonry__body strong,
+.home-media-masonry__body span,
+.home-media-masonry__body time { color: #fff !important; }
+.home-media-masonry__body .home-media-masonry__meta { color: #ffc6b9 !important; }
+.figma-page-intro p { color: #f7f5ef !important; }
+.figma-page-intro h1 { color: #fff !important; }
+button, .button, [data-action] { background: #111 !important; color: #fff !important; border-color: #111 !important; }
+button:hover, .button:hover, [data-action]:hover { background: #f13a1e !important; color: #111 !important; border-color: #111 !important; }
+
+/* KASI SUPPLY CO. visual system */
+@font-face {
+  font-family: "Kasi Brutal";
+  src: url("/fonts/Complete%20Destroy.otf") format("opentype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kasi Tag";
+  src: url("/fonts/Danger%20Zone%20Warning.ttf") format("truetype");
+  font-display: swap;
+}
+:root { --kasi-black: #0a0a0a; --kasi-card: #141414; --kasi-white: #f5f5f5; --kasi-red: #ff2a00; }
+body { background: var(--kasi-black) !important; color: var(--kasi-white) !important; font-family: "Space Grotesk", Arial, sans-serif !important; }
+body :not(svg):not(path) { font-family: inherit !important; }
+.brand-name, .brand-mark .brand-name { font-family: "Kasi Brutal", Anton, Impact, sans-serif !important; text-shadow: 4px 4px 0 #000, 8px 8px 18px rgba(255, 42, 0, .4); }
+h1, h2, h3 { font-family: "Kasi Brutal", Anton, Impact, sans-serif !important; color: var(--kasi-white) !important; text-shadow: 4px 4px 0 #000, 8px 8px 18px rgba(255, 42, 0, .4); background: linear-gradient(180deg, rgba(20,20,20,.95) 0%, #000 100%); border-left: 4px solid var(--kasi-red); padding: .22em .34em; }
+.eyebrow { font-family: "Kasi Tag", Anton, sans-serif !important; color: #e6ff00 !important; }
+.article-card, .article-card__body, .pillar-card, .route-card, .figma-profile-card, .figma-empty-state { background: var(--kasi-card) !important; border-color: #3b3b3b !important; color: var(--kasi-white) !important; }
+.article-card h2 a, .article-card h3 a, .article-card__body a, .pillar-card a, .route-card a { color: var(--kasi-white) !important; }
+.article-card__meta, .article-card__body .eyebrow { color: #c9c9c9 !important; }
+.article-card:hover, .article-card:hover .article-card__body, .pillar-card:hover, .route-card:hover { background: #222 !important; border-color: var(--kasi-red) !important; }
+.article-card:hover img, .home-media-masonry__item:hover img { transform: scale(1.05); filter: grayscale(0) contrast(1.1); }
+.article-card img, .home-media-masonry__item img { transition: transform 220ms ease, filter 220ms ease; filter: grayscale(1) contrast(1.12); }
+.figma-page-intro { background: #000 !important; border-bottom: 2px solid var(--kasi-red); }
+.figma-page-intro p { color: var(--kasi-white) !important; }
+.home-media-masonry__body { background: rgba(0,0,0,.88) !important; color: #fff !important; }
+button, .button, [data-action] { background: var(--kasi-red) !important; color: #fff !important; border: 1px solid var(--kasi-red) !important; box-shadow: 5px 5px 0 #000 !important; }
+button:hover, .button:hover, [data-action]:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0 #000 !important; background: #e6ff00 !important; color: #000 !important; }
+.figma-footer { background: #000 !important; border-top-color: var(--kasi-red) !important; }

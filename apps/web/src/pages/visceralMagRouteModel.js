@@ -9,7 +9,7 @@ function getCategory(categories, categoryId) {
 
 function getAuthor(profiles, profileId) {
   return profiles.find((profile) => profile.id === profileId) || {
-    name: "Babas & Brasse",
+    name: "KASI SUPPLY CO.",
     slug: "babas-brasse"
   };
 }
@@ -58,9 +58,9 @@ export function buildVisceralMagRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "Visceral Mag / Articles",
-      title: "Latest cultural writing from Babas & Brasse.",
-      dek: "Browse essays, reviews, interviews, photography, artwork, and launch editorial features."
+      eyebrow: "KASI SUPPLY CO. / Dispatches",
+      title: "Fashion, art, and culture with teeth.",
+      dek: "Dispatches from the people, places, and objects making the city feel alive."
     },
     search: {
       id: "article-search",

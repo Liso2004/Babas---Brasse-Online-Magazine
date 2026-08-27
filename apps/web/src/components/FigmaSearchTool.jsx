@@ -63,7 +63,7 @@ export function FigmaSearchTool({
       {open ? (
         <div className="figma-search-overlay" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) close(); }}>
           <section id={`${id}-panel`} className="figma-search-overlay__panel" aria-label="Search the magazine">
-            <div className="figma-search-overlay__heading"><div><p className="eyebrow">Babas & Brasse archive</p><h2>What are you looking for?</h2></div><button className="figma-search-close" type="button" aria-label="Close search" onClick={close}><X aria-hidden="true" /></button></div>
+            <div className="figma-search-overlay__heading"><div><p className="eyebrow">KASI SUPPLY CO. archive</p><h2>What are you looking for?</h2></div><button className="figma-search-close" type="button" aria-label="Close search" onClick={close}><X aria-hidden="true" /></button></div>
             {form}
           </section>
         </div>

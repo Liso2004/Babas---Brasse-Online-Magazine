@@ -1,15 +1,15 @@
 import { getRouteByPath } from "../routes.js";
 
 const aboutCopy = {
-  mission: "Babas & Brasse creates a home for cultural writing, criticism, interviews, photography, and artwork with a voice rooted in lived experience.",
-  vision: "The magazine exists to make theatre, books, essays, opinion, and culture feel close, discussable, and worth returning to.",
-  organisation: "Babas & Brasse brings essays, reviews, interviews, and visual culture into one independent South African publication."
+  mission: "KASI SUPPLY CO. documents the friction between fashion, art, and culture with a point of view rooted in the street.",
+  vision: "We make room for difficult images, independent voices, and the people who build culture before anyone calls it a movement.",
+  organisation: "KASI SUPPLY CO. is an independent visual culture magazine for style obsessives, art kids, and city makers."
 };
 
 const pillarFallbacks = [
-  { slug: "theatre", label: "Theatre", description: "Stage work, performance notes, and cultural scenes that deserve slower attention." },
-  { slug: "books", label: "Books", description: "Reading culture, reviews, interviews, and writer-focused editorial work." },
-  { slug: "culture", label: "Culture", description: "Essays, artwork, opinion, and media features from the Babas & Brasse world." }
+  { slug: "style", label: "Style Codes", description: "The silhouettes and self-made uniforms that turn a pavement into a runway." },
+  { slug: "art", label: "Art & Image", description: "Visual artists and image-makers changing what the city looks like." },
+  { slug: "sound", label: "Sound", description: "The rooms, rhythms, and collectives keeping culture in motion." }
 ];
 
 const routeCards = [
@@ -38,9 +38,9 @@ export function buildAboutRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "About Babas & Brasse",
-      title: "Mission, vision, and the shape of the publication.",
-      dek: "Babas & Brasse is an independent home for attentive writing about South African books, theatre, art, language, and everyday cultural life."
+      eyebrow: "About KASI SUPPLY CO.",
+      title: "A hard-edged magazine for a living city.",
+      dek: "KASI SUPPLY CO. tracks the collision of fashion, art, and culture across South Africa and beyond."
     },
     sections: {
       overview: {
@@ -49,7 +49,7 @@ export function buildAboutRouteModel(fixtures) {
         vision: aboutCopy.vision,
         organisation: aboutCopy.organisation,
         image: {
-          url: "/media/editorial/editorial-belonging.jpg",
+          url: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=85",
           altText: "Neighbors in conversation on a Cape Town street"
         }
       },
