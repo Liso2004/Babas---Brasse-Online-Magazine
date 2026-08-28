@@ -26,7 +26,7 @@ export function buildContactRouteModel(fixtures) {
     },
     hero: {
       eyebrow: "Contact",
-      title: "Reach KASI SUPPLY CO..",
+      title: "Reach URBAN ANARCHY.",
       dek: "Send an editorial query, pitch a contribution, suggest a correction, or simply tell us what you have been reading and watching."
     },
     sections: {

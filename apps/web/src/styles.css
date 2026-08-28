@@ -2162,7 +2162,7 @@ body,
   }
 }
 
-/* KASI SUPPLY CO. typography */
+/* URBAN ANARCHY typography */
 @font-face {
   font-family: "Streets VCR";
   src: url("/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
@@ -2175,7 +2175,7 @@ body :not(svg):not(path) {
   font-family: "Streets VCR", monospace !important;
 }
 
-/* KASI SUPPLY CO.: fashion / art / culture brutalism */
+/* URBAN ANARCHY: fashion / art / culture brutalism */
 :root {
   --paper: #e9e7df;
   --surface: #f7f5ef;
@@ -2251,7 +2251,7 @@ button, .button, [data-action] { border-radius: 0; }
 button, .button, [data-action] { background: #111 !important; color: #fff !important; border-color: #111 !important; }
 button:hover, .button:hover, [data-action]:hover { background: #f13a1e !important; color: #111 !important; border-color: #111 !important; }
 
-/* KASI SUPPLY CO. visual system */
+/* URBAN ANARCHY visual system */
 @font-face {
   font-family: "Kasi Brutal";
   src: url("/fonts/Complete%20Destroy.otf") format("opentype");
@@ -2280,3 +2280,249 @@ h1, h2, h3 { font-family: "Kasi Brutal", Anton, Impact, sans-serif !important; c
 button, .button, [data-action] { background: var(--kasi-red) !important; color: #fff !important; border: 1px solid var(--kasi-red) !important; box-shadow: 5px 5px 0 #000 !important; }
 button:hover, .button:hover, [data-action]:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0 #000 !important; background: #e6ff00 !important; color: #000 !important; }
 .figma-footer { background: #000 !important; border-top-color: var(--kasi-red) !important; }
+
+/* Urban Anarchy â€” strict shop-zine contract */
+@font-face { font-family: "hit_me_punk"; src: url("/fonts/Hit%20me%2C%20punk!%2001.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Complete_destroy"; src: url("/fonts/Complete%20Destroy.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "danger_zone_warning"; src: url("/fonts/Danger%20Zone%20Warning.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "vrc_osd_mono"; src: url("/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "got_heroin"; src: url("/fonts/Got_Heroin.ttf") format("truetype"); font-display: swap; }
+
+:root { --ua-black: #000000; --ua-white: #FFFFFF; --ua-red: #FF0000; }
+*, *::before, *::after { border-radius: 0 !important; box-shadow: none !important; filter: none; transition: none !important; }
+body, .public-layout { background: var(--ua-black) !important; color: var(--ua-white) !important; font-family: "vrc_osd_mono", monospace, sans-serif !important; }
+body :not(svg):not(path) { font-family: "vrc_osd_mono", monospace, sans-serif !important; }
+.public-layout .site-header, .public-layout .final-design-header { position: sticky; background: var(--ua-black) !important; border: 4px solid var(--ua-white) !important; }
+.public-layout .brand-name { font-family: "hit_me_punk", Impact, sans-serif !important; color: var(--ua-white) !important; font-size: clamp(2rem, 4vw, 4rem) !important; letter-spacing: -.09em !important; line-height: .8; }
+.public-layout .primary-public-navigation a, .public-layout .editorial-menu-trigger, .public-layout .primary-nav-separator { color: var(--ua-white) !important; font-family: "vrc_osd_mono", monospace !important; }
+.public-layout .primary-public-navigation a:hover, .public-layout .primary-public-navigation a[aria-current="page"], .public-layout .editorial-menu-trigger:hover { background: var(--ua-white) !important; color: var(--ua-black) !important; }
+.urban-shop-page { background: var(--ua-black); color: var(--ua-white); border: 4px solid var(--ua-white); }
+.urban-marquee { overflow: hidden; white-space: nowrap; border-bottom: 4px solid var(--ua-white); background: var(--ua-red); color: var(--ua-white); font-family: "danger_zone_warning", sans-serif; font-size: clamp(1rem, 2vw, 1.6rem); padding: 8px 0; }
+.urban-marquee > div { display: inline-block; animation: ua-marquee 15s linear infinite; }
+@keyframes ua-marquee { from { transform: translateX(0); } to { transform: translateX(-40%); } }
+.urban-shop-hero, .urban-terminal, .urban-manifesto { border: 4px solid var(--ua-white); margin: 16px; padding: 16px; }
+.urban-shop-hero { max-width: 720px; margin-top: 32px; }
+.urban-kicker, .urban-product__code, .urban-terminal__title { font-family: "danger_zone_warning", sans-serif !important; color: var(--ua-red) !important; margin: 0 0 12px; }
+.urban-shop-hero h1, .urban-product h2, .urban-manifesto h2 { font-family: "hit_me_punk", "Complete_destroy", sans-serif !important; color: var(--ua-white) !important; letter-spacing: -.1em; line-height: .75; margin: 0 0 20px; }
+.urban-shop-hero h1 { font-size: clamp(4rem, 12vw, 11rem); max-width: 7ch; }
+.urban-product h2 { font-size: clamp(2rem, 4vw, 4.25rem); }
+.urban-manifesto h2 { font-family: "Complete_destroy", sans-serif !important; font-size: clamp(3.5rem, 10vw, 9rem); }
+.urban-product-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; padding: 16px; align-items: start; }
+.urban-product { position: relative; border: 4px solid var(--ua-white); background: var(--ua-black); }
+.urban-product--1 { grid-column: span 7; }
+.urban-product--2 { grid-column: span 5; margin-top: 120px; margin-left: -48px; z-index: 2; }
+.urban-product--3 { grid-column: span 4; margin-top: -60px; }
+.urban-product--4 { grid-column: 5 / span 8; margin-top: 32px; z-index: 1; }
+.urban-product__image { display: block; height: clamp(300px, 44vw, 640px); border-bottom: 4px solid var(--ua-white); overflow: hidden; }
+.urban-product--2 .urban-product__image { height: clamp(280px, 36vw, 500px); }
+.urban-product--3 .urban-product__image { height: 360px; }
+.urban-product__image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(120%) !important; }
+.urban-product__copy { padding: 16px; border-top: 0; }
+.urban-product__copy > p { color: var(--ua-white); max-width: 64ch; }
+.urban-product__specs { display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 16px; border-top: 4px solid var(--ua-white); color: var(--ua-white); font-size: 12px; }
+.urban-product__action { display: inline-block; margin-top: 16px; padding: 12px 16px; border: 4px solid var(--ua-white); color: var(--ua-white) !important; text-decoration: none; }
+.urban-product__action:hover, .urban-manifesto button:hover { background: var(--ua-white) !important; color: var(--ua-black) !important; }
+.urban-sticker { position: absolute; z-index: 3; padding: 8px; border: 4px solid var(--ua-white); font-family: "danger_zone_warning", sans-serif; font-size: clamp(1.1rem, 2.5vw, 2rem); line-height: .85; }
+.urban-sticker--red { top: 16px; right: -20px; background: var(--ua-red); color: var(--ua-white); }
+.urban-sticker--white { top: -20px; left: 16px; background: var(--ua-white); color: var(--ua-black); }
+.urban-sticker--center { top: 50%; left: 50%; right: auto; transform: translate(-50%, -50%); text-align: center; }
+.urban-terminal { display: grid; grid-template-columns: minmax(180px, .7fr) 2fr; gap: 16px; }
+.urban-terminal__title { border-right: 4px solid var(--ua-white); padding-right: 16px; font-size: clamp(1.4rem, 3vw, 3rem); }
+.urban-terminal__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.urban-terminal__grid p { display: flex; justify-content: space-between; gap: 12px; margin: 0; padding: 10px 0; border-bottom: 4px solid var(--ua-white); }
+.urban-terminal__grid strong { color: var(--ua-red); }
+.urban-manifesto { position: relative; margin-top: 64px; max-width: 900px; }
+.urban-pullquote { font-family: "got_heroin", cursive, sans-serif !important; font-size: clamp(1.7rem, 4vw, 3.5rem); line-height: 1; color: var(--ua-red); max-width: 18ch; }
+.urban-manifesto form, .urban-manifesto input, .urban-manifesto button { border: 4px solid var(--ua-white) !important; background: var(--ua-black) !important; color: var(--ua-white) !important; }
+.urban-manifesto button { font-family: "vrc_osd_mono", monospace !important; }
+.figma-footer { background: var(--ua-black) !important; color: var(--ua-white) !important; border: 4px solid var(--ua-white) !important; }
+.figma-footer a { color: var(--ua-red) !important; }
+.urban-shop-page, .urban-shop-page *, .public-layout .site-header, .figma-footer { background-image: none !important; }
+@media (max-width: 760px) { .urban-product-grid { grid-template-columns: 1fr; } .urban-product--1, .urban-product--2, .urban-product--3, .urban-product--4 { grid-column: auto; margin: 0; } .urban-product__image, .urban-product--2 .urban-product__image, .urban-product--3 .urban-product__image { height: 400px; } .urban-terminal { grid-template-columns: 1fr; } .urban-terminal__title { border-right: 0; border-bottom: 4px solid var(--ua-white); padding: 0 0 16px; } .urban-terminal__grid { grid-template-columns: 1fr; } }
+
+/* Viability pass: preserve the zine offsets without sacrificing usable space. */
+.urban-shop-page h1, .urban-shop-page h2, .urban-shop-page h3,
+.urban-shop-page .urban-kicker, .urban-shop-page .urban-product__code {
+  background: transparent !important;
+  background-image: none !important;
+  border-left: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.public-layout h1, .public-layout h2, .public-layout h3, .public-layout .brand-name {
+  text-shadow: none !important;
+  background-image: none !important;
+}
+.urban-shop-hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); max-width: 8ch; }
+.urban-shop-hero > p:last-child { max-width: 58ch; margin: 0; line-height: 1.5; }
+.urban-product__copy { min-width: 0; }
+.urban-product__copy h2 { overflow-wrap: anywhere; }
+.urban-product__specs span { min-width: 0; overflow-wrap: anywhere; }
+.urban-manifesto > p:not(.urban-kicker):not(.urban-pullquote) { max-width: 58ch; line-height: 1.5; }
+.urban-manifesto form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0; max-width: 640px; }
+.urban-manifesto input { min-width: 0; }
+.urban-manifesto button { min-width: max-content; }
+.public-layout .header-topline { width: min(100% - 32px, 1440px); grid-template-columns: minmax(170px, .8fr) minmax(0, 1.2fr) auto; gap: 0; }
+.public-layout .primary-public-navigation { justify-content: flex-end; gap: 0; }
+.public-layout .primary-public-navigation a { padding: 10px 12px; font-size: 12px; }
+.public-layout .primary-nav-separator { margin: 0 4px; }
+@media (max-width: 1040px) {
+  .urban-product-grid { grid-template-columns: 1fr; }
+  .urban-product--1, .urban-product--2, .urban-product--3, .urban-product--4 { grid-column: auto; margin: 0; }
+  .urban-product__image, .urban-product--2 .urban-product__image, .urban-product--3 .urban-product__image { height: clamp(320px, 62vw, 520px); }
+}
+@media (max-width: 760px) {
+  .urban-shop-hero, .urban-terminal, .urban-manifesto { margin: 12px; padding: 16px; }
+  .urban-shop-hero { margin-top: 20px; }
+  .urban-product-grid { padding: 12px; gap: 12px; }
+  .urban-product__image, .urban-product--2 .urban-product__image, .urban-product--3 .urban-product__image { height: min(116vw, 440px); }
+  .urban-sticker--red { right: 8px; }
+  .urban-terminal__grid p { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .urban-manifesto form { grid-template-columns: 1fr; }
+  .urban-manifesto button { width: 100%; }
+}
+
+/* Shared Urban Anarchy colour contract — public, admin, auth, and support. */
+.app-layout, .app-layout main, .admin-layout, .auth-layout,
+[data-page], [data-section], [data-support-route], .route-placeholder,
+.metric, .route-card, .pillar-card, .article-card, .article-card__body,
+.figma-profile-card, .figma-empty-state, .figma-admin-surface,
+.figma-support-surface, .figma-search-overlay, .admin-header, .auth-header,
+.stitch-login-manifesto, .figma-footer, .figma-newsletter-panel {
+  background-color: var(--ua-black) !important;
+  color: var(--ua-white) !important;
+  border-color: var(--ua-white) !important;
+}
+.app-layout :is(p, span, small, time, label, legend, td, th, li, dt, dd, code) { color: var(--ua-white); }
+.app-layout :is(a, .eyebrow, [data-state="error"], [data-security], [data-a11y-check]) { color: var(--ua-red) !important; }
+.app-layout a:hover { background: var(--ua-white) !important; color: var(--ua-black) !important; }
+.app-layout :is(input, textarea, select) {
+  background: var(--ua-black) !important;
+  color: var(--ua-white) !important;
+  border: 4px solid var(--ua-white) !important;
+  caret-color: var(--ua-red);
+}
+.app-layout :is(input, textarea, select)::placeholder { color: var(--ua-white); opacity: 1; }
+.app-layout :is(button, .button, [data-action]) {
+  background: var(--ua-black) !important;
+  color: var(--ua-white) !important;
+  border: 4px solid var(--ua-white) !important;
+}
+.app-layout :is(button, .button, [data-action]):hover,
+.app-layout :is(button, .button, [data-action])[aria-current="page"] {
+  background: var(--ua-white) !important;
+  color: var(--ua-black) !important;
+  border-color: var(--ua-white) !important;
+}
+.app-layout :is(table, thead, tbody, tr, td, th) { background: var(--ua-black) !important; border-color: var(--ua-white) !important; color: var(--ua-white) !important; }
+.app-layout :is(.category-chip, [data-filter], [data-checklist-item], [data-mobile-admin-rule]) { background: var(--ua-black) !important; color: var(--ua-white) !important; border: 4px solid var(--ua-white) !important; }
+.app-layout :is(.category-chip, [data-filter], [data-checklist-item], [data-mobile-admin-rule]):hover { background: var(--ua-red) !important; color: var(--ua-white) !important; border-color: var(--ua-red) !important; }
+:root { --focus: var(--ua-red); }
+.app-layout :is(.figma-public-page, .figma-admin-surface, .figma-support-surface, .route-placeholder, .metric, .route-card, .pillar-card, .article-card, .article-card__body) { background-image: none !important; }
+
+/* Inversion safety: light interaction states must never retain white copy. */
+.app-layout a:hover,
+.app-layout a:hover :is(span, strong, small, svg),
+.app-layout :is(button, .button, [data-action]):hover,
+.app-layout :is(button, .button, [data-action]):hover :is(span, strong, small, svg),
+.public-layout .primary-public-navigation a:hover,
+.public-layout .primary-public-navigation a:hover :is(span, svg),
+.public-layout .editorial-menu-trigger:hover,
+.public-layout .editorial-menu-trigger:hover :is(span, svg),
+.urban-product__action:hover,
+.urban-product__action:hover :is(span, svg) {
+  color: var(--ua-black) !important;
+  fill: currentColor;
+}
+.urban-sticker--white,
+.urban-sticker--white :is(span, strong, small) { color: var(--ua-black) !important; }
+
+/* Readable hover hierarchy: links signal in red; controls invert only as complete units. */
+.app-layout a:hover,
+.app-layout a:hover :is(span, strong, small, svg) {
+  background: transparent !important;
+  color: var(--ua-red) !important;
+}
+.app-layout :is(button, .button, [data-action]):hover,
+.app-layout :is(button, .button, [data-action]):hover :is(span, strong, small, svg),
+.public-layout .primary-public-navigation a:hover,
+.public-layout .primary-public-navigation a:hover :is(span, svg),
+.public-layout .editorial-menu-trigger:hover,
+.public-layout .editorial-menu-trigger:hover :is(span, svg),
+.urban-product__action:hover,
+.urban-product__action:hover :is(span, svg) {
+  background: var(--ua-white) !important;
+  color: var(--ua-black) !important;
+}
+
+/* Navigation and search overlays: explicit contrast, independent of page styles. */
+.public-layout .editorial-navigation-panel,
+.public-layout .editorial-navigation-panel[data-open="true"],
+.figma-search-overlay,
+.figma-search-overlay__panel {
+  background: var(--ua-black) !important;
+  color: var(--ua-white) !important;
+  border: 4px solid var(--ua-white) !important;
+  box-shadow: none !important;
+}
+.public-layout .editorial-navigation-grid { gap: clamp(20px, 4vw, 56px); }
+.public-layout .editorial-navigation-intro { border-color: var(--ua-white) !important; }
+.public-layout .editorial-navigation-intro h2,
+.public-layout .editorial-navigation-intro p,
+.public-layout .editorial-navigation-panel nav h2,
+.public-layout .editorial-navigation-panel nav a,
+.figma-search-overlay__heading h2,
+.figma-search-overlay__heading p,
+.figma-search-overlay__panel label { color: var(--ua-white) !important; }
+.public-layout .editorial-navigation-panel nav a { font-style: normal; font-size: clamp(1.2rem, 2.2vw, 2rem); }
+.public-layout .editorial-navigation-panel nav a:hover { color: var(--ua-red) !important; }
+.figma-search-overlay__heading { border-bottom: 4px solid var(--ua-white); padding-bottom: 16px; }
+.figma-search-overlay__panel .figma-search-tool__field { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0; }
+.figma-search-overlay__panel .figma-search-tool__field input { position: static; min-height: 58px; padding: 12px 16px; background: var(--ua-black) !important; color: var(--ua-white) !important; border: 4px solid var(--ua-white) !important; }
+.figma-search-overlay__panel .figma-search-tool__field button { position: static; width: auto; min-height: 58px; padding: 12px 20px; border: 4px solid var(--ua-white) !important; border-left: 0 !important; }
+
+/* Article discussion module: balanced stream-and-form layout. */
+.figma-article-detail .reader-section {
+  width: 100%;
+  padding: clamp(20px, 4vw, 48px) !important;
+  border: 4px solid var(--ua-white) !important;
+  background: var(--ua-black) !important;
+  color: var(--ua-white) !important;
+}
+.figma-article-detail .reader-section + .reader-section { border-top: 0 !important; }
+.reader-section .section-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 16px; border-bottom: 4px solid var(--ua-white) !important; padding-bottom: 16px; }
+.reader-section .section-heading-row h2 { margin: 0; color: var(--ua-white) !important; }
+.reader-section .section-heading-row > span { color: var(--ua-red) !important; text-align: right; }
+.reader-section__layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: clamp(20px, 4vw, 48px); align-items: start; padding-top: 24px; }
+.reader-section__stream { display: grid; gap: 16px; min-width: 0; }
+.figma-conversation-section .comment,
+.figma-conversation-section .review,
+.reader-empty-state {
+  background: var(--ua-black) !important;
+  color: var(--ua-white) !important;
+  border: 4px solid var(--ua-white) !important;
+  border-left: 12px solid var(--ua-red) !important;
+  box-shadow: none !important;
+  padding: 16px !important;
+}
+.figma-conversation-section .comment h3,
+.figma-conversation-section .review h3,
+.figma-conversation-section .comment header span,
+.figma-conversation-section .review header span,
+.figma-conversation-section .comment time,
+.figma-conversation-section .review time { color: var(--ua-white) !important; }
+.reader-response-form { width: 100%; max-width: none !important; margin: 0 !important; padding: 20px !important; background: var(--ua-black) !important; color: var(--ua-white) !important; border: 4px solid var(--ua-white) !important; }
+.reader-response-form h3 { color: var(--ua-white) !important; margin: 0; }
+.reader-response-form :is(label, legend, p) { color: var(--ua-white) !important; }
+.reader-response-form input,
+.reader-response-form textarea { background: var(--ua-black) !important; color: var(--ua-white) !important; border: 4px solid var(--ua-white) !important; }
+.reader-response-form textarea { min-height: 140px; }
+.reader-response-form button { width: 100% !important; }
+.book-rating, .book-rating-option__icons { color: var(--ua-red) !important; }
+.book-rating-option { background: var(--ua-black) !important; border: 4px solid var(--ua-white) !important; color: var(--ua-white) !important; }
+.book-rating-option:has(input:checked) { background: var(--ua-white) !important; color: var(--ua-black) !important; border-color: var(--ua-white) !important; }
+@media (max-width: 860px) {
+  .reader-section__layout { grid-template-columns: 1fr; }
+  .figma-search-overlay__panel .figma-search-tool__field { grid-template-columns: 1fr; }
+  .figma-search-overlay__panel .figma-search-tool__field button { border-left: 4px solid var(--ua-white) !important; border-top: 0 !important; }
+}

@@ -9,7 +9,7 @@ function getCategory(categories, categoryId) {
 
 function getAuthor(profiles, profileId) {
   return profiles.find((profile) => profile.id === profileId) || {
-    name: "KASI SUPPLY CO.",
+    name: "URBAN ANARCHY",
     slug: "babas-brasse"
   };
 }
@@ -58,7 +58,7 @@ export function buildVisceralMagRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "KASI SUPPLY CO. / Dispatches",
+      eyebrow: "URBAN ANARCHY / Dispatches",
       title: "Fashion, art, and culture with teeth.",
       dek: "Dispatches from the people, places, and objects making the city feel alive."
     },

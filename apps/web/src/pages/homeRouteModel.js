@@ -33,7 +33,7 @@ function buildCarouselSlides() {
       id: "cape-collage",
       image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1800&q=85",
       alt: "Streetwear model in a city fashion editorial",
-      eyebrow: "KASI SUPPLY CO. / DROP 01",
+      eyebrow: "URBAN ANARCHY / DROP 01",
       title: "Fashion is a public language.",
       description: "Style, art, sound, and the people turning city life into a visual statement.",
       href: "/visceral-mag",
@@ -82,11 +82,11 @@ function buildFeaturedMedia(fixtures, articles) {
 }
 function buildMoreFromMagazine(fixtures, articles) {
   if (articles.length >= 3) {
-    return { heading: "More from KASI SUPPLY CO.", items: articles.slice(0, 4) };
+    return { heading: "More from URBAN ANARCHY", items: articles.slice(0, 4) };
   }
 
   return {
-    heading: "More from KASI SUPPLY CO.",
+    heading: "More from URBAN ANARCHY",
     items: [
       ...fixtures.categories.map((category) => ({
         id: `category-${category.id}`,
@@ -123,9 +123,9 @@ export function buildHomeRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "KASI SUPPLY CO. Online Magazine",
+      eyebrow: "URBAN ANARCHY Online Magazine",
       title: "Fashion. Art. Culture. No soft edges.",
-      dek: "KASI SUPPLY CO. is a brutalist field guide to the people and images moving the city."
+      dek: "URBAN ANARCHY is a brutalist field guide to the people and images moving the city."
     },
     sections: {
       leadStory,

@@ -47,7 +47,7 @@ export function buildCreativeTeamRouteModel(fixtures) {
     },
     hero: {
       eyebrow: "Creative Team",
-      title: "The people shaping KASI SUPPLY CO..",
+      title: "The people shaping URBAN ANARCHY.",
       dek: "Editors, makers, and visual storytellers working together to publish generous, rigorous cultural writing."
     },
     editorialRoleNote: {

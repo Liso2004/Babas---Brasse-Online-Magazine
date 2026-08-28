@@ -96,7 +96,7 @@ export function HomeCarousel({ slides, interval = 6500 }) {
   return (
     <section
       className="home-carousel"
-      aria-label="KASI SUPPLY CO. featured stories"
+      aria-label="URBAN ANARCHY featured stories"
       aria-roledescription="carousel"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}

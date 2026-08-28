@@ -43,7 +43,7 @@ export function ProfileDetailPage({ slug, fixtures = launchFixtures }) {
           <nav className="profile-detail-links" aria-label={`Profile links for ${profile.name}`}>
             {profile.socialLinks.length > 0
               ? profile.socialLinks.map((link) => <ProfileLink key={link.url} link={link} />)
-              : <Link to="/contact">Contact via KASI SUPPLY CO.</Link>}
+              : <Link to="/contact">Contact via URBAN ANARCHY</Link>}
           </nav>
         </div>
       </header>

@@ -1,9 +1,9 @@
 import { getRouteByPath } from "../routes.js";
 
 const aboutCopy = {
-  mission: "KASI SUPPLY CO. documents the friction between fashion, art, and culture with a point of view rooted in the street.",
+  mission: "URBAN ANARCHY documents the friction between fashion, art, and culture with a point of view rooted in the street.",
   vision: "We make room for difficult images, independent voices, and the people who build culture before anyone calls it a movement.",
-  organisation: "KASI SUPPLY CO. is an independent visual culture magazine for style obsessives, art kids, and city makers."
+  organisation: "URBAN ANARCHY is an independent visual culture magazine for style obsessives, art kids, and city makers."
 };
 
 const pillarFallbacks = [
@@ -38,9 +38,9 @@ export function buildAboutRouteModel(fixtures) {
       prototypeFile: route.prototypeFile
     },
     hero: {
-      eyebrow: "About KASI SUPPLY CO.",
+      eyebrow: "About URBAN ANARCHY",
       title: "A hard-edged magazine for a living city.",
-      dek: "KASI SUPPLY CO. tracks the collision of fashion, art, and culture across South Africa and beyond."
+      dek: "URBAN ANARCHY tracks the collision of fashion, art, and culture across South Africa and beyond."
     },
     sections: {
       overview: {

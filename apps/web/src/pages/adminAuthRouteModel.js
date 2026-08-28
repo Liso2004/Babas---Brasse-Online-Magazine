@@ -14,12 +14,12 @@ export function buildAdminLoginRouteModel() {
     generatedFrom: "admin-auth-route-model",
     route: { id: route.id, label: route.label, path: route.path, prototypeFile: route.prototypeFile },
     header: { brand: "B&B Admin", label: "Secure sign in", href: "/admin/login" },
-    hero: { eyebrow: "Admin login", title: "Sign in to KASI SUPPLY CO. Admin." },
+    hero: { eyebrow: "Admin login", title: "Sign in to URBAN ANARCHY Admin." },
     form: { action: "/admin/login", method: "post", id: "admin-login", fields: [
       { id: "login-email", name: "email", type: "email", label: "Email", autocomplete: "email", required: true },
       { id: "login-password", name: "password", type: "password", label: "Password", autocomplete: "current-password", required: true }
     ], submitAction: "sign-in", submitLabel: "Sign in" },
-    accessCopy: { heading: "Access is limited to the administrator.", body: "Only the KASI SUPPLY CO. administrator can sign in and edit publication content." },
+    accessCopy: { heading: "Access is limited to the administrator.", body: "Only the URBAN ANARCHY administrator can sign in and edit publication content." },
     recoveryLinks: [ { href: "/admin/password-reset", label: "Forgot password" }, { href: "/", label: "Return to public site" } ],
     sections: {
       states: { notes: ["login-invalid", "login-locked", "login-loading", "login-redirect"], items: ["invalid", "locked", "loading", "redirect"], redirectHref: "/admin" },

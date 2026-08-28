@@ -16,9 +16,9 @@ export function FigmaArticleCard({ article, featured = false, compact = false, s
   }
 
   const image = article.featuredImage;
-  const category = article.category?.label || article.categoryId || "KASI SUPPLY CO.";
+  const category = article.category?.label || article.categoryId || "URBAN ANARCHY";
   const categorySlug = article.category?.slug || article.categoryId || "article";
-  const author = article.author?.name || "KASI SUPPLY CO.";
+  const author = article.author?.name || "URBAN ANARCHY";
   const authorHref = article.author?.href;
   const classes = ["article-card", featured ? "article-card--featured" : "", compact ? "article-card--compact" : ""].filter(Boolean).join(" ");
 

@@ -15,7 +15,7 @@ function getCategory(categories, categoryId) {
 
 function getAuthor(profiles, profileId) {
   return profiles.find((profile) => profile.id === profileId) || {
-    name: "KASI SUPPLY CO.",
+    name: "URBAN ANARCHY",
     slug: "babas-brasse"
   };
 }
@@ -123,7 +123,7 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
     hero: {
       eyebrow: "Categories / Search",
       title: "Find essays, reviews, interviews, artwork, and culture notes.",
-      dek: "Search the published KASI SUPPLY CO. archive by keyword or use the magazine sections above."
+      dek: "Search the published URBAN ANARCHY archive by keyword or use the magazine sections above."
     },
     search: {
       id: "article-search",

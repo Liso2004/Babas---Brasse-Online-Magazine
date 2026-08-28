@@ -25,7 +25,7 @@ export function FigmaProfileCard({ profile, showPublishedWorks = false }) {
         <nav className="figma-profile-card__links" aria-label={`Profile links for ${profile.name}`}>
           {links.length > 0
             ? links.map((link) => <a key={link.url} href={link.url}>{link.label}</a>)
-            : <a href="/contact">Contact via KASI SUPPLY CO.</a>}
+            : <a href="/contact">Contact via URBAN ANARCHY</a>}
         </nav>
       </div>
     </article>

@@ -34,7 +34,7 @@ function buildErrorRouteModel(config) {
     sections: {
       recovery: { id: "recovery-routes" },
       states: { id: config.statesId, notes: config.stateNotes, items: config.stateItems },
-      footer: { id: "support-footer", body: "Minimal footer for error recovery. KASI SUPPLY CO. keeps this page quiet so readers can find a helpful path." }
+      footer: { id: "support-footer", body: "Minimal footer for error recovery. URBAN ANARCHY keeps this page quiet so readers can find a helpful path." }
     }
   };
 }
@@ -46,7 +46,7 @@ export function buildNotFoundRouteModel() {
     code: "404",
     title: "Page not found",
     messageId: "not-found-message",
-    copy: "This page may be from broken links, removed articles, or mistyped URLs. No blame, just a better route back into KASI SUPPLY CO..",
+    copy: "This page may be from broken links, removed articles, or mistyped URLs. No blame, just a better route back into URBAN ANARCHY.",
     primaryAction: { id: "reset-to-search", label: "Search the magazine", href: "/search" },
     statesId: "not-found-states",
     stateNotes: ["missing-public-page", "removed-article", "invalid-slug", "reset-to-search"],

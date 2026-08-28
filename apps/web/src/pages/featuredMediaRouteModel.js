@@ -70,7 +70,7 @@ export function buildFeaturedMediaRouteModel(fixtures) {
     hero: {
       eyebrow: "Featured / Media",
       title: "Raw image. Real impact.",
-      dek: "A living wall of fashion, art, objects, and city texture from KASI SUPPLY CO.."
+      dek: "A living wall of fashion, art, objects, and city texture from URBAN ANARCHY."
     },
     sections: {
       mediaGallery: mediaItems.length > 0 ? {

@@ -9,7 +9,7 @@ function getCategory(categories, categoryId) {
 
 function getAuthor(profiles, profileId) {
   return profiles.find((profile) => profile.id === profileId) || {
-    name: "KASI SUPPLY CO.",
+    name: "URBAN ANARCHY",
     slug: "babas-brasse"
   };
 }

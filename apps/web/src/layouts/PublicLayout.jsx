@@ -24,7 +24,7 @@ const peopleNavigation = [
   { label: "The Archive", href: "/contributors" }
 ];
 
-// Replace these platform homepages with verified KASI SUPPLY CO. profile URLs before launch.
+// Replace these platform homepages with verified URBAN ANARCHY profile URLs before launch.
 const socialNavigation = [
   { label: "Instagram", href: "https://www.instagram.com/", placeholder: true, Icon: Instagram },
   { label: "Facebook", href: "https://www.facebook.com/", placeholder: true, Icon: Facebook },
@@ -93,7 +93,7 @@ export function PublicLayout({ route, children }) {
       <header className="site-header final-design-header production-editorial-header" ref={headerRef}>
         <div className="header-topline">
           <Link className="brand-mark" to="/" onClick={closeNavigation}>
-            <span className="brand-name">KASI SUPPLY CO.</span>
+            <span className="brand-name">URBAN ANARCHY</span>
           </Link>
 
           <div
@@ -135,14 +135,14 @@ export function PublicLayout({ route, children }) {
               id="editorial-navigation-panel"
               className="editorial-navigation-panel"
               data-open={editorialMenuOpen ? "true" : "false"}
-              aria-label="Explore KASI SUPPLY CO."
+              aria-label="Explore URBAN ANARCHY"
               hidden={!editorialMenuOpen}
             >
               <div className="editorial-navigation-grid">
                 <div className="editorial-navigation-intro">
-                  <p className="eyebrow">Explore the magazine</p>
-                  <h2>Stories with nerve, care, and a point of view.</h2>
-                  <p>South African literature, theatre, art, and culture, edited for readers who want to stay with an idea.</p>
+                  <p className="eyebrow">SYSTEM MALFUNCTION</p>
+                  <h2>DROP DATA FOR THE CONCRETE GRID.</h2>
+                  <p>HEAVYWEIGHT CUTS, ARCHIVE OBJECTS, AND RAW STREET SIGNALS. NO RESTOCKS.</p>
                 </div>
                 <nav aria-label="Editorial sections">
                   <h2>Read</h2>
@@ -196,22 +196,22 @@ export function PublicLayout({ route, children }) {
 
       <footer className="figma-footer" aria-label="Site footer">
         <div className="figma-footer__inner">
-          <section className="figma-footer__brand" aria-label="KASI SUPPLY CO. summary">
-            <p className="brand-name">KASI SUPPLY CO.</p>
-            <p>A digital magazine celebrating South African literature, theatre, and culture. Featuring critical essays, reviews, and thought-provoking commentary.</p>
+          <section className="figma-footer__brand" aria-label="URBAN ANARCHY summary">
+            <p className="brand-name">URBAN ANARCHY</p>
+            <p>HEAVYWEIGHT CUTS. RAW HEMS. CAPSULES BUILT FOR THE CONCRETE GRID.</p>
           </section>
           <nav aria-label="Footer sections">
             <h2>Sections</h2>
-            <Link to="/visceral-mag">Visceral Mag</Link>
-            <Link to="/featured">Featured / Media</Link>
+            <Link to="/visceral-mag">ARCHIVE</Link>
+            <Link to="/featured">LOOKBOOK</Link>
             {editorialNavigation.map((item) => <Link key={item.href} to={item.href}>{item.label}</Link>)}
           </nav>
           <nav aria-label="Footer about links">
             <h2>About</h2>
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/contributors">Submit Writing</Link>
-            <Link to="/#newsletter">Newsletter</Link>
+            <Link to="/about">MANIFESTO</Link>
+            <Link to="/contact">CONTACT</Link>
+            <Link to="/contributors">THE CREW</Link>
+            <Link to="/#newsletter">DROP SIGNAL</Link>
           </nav>
           <section className="figma-footer__socials" aria-label="Social media">
             <h2>Follow</h2>
@@ -233,7 +233,7 @@ export function PublicLayout({ route, children }) {
             </div>
           </section>
         </div>
-        <p className="figma-footer__legal">Copyright 2026 KASI SUPPLY CO.. All rights reserved.</p>
+        <p className="figma-footer__legal">Copyright 2026 URBAN ANARCHY. All rights reserved.</p>
       </footer>
     </div>
   );
