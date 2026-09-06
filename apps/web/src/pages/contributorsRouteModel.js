@@ -14,10 +14,10 @@ function getCategory(fixtures, categoryId) {
 }
 
 const contributorImages = {
-  "visceral-contributor": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=85",
-  "sihle-ndlovu": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85",
-  "mia-van-wyk": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85",
-  "thando-jacobs": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85"
+  "visceral-contributor": "/media/editorial/editorial-belonging.jpg",
+  "sihle-ndlovu": "/media/editorial/editorial-theatre.jpg",
+  "mia-van-wyk": "/media/editorial/editorial-books.jpg",
+  "thando-jacobs": "/media/editorial/editorial-language.jpg"
 };
 
 function contributorCard(fixtures, profile) {
@@ -32,7 +32,7 @@ function contributorCard(fixtures, profile) {
     shortBio: profile.shortBio,
     socialLinks: Array.isArray(profile.socialLinks) ? profile.socialLinks : [],
     image: {
-      url: contributorImages[profile.id] || "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85",
+      url: contributorImages[profile.id] || "/media/editorial/editorial-stagecraft.jpg",
       altText: `Writing workshop representing ${profile.name}'s contribution`
     },
     publishedWorks: works

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ChevronDown, Facebook, Instagram, Linkedin, Menu, Music2, X, Youtube } from "lucide-react";
 import { Button } from "../components/ui/button.jsx";
 import { FigmaSearchTool } from "../components/FigmaSearchTool.jsx";
+import { useCart } from "../cart/CartContext.jsx";
 
 const primaryNavigation = [
   { label: "Drop 01", href: "/" },
@@ -13,6 +14,7 @@ const primaryNavigation = [
 ];
 
 const editorialNavigation = [
+  { label: "Shop", href: "/" },
   { label: "Heavyweight Fleece", href: "/search?category=style" },
   { label: "Boxy Cut", href: "/search?category=objects" },
   { label: "Capsule Collection", href: "/search?category=art" },
@@ -39,6 +41,7 @@ export function PublicLayout({ route, children }) {
   const headerRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const { itemCount } = useCart();
 
   function isSectionActive(item) {
     const [pathname, search = ""] = item.href.split("?");
@@ -88,7 +91,7 @@ export function PublicLayout({ route, children }) {
   }
 
   return (
-    <div className="app-layout public-layout" data-public-design="visceral-brutalist-archive">
+    <div className="app-layout public-layout" data-public-design="visceral-brutalist-archive" data-profile-route={route.id === "profile-detail" ? "true" : undefined}>
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header final-design-header production-editorial-header" ref={headerRef}>
         <div className="header-topline">
@@ -118,6 +121,9 @@ export function PublicLayout({ route, children }) {
               </nav>
 
               <span className="primary-nav-separator primary-nav-separator--sections" aria-hidden="true">///</span>
+              <Link className="urban-cart-link" to="/cart" onClick={closeNavigation} aria-label={`Open cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}>
+                Cart <span>{itemCount}</span>
+              </Link>
               <Button
                 className="editorial-menu-trigger"
                 type="button"

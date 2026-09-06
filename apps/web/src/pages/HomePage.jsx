@@ -11,7 +11,7 @@ export function HomePage({ fixtures = launchFixtures }) {
   const products = [sections.featuredArticle, ...sections.recentArticles, ...sections.latestArticles]
     .filter(Boolean)
     .filter((article, index, list) => list.findIndex((item) => item.id === article.id) === index)
-    .slice(0, 4);
+    .slice(0, 8);
 
   return (
     <section className="urban-shop-page" data-page="home" data-design-reference="urban-anarchy-shop-zine" data-generated={model.generatedFrom}>
@@ -24,7 +24,7 @@ export function HomePage({ fixtures = launchFixtures }) {
       <section className="urban-product-grid" aria-label="Drop 01 products">
         {products.map((product, index) => (
           <article className={`urban-product urban-product--${index + 1}`} key={product.id}>
-            <Link to={product.href} className="urban-product__image" aria-label={`Open ${product.title}`}>
+              <Link to={`/shop/${product.slug}`} className="urban-product__image" aria-label={`Open ${product.title}`}>
               <img src={product.featuredImage?.url} alt={product.featuredImage?.altText || product.title} />
             </Link>
             {index === 0 ? <span className="urban-sticker urban-sticker--red">SOLD OUT</span> : null}
@@ -35,7 +35,7 @@ export function HomePage({ fixtures = launchFixtures }) {
               <h2>{product.title}</h2>
               <p>{product.dek}</p>
               <div className="urban-product__specs"><span>FIT: BOXY CUT</span><span>DROP: 01</span><span>STATUS: {index === 0 ? "DEPLETED" : "AVAILABLE"}</span></div>
-              <Link to={product.href} className="urban-product__action">ACCESS ITEM</Link>
+              <Link to={`/shop/${product.slug}`} className="urban-product__action">ACCESS ITEM</Link>
             </div>
           </article>
         ))}

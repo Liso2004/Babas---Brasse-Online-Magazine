@@ -49,7 +49,7 @@ export function buildAboutRouteModel(fixtures) {
         vision: aboutCopy.vision,
         organisation: aboutCopy.organisation,
         image: {
-          url: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=85",
+          url: "/media/editorial/editorial-belonging.jpg",
           altText: "Neighbors in conversation on a Cape Town street"
         }
       },

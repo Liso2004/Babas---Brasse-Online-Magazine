@@ -31,7 +31,7 @@ function buildCarouselSlides() {
   return [
     {
       id: "cape-collage",
-      image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1800&q=85",
+      image: "/media/carousel/babas-brasse-cape-collage.webp",
       alt: "Streetwear model in a city fashion editorial",
       eyebrow: "URBAN ANARCHY / DROP 01",
       title: "Fashion is a public language.",
@@ -41,7 +41,7 @@ function buildCarouselSlides() {
     },
     {
       id: "stage-collage",
-      image: "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=85",
+      image: "/media/carousel/babas-brasse-stage-collage.webp",
       alt: "Fashion editorial with models in an urban location",
       eyebrow: "CAPSULE / ART DIRECTION",
       title: "Art refuses the inside voice.",
@@ -51,7 +51,7 @@ function buildCarouselSlides() {
     },
     {
       id: "city-collage",
-      image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85",
+      image: "/media/carousel/babas-brasse-city-collage.webp",
       alt: "Contemporary streetwear outfit in a city street",
       eyebrow: "ARCHIVE / 021",
       title: "Made for the city after dark.",

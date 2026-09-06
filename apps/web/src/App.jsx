@@ -13,10 +13,16 @@ import { FeaturedMediaPage } from "./pages/FeaturedMediaPage.jsx";
 import { CreativeTeamPage } from "./pages/CreativeTeamPage.jsx";
 import { ContributorsPage } from "./pages/ContributorsPage.jsx";
 import { ProfileDetailPage } from "./pages/ProfileDetailPage.jsx";
+import { ProductDetailPage } from "./pages/ProductDetailPage.jsx";
 import { ContactPage } from "./pages/ContactPage.jsx";
 import { NotFoundPage } from "./pages/NotFoundPage.jsx";
 import { ServerErrorPage } from "./pages/ServerErrorPage.jsx";
 import { OfflinePage } from "./pages/OfflinePage.jsx";
+import { CartPage } from "./pages/CartPage.jsx";
+import { CartProvider } from "./cart/CartContext.jsx";
+import { AccountProvider } from "./account/AccountContext.jsx";
+import { AccountPage } from "./pages/AccountPage.jsx";
+import { CheckoutPage } from "./pages/CheckoutPage.jsx";
 
 const AdminLayout = lazy(() => import("./layouts/AdminLayout.jsx").then((module) => ({ default: module.AdminLayout })));
 const AuthLayout = lazy(() => import("./layouts/AuthLayout.jsx").then((module) => ({ default: module.AuthLayout })));
@@ -41,7 +47,11 @@ function ShellContent({ route, fixtures }) {
   if (route.id === "creative-team") return <CreativeTeamPage fixtures={fixtures} />;
   if (route.id === "contributors") return <ContributorsPage fixtures={fixtures} />;
   if (route.id === "profile-detail") return <ProfileDetailPage slug={route.params?.slug} fixtures={fixtures} />;
+  if (route.id === "product-detail") return <ProductDetailPage slug={route.params?.slug} fixtures={fixtures} />;
   if (route.id === "contact") return <ContactPage fixtures={fixtures} />;
+  if (route.id === "cart") return <CartPage fixtures={fixtures} />;
+  if (route.id === "account") return <AccountPage />;
+  if (route.id === "checkout") return <CheckoutPage />;
   if (route.id === "admin-dashboard") return <AdminDashboardPage fixtures={fixtures} />;
   if (route.id === "article-management") return <ArticleManagementPage fixtures={fixtures} />;
   if (route.id === "profile-media-management") return <ProfileMediaManagementPage fixtures={fixtures} />;
@@ -115,7 +125,7 @@ function RoutedShell() {
     return () => { active = false; };
   }, []);
 
-  return <ResolvedShell route={route} fixtures={fixtures} />;
+  return <AccountProvider><CartProvider><ResolvedShell route={route} fixtures={fixtures} /></CartProvider></AccountProvider>;
 }
 
 export function AppShell({ pathname }) {

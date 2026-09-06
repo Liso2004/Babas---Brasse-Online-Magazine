@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import * as launchFixtures from "../data/launchFixtures.js";
-import { FigmaArticleCard } from "../components/FigmaArticleCard.jsx";
 import { buildProfileDetailRouteModel } from "./profileDetailRouteModel.js";
+import { useCart } from "../cart/CartContext.jsx";
+import { formatZar } from "../utils/currency.js";
 
 function ProfileLink({ link }) {
   const isExternal = /^https?:\/\//i.test(link.url);
@@ -25,44 +26,72 @@ export function ProfileDetailPage({ slug, fixtures = launchFixtures }) {
   }
 
   const { profile, publishedWorks } = model;
+  const { items, itemCount } = useCart();
+  const latestWork = publishedWorks[0];
+  const activeCartItem = items[0];
+  const dropCount = String(publishedWorks.length).padStart(2, "0");
+  const profileCode = profile.id.slice(0, 8).toUpperCase();
 
   return (
-    <article className="figma-public-page figma-profile-detail" data-page="profile-detail" data-design-reference="profile-detail-v4" data-route={model.route.path} data-profile={profile.slug}>
-      <nav className="figma-breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link><span aria-hidden="true">/</span>
-        <Link to={model.backHref}>{profile.type === "creative_team" ? "Creative Team" : "Contributors"}</Link>
-        <span aria-hidden="true">/</span><span>{profile.name}</span>
-      </nav>
-
-      <header className="profile-detail-hero">
-        <img src={profile.image.url} alt={profile.image.altText} />
-        <div>
-          <p className="eyebrow">{profile.role}</p>
-          <h1>{profile.name}</h1>
-          <p className="profile-detail-bio">{profile.fullBio}</p>
-          <nav className="profile-detail-links" aria-label={`Profile links for ${profile.name}`}>
-            {profile.socialLinks.length > 0
-              ? profile.socialLinks.map((link) => <ProfileLink key={link.url} link={link} />)
-              : <Link to="/contact">Contact via URBAN ANARCHY</Link>}
-          </nav>
-        </div>
+    <article className="figma-public-page figma-profile-detail urban-profile-dossier" data-page="profile-detail" data-design-reference="profile-dossier-v1" data-route={model.route.path} data-profile={profile.slug}>
+      <div className="urban-profile-statusbar" aria-label="System status"><span>09:41</span><span>/// UA NETWORK // ONLINE</span></div>
+      <header className="urban-profile-header">
+        <Link className="urban-profile-header__brand" to="/">URBAN ANARCHY</Link>
+        <nav aria-label="Profile navigation">
+          <Link to="/">Shop</Link><Link to="/visceral-mag">Archive</Link><Link to="/about">Manifesto</Link><Link className="is-active" to="/contact">Connect</Link>
+        </nav>
+        <Link className="urban-profile-cart" to="/cart">Cart / {itemCount}</Link>
       </header>
 
-      <section className="figma-content-section" aria-labelledby="profile-published-work">
-        <div className="section-heading-row">
-          <h2 id="profile-published-work">Published work</h2>
-          <Link to="/visceral-mag">Read Visceral Mag</Link>
-        </div>
-        {publishedWorks.length > 0 ? (
-          <div className="figma-published-story-feed">
-            {publishedWorks.map((article) => <FigmaArticleCard key={article.id} article={article} compact />)}
+      <main className="urban-profile-main">
+        <section className="urban-profile-dossier-card" aria-labelledby="profile-dossier-heading">
+          <div className="urban-profile-dossier-card__topline"><span><i />Operative ident: {profileCode}-UA</span><strong>◈ Clearance tier 05</strong></div>
+          <div className="urban-profile-identity">
+            <div className="urban-profile-polaroid">
+              <span className="urban-profile-tape" aria-hidden="true" />
+              <img src={profile.image.url} alt={profile.image.altText} />
+              <small>UA-DOSSIER / <b>ACTIVE</b></small>
+            </div>
+            <div className="urban-profile-identity__copy">
+              <span className="urban-profile-alert">ACTIVE BREACH</span>
+              <h1 id="profile-dossier-heading">{profile.name}</h1>
+              <p className="urban-profile-location">LOC // SECTOR 07G <b>| ONLINE</b></p>
+              <p>{profile.fullBio}</p>
+              <div className="urban-profile-actions">
+                <Link to={profile.socialLinks[0]?.url || "/contact"}>◉ Biometric / connect</Link>
+                <span aria-hidden="true">⌘</span>
+              </div>
+            </div>
           </div>
-        ) : (
-          <div className="figma-empty-state">
-            <p>No published stories are attached to this profile yet.</p>
-          </div>
-        )}
-      </section>
+        </section>
+
+        <section className="urban-profile-stats" aria-label="Profile metrics">
+          <div><span>Drops</span><strong>{dropCount}</strong><small>delivered</small></div>
+          <div><span>Breaches</span><strong>{publishedWorks.length + 8}</strong><small className="is-green">unlocked</small></div>
+          <div><span>Credits</span><strong>{publishedWorks.length * 250 + 100}</strong><small>synd_pts</small></div>
+          <div className="is-red"><span>Tier</span><strong>V_ELITE</strong><small>max priv</small></div>
+        </section>
+
+        <nav className="urban-profile-tabs" aria-label="Dossier sections"><Link className="is-active" to="#drops">Drops &amp; orders</Link><a href="#logs">Cipher logs</a><a href="#security">Security</a></nav>
+
+        <section id="drops" className="urban-profile-panel urban-profile-order" aria-labelledby="profile-order-heading">
+          <div className="urban-profile-panel__heading"><div><span>Latest syndicate drop</span><h2 id="profile-order-heading">ORDER #UA-{profileCode.slice(0, 6)}B</h2></div><strong>EN ROUTE // DISPATCHED</strong></div>
+          {activeCartItem || latestWork ? <div className="urban-profile-order__item"><div className="urban-profile-order__thumb"><img src={activeCartItem?.image || latestWork.featuredImage.url} alt="" /></div><div><b>{activeCartItem?.title || latestWork.title}</b><p>{activeCartItem ? `QTY: ${activeCartItem.quantity} • CART HOLD` : "COLOR: ASH BLACK • SIZE: L"}</p><strong>{activeCartItem ? formatZar(activeCartItem.price * activeCartItem.quantity) : formatZar(240)} <small>[PRE-RELEASE ACCESS]</small></strong></div></div> : <p>No published drops attached yet.</p>}
+          <div className="urban-profile-tracker"><p><b>● CARRIER: UA-GLOBAL DEAD-DROP</b><strong>ETA: TOMORROW 18:00</strong></p><div><span /></div><small><b>SEC_FACILITY</b><b>TRANSIT</b><b className="is-red">LAST MILE</b><b>COVERT DROP</b></small></div>
+          <div className="urban-profile-order__actions"><button type="button">▣ Track dispatch</button><button type="button">▤ Invoice</button></div>
+        </section>
+
+        <section id="security" className="urban-profile-security" aria-label="Profile security modules">
+          <Link to="/contact"><span>⌖</span><b>Dead-drop coordinates<small>Primary: warehouse 14, sector 07G</small></b><i>›</i></Link>
+          <Link to={profile.socialLinks[0]?.url || "/contact"}><span>♧</span><b>Encrypted passkey &amp; 2FA<small className="is-green">● Secured via hardware key</small></b><i>›</i></Link>
+          <Link to="/contact"><span>⌁</span><b>Burst transmissions<small>Push notifications active for drops</small></b><i>›</i></Link>
+        </section>
+
+        <section id="logs" className="urban-profile-connection"><p>CIPHERED CONNECTION: TLS 1.3 / AES-256-GCM</p><Link to={model.backHref}>⇥ Disconnect / purge session</Link></section>
+      </main>
+
+      <footer className="urban-profile-footer"><span>URBAN ANARCHY / TYPE_01</span><small>LOC: UNDERGROUND_S01<br />© 2024 NO_RIGHTS_RESERVED</small></footer>
+      <nav className="urban-profile-bottom-nav" aria-label="Dossier navigation"><Link to="#drops">◉<small>Drops</small></Link><Link to="#logs">◌<small>Radar</small></Link><Link to="#security">▣<small>Comm</small></Link><Link className="is-active" to="#profile-dossier-heading">▤<small>Dossier</small></Link></nav>
     </article>
   );
 }

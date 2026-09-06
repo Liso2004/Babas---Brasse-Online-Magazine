@@ -1,19 +1,19 @@
 import { getRouteByPath } from "../routes.js";
 
 const profileImages = {
-  "zubayr-charles": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85",
-  "zoe-petersen": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85",
-  "naledi-maseko": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85",
-  "ayesha-daniels": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=85",
-  "visceral-contributor": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=85",
-  "sihle-ndlovu": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85",
-  "mia-van-wyk": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85",
-  "thando-jacobs": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85"
+  "zubayr-charles": "/media/editorial/editorial-theatre.jpg",
+  "zoe-petersen": "/media/editorial/editorial-stagecraft.jpg",
+  "naledi-maseko": "/media/editorial/editorial-language.jpg",
+  "ayesha-daniels": "/media/editorial/editorial-belonging.jpg",
+  "visceral-contributor": "/media/editorial/editorial-belonging.jpg",
+  "sihle-ndlovu": "/media/editorial/editorial-theatre.jpg",
+  "mia-van-wyk": "/media/editorial/editorial-books.jpg",
+  "thando-jacobs": "/media/editorial/editorial-language.jpg"
 };
 
 function profileImage(profile) {
   return {
-    url: profile.image?.url || profileImages[profile.id] || "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85",
+    url: profile.image?.url || profileImages[profile.id] || "/media/editorial/editorial-stagecraft.jpg",
     altText: profile.image?.altText || `Editorial portrait representing ${profile.name}`
   };
 }

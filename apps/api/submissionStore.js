@@ -47,6 +47,17 @@ function collection(seed, key) {
   return Array.isArray(seed?.[key]) ? clone(seed[key]) : [];
 }
 
+const defaultInventory = [
+  { productId: "the-new-uniform", title: "Heavyweight Shell_01", price: 999, stock: 0 },
+  { productId: "walls-talk-back", title: "Riot Cargo_X", price: 999, stock: 12 },
+  { productId: "frequency-after-midnight", title: "Choke Chain_03", price: 999, stock: 12 },
+  { productId: "made-to-circulate", title: "Graphic Tee_04", price: 999, stock: 12 },
+  { productId: "the-print-is-the-point", title: "The Print Is the Point", price: 999, stock: 12 },
+  { productId: "fit-check-the-archive", title: "Fit Check: The Archive", price: 999, stock: 12 },
+  { productId: "signal-layer", title: "Signal Layer_05", price: 999, stock: 12 },
+  { productId: "concrete-editorial", title: "Concrete Editorial_06", price: 999, stock: 12 }
+];
+
 function emptyData(seed = {}) {
   return {
     version: 2,
@@ -57,7 +68,9 @@ function emptyData(seed = {}) {
     articles: collection(seed, "articles"),
     profiles: collection(seed, "profiles"),
     mediaItems: collection(seed, "mediaItems"),
-    reviews: collection(seed, "reviews")
+    reviews: collection(seed, "reviews"),
+    orders: collection(seed, "orders"),
+    inventory: Array.isArray(seed?.inventory) ? clone(seed.inventory) : clone(defaultInventory)
   };
 }
 
@@ -174,6 +187,45 @@ class SubmissionStore {
     this.data.reviews.push(review);
     this.persist();
     return { ...review };
+  }
+
+  createOrder(payload) {
+    const incomingItems = Array.isArray(payload?.items) ? payload.items : [];
+    if (!incomingItems.length || incomingItems.length > 20) throw new ValidationError("An order must contain between one and twenty items.");
+
+    const items = incomingItems.map((item) => {
+      const productId = cleanSlug(item?.productId, "Product ID");
+      const inventoryItem = this.data.inventory.find((candidate) => candidate.productId === productId);
+      const quantity = Number(item?.quantity);
+      if (!inventoryItem) throw new ValidationError("That product is no longer available.");
+      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 20) throw new ValidationError("Item quantity must be between one and twenty.");
+      if (quantity > inventoryItem.stock) throw new ValidationError(`${inventoryItem.title} does not have enough stock.`);
+      return {
+        productId,
+        title: inventoryItem.title,
+        quantity,
+        price: inventoryItem.price,
+        lineTotal: inventoryItem.price * quantity
+      };
+    });
+    const email = payload?.customer?.email ? cleanEmail(payload.customer.email) : null;
+    const name = payload?.customer?.name ? cleanOptionalText(payload.customer.name, 160) : null;
+    const order = {
+      id: `order-${crypto.randomUUID()}`,
+      currency: "ZAR",
+      status: "pending-payment",
+      customer: { name, email },
+      items,
+      total: items.reduce((sum, item) => sum + item.lineTotal, 0),
+      createdAt: new Date().toISOString()
+    };
+    items.forEach((item) => {
+      const inventoryItem = this.data.inventory.find((candidate) => candidate.productId === item.productId);
+      inventoryItem.stock -= item.quantity;
+    });
+    this.data.orders.push(order);
+    this.persist();
+    return clone(order);
   }
 
   listContactSubmissions(options = {}) {

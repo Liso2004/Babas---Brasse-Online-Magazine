@@ -24,6 +24,47 @@ function relatedArticleSummary(article) {
   };
 }
 
+function shopLook(fixtures, article) {
+  const mediaItems = Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems : [];
+  const lookNames = article.categoryId === "style"
+    ? ["Heavyweight shell", "Boxy base layer", "Archive cap"]
+    : article.categoryId === "sound"
+      ? ["Choke chain", "Night uniform", "Signal tee"]
+      : ["Graphic tee", "Raw hem layer", "Concrete cap"];
+
+  const products = fixtures.articles.filter((candidate) => candidate.status === "published");
+
+  return lookNames.map((name, index) => {
+    const product = products[index % Math.max(products.length, 1)];
+    const media = product?.featuredImage || mediaItems[index % Math.max(mediaItems.length, 1)];
+    return {
+      id: `${article.id}-look-${index + 1}`,
+      name: product?.title || name,
+      detail: ["Drop 01", "Limited run", "Archive object"][index],
+      image: media?.url || article.featuredImage.url,
+      altText: media?.altText || article.featuredImage.altText,
+      href: product ? `/shop/${product.slug}` : "/"
+    };
+  });
+}
+
+function imageShoot(fixtures, article) {
+  const mediaItems = Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems : [];
+  const availableMedia = [article.featuredImage, ...mediaItems.filter((item) => item.id !== article.featuredImage?.id)]
+    .filter(Boolean)
+    .slice(0, 4);
+
+  return availableMedia.map((media, index) => ({
+    id: `${article.id}-frame-${index + 1}`,
+    frame: String(index + 1).padStart(2, "0"),
+    title: media.title || article.title,
+    url: media.url,
+    altText: media.altText || article.title,
+    caption: media.caption || "URBAN ANARCHY / Editorial frame",
+    credit: media.credit || "URBAN ANARCHY / Archive"
+  }));
+}
+
 export function getArticleDetailRoute(articleOrSlug) {
   const slug = typeof articleOrSlug === "string" ? articleOrSlug : articleOrSlug?.slug;
   const normalizedSlug = String(slug || "").trim().replace(/^\/+|\/+$/g, "");
@@ -45,6 +86,8 @@ function notFoundModel(route, slug) {
       prototypeFile: route.prototypeFile
     },
     relatedArticles: [],
+    imageShoot: [],
+    shopLook: [],
     comments: [],
     reviews: [],
     seo: null
@@ -82,6 +125,7 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
       publishedAt: article.publishedAt,
       featuredImage: article.featuredImage,
       bodyBlocks: [...article.bodyBlocks],
+      imageShoot: imageShoot(fixtures, article),
       category: {
         id: article.categoryId,
         label: category.label,
@@ -99,6 +143,7 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
       .filter((item) => item.status === "published" && item.slug !== article.slug)
       .slice(0, 3)
       .map(relatedArticleSummary),
+    shopLook: shopLook(fixtures, article),
     comments: fixtures.comments
       .filter((comment) => comment.articleId === article.id && comment.status === "approved")
       .map((comment) => ({ id: comment.id, name: comment.name, body: comment.body, createdAt: comment.createdAt || null })),

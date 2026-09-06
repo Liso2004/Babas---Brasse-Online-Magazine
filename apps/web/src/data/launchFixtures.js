@@ -109,7 +109,7 @@ const mediaItems = [
     id: "editorial-theatre",
     title: "The Rehearsal Room",
     type: "image",
-    url: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85",
+    url: "/media/editorial/editorial-theatre.jpg",
     altText: "A South African theatre ensemble rehearsing on a black-box stage",
     caption: "A new generation finding its voice in rehearsal.",
     credit: "URBAN ANARCHY / ImageGen"
@@ -118,7 +118,7 @@ const mediaItems = [
     id: "editorial-books",
     title: "Between Languages",
     type: "image",
-    url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85",
+    url: "/media/editorial/editorial-books.jpg",
     altText: "A reader turning a page at a book-lined wooden table",
     caption: "Reading, translation, and the material life of books.",
     credit: "URBAN ANARCHY / ImageGen"
@@ -127,7 +127,7 @@ const mediaItems = [
     id: "editorial-belonging",
     title: "On Belonging",
     type: "image",
-    url: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=85",
+    url: "/media/editorial/editorial-belonging.jpg",
     altText: "Neighbors talking in a colorful Cape Town residential street",
     caption: "Community, memory, and everyday ideas of home.",
     credit: "URBAN ANARCHY / ImageGen"
@@ -136,7 +136,7 @@ const mediaItems = [
     id: "editorial-language",
     title: "The Language Workshop",
     type: "image",
-    url: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85",
+    url: "/media/editorial/editorial-language.jpg",
     altText: "A diverse writing group discussing pages around a table",
     caption: "Multilingual cultural work built through conversation.",
     credit: "URBAN ANARCHY / ImageGen"
@@ -145,7 +145,7 @@ const mediaItems = [
     id: "editorial-stagecraft",
     title: "Stagecraft and Storytelling",
     type: "image",
-    url: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85",
+    url: "/media/editorial/editorial-stagecraft.jpg",
     altText: "A theatre designer adjusting a miniature stage model in a workshop",
     caption: "The craft and material imagination behind a performance.",
     credit: "URBAN ANARCHY / ImageGen"
@@ -278,12 +278,24 @@ const articles = [
 
 const comments = [
   { id: "comment-1", articleId: "send-a-text-before-you-knock", name: "Reader", body: "The shift from unannounced visits to carefully timed messages feels small, but it says so much about how our ideas of privacy have changed.", status: "pending" },
-  { id: "comment-2", articleId: "send-a-text-before-you-knock", name: "Editor", body: "I recognised my own family in this essay. We still welcome anyone at the door, but everyone sends a message first.", status: "approved" }
+  { id: "comment-2", articleId: "send-a-text-before-you-knock", name: "Editor", body: "I recognised my own family in this essay. We still welcome anyone at the door, but everyone sends a message first.", status: "approved" },
+  { id: "comment-3", articleId: "made-to-circulate", name: "Nandi", body: "The print feels like something you would spot across a room and remember later. The restraint makes it work.", status: "approved" },
+  { id: "comment-4", articleId: "the-new-uniform", name: "Kabelo", body: "The cut and the weight are exactly right for a piece that has to move through a real day.", status: "approved" },
+  { id: "comment-5", articleId: "walls-talk-back", name: "Zee", body: "The connection between the wall and the garment is sharp. Both are carrying the same message.", status: "approved" },
+  { id: "comment-6", articleId: "frequency-after-midnight", name: "Mpho", body: "A good reminder that an accessory can set the temperature of an entire look.", status: "approved" },
+  { id: "comment-7", articleId: "the-print-is-the-point", name: "Lebo", body: "The hand-made references make this feel lived in rather than over-designed.", status: "approved" },
+  { id: "comment-8", articleId: "fit-check-the-archive", name: "Ayanda", body: "The archive as a toolkit is the right idea. Personal style should keep moving.", status: "approved" }
 ];
 
 const reviews = [
   { id: "review-1", articleId: "send-a-text-before-you-knock", name: "Reviewer", rating: 4, body: "A warm, precise essay that turns an ordinary social habit into a larger reflection on care and boundaries.", status: "approved" },
-  { id: "review-2", articleId: "send-a-text-before-you-knock", name: "Reviewer", rating: 2, body: "This response was held for moderation because it did not address the published work.", status: "rejected" }
+  { id: "review-2", articleId: "send-a-text-before-you-knock", name: "Reviewer", rating: 2, body: "This response was held for moderation because it did not address the published work.", status: "rejected" },
+  { id: "review-3", articleId: "made-to-circulate", name: "Tumi", rating: 5, body: "A concise visual argument for letting the garment do the talking.", status: "approved" },
+  { id: "review-4", articleId: "the-new-uniform", name: "Sam", rating: 4, body: "Strong notes on proportion, durability, and the quiet power of a good silhouette.", status: "approved" },
+  { id: "review-5", articleId: "walls-talk-back", name: "Reviewer", rating: 4, body: "The article understands that utility can still have a point of view.", status: "approved" },
+  { id: "review-6", articleId: "frequency-after-midnight", name: "Lungi", rating: 5, body: "Short, sharp, and properly nocturnal.", status: "approved" },
+  { id: "review-7", articleId: "the-print-is-the-point", name: "Reviewer", rating: 4, body: "A clear case for graphic work that travels beyond the screen.", status: "approved" },
+  { id: "review-8", articleId: "fit-check-the-archive", name: "Neo", rating: 5, body: "The archive feels useful again, not precious.", status: "approved" }
 ];
 
 const contactSubmissions = [
@@ -299,10 +311,12 @@ const fashionCategories = [
 ];
 
 const fashionMedia = [
-  { id: "night-uniform", title: "Drop 01: Night Uniform", type: "image", url: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=85", altText: "Streetwear model in a high-contrast black outfit", caption: "A hard cut for the city after dark.", credit: "URBAN ANARCHY / Unsplash" },
-  { id: "street-poster", title: "Capsule Image Board", type: "image", url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=85", altText: "Fashion model wearing bold streetwear in an urban setting", caption: "The campaign starts with the silhouette.", credit: "URBAN ANARCHY / Unsplash" },
-  { id: "studio-notes", title: "Heavyweight Details", type: "image", url: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1600&q=85", altText: "Fashion portrait showing layered heavyweight clothing", caption: "Built heavy. Cut clean. Worn hard.", credit: "URBAN ANARCHY / Unsplash" },
-  { id: "cape-cut", title: "Raw Hem Archive", type: "image", url: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85", altText: "Urban fashion rack with contemporary clothing", caption: "Limited pieces with a life after the drop.", credit: "URBAN ANARCHY / Unsplash" }
+  { id: "night-uniform", title: "Drop 01: Night Uniform", type: "image", url: "/media/moodboard/moodboard-collage-subject-a-pair.png", altText: "South African fashion moodboard with paired textile figures", caption: "A hard cut for the city after dark.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "street-poster", title: "Capsule Image Board", type: "image", url: "/media/moodboard/moodboard-collage-subject-a-high.png", altText: "South African fashion moodboard with a high-contrast street composition", caption: "The campaign starts with the silhouette.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "studio-notes", title: "Heavyweight Details", type: "image", url: "/media/moodboard/moodboard-collage-subject-close.png", altText: "Close South African editorial moodboard detail showing textile and form", caption: "Built heavy. Cut clean. Worn hard.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "cape-cut", title: "Raw Hem Archive", type: "image", url: "/media/moodboard/moodboard-collage-subject-the.png", altText: "South African editorial moodboard showing a raw fashion composition", caption: "Limited pieces with a life after the drop.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "signal-layer", title: "Signal Layer", type: "image", url: "/media/moodboard/moodboard-collage-subject-1.png", altText: "South African street-fashion moodboard with layered graphic forms", caption: "Layered utility for a city in motion.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "concrete-editorial", title: "Concrete Editorial", type: "image", url: "/media/moodboard/moodboard-collage-subject-2.png", altText: "South African editorial moodboard with concrete textures and clothing", caption: "A sharper silhouette for the public square.", credit: "URBAN ANARCHY / Cape Town moodboard" }
 ];
 
 const fashionArticles = [
@@ -312,6 +326,8 @@ const fashionArticles = [
   { id: "made-to-circulate", title: "Graphic Tee_04", slug: "made-to-circulate", dek: "Raw hem cotton graphic from the Drop 01 capsule collection.", status: "published", categoryId: "objects", authorProfileId: "mia-van-wyk", publishedAt: "2026-08-12", featuredImage: fashionMedia[3], bodyBlocks: ["The best objects carry fingerprints.", "These small-run labels are treating every release like a statement of intent."] },
   { id: "the-print-is-the-point", title: "The Print Is the Point", slug: "the-print-is-the-point", dek: "From hand-drawn flyers to limited tees, graphic design is carrying the message.", status: "published", categoryId: "art", authorProfileId: "thando-jacobs", publishedAt: "2026-08-08", featuredImage: fashionMedia[1], bodyBlocks: ["A good print does not decorate the idea. It is the idea.", "We look at the graphic makers building posters, zines, and objects that travel hand to hand."] },
   { id: "fit-check-the-archive", title: "Fit Check: The Archive", slug: "fit-check-the-archive", dek: "Three collectors on clothing, memory, and the pieces that outlive the hype.", status: "published", categoryId: "style", authorProfileId: "visceral-contributor", publishedAt: "2026-08-04", featuredImage: fashionMedia[0], bodyBlocks: ["Every jacket has a previous life.", "For these collectors, the archive is not nostalgia. It is a toolkit for making the next look feel personal."] }
+  ,{ id: "signal-layer", title: "Signal Layer_05", slug: "signal-layer", dek: "A modular overshirt designed to move between late trains, studio floors, and the street.", status: "published", categoryId: "style", authorProfileId: "visceral-contributor", publishedAt: "2026-07-30", featuredImage: fashionMedia[4], bodyBlocks: ["The strongest layers are built for a day that refuses one setting.", "This look keeps its structure while letting the city change around it."] }
+  ,{ id: "concrete-editorial", title: "Concrete Editorial_06", slug: "concrete-editorial", dek: "A visual study in hard lines, practical pockets, and the quiet force of a considered silhouette.", status: "published", categoryId: "art", authorProfileId: "thando-jacobs", publishedAt: "2026-07-25", featuredImage: fashionMedia[5], bodyBlocks: ["Concrete gives every outline a sharper edge.", "We follow the visual language of a look made for movement, weather, and attention."] }
 ];
 
 export {

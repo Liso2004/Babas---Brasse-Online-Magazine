@@ -25,25 +25,24 @@ export function ContributorsPage({ fixtures = launchFixtures }) {
             <a data-action="reset-filter" href={sections.contributorsGrid.resetHref}>View contributors</a>
           </div>
         ) : (
-          <div className="stitch-contributor-directory" role="table" aria-label="Contributor directory">
-            <div className="stitch-directory-header" role="row">
-              <span role="columnheader">ID</span>
-              <span role="columnheader">Name</span>
-              <span role="columnheader">Role</span>
-              <span role="columnheader">Latest work</span>
-            </div>
+          <div className="stitch-contributor-directory contributor-profile-grid" aria-label="Contributor profiles">
             {sections.contributorsGrid.items.map((profile, index) => {
               const latestWork = profile.publishedWorks?.[0];
               const profileHref = profile.href || "/people/" + profile.slug;
               return (
-                <article key={profile.id} className="stitch-directory-row" role="row" data-profile={profile.slug}>
-                  <span className="stitch-directory-id" role="cell">{String(index + 1).padStart(3, "0")}</span>
-                  <h3 role="cell"><a href={profileHref}>{profile.name}</a></h3>
-                  <p role="cell">{profile.role}</p>
-                  <p className="stitch-directory-latest" role="cell">
-                    {latestWork ? <a href={latestWork.href}>{latestWork.title}</a> : <span>No published work yet</span>}
-                    <ArrowRight size={20} aria-hidden="true" />
-                  </p>
+                <article key={profile.id} className="contributor-profile-card" data-profile={profile.slug}>
+                  <a className="contributor-profile-card__image" href={profileHref} aria-label={`Open ${profile.name}'s profile`}>
+                    <img src={profile.image.url} alt={profile.image.altText} />
+                    <span>{String(index + 1).padStart(3, "0")}</span>
+                  </a>
+                  <div className="contributor-profile-card__body">
+                    <p className="eyebrow">{profile.role}</p>
+                    <h3><a href={profileHref}>{profile.name}</a></h3>
+                    <p>{profile.shortBio}</p>
+                    <a className="contributor-profile-card__work" href={latestWork?.href || profileHref}>
+                      {latestWork?.title || "Open profile"}<ArrowRight size={18} aria-hidden="true" />
+                    </a>
+                  </div>
                 </article>
               );
             })}

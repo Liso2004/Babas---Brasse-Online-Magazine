@@ -121,6 +121,26 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
         <img src={article.featuredImage.url} alt={article.featuredImage.altText} />
       </header>
 
+      <section data-section="article-image-shoot" className="article-image-shoot" aria-labelledby="article-image-shoot-heading">
+        <div className="article-image-shoot__heading">
+          <p className="eyebrow">Visual dispatch / {article.category.label}</p>
+          <h2 id="article-image-shoot-heading">The shoot</h2>
+          <p>Frames from the world around this story.</p>
+        </div>
+        <div className="article-image-shoot__grid">
+          {article.imageShoot.map((frame) => (
+            <figure key={frame.id} className="article-image-shoot__frame">
+              <img src={frame.url} alt={frame.altText} />
+              <figcaption>
+                <span>FRAME {frame.frame}</span>
+                <strong>{frame.title}</strong>
+                <small>{frame.caption} / {frame.credit}</small>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section data-section="article-meta" className="figma-article-meta">
         <Link data-category={article.category.slug} to={article.category.href}>{article.category.label}</Link>
         <time dateTime={article.publishedAt}>{formatArticleDate(article.publishedAt)}</time>
@@ -142,6 +162,25 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
               <h3><Link to={related.href}>{related.title}</Link></h3>
               <p>{related.dek}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section data-section="shop-the-look" className="figma-content-section shop-look-section" aria-labelledby="shop-the-look-heading">
+        <div className="section-heading-row">
+          <h2 id="shop-the-look-heading">Shop the look</h2>
+          <Link to="/">Shop all</Link>
+        </div>
+        <div className="shop-look-grid">
+          {model.shopLook.map((item) => (
+            <a key={item.id} className="shop-look-card" href={item.href}>
+              <img src={item.image} alt={item.altText} />
+              <span className="shop-look-card__copy">
+                <strong>{item.name}</strong>
+                <small>{item.detail}</small>
+              </span>
+              <span className="shop-look-card__action">View drop</span>
+            </a>
           ))}
         </div>
       </section>

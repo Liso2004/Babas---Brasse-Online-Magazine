@@ -78,7 +78,10 @@ async function connect(webSocketUrl) {
 
 async function evaluate(send, expression) {
   const result = await send("Runtime.evaluate", { expression, returnByValue: true, awaitPromise: true });
-  if (result.exceptionDetails) throw new Error(result.exceptionDetails.text || "Browser evaluation failed.");
+  if (result.exceptionDetails) {
+    const description = result.exceptionDetails.exception?.description || result.exceptionDetails.text || "Browser evaluation failed.";
+    throw new Error(description);
+  }
   return result.result.value;
 }
 
@@ -90,8 +93,16 @@ async function waitForPage(send) {
   await wait(700);
 }
 
+async function waitForShell(send) {
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    if (await evaluate(send, "Boolean(document.querySelector('.public-layout'))")) return;
+    await wait(100);
+  }
+  throw new Error("Public app shell did not render.");
+}
+
 const snapshotExpression = `(() => {
-  const header = document.querySelector(".final-design-header");
+  const header = document.querySelector(".final-design-header") || document.querySelector(".public-layout .site-header");
   const nav = document.querySelector("#public-navigation");
   const panel = document.querySelector("#editorial-navigation-panel");
   const visible = (element) => element && getComputedStyle(element).display !== "none" && element.getBoundingClientRect().width > 0;
@@ -142,6 +153,7 @@ async function auditViewport(browser, viewport) {
     await client.send("Emulation.setDeviceMetricsOverride", { width: viewport.width, height: viewport.height, deviceScaleFactor: 1, mobile: viewport.id === "mobile" });
     await client.send("Page.navigate", { url: `${baseUrl}/` });
     await waitForPage(client.send);
+    await waitForShell(client.send);
     const initial = await evaluate(client.send, snapshotExpression);
     const carouselInitial = await evaluate(client.send, `({
       activeId: document.querySelector('.home-carousel__slide[data-active="true"]')?.dataset.active || document.querySelector('.home-carousel__slide[data-active="true"]')?.querySelector('article')?.dataset.article || document.querySelector('.home-carousel__slide[data-active="true"]')?.getAttribute('aria-label') || '',
@@ -152,6 +164,7 @@ async function auditViewport(browser, viewport) {
     const carouselImagePath = await evaluate(client.send, "location.pathname + location.search");
     await evaluate(client.send, "history.back()");
     await waitForPage(client.send);
+    await waitForShell(client.send);
     await evaluate(client.send, `document.querySelector('.home-carousel__control--next')?.click()`);
     await wait(250);
     const carouselAfterArrow = await evaluate(client.send, `document.querySelector('.home-carousel__slide[data-active="true"]')?.getAttribute('aria-label') || ''`);
@@ -160,6 +173,7 @@ async function auditViewport(browser, viewport) {
     const carouselTextPath = await evaluate(client.send, "location.pathname + location.search");
     await evaluate(client.send, "history.back()");
     await waitForPage(client.send);
+    await waitForShell(client.send);
 
     if (viewport.width <= 960) {
       await evaluate(client.send, `document.querySelector('[aria-controls="public-navigation"]')?.click()`);
@@ -175,6 +189,7 @@ async function auditViewport(browser, viewport) {
 
     await client.send("Page.navigate", { url: `${baseUrl}/about` });
     await waitForPage(client.send);
+    await waitForShell(client.send);
     const activePage = await evaluate(client.send, snapshotExpression);
 
     await client.send("Page.navigate", { url: `${baseUrl}/admin` });

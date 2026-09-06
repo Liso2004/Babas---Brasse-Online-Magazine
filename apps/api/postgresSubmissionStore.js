@@ -19,6 +19,7 @@ const MUTATION_METHODS = [
   "createContactSubmission",
   "createComment",
   "createReview",
+  "createOrder",
   "saveArticle",
   "saveProfile",
   "saveMediaItem",

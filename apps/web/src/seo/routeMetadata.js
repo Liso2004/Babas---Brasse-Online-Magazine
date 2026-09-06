@@ -4,7 +4,7 @@ const viteSiteUrl = import.meta.env?.VITE_PUBLIC_SITE_URL;
 export const publicSiteUrl = (viteSiteUrl || fallbackSiteUrl).replace(/\/$/, "");
 
 const defaultDescription = "URBAN ANARCHY is a digital magazine for South African arts, literature, theatre, criticism, essays, interviews, and cultural conversation.";
-const defaultOgImage = "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=85";
+const defaultOgImage = "/media/carousel/babas-brasse-city-collage.webp";
 
 const routeDefaults = {
   home: {

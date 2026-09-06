@@ -112,6 +112,7 @@ function serveWebRequest(request, response, url, webRoot) {
 function isPublicSubmissionPath(pathname) {
   return pathname === "/api/newsletter-signups"
     || pathname === "/api/contact-submissions"
+    || pathname === "/api/orders"
     || /^\/api\/articles\/[^/]+\/(comments|reviews)$/.test(pathname);
 }
 
@@ -438,6 +439,18 @@ function createApiServer(options = {}) {
         sendJson(response, 201, {
           id: submission.id,
           status: submission.status
+        });
+        return;
+      }
+
+      if (url.pathname === "/api/orders") {
+        const order = await store.createOrder(payload);
+        logSecurity("public_submission.accepted", 201);
+        sendJson(response, 201, {
+          id: order.id,
+          currency: order.currency,
+          status: order.status,
+          total: order.total
         });
         return;
       }

@@ -4,11 +4,15 @@ export const publicRoutes = [
   { id: "creative-team", label: "Creative Team", path: "/creative-team", area: "public", prototypeFile: "src/pages/creative-team.html" },
   { id: "contributors", label: "Contributors", path: "/contributors", area: "public", prototypeFile: "src/pages/contributors.html" },
   { id: "profile-detail", label: "Profile", path: "/people/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/profile-detail.html" },
+  { id: "product-detail", label: "Product Detail", path: "/shop/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/product-detail.html" },
   { id: "visceral-mag", label: "Visceral Mag", path: "/visceral-mag", area: "public", prototypeFile: "src/pages/visceral-mag.html" },
   { id: "article-detail", label: "Article Detail", path: "/visceral-mag/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/article-detail.html" },
   { id: "search", label: "Search", path: "/search", area: "public", prototypeFile: "src/pages/categories-search.html" },
   { id: "featured", label: "Featured", path: "/featured", area: "public", prototypeFile: "src/pages/featured-media.html" },
-  { id: "contact", label: "Contact", path: "/contact", area: "public", prototypeFile: "src/pages/contact.html" }
+  { id: "contact", label: "Contact", path: "/contact", area: "public", prototypeFile: "src/pages/contact.html" },
+  { id: "cart", label: "Cart", path: "/cart", area: "public", navVisible: false, prototypeFile: "src/pages/cart.html" }
+  ,{ id: "account", label: "Profile", path: "/profile", area: "public", navVisible: false, prototypeFile: "src/pages/profile.html" }
+  ,{ id: "checkout", label: "Checkout", path: "/checkout", area: "public", navVisible: false, prototypeFile: "src/pages/checkout.html" }
 ];
 
 export const publicNavigationRoutes = publicRoutes.filter((route) => route.navVisible !== false && !route.path.includes(":"));
