@@ -151,6 +151,14 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
         {article.bodyBlocks.map((block, index) => <p key={block} className={index === 0 ? "article-standfirst" : undefined}>{block}</p>)}
       </section>
 
+      {model.visualResearch?.length ? (
+        <section data-section="article-visual-research" className="figma-content-section urban-article-visual-research" aria-labelledby="article-visual-research-heading">
+          <div className="section-heading-row"><h2 id="article-visual-research-heading">Visual research</h2><Link to="/moodboard">Open archive</Link></div>
+          <div className="urban-related-material__list">
+            {model.visualResearch.map((item) => <Link key={item.id} to={item.href}><img src={item.image.url} alt={item.image.altText} /><span>SPECIMEN {item.specimen}</span><strong>{item.title}</strong></Link>)}
+          </div>
+        </section>
+      ) : null}
       <section data-section="related-articles" className="figma-content-section">
         <div className="section-heading-row">
           <h2>Related Articles</h2>

@@ -1,5 +1,10 @@
 import { getRouteByPath } from "../routes.js";
 
+function archiveFieldNote(item) {
+  const [primaryTag, secondaryTag] = item.tags || [];
+  return `${item.title} records a ${primaryTag || item.category} signal${secondaryTag ? ` through ${secondaryTag}` : ""}, filed as a visual reference for Issue ${item.issue}.`;
+}
+
 export function getFeaturedMediaItems(fixtures) {
   const heights = [860, 620, 760, 560, 720];
   const articles = Array.isArray(fixtures.articles) ? fixtures.articles : [];
@@ -57,6 +62,11 @@ export function buildFeaturedMediaRouteModel(fixtures) {
   const route = getRouteByPath("/featured");
   const mediaItems = getFeaturedMediaItems(fixtures);
   const publishedArticles = getPublishedMediaArticles(fixtures);
+  const archiveSpecimens = (fixtures.moodboardItems || []).map((item) => ({
+    ...item,
+    href: `/moodboard/${item.slug}`,
+    fieldNote: archiveFieldNote(item)
+  }));
 
   return {
     pageId: "featured-media",
@@ -83,6 +93,12 @@ export function buildFeaturedMediaRouteModel(fixtures) {
         body: "Check back for photography, artwork, and visual editorial features.",
         contactHref: "/contact",
         items: []
+      },
+      archiveSpecimens: {
+        state: archiveSpecimens.length > 0 ? "ready" : "empty",
+        heading: "Visual research / full frames",
+        body: "Every Issue 004 specimen, presented uncropped with its field note.",
+        items: archiveSpecimens
       },
       articleMediaLinks: {
         heading: "Media in published stories",

@@ -1,3 +1,5 @@
+import { moodboardItems } from "./moodboardItems.js";
+
 const categories = [
   { id: "essays", label: "Essays", slug: "essays", description: "Personal and cultural essays." },
   { id: "reviews", label: "Reviews", slug: "reviews", description: "Books, culture, and media reviews." },
@@ -9,10 +11,10 @@ const profiles = [
   {
     id: "zubayr-charles",
     type: "creative_team",
-    name: "Zubayr Charles",
-    role: "Publisher & Product Owner",
-    slug: "zubayr-charles",
-    shortBio: "Sets the publication vision, commissions new work, and guides each URBAN ANARCHY edition.",
+    name: "Mara Voss",
+    role: "Publisher & Product",
+    slug: "mara-voss",
+    shortBio: "Sets the publication line, commissions difficult work, and keeps each URBAN ANARCHY issue moving through the concrete grid.",
     socialLinks: [
       { label: "Editorial enquiries", url: "/contact" },
       { label: "Read Visceral Mag", url: "/visceral-mag" }
@@ -21,9 +23,9 @@ const profiles = [
   {
     id: "zoe-petersen",
     type: "creative_team",
-    name: "Zoe Petersen",
-    role: "Web Developer",
-    slug: "zoe-petersen",
+    name: "Liso Hlatshwayo",
+    role: "Software Development / Web Development",
+    slug: "liso-hlatshwayo",
     shortBio: "Builds the reading experience, editorial tools, accessibility systems, and production release.",
     socialLinks: [
       { label: "Project overview", url: "/about" },
@@ -33,9 +35,9 @@ const profiles = [
   {
     id: "naledi-maseko",
     type: "creative_team",
-    name: "Naledi Maseko",
-    role: "Managing Editor",
-    slug: "naledi-maseko",
+    name: "Iona Rift",
+    role: "Magazine Editor",
+    slug: "iona-rift",
     shortBio: "Shapes the editorial calendar and works with writers from first pitch through final publication.",
     socialLinks: [
       { label: "Latest essays", url: "/search?category=essays" },
@@ -45,9 +47,9 @@ const profiles = [
   {
     id: "ayesha-daniels",
     type: "creative_team",
-    name: "Ayesha Daniels",
+    name: "Nyx Morrow",
     role: "Visual Editor",
-    slug: "ayesha-daniels",
+    slug: "nyx-morrow",
     shortBio: "Commissions photography and artwork that gives each story a distinct visual language.",
     socialLinks: [
       { label: "Featured media", url: "/featured" },
@@ -57,9 +59,9 @@ const profiles = [
   {
     id: "visceral-contributor",
     type: "contributor",
-    name: "Lerato Mokoena",
-    role: "Culture Essayist",
-    slug: "visceral-contributor",
+    name: "Amani Vex",
+    role: "Culture Critic",
+    slug: "amani-vex",
     shortBio: "Writes intimate cultural essays about hospitality, daily rituals, and the changing shape of community.",
     socialLinks: [
       { label: "Read latest essay", url: "/visceral-mag/send-a-text-before-you-knock" },
@@ -69,9 +71,9 @@ const profiles = [
   {
     id: "sihle-ndlovu",
     type: "contributor",
-    name: "Sihle Ndlovu",
-    role: "Theatre Critic",
-    slug: "sihle-ndlovu",
+    name: "Kaya Vance",
+    role: "Documentary Photographer",
+    slug: "kaya-vance",
     shortBio: "Covers rehearsal processes, performance, and the designers building South African stages.",
     socialLinks: [
       { label: "Theatre reviews", url: "/search?category=reviews&topic=theatre" },
@@ -81,9 +83,9 @@ const profiles = [
   {
     id: "mia-van-wyk",
     type: "contributor",
-    name: "Mia van Wyk",
-    role: "Books Editor",
-    slug: "mia-van-wyk",
+    name: "Daisuke Sato",
+    role: "Design Researcher",
+    slug: "daisuke-sato",
     shortBio: "Reviews fiction and criticism with particular attention to translation and multilingual craft.",
     socialLinks: [
       { label: "Book reviews", url: "/search?category=reviews&topic=books" },
@@ -93,15 +95,20 @@ const profiles = [
   {
     id: "thando-jacobs",
     type: "contributor",
-    name: "Thando Jacobs",
-    role: "Essayist & Interviewer",
-    slug: "thando-jacobs",
+    name: "Nia Kade",
+    role: "Street Culture Writer",
+    slug: "nia-kade",
     shortBio: "Writes about belonging, language, and the creative communities making culture across the Cape.",
     socialLinks: [
       { label: "Read essays", url: "/search?category=essays" },
       { label: "Contributor profile", url: "/contributors" }
     ]
-  }
+  },
+  { id: "tariq-k", type: "contributor", name: "Tariq K.", role: "Music Editor", slug: "tariq-k", shortBio: "Maps pirate frequencies, basement systems, and the low-end cultures that move after midnight.", socialLinks: [{ label: "Sound archive", url: "/visceral-mag" }] },
+  { id: "anna-shin", type: "contributor", name: "Anna Shin", role: "Fashion Contributor", slug: "anna-shin", shortBio: "Reports on fabric systems, silhouettes, and garments made for surveillance-heavy streets.", socialLinks: [{ label: "Style dispatches", url: "/search?category=style" }] },
+  { id: "rook-adebayo", type: "contributor", name: "Rook Adebayo", role: "Film Essayist", slug: "rook-adebayo", shortBio: "Writes film criticism from projection booths, transit nodes, and the edge of the screen.", socialLinks: [{ label: "Film notes", url: "/visceral-mag" }] },
+  { id: "ivo-morita", type: "contributor", name: "Ivo Morita", role: "Technology Correspondent", slug: "ivo-morita", shortBio: "Examines networked life, repair cultures, and the hardware politics behind the city signal.", socialLinks: [{ label: "Signal reports", url: "/visceral-mag" }] },
+  { id: "sable-ord", type: "contributor", name: "Sable Ord", role: "Architecture Writer", slug: "sable-ord", shortBio: "Studies megastructures, informal additions, and the social weather of concrete.", socialLinks: [{ label: "Built environment", url: "/search?category=art" }] }
 ];
 
 const mediaItems = [
@@ -337,5 +344,6 @@ export {
   fashionArticles as articles,
   comments,
   reviews,
-  contactSubmissions
+  contactSubmissions,
+  moodboardItems
 };

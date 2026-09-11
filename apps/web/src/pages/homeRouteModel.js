@@ -80,6 +80,21 @@ function buildFeaturedMedia(fixtures, articles) {
     };
   });
 }
+function buildVisualResearchPreview(fixtures) {
+  const seenSubjects = new Set();
+  return (fixtures.moodboardItems || [])
+    .filter((item) => {
+      if (seenSubjects.has(item.subject)) return false;
+      seenSubjects.add(item.subject);
+      return true;
+    })
+    .slice(0, 4)
+    .map((item) => ({
+      ...item,
+      href: `/moodboard/${item.slug}`,
+      note: `${item.title}: a ${item.tags.slice(0, 2).join(" / ")} reference filed for Issue ${item.issue}.`
+    }));
+}
 function buildMoreFromMagazine(fixtures, articles) {
   if (articles.length >= 3) {
     return { heading: "More from URBAN ANARCHY", items: articles.slice(0, 4) };
@@ -132,6 +147,7 @@ export function buildHomeRouteModel(fixtures) {
       featuredArticle: leadStory,
       carouselSlides: buildCarouselSlides(),
       featuredMedia: buildFeaturedMedia(fixtures, articles),
+      visualResearchPreview: buildVisualResearchPreview(fixtures),
       recentArticles,
       latestArticles: articles.slice(0, 3),
       sectionShortcuts: buildSectionShortcuts(),

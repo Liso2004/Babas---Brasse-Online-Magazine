@@ -40,6 +40,20 @@ export function HomePage({ fixtures = launchFixtures }) {
           </article>
         ))}
       </section>
+      {sections.visualResearchPreview?.length ? (
+        <section className="urban-home-archive" data-section="home-visual-research" aria-labelledby="home-visual-research-heading">
+          <div className="urban-home-archive__heading"><div><p className="urban-kicker">VISUAL RESEARCH // ISSUE 004</p><h2 id="home-visual-research-heading">SOURCE ARCHIVE</h2></div><Link to="/moodboard">OPEN ALL SPECIMENS</Link></div>
+          <p className="urban-home-archive__intro">Selected full-frame references from the Urban Anarchy visual archive. No crop. No filler.</p>
+          <div className="urban-home-archive__grid">
+            {sections.visualResearchPreview.map((item) => (
+              <article key={item.id} className="urban-home-archive__item" data-specimen={item.specimen}>
+                <Link to={item.href}><img src={item.image.url} alt={item.image.altText} loading="lazy" /></Link>
+                <div><p>SPECIMEN {item.specimen} // {item.category}</p><h3><Link to={item.href}>{item.title}</Link></h3><p>{item.note}</p></div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
       <section className="urban-terminal" data-section="technical-specification">
         <div className="urban-terminal__title">DATA_LOG // DROP_01</div>
         <div className="urban-terminal__grid">{productSpecs.map(([label, value]) => <p key={label}><span>{label}:</span><strong>{value}</strong></p>)}</div>

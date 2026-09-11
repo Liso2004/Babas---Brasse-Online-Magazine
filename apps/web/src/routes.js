@@ -6,6 +6,8 @@ export const publicRoutes = [
   { id: "profile-detail", label: "Profile", path: "/people/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/profile-detail.html" },
   { id: "product-detail", label: "Product Detail", path: "/shop/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/product-detail.html" },
   { id: "visceral-mag", label: "Visceral Mag", path: "/visceral-mag", area: "public", prototypeFile: "src/pages/visceral-mag.html" },
+  { id: "moodboard", label: "Visual Archive", path: "/moodboard", area: "public", prototypeFile: "src/pages/moodboard.html" },
+  { id: "moodboard-detail", label: "Moodboard Specimen", path: "/moodboard/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/moodboard-detail.html" },
   { id: "article-detail", label: "Article Detail", path: "/visceral-mag/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/article-detail.html" },
   { id: "search", label: "Search", path: "/search", area: "public", prototypeFile: "src/pages/categories-search.html" },
   { id: "featured", label: "Featured", path: "/featured", area: "public", prototypeFile: "src/pages/featured-media.html" },
@@ -83,4 +85,3 @@ export function getRouteByPath(pathname) {
 
   return { ...routes.find((route) => route.path === "/404"), params: {} };
 }
-

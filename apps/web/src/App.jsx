@@ -8,6 +8,8 @@ import { HomePage } from "./pages/HomePage.jsx";
 import { AboutPage } from "./pages/AboutPage.jsx";
 import { VisceralMagPage } from "./pages/VisceralMagPage.jsx";
 import { ArticleDetailPage } from "./pages/ArticleDetailPage.jsx";
+import { MoodboardPage } from "./pages/MoodboardPage.jsx";
+import { MoodboardDetailPage } from "./pages/MoodboardDetailPage.jsx";
 import { CategoriesSearchPage } from "./pages/CategoriesSearchPage.jsx";
 import { FeaturedMediaPage } from "./pages/FeaturedMediaPage.jsx";
 import { CreativeTeamPage } from "./pages/CreativeTeamPage.jsx";
@@ -42,6 +44,8 @@ function ShellContent({ route, fixtures }) {
   if (route.id === "about") return <AboutPage fixtures={fixtures} />;
   if (route.id === "visceral-mag") return <VisceralMagPage fixtures={fixtures} />;
   if (route.id === "article-detail") return <ArticleDetailPage slug={route.params?.slug} fixtures={fixtures} />;
+  if (route.id === "moodboard") return <MoodboardPage fixtures={fixtures} />;
+  if (route.id === "moodboard-detail") return <MoodboardDetailPage slug={route.params?.slug} fixtures={fixtures} />;
   if (route.id === "search") return <CategoriesSearchPage fixtures={fixtures} />;
   if (route.id === "featured") return <FeaturedMediaPage fixtures={fixtures} />;
   if (route.id === "creative-team") return <CreativeTeamPage fixtures={fixtures} />;

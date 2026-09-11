@@ -1,4 +1,5 @@
 import { getRouteByPath } from "../routes.js";
+import { getArchiveForArticle, rankRelatedArticles } from "../utils/contentRelationships.js";
 
 function getCategory(categories, categoryId) {
   return categories.find((category) => category.id === categoryId) || {
@@ -139,10 +140,8 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
         href: `/people/${author.slug}`
       }
     },
-    relatedArticles: fixtures.articles
-      .filter((item) => item.status === "published" && item.slug !== article.slug)
-      .slice(0, 3)
-      .map(relatedArticleSummary),
+    relatedArticles: rankRelatedArticles(article, fixtures.articles).map(relatedArticleSummary),
+    visualResearch: getArchiveForArticle(article, fixtures.moodboardItems).map((item) => ({ ...item, href: `/moodboard/${item.slug}` })),
     shopLook: shopLook(fixtures, article),
     comments: fixtures.comments
       .filter((comment) => comment.articleId === article.id && comment.status === "approved")

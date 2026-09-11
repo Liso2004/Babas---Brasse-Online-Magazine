@@ -25,15 +25,23 @@ export function FeaturedMediaPage({ fixtures = launchFixtures }) {
             <p>{sections.mediaGallery.body}</p>
             <Link to={sections.mediaGallery.contactHref}>Contact the editors</Link>
           </div>
-        ) : (
-          <Masonry
-            items={sections.mediaGallery.items}
-            variant="overlay"
-            blurToFocus={false}
-            hoverScale={1.015}
-          />
-        )}
+        ) : <Masonry items={sections.mediaGallery.items} variant="overlay" blurToFocus={false} hoverScale={1.015} />}
       </section>
+
+      {sections.archiveSpecimens.state === "ready" ? (
+        <section data-section="featured-archive-specimens" className="figma-content-section featured-archive-specimens" aria-labelledby="featured-archive-specimens-heading">
+          <div className="section-heading-row"><h2 id="featured-archive-specimens-heading">{sections.archiveSpecimens.heading}</h2><Link to="/moodboard">Open archive</Link></div>
+          <p className="featured-archive-specimens__intro">{sections.archiveSpecimens.body}</p>
+          <div className="featured-archive-specimens__grid">
+            {sections.archiveSpecimens.items.map((item) => (
+              <article key={item.id} className="featured-archive-specimen" data-specimen={item.specimen}>
+                <Link to={item.href} className="featured-archive-specimen__image"><img src={item.image.url} alt={item.image.altText} loading="lazy" /></Link>
+                <div className="featured-archive-specimen__copy"><p className="eyebrow">Specimen {item.specimen} / {item.category} / Issue {item.issue}</p><h3><Link to={item.href}>{item.title}</Link></h3><p>{item.fieldNote}</p><Link to={item.href}>Read archive note</Link></div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </section>
   );
 }

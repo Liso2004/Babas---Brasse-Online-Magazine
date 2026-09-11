@@ -1,4 +1,5 @@
 import { getRouteByPath } from "../routes.js";
+import { getLinkedContributors } from "../utils/contentRelationships.js";
 
 const profileImages = {
   "zubayr-charles": "/media/editorial/editorial-theatre.jpg",
@@ -72,6 +73,7 @@ export function buildProfileDetailRouteModel(fixtures, slug) {
       image: profileImage(profile),
       socialLinks: Array.isArray(profile.socialLinks) ? profile.socialLinks : []
     },
-    publishedWorks
+    publishedWorks,
+    visualResearch: (fixtures.moodboardItems || []).filter((item) => getLinkedContributors(item, fixtures.profiles).some((contributor) => contributor.id === profile.id)).map((item) => ({ ...item, href: `/moodboard/${item.slug}` }))
   };
 }

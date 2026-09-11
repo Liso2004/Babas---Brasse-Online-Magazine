@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Facebook, Instagram, Linkedin, Menu, Music2, X, Youtube } from "lucide-react";
+import { ChevronDown, Facebook, Instagram, Menu, Music2, Pin, X, Youtube } from "lucide-react";
 import { Button } from "../components/ui/button.jsx";
 import { FigmaSearchTool } from "../components/FigmaSearchTool.jsx";
 import { useCart } from "../cart/CartContext.jsx";
@@ -18,7 +18,8 @@ const editorialNavigation = [
   { label: "Heavyweight Fleece", href: "/search?category=style" },
   { label: "Boxy Cut", href: "/search?category=objects" },
   { label: "Capsule Collection", href: "/search?category=art" },
-  { label: "Archive", href: "/search?category=sound" }
+  { label: "Archive", href: "/search?category=sound" },
+  { label: "Visual Research", href: "/moodboard" }
 ];
 
 const peopleNavigation = [
@@ -28,11 +29,12 @@ const peopleNavigation = [
 
 // Replace these platform homepages with verified URBAN ANARCHY profile URLs before launch.
 const socialNavigation = [
-  { label: "Instagram", href: "https://www.instagram.com/", placeholder: true, Icon: Instagram },
-  { label: "Facebook", href: "https://www.facebook.com/", placeholder: true, Icon: Facebook },
-  { label: "TikTok", href: "https://www.tiktok.com/", placeholder: true, Icon: Music2 },
-  { label: "YouTube", href: "https://www.youtube.com/", placeholder: true, Icon: Youtube },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", placeholder: true, Icon: Linkedin }
+  { label: "Instagram", href: "https://www.instagram.com/urbananarchy", Icon: Instagram },
+  { label: "X", href: "https://x.com/urbananarchy", Icon: X },
+  { label: "Facebook", href: "https://www.facebook.com/urbananarchy", Icon: Facebook },
+  { label: "TikTok", href: "https://www.tiktok.com/@urbananarchy", Icon: Music2 },
+  { label: "YouTube", href: "https://www.youtube.com/@urbananarchy", Icon: Youtube },
+  { label: "Pinterest", href: "https://www.pinterest.com/urbananarchy", Icon: Pin }
 ];
 
 export function PublicLayout({ route, children }) {
@@ -222,15 +224,14 @@ export function PublicLayout({ route, children }) {
           <section className="figma-footer__socials" aria-label="Social media">
             <h2>Follow</h2>
             <div className="figma-footer__social-links">
-              {socialNavigation.map(({ label, href, placeholder, Icon }) => (
+              {socialNavigation.map(({ label, href, Icon }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-placeholder={placeholder ? "true" : undefined}
-                  aria-label={label + (placeholder ? " placeholder profile" : "") + " (opens in a new tab)"}
-                  title={label + (placeholder ? " placeholder profile" : "")}
+                  aria-label={label + " / URBAN ANARCHY (opens in a new tab)"}
+                  title={label + " / URBAN ANARCHY"}
                 >
                   <Icon size={20} aria-hidden="true" />
                   <span className="sr-only">{label}</span>
