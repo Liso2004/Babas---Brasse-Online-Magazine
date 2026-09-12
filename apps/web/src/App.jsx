@@ -4,6 +4,7 @@ import * as launchFixtures from "./data/launchFixtures.js";
 import { PublicLayout } from "./layouts/PublicLayout.jsx";
 import { getRouteByPath } from "./routes.js";
 import { RouteMetadata } from "./seo/RouteMetadata.jsx";
+import { mergePublicationContent, validatePublicationContent } from "./data/contentIntegrity.js";
 import { HomePage } from "./pages/HomePage.jsx";
 import { AboutPage } from "./pages/AboutPage.jsx";
 import { VisceralMagPage } from "./pages/VisceralMagPage.jsx";
@@ -16,6 +17,7 @@ import { CreativeTeamPage } from "./pages/CreativeTeamPage.jsx";
 import { ContributorsPage } from "./pages/ContributorsPage.jsx";
 import { ProfileDetailPage } from "./pages/ProfileDetailPage.jsx";
 import { ProductDetailPage } from "./pages/ProductDetailPage.jsx";
+import { ShopPage } from "./pages/ShopPage.jsx";
 import { ContactPage } from "./pages/ContactPage.jsx";
 import { NotFoundPage } from "./pages/NotFoundPage.jsx";
 import { ServerErrorPage } from "./pages/ServerErrorPage.jsx";
@@ -51,6 +53,7 @@ function ShellContent({ route, fixtures }) {
   if (route.id === "creative-team") return <CreativeTeamPage fixtures={fixtures} />;
   if (route.id === "contributors") return <ContributorsPage fixtures={fixtures} />;
   if (route.id === "profile-detail") return <ProfileDetailPage slug={route.params?.slug} fixtures={fixtures} />;
+  if (route.id === "shop") return <ShopPage fixtures={fixtures} />;
   if (route.id === "product-detail") return <ProductDetailPage slug={route.params?.slug} fixtures={fixtures} />;
   if (route.id === "contact") return <ContactPage fixtures={fixtures} />;
   if (route.id === "cart") return <CartPage fixtures={fixtures} />;
@@ -121,7 +124,9 @@ function RoutedShell() {
         return response.json();
       })
       .then((payload) => {
-        if (active) setFixtures({ ...launchFixtures, ...payload });
+        const { fixtures: mergedFixtures, report } = mergePublicationContent(launchFixtures, payload);
+        if (!report.valid && import.meta.env.DEV) console.warn("Ignoring incompatible live publication content.", report.issues);
+        if (active) setFixtures(mergedFixtures);
       })
       .catch(() => {
         if (active) setFixtures(launchFixtures);

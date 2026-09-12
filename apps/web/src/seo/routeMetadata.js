@@ -3,7 +3,7 @@ const viteSiteUrl = import.meta.env?.VITE_PUBLIC_SITE_URL;
 
 export const publicSiteUrl = (viteSiteUrl || fallbackSiteUrl).replace(/\/$/, "");
 
-const defaultDescription = "URBAN ANARCHY is a digital magazine for South African arts, literature, theatre, criticism, essays, interviews, and cultural conversation.";
+const defaultDescription = "URBAN ANARCHY is an editorial and visual-research publication for fashion, street culture, design, creative practice, and city image-making.";
 const defaultOgImage = "/media/carousel/babas-brasse-city-collage.webp";
 
 const routeDefaults = {
@@ -35,6 +35,18 @@ const routeDefaults = {
     title: "Visceral Mag | URBAN ANARCHY",
     description: "Read the latest URBAN ANARCHY cultural writing, including reviews, essays, interviews, and visual notes.",
     canonicalPath: "/visceral-mag",
+    ogType: "website"
+  },
+  moodboard: {
+    title: "Visual Research / Issue 004 | URBAN ANARCHY",
+    description: "Explore Issue 004 visual research, source material, and archive specimens from URBAN ANARCHY.",
+    canonicalPath: "/moodboard",
+    ogType: "website"
+  },
+  shop: {
+    title: "Drop 01 Shop | URBAN ANARCHY",
+    description: "Browse the Drop 01 object archive from URBAN ANARCHY.",
+    canonicalPath: "/shop",
     ogType: "website"
   },
   search: {
@@ -104,6 +116,42 @@ function buildArticleMetadata(route, options) {
   });
 }
 
+function buildMoodboardMetadata(options) {
+  const item = options.fixtures?.moodboardItems?.find((candidate) => candidate.slug === options.slug);
+
+  if (!item) {
+    return normalizeMetadata({
+      title: "Visual research unavailable | URBAN ANARCHY",
+      description: "This URBAN ANARCHY visual research specimen is unavailable or has moved.",
+      canonicalPath: "/moodboard",
+      ogType: "article",
+      robots: "noindex,follow"
+    });
+  }
+
+  return normalizeMetadata({
+    title: `${item.title} | Visual Research | URBAN ANARCHY`,
+    description: item.caption || `${item.title} is an Issue ${item.issue} visual research specimen from URBAN ANARCHY.`,
+    canonicalPath: `/moodboard/${item.slug}`,
+    ogTitle: `${item.title} | Issue ${item.issue}`,
+    ogDescription: item.caption || `${item.category} visual research from the URBAN ANARCHY archive.`,
+    ogType: "article",
+    ogImage: item.image?.url || defaultOgImage
+  });
+}
+function buildProductMetadata(options) {
+  const product = options.fixtures?.products?.find((candidate) => candidate.slug === options.slug);
+  if (!product) return normalizeMetadata({ title: "Object unavailable | URBAN ANARCHY", description: "This URBAN ANARCHY Drop 01 object is unavailable or has moved.", canonicalPath: "/shop", robots: "noindex,follow" });
+  return normalizeMetadata({
+    title: `${product.title} | Drop 01 | URBAN ANARCHY`,
+    description: product.dek,
+    canonicalPath: `/shop/${product.slug}`,
+    ogTitle: `${product.title} | Drop 01`,
+    ogDescription: product.dek,
+    ogType: "product",
+    ogImage: product.image?.url || defaultOgImage
+  });
+}
 function buildProfileMetadata(options) {
   const profile = options.fixtures?.profiles?.find((item) => item.slug === options.slug || item.id === options.slug);
 
@@ -169,6 +217,14 @@ export function buildRouteMetadata(route, options = {}) {
 
   if (route?.id === "profile-detail") {
     return buildProfileMetadata(options);
+  }
+
+  if (route?.id === "moodboard-detail") {
+    return buildMoodboardMetadata(options);
+  }
+
+  if (route?.id === "product-detail") {
+    return buildProductMetadata(options);
   }
 
   const base = routeDefaults[route?.id] || {

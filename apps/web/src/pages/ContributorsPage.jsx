@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import * as launchFixtures from "../data/launchFixtures.js";
 import { buildContributorsRouteModel } from "./contributorsRouteModel.js";
@@ -17,12 +18,12 @@ export function ContributorsPage({ fixtures = launchFixtures }) {
       <section data-section="contributors-grid" className="figma-content-section" data-state={sections.contributorsGrid.state}>
         <div className="section-heading-row">
           <h2>{sections.contributorsGrid.heading}</h2>
-          <a href="/contact">Submit writing</a>
+          <Link to="/contact">Submit writing</Link>
         </div>
         {sections.contributorsGrid.state === "no-results" ? (
           <div className="figma-empty-state" data-state="no-results">
             <p>{sections.contributorsGrid.body}</p>
-            <a data-action="reset-filter" href={sections.contributorsGrid.resetHref}>View contributors</a>
+            <Link data-action="reset-filter" to={sections.contributorsGrid.resetHref}>View contributors</Link>
           </div>
         ) : (
           <div className="stitch-contributor-directory contributor-profile-grid" aria-label="Contributor profiles">
@@ -31,17 +32,17 @@ export function ContributorsPage({ fixtures = launchFixtures }) {
               const profileHref = profile.href || "/people/" + profile.slug;
               return (
                 <article key={profile.id} className="contributor-profile-card" data-profile={profile.slug}>
-                  <a className="contributor-profile-card__image" href={profileHref} aria-label={`Open ${profile.name}'s profile`}>
+                  <Link className="contributor-profile-card__image" to={profileHref} aria-label={`Open ${profile.name}'s profile`}>
                     <img src={profile.image.url} alt={profile.image.altText} />
                     <span>{String(index + 1).padStart(3, "0")}</span>
-                  </a>
+                  </Link>
                   <div className="contributor-profile-card__body">
                     <p className="eyebrow">{profile.role}</p>
-                    <h3><a href={profileHref}>{profile.name}</a></h3>
+                    <h3><Link to={profileHref}>{profile.name}</Link></h3>
                     <p>{profile.shortBio}</p>
-                    <a className="contributor-profile-card__work" href={latestWork?.href || profileHref}>
+                    <Link className="contributor-profile-card__work" to={latestWork?.href || profileHref}>
                       {latestWork?.title || "Open profile"}<ArrowRight size={18} aria-hidden="true" />
-                    </a>
+                    </Link>
                   </div>
                 </article>
               );

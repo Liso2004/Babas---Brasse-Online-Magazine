@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as launchFixtures from "../data/launchFixtures.js";
 import { FigmaProfileCard } from "../components/FigmaProfileCard.jsx";
 import { buildCreativeTeamRouteModel } from "./creativeTeamRouteModel.js";
@@ -21,12 +22,12 @@ export function CreativeTeamPage({ fixtures = launchFixtures }) {
       <section data-section="team-grid" className="figma-content-section" data-state={sections.teamGrid.state}>
         <div className="section-heading-row">
           <h2>{sections.teamGrid.heading}</h2>
-          <a href="/contact">Contact the editors</a>
+          <Link to="/contact">Contact the editors</Link>
         </div>
         {sections.teamGrid.state === "empty-team" ? (
           <div className="figma-empty-state" data-state="empty-team">
             <p>{sections.teamGrid.body}</p>
-            <a href={sections.teamGrid.contactHref}>Contact the editors</a>
+            <Link to={sections.teamGrid.contactHref}>Contact the editors</Link>
           </div>
         ) : (
           <div className="figma-profile-grid">
@@ -39,7 +40,7 @@ export function CreativeTeamPage({ fixtures = launchFixtures }) {
         <h2>{footer.heading}</h2>
         <p>{footer.body}</p>
         <nav aria-label="Creative Team footer links">
-          {footer.links.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+          {footer.links.map((link) => <Link key={link.href} to={link.href}>{link.label}</Link>)}
         </nav>
       </footer>
     </section>

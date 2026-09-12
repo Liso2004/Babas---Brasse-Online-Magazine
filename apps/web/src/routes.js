@@ -4,6 +4,7 @@ export const publicRoutes = [
   { id: "creative-team", label: "Creative Team", path: "/creative-team", area: "public", prototypeFile: "src/pages/creative-team.html" },
   { id: "contributors", label: "Contributors", path: "/contributors", area: "public", prototypeFile: "src/pages/contributors.html" },
   { id: "profile-detail", label: "Profile", path: "/people/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/profile-detail.html" },
+  { id: "shop", label: "Shop", path: "/shop", area: "public", prototypeFile: "src/pages/shop.html" },
   { id: "product-detail", label: "Product Detail", path: "/shop/:slug", area: "public", navVisible: false, prototypeFile: "src/pages/product-detail.html" },
   { id: "visceral-mag", label: "Visceral Mag", path: "/visceral-mag", area: "public", prototypeFile: "src/pages/visceral-mag.html" },
   { id: "moodboard", label: "Visual Archive", path: "/moodboard", area: "public", prototypeFile: "src/pages/moodboard.html" },

@@ -6,15 +6,16 @@ import { FigmaSearchTool } from "../components/FigmaSearchTool.jsx";
 import { useCart } from "../cart/CartContext.jsx";
 
 const primaryNavigation = [
-  { label: "Drop 01", href: "/" },
-  { label: "Our Code", href: "/about" },
-  { label: "The Journal", href: "/visceral-mag" },
-  { label: "Lookbook", href: "/featured" },
-  { label: "Stockists", href: "/contact" }
+  { label: "Home", href: "/" },
+  { label: "Visual Mag", href: "/visceral-mag" },
+  { label: "Visual Research", href: "/moodboard" },
+  { label: "Full Frames", href: "/featured" },
+  { label: "Shop", href: "/shop" },
+  { label: "Contact", href: "/contact" }
 ];
 
 const editorialNavigation = [
-  { label: "Shop", href: "/" },
+  { label: "Shop", href: "/shop" },
   { label: "Heavyweight Fleece", href: "/search?category=style" },
   { label: "Boxy Cut", href: "/search?category=objects" },
   { label: "Capsule Collection", href: "/search?category=art" },
@@ -23,8 +24,8 @@ const editorialNavigation = [
 ];
 
 const peopleNavigation = [
-  { label: "The Crew", href: "/creative-team" },
-  { label: "The Archive", href: "/contributors" }
+  { label: "Creative Team", href: "/creative-team" },
+  { label: "Contributors", href: "/contributors" }
 ];
 
 // Replace these platform homepages with verified URBAN ANARCHY profile URLs before launch.
@@ -210,8 +211,8 @@ export function PublicLayout({ route, children }) {
           </section>
           <nav aria-label="Footer sections">
             <h2>Sections</h2>
-            <Link to="/visceral-mag">ARCHIVE</Link>
-            <Link to="/featured">LOOKBOOK</Link>
+            <Link to="/visceral-mag">VISUAL MAG</Link>
+            <Link to="/featured">FULL FRAMES</Link>
             {editorialNavigation.map((item) => <Link key={item.href} to={item.href}>{item.label}</Link>)}
           </nav>
           <nav aria-label="Footer about links">
@@ -240,7 +241,7 @@ export function PublicLayout({ route, children }) {
             </div>
           </section>
         </div>
-        <p className="figma-footer__legal">Copyright 2026 URBAN ANARCHY. All rights reserved.</p>
+        <p className="figma-footer__legal"><span>Copyright 2026 URBAN ANARCHY. All rights reserved.</span><a href="https://impactstack.africa" target="_blank" rel="noopener noreferrer" aria-label="ImpactStack.africa (opens in a new tab)">Developed and made by ImpactStack.africa.</a></p>
       </footer>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import * as launchFixtures from "../data/launchFixtures.js";
-import { buildRouteMetadata } from "./routeMetadata.js";
+import { buildRouteMetadata, publicSiteUrl } from "./routeMetadata.js";
 
 function upsertMeta(attribute, descriptor) {
   const [key, value] = Object.entries(attribute)[0];
@@ -25,6 +25,89 @@ function upsertCanonical(href) {
   }
 
   element.setAttribute("href", href);
+}
+
+function upsertStructuredData(schema) {
+  const selector = 'script[data-seo="structured-data"]';
+  let element = document.head.querySelector(selector);
+
+  if (!schema) {
+    element?.remove();
+    return;
+  }
+
+  if (!element) {
+    element = document.createElement("script");
+    element.type = "application/ld+json";
+    element.dataset.seo = "structured-data";
+    document.head.appendChild(element);
+  }
+
+  element.textContent = JSON.stringify(schema).replace(/</g, "\\u003c");
+}
+
+function getProfile(fixtures, id) {
+  return fixtures?.profiles?.find((profile) => profile.id === id);
+}
+
+function getStructuredData(route, slug, fixtures, metadata) {
+  if (metadata.robots.includes("noindex")) return null;
+
+  const publisher = {
+    "@type": "Organization",
+    name: "URBAN ANARCHY",
+    url: publicSiteUrl
+  };
+
+  if (route?.id === "article-detail") {
+    const article = fixtures?.articles?.find((item) => item.slug === slug);
+    if (!article) return null;
+    const author = getProfile(fixtures, article.authorProfileId);
+    return {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title,
+      description: metadata.description,
+      image: metadata.ogImage,
+      datePublished: article.publishedAt,
+      mainEntityOfPage: metadata.canonicalUrl,
+      author: author ? { "@type": "Person", name: author.name, url: `${publicSiteUrl}/people/${author.slug}` } : publisher,
+      publisher
+    };
+  }
+
+  if (route?.id === "moodboard-detail") {
+    const item = fixtures?.moodboardItems?.find((candidate) => candidate.slug === slug);
+    if (!item) return null;
+    return { "@context": "https://schema.org", "@type": "VisualArtwork", name: item.title, description: metadata.description, image: metadata.ogImage, url: metadata.canonicalUrl, creator: publisher };
+  }
+
+  if (route?.id === "profile-detail") {
+    const profile = fixtures?.profiles?.find((item) => item.slug === slug || item.id === slug);
+    if (!profile) return null;
+    return { "@context": "https://schema.org", "@type": "Person", name: profile.name, description: metadata.description, image: metadata.ogImage, url: metadata.canonicalUrl };
+  }
+
+  if (route?.id === "product-detail") {
+    const product = fixtures?.products?.find((item) => item.slug === slug);
+    if (!product) return null;
+    return {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.title,
+      description: product.dek,
+      image: metadata.ogImage,
+      url: metadata.canonicalUrl,
+      brand: publisher,
+      offers: { "@type": "Offer", priceCurrency: "ZAR", price: product.price, availability: product.availability === "available" ? "https://schema.org/InStock" : "https://schema.org/OutOfStock", url: metadata.canonicalUrl }
+    };
+  }
+
+  if (route?.id === "home") {
+    return { "@context": "https://schema.org", "@type": "WebSite", name: "URBAN ANARCHY", url: metadata.canonicalUrl, description: metadata.description, publisher };
+  }
+
+  return { "@context": "https://schema.org", "@type": "WebPage", name: metadata.title, description: metadata.description, url: metadata.canonicalUrl, publisher };
 }
 
 export function RouteMetadata({ route, slug, fixtures = launchFixtures }) {
@@ -52,6 +135,7 @@ export function RouteMetadata({ route, slug, fixtures = launchFixtures }) {
     }
 
     upsertCanonical(metadata.canonicalUrl);
+    upsertStructuredData(getStructuredData(route, slug, fixtures, metadata));
   }, [route, slug, fixtures]);
 
   return null;

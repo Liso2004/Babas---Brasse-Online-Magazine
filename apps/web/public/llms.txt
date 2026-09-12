@@ -1,15 +1,17 @@
-# Babas & Brasse
+# URBAN ANARCHY
 
-Babas & Brasse is a South African digital magazine publishing arts, literature, theatre, reviews, essays, interviews, photography, and cultural commentary.
+URBAN ANARCHY is an editorial and visual-research publication examining fashion, street culture, design, creative practice, and the image archives that shape city life.
 
 ## Reader routes
 
-- [Home](https://babasandbrasse.co.za/)
-- [Visceral Mag](https://babasandbrasse.co.za/visceral-mag)
-- [About](https://babasandbrasse.co.za/about)
-- [Creative Team](https://babasandbrasse.co.za/creative-team)
-- [Contributors](https://babasandbrasse.co.za/contributors)
-- [Featured Media](https://babasandbrasse.co.za/featured)
-- [Contact](https://babasandbrasse.co.za/contact)
+- [Home](https://urbananarchy.co.za/)
+- [Visual Mag](https://urbananarchy.co.za/visceral-mag)
+- [Visual Research / Issue 004](https://urbananarchy.co.za/moodboard)
+- [Full Frames](https://urbananarchy.co.za/featured)
+- [Drop 01 Shop](https://urbananarchy.co.za/shop)
+- [Creative Team](https://urbananarchy.co.za/creative-team)
+- [Contributors](https://urbananarchy.co.za/contributors)
+- [About](https://urbananarchy.co.za/about)
+- [Contact](https://urbananarchy.co.za/contact)
 
-Only published editorial content belongs in public discovery responses. Draft articles and protected admin routes are not public content.
+Only published editorial and public product content belongs in public discovery responses. Protected admin routes are not public content.

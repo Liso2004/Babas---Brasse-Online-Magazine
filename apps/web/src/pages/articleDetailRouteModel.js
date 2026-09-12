@@ -26,29 +26,19 @@ function relatedArticleSummary(article) {
 }
 
 function shopLook(fixtures, article) {
-  const mediaItems = Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems : [];
-  const lookNames = article.categoryId === "style"
-    ? ["Heavyweight shell", "Boxy base layer", "Archive cap"]
-    : article.categoryId === "sound"
-      ? ["Choke chain", "Night uniform", "Signal tee"]
-      : ["Graphic tee", "Raw hem layer", "Concrete cap"];
+  const products = Array.isArray(fixtures.products) ? fixtures.products : [];
+  const linkedProducts = products.filter((product) => (product.relatedArticleIds || []).includes(article.id));
+  const selections = linkedProducts.length ? linkedProducts : products.slice(0, 3);
 
-  const products = fixtures.articles.filter((candidate) => candidate.status === "published");
-
-  return lookNames.map((name, index) => {
-    const product = products[index % Math.max(products.length, 1)];
-    const media = product?.featuredImage || mediaItems[index % Math.max(mediaItems.length, 1)];
-    return {
-      id: `${article.id}-look-${index + 1}`,
-      name: product?.title || name,
-      detail: ["Drop 01", "Limited run", "Archive object"][index],
-      image: media?.url || article.featuredImage.url,
-      altText: media?.altText || article.featuredImage.altText,
-      href: product ? `/shop/${product.slug}` : "/"
-    };
-  });
+  return selections.slice(0, 3).map((product) => ({
+    id: product.id,
+    name: product.title,
+    detail: product.availability === "available" ? `Drop 01 / R${product.price}` : "Drop 01 / Sold out",
+    image: product.image.url,
+    altText: product.image.altText,
+    href: `/shop/${product.slug}`
+  }));
 }
-
 function imageShoot(fixtures, article) {
   const mediaItems = Array.isArray(fixtures.mediaItems) ? fixtures.mediaItems : [];
   const availableMedia = [article.featuredImage, ...mediaItems.filter((item) => item.id !== article.featuredImage?.id)]

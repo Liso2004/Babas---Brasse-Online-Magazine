@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as launchFixtures from "../data/launchFixtures.js";
 import { FigmaArticleCard } from "../components/FigmaArticleCard.jsx";
 import { buildVisceralMagRouteModel } from "./visceralMagRouteModel.js";
@@ -18,7 +19,7 @@ export function VisceralMagPage({ fixtures = launchFixtures }) {
       <section data-section="article-listing" className="figma-content-section visceral-archive">
         <div className="section-heading-row">
           <h2>Latest Visceral Articles</h2>
-          <a href="/search">Search archive</a>
+          <Link to="/search">Search archive</Link>
         </div>
         {leadStory ? (
           <div className="visceral-lead-story">

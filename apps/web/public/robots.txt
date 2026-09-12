@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://babasandbrasse.co.za/sitemap.xml
+Sitemap: https://urbananarchy.co.za/sitemap.xml

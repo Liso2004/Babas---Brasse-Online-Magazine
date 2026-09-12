@@ -318,12 +318,12 @@ const fashionCategories = [
 ];
 
 const fashionMedia = [
-  { id: "night-uniform", title: "Drop 01: Night Uniform", type: "image", url: "/media/moodboard/moodboard-collage-subject-a-pair.png", altText: "South African fashion moodboard with paired textile figures", caption: "A hard cut for the city after dark.", credit: "URBAN ANARCHY / Cape Town moodboard" },
-  { id: "street-poster", title: "Capsule Image Board", type: "image", url: "/media/moodboard/moodboard-collage-subject-a-high.png", altText: "South African fashion moodboard with a high-contrast street composition", caption: "The campaign starts with the silhouette.", credit: "URBAN ANARCHY / Cape Town moodboard" },
-  { id: "studio-notes", title: "Heavyweight Details", type: "image", url: "/media/moodboard/moodboard-collage-subject-close.png", altText: "Close South African editorial moodboard detail showing textile and form", caption: "Built heavy. Cut clean. Worn hard.", credit: "URBAN ANARCHY / Cape Town moodboard" },
-  { id: "cape-cut", title: "Raw Hem Archive", type: "image", url: "/media/moodboard/moodboard-collage-subject-the.png", altText: "South African editorial moodboard showing a raw fashion composition", caption: "Limited pieces with a life after the drop.", credit: "URBAN ANARCHY / Cape Town moodboard" },
-  { id: "signal-layer", title: "Signal Layer", type: "image", url: "/media/moodboard/moodboard-collage-subject-1.png", altText: "South African street-fashion moodboard with layered graphic forms", caption: "Layered utility for a city in motion.", credit: "URBAN ANARCHY / Cape Town moodboard" },
-  { id: "concrete-editorial", title: "Concrete Editorial", type: "image", url: "/media/moodboard/moodboard-collage-subject-2.png", altText: "South African editorial moodboard with concrete textures and clothing", caption: "A sharper silhouette for the public square.", credit: "URBAN ANARCHY / Cape Town moodboard" }
+  { id: "night-uniform", archiveItemId: "ua-night-uniform", title: "Drop 01: Night Uniform", type: "image", url: "/media/moodboard/moodboard-collage-subject-a-pair.png", altText: "South African fashion moodboard with paired textile figures", caption: "A hard cut for the city after dark.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "street-poster", archiveItemId: "ua-capsule-image-board", title: "Capsule Image Board", type: "image", url: "/media/moodboard/moodboard-collage-subject-a-high.png", altText: "South African fashion moodboard with a high-contrast street composition", caption: "The campaign starts with the silhouette.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "studio-notes", archiveItemId: "ua-heavyweight-details", title: "Heavyweight Details", type: "image", url: "/media/moodboard/moodboard-collage-subject-close.png", altText: "Close South African editorial moodboard detail showing textile and form", caption: "Built heavy. Cut clean. Worn hard.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "cape-cut", archiveItemId: "ua-raw-hem-archive", title: "Raw Hem Archive", type: "image", url: "/media/moodboard/moodboard-collage-subject-the.png", altText: "South African editorial moodboard showing a raw fashion composition", caption: "Limited pieces with a life after the drop.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "signal-layer", archiveItemId: "ua-signal-layer", title: "Signal Layer", type: "image", url: "/media/moodboard/moodboard-collage-subject-1.png", altText: "South African street-fashion moodboard with layered graphic forms", caption: "Layered utility for a city in motion.", credit: "URBAN ANARCHY / Cape Town moodboard" },
+  { id: "concrete-editorial", archiveItemId: "ua-concrete-editorial", title: "Concrete Editorial", type: "image", url: "/media/moodboard/moodboard-collage-subject-2.png", altText: "South African editorial moodboard with concrete textures and clothing", caption: "A sharper silhouette for the public square.", credit: "URBAN ANARCHY / Cape Town moodboard" }
 ];
 
 const fashionArticles = [
@@ -337,13 +337,34 @@ const fashionArticles = [
   ,{ id: "concrete-editorial", title: "Concrete Editorial_06", slug: "concrete-editorial", dek: "A visual study in hard lines, practical pockets, and the quiet force of a considered silhouette.", status: "published", categoryId: "art", authorProfileId: "thando-jacobs", publishedAt: "2026-07-25", featuredImage: fashionMedia[5], bodyBlocks: ["Concrete gives every outline a sharper edge.", "We follow the visual language of a look made for movement, weather, and attention."] }
 ];
 
+const products = [
+  { id: "drop-night-uniform", slug: "night-uniform", title: "Night Uniform", dek: "400GSM fleece. Oversized boxy cut. Built to take the concrete grid.", price: 999, availability: "sold-out", material: "400GSM heavyweight fleece", image: fashionMedia[0], relatedArticleIds: ["the-new-uniform", "fit-check-the-archive"] },
+  { id: "drop-riot-cargo", slug: "riot-cargo", title: "Riot Cargo", dek: "Ripstop cargo system with hard hardware and raw street utility.", price: 1199, availability: "available", material: "Ripstop cotton / metal hardware", image: fashionMedia[1], relatedArticleIds: ["walls-talk-back", "the-print-is-the-point"] },
+  { id: "drop-choke-chain", slug: "choke-chain", title: "Choke Chain", dek: "Cold steel accessory cut from the Urban Anarchy archive.", price: 649, availability: "available", material: "Stainless steel", image: fashionMedia[2], relatedArticleIds: ["frequency-after-midnight"] },
+  { id: "drop-graphic-tee", slug: "graphic-tee", title: "Graphic Tee", dek: "Raw hem cotton graphic from the Drop 01 capsule collection.", price: 549, availability: "available", material: "Heavyweight cotton jersey", image: fashionMedia[3], relatedArticleIds: ["made-to-circulate"] },
+  { id: "drop-signal-layer", slug: "signal-layer", title: "Signal Layer", dek: "A modular overshirt designed for late trains, studio floors, and the street.", price: 899, availability: "available", material: "Layered technical cotton", image: fashionMedia[4], relatedArticleIds: ["signal-layer"] },
+  { id: "drop-concrete-editorial", slug: "concrete-editorial", title: "Concrete Editorial", dek: "A visual study in hard lines, practical pockets, and considered silhouette.", price: 799, availability: "available", material: "Structured cotton canvas", image: fashionMedia[5], relatedArticleIds: ["concrete-editorial"] }
+];
+const articleRelations = {
+  "the-new-uniform": { tags: ["uniform", "streetwear", "material"], moodboardItemIds: ["ua-night-uniform", "ua-heavyweight-details", "dune-outfit"], relatedArticleIds: ["fit-check-the-archive", "signal-layer"] },
+  "walls-talk-back": { tags: ["street-art", "cargo", "public-space"], moodboardItemIds: ["ua-capsule-image-board", "cape-town-arts-editorial", "punk-outfit"], relatedArticleIds: ["the-print-is-the-point", "concrete-editorial"] },
+  "frequency-after-midnight": { tags: ["sound", "nightlife", "accessory"], moodboardItemIds: ["ua-heavyweight-details", "cyberpunk-outfit", "matrix-outfit-01"], relatedArticleIds: ["signal-layer", "the-new-uniform"] },
+  "made-to-circulate": { tags: ["objects", "print", "small-run"], moodboardItemIds: ["ua-raw-hem-archive", "punk-outfit", "cape-town-arts-editorial"], relatedArticleIds: ["the-print-is-the-point", "walls-talk-back"] },
+  "the-print-is-the-point": { tags: ["print", "graphic-language", "streetwear"], moodboardItemIds: ["punk-outfit", "ua-capsule-image-board", "cape-town-arts-editorial"], relatedArticleIds: ["walls-talk-back", "made-to-circulate"] },
+  "fit-check-the-archive": { tags: ["archive", "style", "uniform"], moodboardItemIds: ["streetwear-outfit", "gen-z-outfit", "ua-night-uniform"], relatedArticleIds: ["the-new-uniform", "signal-layer"] },
+  "signal-layer": { tags: ["layering", "technology", "uniform"], moodboardItemIds: ["ua-signal-layer", "cyberpunk-outfit", "matrix-outfit-02"], relatedArticleIds: ["the-new-uniform", "frequency-after-midnight"] },
+  "concrete-editorial": { tags: ["architecture", "concrete", "city"], moodboardItemIds: ["ua-concrete-editorial", "brutalist-study-01", "blade-runner-outfit"], relatedArticleIds: ["walls-talk-back", "the-print-is-the-point"] }
+};
+
+const publicationArticles = fashionArticles.map((article) => ({ ...article, issue: "004", ...articleRelations[article.id] }));
 export {
   fashionCategories as categories,
   profiles,
   fashionMedia as mediaItems,
-  fashionArticles as articles,
+  publicationArticles as articles,
   comments,
   reviews,
   contactSubmissions,
-  moodboardItems
+  moodboardItems,
+  products
 };
